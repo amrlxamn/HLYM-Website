@@ -38,6 +38,7 @@ export const ModelTabButton = styled.button<{
   $active: boolean;
   $orientation: "horizontal" | "vertical";
 }>`
+  background: transparent;
   border: ${({ $orientation }) => ($orientation === "horizontal" ? "1px solid #00000014" : "0")};
   color: ${({ $active, $orientation }) => {
     if ($active) {
@@ -55,6 +56,11 @@ export const ModelTabButton = styled.button<{
   white-space: nowrap;
   writing-mode: ${({ $orientation }) =>
     $orientation === "vertical" ? "vertical-rl" : "horizontal-tb"};
+
+  &:disabled {
+    cursor: default;
+    opacity: 1;
+  }
 `;
 
 export const ModelTabDivider = styled.span<{ $orientation: "horizontal" | "vertical" }>`

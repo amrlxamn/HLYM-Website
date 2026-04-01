@@ -3,16 +3,6 @@ import type { FooterColumn } from "@/data/site-content.types";
 export const FOOTER_COLUMNS: readonly FooterColumn[] = [
   {
     links: [
-      { href: "#models", label: "moped" },
-      { href: "#models", label: "sports" },
-      { href: "#models", label: "street" },
-      { href: "#models", label: "automatic" },
-      { href: "#models", label: "big bikes" }
-    ],
-    title: "motorcycles"
-  },
-  {
-    links: [
       { href: "#latest-news", label: "latest news" },
       { href: "#latest-news", label: "events" },
       { href: "#latest-news", label: "promotions" },

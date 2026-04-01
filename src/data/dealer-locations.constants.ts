@@ -2,56 +2,150 @@ import type { DealerLocation } from "@/data/site-content.types";
 
 export const DEALER_LOCATIONS: readonly DealerLocation[] = [
   {
-    area: "kompleks hong leong yamaha",
+    area: "kompleks yamaha motor",
     coordinates: [101.564444, 3.228056],
-    focus: "hq enquiries, flagship support, and brand-direct rider assistance",
+    focus: "flagship enquiries, delivery handover, and brand-direct rider support",
     hours: "mon - sat | 9:00 am - 6:00 pm",
-    id: "hong-leong-yamaha-motor-sdn-bhd",
-    label: "hong leong yamaha motor sdn. bhd.",
+    id: "kompleks-yamaha-motor",
+    image:
+      "https://lh5.googleusercontent.com/p/AF1QipMkrxj2NzZSUE4-GTu5eI_y6beQU7HuslULZTw_=w1080-k-no",
+    label: "kompleks yamaha motor",
     locality: "sungai buloh, selangor",
+    region: "central",
     serviceTags: ["flagship support", "genuine parts", "brand showroom"],
     summary:
-      "the main hong leong yamaha motor hub, suited for riders who want direct brand access, " +
-      "product guidance, and core support from the sungai buloh complex."
+      "the sungai buloh yamaha complex for riders who want direct brand support, " +
+      "model guidance, and dependable aftersales coordination."
   },
   {
-    area: "usj gateway / subang jaya",
-    coordinates: [101.5852, 3.0464],
-    focus: "scooter ownership, accessory fitting, and weekday after-work service planning",
-    hours: "mon - sat | 10:00 am - 7:00 pm",
-    id: "subang-gateway-studio",
-    label: "subang gateway studio",
-    locality: "subang jaya, selangor",
-    serviceTags: ["urban scooter care", "helmet fitting", "owner consultation"],
-    summary:
-      "best suited for urban riders who need practical model guidance and a service desk " +
-      "that moves quickly through routine appointments."
-  },
-  {
-    area: "setapak central",
-    coordinates: [101.7008, 3.1966],
-    focus: "big-bike enquiries, scheduled diagnostics, and touring readiness checks",
-    hours: "tue - sun | 9:30 am - 6:30 pm",
-    id: "setapak-performance-point",
-    label: "setapak performance point",
-    locality: "kuala lumpur",
-    serviceTags: ["big-bike support", "diagnostics", "touring setup"],
-    summary:
-      "a performance-led stop for riders comparing larger capacity models or booking " +
-      "deeper technical checks before longer weekend routes."
-  },
-  {
-    area: "cheras link / balakong",
-    coordinates: [101.7698, 3.0544],
-    focus: "family mobility, commuter maintenance, and scheduled wear-part replacement",
+    area: "jalan sentul",
+    coordinates: [101.6924, 3.1794],
+    focus: "city commuter support, quick servicing, and accessory consultations",
     hours: "mon - sat | 9:00 am - 6:00 pm",
-    id: "cheras-service-collective",
-    label: "cheras service collective",
-    locality: "cheras, selangor",
-    serviceTags: ["commuter servicing", "wear-part replacement", "delivery handover"],
+    id: "ah-hong-motor-sdn-bhd",
+    image:
+      "https://lh5.googleusercontent.com/p/AF1QipMgw5V7d9Z0m7JZs9x4wG-2slX6YjM5YIae5Nt6=w408-h306-k-no",
+    label: "ah hong motor sdn bhd",
+    locality: "sentul, kuala lumpur",
+    region: "central",
+    serviceTags: ["commuter servicing", "owner consultation", "parts support"],
     summary:
-      "built for repeat maintenance visits, this location prioritizes dependable service flow " +
-      "for scooters, mopeds, and everyday rider support."
+      "a central kl option for riders who need practical servicing, parts access, " +
+      "and quick ownership support close to the city."
+  },
+  {
+    area: "jalan bagan luar",
+    coordinates: [100.3813, 5.4096],
+    focus: "northern coastal support, handovers, and everyday servicing",
+    hours: "mon - sat | 9:00 am - 6:00 pm",
+    id: "brightwill-trading-sdn-bhd",
+    label: "brightwill trading sdn bhd",
+    locality: "butterworth, penang",
+    region: "northern",
+    serviceTags: ["northern support", "delivery handover", "genuine parts"],
+    summary:
+      "covers the butterworth side of the northern region with sales guidance, " +
+      "service bookings, and repeat maintenance support."
+  },
+  {
+    area: "jalan sungai rambai",
+    coordinates: [100.4597, 5.3617],
+    focus: "northern rider support, diagnostics, and commuter maintenance",
+    hours: "mon - sat | 9:00 am - 6:00 pm",
+    id: "chun-seng-motor-sdn-bhd",
+    label: "chun seng motor sdn bhd",
+    locality: "bukit mertajam, penang",
+    region: "northern",
+    serviceTags: ["northern support", "diagnostics", "commuter servicing"],
+    summary:
+      "supports seberang perai riders with route-ready checks, practical diagnostics, " +
+      "and regular maintenance appointments."
+  },
+  {
+    area: "jalan sultanah",
+    coordinates: [102.9335, 1.8548],
+    focus: "southern town support, servicing, and ownership guidance",
+    hours: "mon - sat | 9:00 am - 6:00 pm",
+    id: "kian-heng-motor-acc-sdn-bhd",
+    label: "kian heng motor acc. sdn bhd",
+    locality: "batu pahat, johor",
+    region: "southern",
+    serviceTags: ["southern support", "service bookings", "genuine parts"],
+    summary:
+      "serves batu pahat riders with scheduled maintenance, everyday ownership help, " +
+      "and practical product support."
+  },
+  {
+    area: "jalan sri indah",
+    coordinates: [103.1108, 1.8651],
+    focus: "southern commuter support, handovers, and routine servicing",
+    hours: "mon - sat | 9:00 am - 6:00 pm",
+    id: "akarjaya-motor-sdn-bhd",
+    label: "akarjaya motor sdn bhd",
+    locality: "parit raja, johor",
+    region: "southern",
+    serviceTags: ["southern support", "delivery handover", "commuter servicing"],
+    summary:
+      "gives parit raja riders a nearby yamaha branch for quick service access, " +
+      "delivery coordination, and commuter upkeep."
+  },
+  {
+    area: "golden plaza wisma inti deras",
+    coordinates: [116.0726, 5.9455],
+    focus: "sabah metro support, deliveries, and rider onboarding",
+    hours: "mon - sat | 8:30 am - 5:30 pm",
+    id: "inti-deras-motors-sdn-bhd",
+    image: "https://cdn.store-assets.com/s/1149293/f/9905554.jpg",
+    label: "inti deras motors sdn bhd",
+    locality: "kota kinabalu, sabah",
+    region: "sabah",
+    serviceTags: ["sabah support", "delivery handover", "big-bike guidance"],
+    summary:
+      "anchors yamaha support in kota kinabalu with model advice, aftersales help, " +
+      "and dependable servicing access."
+  },
+  {
+    area: "jalan singamata",
+    coordinates: [118.3268, 5.0286],
+    focus: "east sabah support, scheduled servicing, and ownership care",
+    hours: "mon - sat | 9:00 am - 6:00 pm",
+    id: "shiang-chin-motors-batteries-sdn-bhd",
+    image: "https://cdn.store-assets.com/s/1149293/f/9905562.jpg",
+    label: "shiang chin motors batteries sdn bhd",
+    locality: "lahad datu, sabah",
+    region: "sabah",
+    serviceTags: ["sabah support", "service appointments", "owner consultation"],
+    summary:
+      "extends sabah coverage into lahad datu with service scheduling, rider support, " +
+      "and practical maintenance help."
+  },
+  {
+    area: "jalan lanang",
+    coordinates: [111.8257, 2.289],
+    focus: "regional sarawak support, commuter servicing, and parts access",
+    hours: "mon - sat | 8:00 am - 5:30 pm",
+    id: "chop-swee-guan",
+    label: "chop swee guan",
+    locality: "sibu, sarawak",
+    region: "sarawak",
+    serviceTags: ["sarawak support", "commuter servicing", "parts support"],
+    summary:
+      "supports riders in sibu with steady maintenance coverage, parts availability, " +
+      "and practical ownership assistance."
+  },
+  {
+    area: "jalan tun ahmad zaidi adruce",
+    coordinates: [110.3597, 1.5508],
+    focus: "sarawak metro support, rider consultations, and handovers",
+    hours: "mon - sat | 8:00 am - 5:00 pm",
+    id: "ghee-hua-co-sdn-bhd",
+    label: "ghee hua co. sdn bhd",
+    locality: "kuching, sarawak",
+    region: "sarawak",
+    serviceTags: ["sarawak support", "delivery handover", "genuine parts"],
+    summary:
+      "gives kuching riders a strong yamaha branch for handover support, product guidance, " +
+      "and regular service follow-through."
   }
 ] as const;
 

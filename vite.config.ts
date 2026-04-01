@@ -26,9 +26,12 @@ export default defineConfig({
   test: {
     coverage: {
       exclude: [
+        ".claude/**",
         ".webflow/**",
         "**/dist/**",
+        "deliverables/**",
         "eslint.config.js",
+        "proposal/**",
         "src/main.tsx",
         "src/styles/**",
         "src/**/*.types.ts",
@@ -39,6 +42,7 @@ export default defineConfig({
       reporter: ["text", "html"]
     },
     environment: "jsdom",
+    exclude: [".claude/**", "deliverables/**", "proposal/**"],
     setupFiles: "./src/test/setup.ts"
   }
 });

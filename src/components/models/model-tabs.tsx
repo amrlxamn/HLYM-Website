@@ -7,16 +7,10 @@ import { ModelTabButton, ModelTabDivider, ModelTabRow, ModelTabsRoot } from "./m
 type ModelTabsProps = {
   activeCategory: ModelCategory;
   orientation: "horizontal" | "vertical";
-  onSelect: (category: ModelCategory) => void;
   scrollCategory?: Exclude<ModelCategory, "all models"> | null;
 };
 
-export function ModelTabs({
-  activeCategory,
-  onSelect,
-  orientation,
-  scrollCategory
-}: ModelTabsProps) {
+export function ModelTabs({ activeCategory, orientation, scrollCategory }: ModelTabsProps) {
   const modelsCopy = SITE_COPY.models;
 
   return (
@@ -33,10 +27,10 @@ export function ModelTabs({
         return (
           <ModelTabRow key={tab}>
             <ModelTabButton
-              aria-pressed={activeCategory === tab}
               $active={isScrollHighlighted}
               $orientation={orientation}
-              onClick={() => onSelect(tab)}
+              aria-current={isScrollHighlighted ? "true" : undefined}
+              disabled
               type="button"
             >
               {tab}

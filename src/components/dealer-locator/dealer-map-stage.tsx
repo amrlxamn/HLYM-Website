@@ -26,7 +26,11 @@ export function DealerMapStageView({
           selectedDealerId={selectedDealerId}
         />
       ) : (
-        <DealerMapStaticStage />
+        <DealerMapStaticStage
+          dealers={dealers}
+          onSelectDealer={onSelectDealer}
+          selectedDealerId={selectedDealerId}
+        />
       )}
     </DealerMapStage>
   );

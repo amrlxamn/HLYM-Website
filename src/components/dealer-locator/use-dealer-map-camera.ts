@@ -19,11 +19,15 @@ export function useDealerMapCamera({
     }
 
     const selectedDealer = dealers.find((dealer) => dealer.id === selectedDealerId) ?? dealers[0]!;
+    const containerWidth = mapInstance.getContainer().clientWidth;
+    const desktopPanelWidth = Math.min(540, Math.round(containerWidth * 0.36));
+    const offsetX = containerWidth > 980 ? Math.round(desktopPanelWidth * -0.5) : 0;
 
     mapInstance.easeTo({
       center: [...selectedDealer.coordinates],
       duration: 900,
-      essential: true
+      essential: true,
+      offset: [offsetX, 0]
     });
   }, [dealers, mapInstance, selectedDealerId]);
 }

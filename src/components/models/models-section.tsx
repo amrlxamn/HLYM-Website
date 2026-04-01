@@ -38,7 +38,7 @@ const CARD_TRANSITION = {
 
 export function ModelsSection() {
   const modelsCopy = SITE_COPY.models;
-  const { activeCategory, setActiveCategory, visibleModels } = useModelCatalogState();
+  const { activeCategory, visibleModels } = useModelCatalogState();
   const runwayRef = useRef<HTMLDivElement>(null);
 
   const { scrollYProgress } = useScroll({
@@ -82,7 +82,6 @@ export function ModelsSection() {
               <ModelsTabsShell>
                 <ModelTabs
                   activeCategory={activeCategory}
-                  onSelect={setActiveCategory}
                   orientation="vertical"
                   scrollCategory={scrollCategory}
                 />
@@ -118,7 +117,6 @@ export function ModelsSection() {
           <ModelsTabsMobileShell>
             <ModelTabs
               activeCategory={activeCategory}
-              onSelect={setActiveCategory}
               orientation="horizontal"
             />
           </ModelsTabsMobileShell>

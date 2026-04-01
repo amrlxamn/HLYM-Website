@@ -35,7 +35,13 @@ export function DealerMapMapboxStage({
   });
 
   if (!DEALER_LOCATOR_MAP_CONFIG.accessToken || hasMapInitError) {
-    return <DealerMapStaticStage />;
+    return (
+      <DealerMapStaticStage
+        dealers={dealers}
+        onSelectDealer={onSelectDealer}
+        selectedDealerId={selectedDealerId}
+      />
+    );
   }
 
   return (

@@ -1,14 +1,13 @@
 import type { ModelCard, ModelCategory } from "@/data/site-content.types";
 
-export const MODEL_TABS: readonly ModelCategory[] = [
-  "all models",
+export const MODEL_TABS: readonly Exclude<ModelCategory, "all models">[] = [
   "moped",
   "automatic",
   "street",
   "big bikes"
 ] as const;
 
-export const DEFAULT_MODEL_CATEGORY: ModelCategory = MODEL_TABS[0]!;
+export const DEFAULT_MODEL_CATEGORY: ModelCategory = "all models";
 
 export const MODELS: readonly ModelCard[] = [
   {

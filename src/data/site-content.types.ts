@@ -96,14 +96,18 @@ export type NewsCard = {
   title: string;
 };
 
+export type DealerRegion = "central" | "northern" | "southern" | "sabah" | "sarawak";
+
 export type DealerLocation = {
   area: string;
   coordinates: readonly [number, number];
   focus: string;
   hours: string;
   id: string;
+  image?: string;
   label: string;
   locality: string;
+  region: DealerRegion;
   serviceTags: readonly string[];
   summary: string;
 };

@@ -1,15 +1,18 @@
-import type { LinkItem } from "@/data/site-content.types";
+import type { DealerRegion, LinkItem } from "@/data/site-content.types";
 
 export type DealerLocatorCopy = {
   ariaLabel: string;
   description: string;
   headingLines: string;
   mapAriaLabel: string;
-  panelAreaLabel: string;
   panelEyebrow: string;
-  panelFocusLabel: string;
   panelHint: string;
   panelHoursLabel: string;
+  panelNextDealerLabel: string;
+  panelPreviousDealerLabel: string;
+  panelViewAllLabel: string;
+  regionLabels: Record<DealerRegion, string>;
+  regionTabsAriaLabel: string;
   panelServicesLabel: string;
   tagLabel: string;
 };

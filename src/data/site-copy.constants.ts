@@ -3,15 +3,23 @@ import type { SiteCopy } from "@/data/site-copy.types";
 export const SITE_COPY: SiteCopy = {
   dealerLocator: {
     ariaLabel: "dealer locator section",
-    description:
-      "locate authorized dealers and service centers across malaysia, then select a red marker to compare nearby rider support.",
+    description: "locate authorized dealers and service centers across malaysia.",
     headingLines: "search your nearest yamaha dealer",
     mapAriaLabel: "dealer locator map background",
-    panelAreaLabel: "coverage",
     panelEyebrow: "selected dealer",
-    panelFocusLabel: "best for",
     panelHint: "select another red marker to compare nearby support.",
     panelHoursLabel: "hours",
+    panelNextDealerLabel: "show next dealer",
+    panelPreviousDealerLabel: "show previous dealer",
+    panelViewAllLabel: "view all",
+    regionLabels: {
+      central: "central",
+      northern: "northern",
+      sabah: "sabah",
+      sarawak: "sarawak",
+      southern: "southern"
+    },
+    regionTabsAriaLabel: "dealer regions",
     panelServicesLabel: "available support",
     tagLabel: "find a dealer"
   },

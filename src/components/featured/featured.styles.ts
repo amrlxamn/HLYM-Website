@@ -94,7 +94,6 @@ export const MtEditorialRoot = styled(Container).attrs({ as: "article" })`
   background: #0a0a0a;
   display: grid;
   grid-template-columns: 760px 1fr;
-  height: 600px;
 
   @media (max-width: 1360px) {
     grid-template-columns: 1fr;
