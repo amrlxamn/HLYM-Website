@@ -7,8 +7,6 @@ export const DEALER_LOCATIONS: readonly DealerLocation[] = [
     focus: "flagship enquiries, delivery handover, and brand-direct rider support",
     hours: "mon - sat | 9:00 am - 6:00 pm",
     id: "kompleks-yamaha-motor",
-    image:
-      "https://lh5.googleusercontent.com/p/AF1QipMkrxj2NzZSUE4-GTu5eI_y6beQU7HuslULZTw_=w1080-k-no",
     label: "kompleks yamaha motor",
     locality: "sungai buloh, selangor",
     region: "central",
@@ -23,8 +21,6 @@ export const DEALER_LOCATIONS: readonly DealerLocation[] = [
     focus: "city commuter support, quick servicing, and accessory consultations",
     hours: "mon - sat | 9:00 am - 6:00 pm",
     id: "ah-hong-motor-sdn-bhd",
-    image:
-      "https://lh5.googleusercontent.com/p/AF1QipMgw5V7d9Z0m7JZs9x4wG-2slX6YjM5YIae5Nt6=w408-h306-k-no",
     label: "ah hong motor sdn bhd",
     locality: "sentul, kuala lumpur",
     region: "central",
@@ -95,7 +91,6 @@ export const DEALER_LOCATIONS: readonly DealerLocation[] = [
     focus: "sabah metro support, deliveries, and rider onboarding",
     hours: "mon - sat | 8:30 am - 5:30 pm",
     id: "inti-deras-motors-sdn-bhd",
-    image: "https://cdn.store-assets.com/s/1149293/f/9905554.jpg",
     label: "inti deras motors sdn bhd",
     locality: "kota kinabalu, sabah",
     region: "sabah",
@@ -110,7 +105,6 @@ export const DEALER_LOCATIONS: readonly DealerLocation[] = [
     focus: "east sabah support, scheduled servicing, and ownership care",
     hours: "mon - sat | 9:00 am - 6:00 pm",
     id: "shiang-chin-motors-batteries-sdn-bhd",
-    image: "https://cdn.store-assets.com/s/1149293/f/9905562.jpg",
     label: "shiang chin motors batteries sdn bhd",
     locality: "lahad datu, sabah",
     region: "sabah",
