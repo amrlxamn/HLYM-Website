@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import styled, { keyframes } from "styled-components";
+import styled, { css, keyframes } from "styled-components";
 
 const dealerMarkerPulseMiddle = keyframes`
   0% {
@@ -35,93 +35,7 @@ const dealerMarkerPulseOuter = keyframes`
   }
 `;
 
-export const DealerLocatorSectionRoot = styled.section`
-  background: #0a0a0a;
-  min-height: 100vh;
-  overflow: hidden;
-  position: relative;
-
-  @media (max-width: 980px) {
-    display: flex;
-    flex-direction: column;
-    height: auto;
-  }
-`;
-
-export const DealerMapStage = styled.div`
-  inset: 0;
-  position: absolute;
-
-  @media (max-width: 980px) {
-    height: 460px;
-    position: relative;
-  }
-`;
-
-export const DealerMapBackdrop = styled.div`
-  background:
-    radial-gradient(circle at 50% 50%, #ffffff12 0%, #ffffff00 24%),
-    linear-gradient(140deg, #060606 0%, #0b0b0b 48%, #050505 100%);
-  height: 100%;
-  isolation: isolate;
-  overflow: hidden;
-  position: relative;
-  width: 100%;
-
-  &::before {
-    background:
-      linear-gradient(90deg, #ffffff08 1px, transparent 1px),
-      linear-gradient(0deg, #ffffff06 1px, transparent 1px);
-    background-position: center center;
-    background-size: 72px 72px;
-    content: "";
-    inset: -6%;
-    opacity: 0.42;
-    position: absolute;
-    transform: perspective(1200px) rotateX(66deg) scale(1.8) translateY(13%);
-    transform-origin: center;
-    z-index: 0;
-  }
-
-  &::after {
-    background:
-      radial-gradient(circle at 50% 50%, #ffffff14 0%, #ffffff00 58%),
-      linear-gradient(90deg, #ffffff00 0%, #ffffff10 50%, #ffffff00 100%);
-    content: "";
-    inset: 0;
-    position: absolute;
-    z-index: 0;
-  }
-`;
-
-export const DealerMapCanvas = styled.div`
-  height: 100%;
-  position: relative;
-  width: 100%;
-
-  .mapboxgl-map,
-  .mapboxgl-canvas,
-  .mapboxgl-canvas-container {
-    height: 100%;
-    width: 100%;
-  }
-
-  .mapboxgl-canvas {
-    cursor: grab;
-    filter: grayscale(-1) contrast(0.92) brightness(1.18);
-  }
-
-  .mapboxgl-canvas:active {
-    cursor: grabbing;
-  }
-
-  .mapboxgl-ctrl-bottom-left,
-  .mapboxgl-ctrl-bottom-right {
-    filter: grayscale(1);
-    opacity: 0.74;
-    z-index: 2;
-  }
-
+const dealerMapMarkerStyles = css`
   .dealer-map-marker {
     align-items: center;
     background: transparent;
@@ -259,12 +173,6 @@ export const DealerMapCanvas = styled.div`
       text-transform: uppercase;
     }
 
-    /* &:focus-visible .dealer-map-marker__inner,
-    &:hover .dealer-map-marker__inner,
-    &.is-selected .dealer-map-marker__inner {
-      transform: translate(-50%, -50%) scale(1.18);
-    } */
-
     &:focus-visible .dealer-map-marker__middle,
     &:hover .dealer-map-marker__middle,
     &.is-selected .dealer-map-marker__middle {
@@ -290,6 +198,98 @@ export const DealerMapCanvas = styled.div`
     transform: translate(-50%, -50%);
     z-index: 2;
   }
+`;
+
+export const DealerLocatorSectionRoot = styled.section`
+  background: #0a0a0a;
+  min-height: 100vh;
+  overflow: hidden;
+  position: relative;
+
+  @media (max-width: 980px) {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+  }
+`;
+
+export const DealerMapStage = styled.div`
+  inset: 0;
+  position: absolute;
+
+  @media (max-width: 980px) {
+    height: 460px;
+    position: relative;
+  }
+`;
+
+export const DealerMapBackdrop = styled.div`
+  background:
+    radial-gradient(circle at 50% 50%, #ffffff12 0%, #ffffff00 24%),
+    linear-gradient(140deg, #060606 0%, #0b0b0b 48%, #050505 100%);
+  height: 100%;
+  isolation: isolate;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+
+  &::before {
+    background:
+      linear-gradient(90deg, #ffffff08 1px, transparent 1px),
+      linear-gradient(0deg, #ffffff06 1px, transparent 1px);
+    background-position: center center;
+    background-size: 72px 72px;
+    content: "";
+    inset: -6%;
+    opacity: 0.42;
+    position: absolute;
+    transform: perspective(1200px) rotateX(66deg) scale(1.8) translateY(13%);
+    transform-origin: center;
+    z-index: 0;
+  }
+
+  &::after {
+    background:
+      radial-gradient(circle at 50% 50%, #ffffff14 0%, #ffffff00 58%),
+      linear-gradient(90deg, #ffffff00 0%, #ffffff10 50%, #ffffff00 100%);
+    content: "";
+    inset: 0;
+    position: absolute;
+    z-index: 0;
+  }
+
+  ${dealerMapMarkerStyles}
+`;
+
+export const DealerMapCanvas = styled.div`
+  height: 100%;
+  position: relative;
+  width: 100%;
+
+  .mapboxgl-map,
+  .mapboxgl-canvas,
+  .mapboxgl-canvas-container {
+    height: 100%;
+    width: 100%;
+  }
+
+  .mapboxgl-canvas {
+    cursor: grab;
+    filter: grayscale(-1) contrast(0.92) brightness(1.18);
+  }
+
+  .mapboxgl-canvas:active {
+    cursor: grabbing;
+  }
+
+  .mapboxgl-ctrl-bottom-left,
+  .mapboxgl-ctrl-bottom-right {
+    filter: grayscale(1);
+    opacity: 0.74;
+    z-index: 2;
+  }
+
+  ${dealerMapMarkerStyles}
 `;
 
 export const DealerHeading = styled.h2`
