@@ -58,14 +58,8 @@ export function NewsFeaturedCard({
   y
 }: NewsFeaturedCardProps) {
   const newsCopy = SITE_COPY.news;
-  const {
-    activeIndex,
-    canGoNext,
-    canGoPrevious,
-    handleNext,
-    handlePrevious,
-    hasOverflowFade
-  } = useMiniNewsCarousel(railItems.length);
+  const { activeIndex, canGoNext, canGoPrevious, handleNext, handlePrevious, hasOverflowFade } =
+    useMiniNewsCarousel(railItems.length);
 
   return (
     <NewsFeaturedViewport>

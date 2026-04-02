@@ -31,12 +31,8 @@ export function NewsSection() {
   useEffect(() => {
     const updateViewportSize = () => {
       const rootStyles = getComputedStyle(document.documentElement);
-      const sectionStyles = sectionRef.current
-        ? getComputedStyle(sectionRef.current)
-        : null;
-      const headerMain = Number.parseFloat(
-        rootStyles.getPropertyValue("--header-height-main")
-      );
+      const sectionStyles = sectionRef.current ? getComputedStyle(sectionRef.current) : null;
+      const headerMain = Number.parseFloat(rootStyles.getPropertyValue("--header-height-main"));
       const headerUtility = Number.parseFloat(
         rootStyles.getPropertyValue("--header-height-utility")
       );
@@ -72,12 +68,8 @@ export function NewsSection() {
   const heightTarget: number[] = shouldReduceMotion
     ? [viewportSize.height, viewportSize.height]
     : [FEATURED_NEWS_INITIAL_HEIGHT, viewportSize.height];
-  const radiusTarget: number[] = shouldReduceMotion
-    ? [0, 0]
-    : FEATURED_NEWS_RADIUS_RANGE;
-  const verticalOffsetTarget = shouldReduceMotion
-    ? [0, 0]
-    : [initialTopOffset, 0];
+  const radiusTarget: number[] = shouldReduceMotion ? [0, 0] : FEATURED_NEWS_RADIUS_RANGE;
+  const verticalOffsetTarget = shouldReduceMotion ? [0, 0] : [initialTopOffset, 0];
 
   const width = useSpring(
     useTransform(scrollYProgress, FEATURED_NEWS_PROGRESS_RANGE, widthTarget),

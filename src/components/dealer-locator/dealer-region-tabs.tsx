@@ -15,10 +15,7 @@ const REGION_ORDER: readonly DealerRegion[] = [
   "sarawak"
 ];
 
-export function DealerRegionTabs({
-  onSelectRegion,
-  selectedRegion
-}: DealerRegionTabsProps) {
+export function DealerRegionTabs({ onSelectRegion, selectedRegion }: DealerRegionTabsProps) {
   const dealerLocatorCopy = SITE_COPY.dealerLocator;
 
   return (

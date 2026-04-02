@@ -115,10 +115,7 @@ export function ModelsSection() {
       <ModelsStackWrap>
         <ModelsStack>
           <ModelsTabsMobileShell>
-            <ModelTabs
-              activeCategory={activeCategory}
-              orientation="horizontal"
-            />
+            <ModelTabs activeCategory={activeCategory} orientation="horizontal" />
           </ModelsTabsMobileShell>
           {visibleModels.map((model, index) => (
             <ModelCard index={index} key={model.name} model={model} />

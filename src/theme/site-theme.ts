@@ -41,7 +41,7 @@ export const siteTheme = {
     pill: "999px"
   },
   typography: {
-    body: "\"Inter\", sans-serif"
+    body: '"Inter", sans-serif'
   }
 } as const;
 

@@ -376,8 +376,7 @@ export const NewsMiniCard = styled.button<{ $isActive: boolean }>`
   }
 
   &::before {
-    border: 1px solid
-      ${({ $isActive }) => ($isActive ? "rgba(255, 255, 255, 0.9)" : "transparent")};
+    border: 1px solid ${({ $isActive }) => ($isActive ? "rgba(255, 255, 255, 0.9)" : "transparent")};
     border-radius: 6px;
     content: "";
     inset: 0;

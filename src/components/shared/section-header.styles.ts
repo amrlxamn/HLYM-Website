@@ -10,8 +10,7 @@ export const SectionHeaderRoot = styled(Container).attrs({ as: "header" })<{
   display: flex;
   flex-direction: ${({ $align, $hasAction }) =>
     $align === "center" || !$hasAction ? "column" : "row"};
-  gap: ${({ $align, $hasAction }) =>
-    $align === "center" || !$hasAction ? "16px" : "24px"};
+  gap: ${({ $align, $hasAction }) => ($align === "center" || !$hasAction ? "16px" : "24px")};
   justify-content: ${({ $align, $hasAction }) =>
     $align === "center" || !$hasAction ? "center" : "space-between"};
   padding: ${({ $align }) => ($align === "center" ? "80px 0 50px" : "80px 0 0")};

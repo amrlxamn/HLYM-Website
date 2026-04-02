@@ -56,7 +56,9 @@ export function HeroBottomPanel({
               $active={false}
               aria-label={toSentenceCase(heroCopy.previousSlideAriaLabel)}
               onClick={() =>
-                setCurrentSlideIndex(getPreviousHeroSlideIndex(currentSlideIndex, HERO_SLIDES.length))
+                setCurrentSlideIndex(
+                  getPreviousHeroSlideIndex(currentSlideIndex, HERO_SLIDES.length)
+                )
               }
               type="button"
             >

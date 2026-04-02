@@ -1,11 +1,6 @@
 import type { HeroCopy } from "@/data/site-copy.types";
 import type { HeroSlide } from "@/data/site-content.types";
-import {
-  HeroIndicatorLine,
-  HeroMutedText,
-  HeroScrollText,
-  HeroSideIndicator
-} from "./hero.styles";
+import { HeroIndicatorLine, HeroMutedText, HeroScrollText, HeroSideIndicator } from "./hero.styles";
 
 type HeroSideIndicatorsProps = {
   heroCopy: HeroCopy;
