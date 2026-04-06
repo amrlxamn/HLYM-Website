@@ -200,6 +200,56 @@ const dealerMapMarkerStyles = css`
   }
 `;
 
+const dealerMapUserMarkerStyles = css`
+  .dealer-map-user-marker {
+    align-items: center;
+    display: inline-flex;
+    justify-content: center;
+    position: relative;
+  }
+
+  .dealer-map-user-marker__ring,
+  .dealer-map-user-marker__dot {
+    border-radius: 999px;
+    display: block;
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .dealer-map-user-marker__ring {
+    background: #ffffff22;
+    border: 1px solid #ffffff80;
+    box-shadow: 0 0 0 1px #11111110;
+    height: 34px;
+    width: 34px;
+  }
+
+  .dealer-map-user-marker__dot {
+    background: #111111;
+    box-shadow: 0 0 0 4px #ffffffd9;
+    height: 10px;
+    width: 10px;
+  }
+
+  .dealer-map-user-marker__label {
+    background: #fffffff0;
+    border: 1px solid #ffffff8a;
+    color: #090909;
+    font-size: 10px;
+    font-weight: 700;
+    left: 50%;
+    letter-spacing: 1.6px;
+    padding: 7px 10px;
+    position: absolute;
+    text-transform: uppercase;
+    top: -18px;
+    transform: translate(-50%, -100%);
+    white-space: nowrap;
+  }
+`;
+
 export const DealerLocatorSectionRoot = styled.section`
   background: #0a0a0a;
   min-height: 100vh;
@@ -259,6 +309,7 @@ export const DealerMapBackdrop = styled.div`
   }
 
   ${dealerMapMarkerStyles}
+  ${dealerMapUserMarkerStyles}
 `;
 
 export const DealerMapCanvas = styled.div`
@@ -290,6 +341,7 @@ export const DealerMapCanvas = styled.div`
   }
 
   ${dealerMapMarkerStyles}
+  ${dealerMapUserMarkerStyles}
 `;
 
 export const DealerHeading = styled.h2`

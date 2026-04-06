@@ -3,21 +3,28 @@ import type { DealerLocation } from "@/data/site-content.types";
 import { toSentenceCase } from "@/lib/to-sentence-case";
 import { DealerMapStaticStage } from "./dealer-map-static-stage";
 import { DEALER_LOCATOR_MAP_CONFIG } from "./dealer-locator-map.constants";
+import type { BrowserCoordinates, DealerRoute } from "./dealer-location.types";
 import { DealerMapCanvas } from "./dealer-locator.styles";
 import { useDealerMapCamera } from "./use-dealer-map-camera";
 import { useDealerMapInstance } from "./use-dealer-map-instance";
 import { useDealerMapMarkers } from "./use-dealer-map-markers";
+import { useDealerMapRoute } from "./use-dealer-map-route";
+import { useDealerMapUserLocation } from "./use-dealer-map-user-location";
 
 type DealerMapMapboxStageProps = {
   dealers: readonly DealerLocation[];
   onSelectDealer: (dealerId: string) => void;
+  route: DealerRoute | null;
   selectedDealerId: string;
+  userCoordinates: BrowserCoordinates | null;
 };
 
 export function DealerMapMapboxStage({
   dealers,
   onSelectDealer,
-  selectedDealerId
+  route,
+  selectedDealerId,
+  userCoordinates
 }: DealerMapMapboxStageProps) {
   const dealerLocatorCopy = SITE_COPY.dealerLocator;
   const { canvasRef, hasMapInitError, mapInstance } = useDealerMapInstance();
@@ -31,7 +38,16 @@ export function DealerMapMapboxStage({
   useDealerMapCamera({
     dealers,
     mapInstance,
-    selectedDealerId
+    selectedDealerId,
+    userCoordinates
+  });
+  useDealerMapRoute({
+    mapInstance,
+    route
+  });
+  useDealerMapUserLocation({
+    coordinates: userCoordinates,
+    mapInstance
   });
 
   if (!DEALER_LOCATOR_MAP_CONFIG.accessToken || hasMapInitError) {

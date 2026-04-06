@@ -1,17 +1,26 @@
 import { cleanup, fireEvent, render, waitFor } from "@testing-library/react";
 import { describe, expect, it, vi } from "vitest";
 import { afterEach } from "vitest";
+import type { BrowserCoordinates, DealerRoute } from "./dealer-location.types";
+
+const originalGeolocation = navigator.geolocation;
 
 vi.mock("./dealer-map-stage", () => ({
   DealerMapStageView: ({
     dealers,
-    onSelectDealer
+    onSelectDealer,
+    route,
+    userCoordinates
   }: {
     dealers: readonly { id: string }[];
     onSelectDealer: (dealerId: string) => void;
+    route: DealerRoute | null;
+    userCoordinates: BrowserCoordinates | null;
   }) => (
     <div>
       <p>{`marker count: ${dealers.length}`}</p>
+      <p>{userCoordinates ? "user location active" : "user location idle"}</p>
+      <p>{route ? "route ready" : "route idle"}</p>
       <button onClick={() => onSelectDealer("ah-hong-motor-sdn-bhd")} type="button">
         switch dealer
       </button>
@@ -23,6 +32,10 @@ import { DealerLocatorSection } from "./dealer-locator-section";
 
 afterEach(() => {
   cleanup();
+  Object.defineProperty(navigator, "geolocation", {
+    configurable: true,
+    value: originalGeolocation
+  });
 });
 
 describe("DealerLocatorSection", () => {
@@ -45,6 +58,7 @@ describe("DealerLocatorSection", () => {
     expect(view.getByRole("button", { name: "Show previous dealer" })).toBeInTheDocument();
     expect(view.getByRole("button", { name: "Show next dealer" })).toBeInTheDocument();
     expect(view.getByText("marker count: 2")).toBeInTheDocument();
+    expect(view.getByText("user location idle")).toBeInTheDocument();
   });
 
   it("updates the dealer panel when another marker is selected", async () => {
@@ -98,5 +112,32 @@ describe("DealerLocatorSection", () => {
     await waitFor(() => {
       expect(view.getByText("kompleks yamaha motor")).toBeInTheDocument();
     });
+  });
+
+  it("selects the nearest dealer after the browser location is enabled", async () => {
+    Object.defineProperty(navigator, "geolocation", {
+      configurable: true,
+      value: {
+        getCurrentPosition: (
+          onSuccess: (position: { coords: { latitude: number; longitude: number } }) => void
+        ) => {
+          onSuccess({
+            coords: {
+              latitude: 3.1794,
+              longitude: 101.6924
+            }
+          });
+        }
+      }
+    });
+
+    const view = render(<DealerLocatorSection />);
+
+    await waitFor(() => {
+      expect(view.getByRole("heading", { name: "ah hong motor sdn bhd" })).toBeInTheDocument();
+    });
+
+    expect(view.getByText("route ready")).toBeInTheDocument();
+    expect(view.getByText("user location active")).toBeInTheDocument();
   });
 });
