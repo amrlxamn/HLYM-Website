@@ -169,7 +169,9 @@ export function FeaturedModelSpotlight() {
               <FeaturedModelSpotlightCalloutNumber>
                 {callout.numberLabel}
               </FeaturedModelSpotlightCalloutNumber>
-              <FeaturedModelSpotlightCalloutTitle>{callout.title}</FeaturedModelSpotlightCalloutTitle>
+              <FeaturedModelSpotlightCalloutTitle>
+                {callout.title}
+              </FeaturedModelSpotlightCalloutTitle>
               <FeaturedModelSpotlightCalloutDescription>
                 {callout.description}
               </FeaturedModelSpotlightCalloutDescription>
