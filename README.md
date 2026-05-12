@@ -69,6 +69,9 @@ directory.
 
 The sample code component lives in `src/webflow/code-components/promo-card.webflow.tsx`.
 
+See `docs/webflow-cms-integration.md` for the CMS migration workflow and the
+product Code Component field contract.
+
 ## Dealer Locator Stage
 
 The dealer locator uses Mapbox GL JS with the Mapbox Standard style configured

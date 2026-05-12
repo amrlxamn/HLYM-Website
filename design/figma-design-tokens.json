@@ -1,0 +1,70 @@
+{
+  "$schema": "https://design-tokens.github.io/community-group/format/",
+  "productPage": {
+    "colors": {
+      "background": {
+        "base": { "$value": "#0a0a0a", "$type": "color", "$description": "Primary dark background" },
+        "surface": { "$value": "#fafafa", "$type": "color", "$description": "Light surface background" },
+        "mutedSurface": { "$value": "#f8f8f8", "$type": "color", "$description": "Muted light surface" }
+      },
+      "text": {
+        "primary": { "$value": "#0a0a0a", "$type": "color", "$description": "Dark text on light surfaces" },
+        "inverse": { "$value": "#ffffff", "$type": "color", "$description": "White text on dark surfaces" },
+        "mutedOnLight": { "$value": "#00000066", "$type": "color", "$description": "Muted text on light surfaces (40% opacity)" },
+        "mutedOnDark": { "$value": "#ffffff80", "$type": "color", "$description": "Muted text on dark surfaces (50% opacity)" },
+        "subtle": { "$value": "#00000050", "$type": "color", "$description": "Subtle text (30% opacity)" },
+        "softOnDark": { "$value": "#ffffff50", "$type": "color", "$description": "Soft text on dark (30% opacity)" }
+      },
+      "border": {
+        "inverse": { "$value": "#ffffff18", "$type": "color", "$description": "Border on dark surfaces (10% white)" },
+        "subtle": { "$value": "#00000014", "$type": "color", "$description": "Subtle border (8% black)" }
+      },
+      "brand": {
+        "primary": { "$value": "#ec1c24", "$type": "color", "$description": "HLYM brand red" },
+        "marker": { "$value": "#ee393d", "$type": "color", "$description": "HLYM brand red marker" }
+      }
+    },
+    "typography": {
+      "fontFamily": {
+        "body": { "$value": "Inter", "$type": "fontFamily" }
+      },
+      "fontWeights": {
+        "regular": { "$value": 400 },
+        "medium": { "$value": 500 },
+        "bold": { "$value": 700 },
+        "extraBold": { "$value": 800 },
+        "black": { "$value": 900 }
+      }
+    },
+    "spacing": {
+      "xs": { "$value": "4px", "$type": "dimension" },
+      "sm": { "$value": "10px", "$type": "dimension" },
+      "md": { "$value": "14px", "$type": "dimension" },
+      "lg": { "$value": "24px", "$type": "dimension" },
+      "xl": { "$value": "32px", "$type": "dimension" },
+      "2xl": { "$value": "48px", "$type": "dimension" }
+    },
+    "radii": {
+      "pill": { "$value": "999px", "$type": "dimension" },
+      "card": { "$value": "8px", "$type": "dimension" }
+    },
+    "shadows": {
+      "card": { "$value": "0 24px 60px rgba(0, 0, 0, 0.14)", "$type": "shadow" }
+    },
+    "motion": {
+      "duration": {
+        "base": { "$value": "240ms" },
+        "slow": { "$value": "420ms" }
+      },
+      "easing": {
+        "standard": { "$value": "cubic-bezier(0.22, 1, 0.36, 1)" }
+      }
+    },
+    "layout": {
+      "containerMaxWidth": { "$value": "1240px", "$type": "dimension" },
+      "containerPadding": { "$value": "32px", "$type": "dimension" },
+      "headerHeightMain": { "$value": "76px", "$type": "dimension" },
+      "headerHeightUtility": { "$value": "34px", "$type": "dimension" }
+    }
+  }
+}

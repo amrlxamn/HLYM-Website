@@ -1,0 +1,156 @@
+==============================================================================
+HLYM WEBSITE MOCKUP PROPOSAL | SLIDE 01
+==============================================================================
+HLYM WEBSITE MOCKUP PROPOSAL
+Client review deck for the React + TypeScript + Vite mockup
+
+- Purpose: present the current website mockup as a brand-led digital showroom concept.
+- Audience: HLYM leadership, marketing, brand, and after-sales stakeholders.
+- Source of truth: proposal is derived from the shipped codebase and live Vercel deployment.
+- Primary value: stronger product discovery, clearer dealer pathways, and fresher content storytelling.
+
+
+==============================================================================
+HLYM WEBSITE MOCKUP PROPOSAL | SLIDE 02
+==============================================================================
+EXECUTIVE SUMMARY
+What this mockup is designed to prove
+
+- Reframe the HLYM homepage as a premium, campaign-ready brand experience.
+- Give riders a faster path from inspiration to model comparison to dealer intent.
+- Modernize the information hierarchy without adding platform-level complexity.
+- Create a modular front-end foundation that can be extended into CMS, analytics, and dealer operations later.
+
+
+==============================================================================
+HLYM WEBSITE MOCKUP PROPOSAL | SLIDE 03
+==============================================================================
+BUSINESS GOALS AND TARGET USERS
+Product framing used for the proposal
+
+- Business goals: improve product visibility, reinforce Yamaha brand equity, and drive dealer enquiries.
+- Primary users: new riders exploring entry models, commuters comparing scooters, and enthusiasts researching big bikes.
+- Secondary users: existing owners looking for after-sales info, news, campaigns, and network coverage.
+- Success definition: higher model exploration, better dealer-locator usage, and stronger content engagement.
+
+
+==============================================================================
+HLYM WEBSITE MOCKUP PROPOSAL | SLIDE 04
+==============================================================================
+MOCKUP SCOPE
+Sections implemented in the current coded experience
+
+- Sticky dual-layer header with utility links, language switch, social entry points, and primary navigation.
+- Hero carousel for flagship campaigns with pricing, performance stats, and call-to-action routing.
+- Compare section with category filters for mopeds, automatics, street bikes, and big bikes.
+- Featured editorial block, latest news hub, dealer locator, and structured footer.
+
+
+==============================================================================
+HLYM WEBSITE MOCKUP PROPOSAL | SLIDE 05
+==============================================================================
+HERO AND PRODUCT DISCOVERY
+How the mockup drives first-click engagement
+
+- Hero content rotates between three flagship narratives with clear model-led storytelling.
+- Calls to action route users toward compare or featured sections instead of dead-end banners.
+- Compare catalog currently exposes five models with specs for engine, power, weight, and price.
+- The interaction pattern is built to support future model expansion without redesigning the section.
+
+
+==============================================================================
+HLYM WEBSITE MOCKUP PROPOSAL | SLIDE 06
+==============================================================================
+FEATURED STORYTELLING AND MERCHANDISING
+Editorial structure built into the mockup
+
+- Featured module combines campaign storytelling with direct product framing for the MT-09.
+- Editorial copy supports a more premium brand tone than a static brochure page.
+- Category tiles and supporting cards create a path toward product family exploration.
+- Merchandise and campaign placements are already reflected in the navigation and layout logic.
+
+
+==============================================================================
+HLYM WEBSITE MOCKUP PROPOSAL | SLIDE 07
+==============================================================================
+NEWS AND DEALER LOCATOR
+Trust-building content and conversion support
+
+- News section packages featured stories, highlights, and updates in a scannable card system.
+- Dealer locator uses Mapbox GL when tokenized, with a static branded fallback when mapping is unavailable.
+- Current seeded network includes four dealer locations with focus, hours, and support tags.
+- This gives the client a concrete picture of how brand content and network conversion can coexist.
+
+
+==============================================================================
+HLYM WEBSITE MOCKUP PROPOSAL | SLIDE 08
+==============================================================================
+UX AND VISUAL DIRECTION
+What the mockup communicates from a client-review perspective
+
+- Visual language favors high-contrast typography, oversized product headlines, and campaign-first motion.
+- Navigation keeps Yamaha network, merchandise, news, and after-sales access visible without flattening the brand.
+- Component splits in the codebase make each section easier to refine independently after client review.
+- Responsive behavior is already considered across header, compare, cards, and dealer locator states.
+
+
+==============================================================================
+HLYM WEBSITE MOCKUP PROPOSAL | SLIDE 09
+==============================================================================
+TECHNICAL BUILD
+What has already been implemented under the mockup
+
+- Front end: React 18, TypeScript, Vite, styled-components, and Framer Motion.
+- Quality: lint, typecheck, tests, build, and security scan scripts are defined in the project.
+- Integration-ready areas: Webflow code components, DevLink hooks, and Mapbox dealer stage.
+- Hosting: Vercel production deployment is already active for stakeholder review.
+
+
+==============================================================================
+HLYM WEBSITE MOCKUP PROPOSAL | SLIDE 10
+==============================================================================
+RECOMMENDED PHASE PLAN
+How to turn the mockup into an approved client delivery
+
+- Phase 1: visual refinement, stakeholder copy edits, and final information hierarchy approval.
+- Phase 2: connect real inventory, dealer data, and managed content sources.
+- Phase 3: add analytics, enquiry capture, campaign modules, and operational governance.
+- This phased path keeps the site lean while allowing the client to scale functionality with evidence.
+
+
+==============================================================================
+HLYM WEBSITE MOCKUP PROPOSAL | SLIDE 11
+==============================================================================
+RISKS, DEPENDENCIES, AND DECISIONS
+Items to resolve before production rollout
+
+- Brand approvals: final product naming, copy tone, campaign assets, and CTA destinations.
+- Data dependencies: production dealer data, real pricing, real news feed, and Mapbox token ownership.
+- Governance: decide whether future content is managed in code, Webflow, or a hybrid workflow.
+- Performance: large media should be compressed and curated before public launch.
+
+
+==============================================================================
+HLYM WEBSITE MOCKUP PROPOSAL | SLIDE 12
+==============================================================================
+PROPOSED SUCCESS METRICS
+Recommended KPI framework for client alignment
+
+- Product discovery: compare-section engagement rate and model detail click-through rate.
+- Dealer intent: dealer-locator interactions, selected dealer views, and contact conversion actions.
+- Content value: news-card clicks, featured-story dwell time, and repeat visits from campaigns.
+- Experience quality: Lighthouse performance, mobile usability, and interaction completion without errors.
+
+
+==============================================================================
+HLYM WEBSITE MOCKUP PROPOSAL | SLIDE 13
+==============================================================================
+NEXT STEP RECOMMENDATION
+What to present back to the client after this mockup review
+
+- Approve the direction of the homepage storytelling and navigation model.
+- Prioritize which sections move from mock content to production-connected content first.
+- Decide the CMS and operational ownership model for news, campaigns, and dealer updates.
+- Use this deck and the live Vercel build as the baseline for the next review workshop.
+
+
