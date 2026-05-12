@@ -1,4 +1,4 @@
-export { FOOTER_COLUMNS } from "@/data/footer.constants";
+export { FOOTER_LINK_GROUPS } from "@/data/footer.constants";
 export { CATEGORY_TILES, EDITORIAL_POINTS, FEATURED_CARDS } from "@/data/featured.constants";
 export { HERO_SLIDES } from "@/data/hero-slides.constants";
 export { DEFAULT_MODEL_CATEGORY, MODELS, MODEL_TABS } from "@/data/models.constants";

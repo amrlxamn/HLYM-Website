@@ -22,22 +22,22 @@ export const SOCIAL_LINKS: readonly SocialLink[] = [
 ] as const;
 
 export const UTILITY_LINKS: readonly LinkItem[] = [
-  { href: "#featured-model", label: "lifestyle station tour" },
-  { href: "#site-footer", label: "e-daftar login" },
-  { href: "#site-footer", label: "after sales" },
-  { href: "#models", label: "yamaha endorsed zone (yez)" },
-  { href: "#latest-news", label: "y-connect" },
-  { href: "#latest-news", label: "motorsports" },
-  { href: "#site-footer", label: "resources" },
-  { href: "#site-footer", label: "career" }
+  { href: "/#featured-model", label: "lifestyle station tour" },
+  { href: "/#site-footer", label: "e-daftar login" },
+  { href: "/#site-footer", label: "after sales" },
+  { href: "/#models", label: "yamaha endorsed zone (yez)" },
+  { href: "/#latest-news", label: "y-connect" },
+  { href: "/#latest-news", label: "motorsports" },
+  { href: "/#site-footer", label: "resources" },
+  { href: "/#site-footer", label: "career" }
 ] as const;
 
 export const NAV_LINKS: readonly NavItem[] = [
-  { href: "#top", isActive: true, label: "home" },
-  { hasDropdown: true, href: "#site-footer", label: "corporate" },
-  { href: "#models", label: "products" },
-  { hasDropdown: true, href: "#latest-news", label: "news & events" },
-  { href: "#dealer-locator", label: "yamaha network" },
-  { href: "#featured-model", label: "merchandise" },
-  { href: "#site-footer", label: "contact us" }
+  { href: "/", isActive: true, label: "home" },
+  { hasDropdown: true, href: "/#site-footer", label: "corporate" },
+  { href: "/products", label: "products" },
+  { hasDropdown: true, href: "/#latest-news", label: "news & events" },
+  { href: "/#dealer-locator", label: "yamaha network" },
+  { href: "/#featured-model", label: "merchandise" },
+  { href: "/#site-footer", label: "contact us" }
 ] as const;

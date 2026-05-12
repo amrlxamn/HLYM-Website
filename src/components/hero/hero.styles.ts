@@ -146,7 +146,7 @@ export const HeroTitleAccent = styled.span`
 
 export const HeroDescription = styled.p`
   color: #ffffff55;
-  font-size: 15px;
+  font-size: var(--font-size-description);
   line-height: 1.6;
   margin: 0;
   text-align: center;

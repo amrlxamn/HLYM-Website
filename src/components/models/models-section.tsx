@@ -53,7 +53,11 @@ export function ModelsSection() {
   const dirNum = direction === "down" ? 1 : -1;
 
   return (
-    <ModelsSectionRoot id="models" aria-label={toSentenceCase(modelsCopy.ariaLabel)}>
+    <ModelsSectionRoot
+      id="models"
+      aria-label={toSentenceCase(modelsCopy.ariaLabel)}
+      data-cursor-tone="light"
+    >
       <ModelsBackground aria-hidden="true" />
 
       {/* Desktop: header sits at the top of the section and scrolls away naturally. */}

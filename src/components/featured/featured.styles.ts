@@ -71,7 +71,7 @@ export const FeaturedCardTitle = styled.h3`
 
 export const FeaturedCardDescription = styled.p`
   color: var(--color-text-soft-dark);
-  font-size: 13px;
+  font-size: var(--font-size-description);
   line-height: 1.6;
   margin: 0;
   width: 340px;
@@ -162,7 +162,7 @@ export const MtAccentHeading = styled(MtHeading)`
 
 export const MtDescription = styled.p`
   color: var(--color-text-soft-dark);
-  font-size: 14px;
+  font-size: var(--font-size-description);
   line-height: 1.7;
   margin: 0;
   width: 420px;
@@ -307,7 +307,7 @@ export const FeaturedBottomTitle = styled.h3`
 
 export const FeaturedBottomDescription = styled.p`
   color: #ffffff40;
-  font-size: 13px;
+  font-size: var(--font-size-description);
   margin: 4px 0 0;
 `;
 
@@ -420,7 +420,7 @@ export const FeaturedModelSpotlightCalloutTitle = styled.h4`
 
 export const FeaturedModelSpotlightCalloutDescription = styled.p`
   color: #ffffffaa;
-  font-size: 13px;
+  font-size: var(--font-size-description);
   line-height: 1.5;
   margin: 14px 0 0;
 `;

@@ -1,33 +1,27 @@
 import type { FooterColumn } from "@/data/site-content.types";
 
-export const FOOTER_COLUMNS: readonly FooterColumn[] = [
+export const FOOTER_LINK_GROUPS: readonly FooterColumn[] = [
   {
     links: [
-      { href: "#latest-news", label: "latest news" },
-      { href: "#latest-news", label: "events" },
-      { href: "#latest-news", label: "promotions" },
-      { href: "#latest-news", label: "racing" }
+      { href: "/", label: "home" },
+      { href: "/#site-footer", label: "corporate" },
+      { href: "/#site-footer", label: "career" },
+      { href: "/#site-footer", label: "contact us" }
     ],
-    title: "discover"
+    title: "corporate"
   },
   {
     links: [
-      { href: "#site-footer", label: "service & maintenance" },
-      { href: "#site-footer", label: "genuine parts" },
-      { href: "#site-footer", label: "warranty" },
-      { href: "#site-footer", label: "owner's manual" },
-      { href: "#site-footer", label: "y-connect app" }
+      { href: "/#latest-news", label: "news & events" },
+      { href: "/#latest-news", label: "motorsports" }
     ],
-    title: "owners"
+    title: "news"
   },
   {
     links: [
-      { href: "#site-footer", label: "about hlym" },
-      { href: "#site-footer", label: "careers" },
-      { href: "#site-footer", label: "contact us" },
-      { href: "#site-footer", label: "privacy policy" },
-      { href: "#site-footer", label: "terms of use" }
+      { href: "/#dealer-locator", label: "yamaha network" },
+      { href: "/#featured-model", label: "merchandise" }
     ],
-    title: "company"
+    title: "network"
   }
 ] as const;

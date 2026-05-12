@@ -354,7 +354,7 @@ export const DealerHeading = styled.h2`
 
 export const DealerDescription = styled.p`
   color: #c9c9c9;
-  font-size: 15px;
+  font-size: var(--font-size-description);
   line-height: 1.6;
   margin: 0;
   width: 100%;
@@ -517,7 +517,7 @@ export const DealerInfoLocation = styled.p`
 
 export const DealerInfoSummary = styled.p`
   color: #111111b8;
-  font-size: 14px;
+  font-size: var(--font-size-description);
   line-height: 1.7;
   margin: 0;
 `;
@@ -569,7 +569,7 @@ export const DealerServiceTag = styled.span`
 
 export const DealerPanelHint = styled.p`
   color: #11111173;
-  font-size: 12px;
+  font-size: var(--font-size-description);
   line-height: 1.6;
   margin: 0;
 `;

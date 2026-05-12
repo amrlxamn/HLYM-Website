@@ -20,18 +20,24 @@ export function MainNavigation() {
   const { isMenuOpen, setIsMenuOpen } = useMainNavigationState();
   const headerCopy = SITE_COPY.header;
   const menuToggleLabel = getMenuToggleLabel(headerCopy, isMenuOpen);
+  const pathname = typeof window === "undefined" ? "/" : window.location.pathname;
+  const isProductsPage = pathname.startsWith("/products");
 
   return (
     <MainNavBar>
       <MainNavInner>
-        <NavLeft href="#top" aria-label={toSentenceCase(headerCopy.logoLinkAriaLabel)}>
+        <NavLeft href="/" aria-label={toSentenceCase(headerCopy.logoLinkAriaLabel)}>
           <MainLogo src="/assets/hlym/image.png" alt={toSentenceCase(headerCopy.logoAlt)} />
         </NavLeft>
         <NavRight $isOpen={isMenuOpen} id="primaryNav">
           <NavLinks aria-label={toSentenceCase(headerCopy.mainNavigationAriaLabel)}>
             {NAV_LINKS.map((item) => (
               <NavLink
-                $active={Boolean(item.isActive)}
+                $active={
+                  isProductsPage
+                    ? item.href === "/products"
+                    : Boolean(item.isActive && item.href === "/")
+                }
                 href={item.href}
                 key={item.label}
                 onClick={() => setIsMenuOpen(false)}

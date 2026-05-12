@@ -48,18 +48,17 @@ export const SITE_COPY: SiteCopy = {
   footer: {
     ariaLabel: "footer section",
     brandAddressLines: [
-      "hong leong yamaha motor sdn bhd",
-      "no. 49, jalan ss 7/19",
-      "kelana jaya, 47301 petaling jaya",
-      "selangor darul ehsan, malaysia"
+      "Hong Leong Yamaha Motor Sdn. Bhd. (HLYM) Co.",
+      "number: 197901002563 (46829-P), a company incorporated",
+      "in Malaysia in 1978, is a joint venture between Hong Leong",
+      "Industries Bhd and Yamaha Motor Co., Ltd , Japan"
     ],
-    brandTagline: "revs your heart",
     brandTitle: "yamaha",
-    copyright: "© 2026 hong leong yamaha motor sdn bhd. all rights reserved.",
+    copyright:
+      "Copyright © 2021 Hong Leong Yamaha Motor Sdn. Bhd 197901002563 (46829-P). All Rights Reserved.",
     policyLinks: [
-      { href: "#site-footer", label: "privacy policy" },
       { href: "#site-footer", label: "terms of use" },
-      { href: "#site-footer", label: "cookie policy" }
+      { href: "#site-footer", label: "privacy policy" }
     ],
     watermark: "yamaha"
   },
