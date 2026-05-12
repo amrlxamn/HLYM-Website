@@ -1,35 +1,19 @@
-import { DealerLocatorSection } from "@/components/dealer-locator/dealer-locator-section";
 import { CustomCursor } from "@/components/cursor/custom-cursor";
-import { FooterSection } from "@/components/footer/footer-section";
-import { FeaturedModelSpotlight } from "@/components/featured/featured-model-spotlight";
-import { FeaturedSection } from "@/components/featured/featured-section";
-import { SiteHeader } from "@/components/header/site-header";
-import { HeroSection } from "@/components/hero/hero-section";
-import { ModelsSection } from "@/components/models/models-section";
-import { NewsSection } from "@/components/news/news-section";
 import { SplashScreen } from "@/components/splash/splash-screen";
 import { useSplashScreen } from "@/components/splash/use-splash-screen";
-import { PageShell } from "@/styles/layout";
+import { HomePage } from "@/app/home-page";
+import { ProductsPage } from "@/app/products-page";
 
 export function App() {
   const { isVisible, isRemoved, onComplete } = useSplashScreen();
+  const pathname = typeof window === "undefined" ? "/" : window.location.pathname;
+  const isProductsPage = pathname.startsWith("/products");
 
   return (
     <>
       <CustomCursor />
       {!isRemoved && <SplashScreen isVisible={isVisible} onComplete={onComplete} />}
-      <PageShell id="top">
-        <SiteHeader />
-        <main>
-          <HeroSection />
-          <ModelsSection />
-          <FeaturedSection />
-          <FeaturedModelSpotlight />
-          <NewsSection />
-          <DealerLocatorSection />
-          <FooterSection />
-        </main>
-      </PageShell>
+      {isProductsPage ? <ProductsPage /> : <HomePage />}
     </>
   );
 }

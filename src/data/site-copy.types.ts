@@ -20,7 +20,6 @@ export type DealerLocatorCopy = {
 export type FooterCopy = {
   ariaLabel: string;
   brandAddressLines: readonly string[];
-  brandTagline: string;
   brandTitle: string;
   copyright: string;
   policyLinks: readonly LinkItem[];
