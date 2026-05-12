@@ -1,5 +1,5 @@
 import { SITE_COPY } from "@/data/site-copy.constants";
-import { FooterBrandAddress } from "./footer-brand.styles";
+import { FooterBrandAddress } from "../styles/footer-brand.styles";
 
 export function FooterBrandAddressBlock() {
   const { brandAddressLines } = SITE_COPY.footer;

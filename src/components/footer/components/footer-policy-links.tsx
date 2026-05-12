@@ -1,5 +1,9 @@
 import { SITE_COPY } from "@/data/site-copy.constants";
-import { FooterBottomDot, FooterBottomLink, FooterBottomLinks } from "./footer-links.styles";
+import {
+  FooterBottomDot,
+  FooterBottomLink,
+  FooterBottomLinks
+} from "../styles/footer-links.styles";
 
 export function FooterPolicyLinks() {
   const { policyLinks } = SITE_COPY.footer;

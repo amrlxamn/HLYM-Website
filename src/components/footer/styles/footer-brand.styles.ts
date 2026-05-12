@@ -3,34 +3,34 @@ import styled from "styled-components";
 export const FooterBrandColumn = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 24px;
-  width: 320px;
+  gap: 22px;
+  max-width: 480px;
 `;
 
 export const FooterBrandTitle = styled.h3`
-  font-size: 36px;
+  color: var(--color-text-primary);
+  font-size: 38px;
   font-weight: 800;
   letter-spacing: 8px;
   margin: 0;
   text-transform: uppercase;
 `;
 
-export const FooterBrandTagline = styled.p`
-  color: #ffffff25;
-  font-size: 14px;
-  font-style: italic;
-  margin: 0;
-`;
-
 export const FooterBrandAddress = styled.p`
-  color: #ffffff18;
-  font-size: 13px;
-  line-height: 1.8;
+  color: var(--color-text-muted-light);
+  font-size: 14px;
+  line-height: 1.7;
   margin: 0;
   text-transform: uppercase;
-  width: 300px;
 
   span {
     display: block;
+    white-space: nowrap;
+  }
+
+  @media (max-width: 560px) {
+    span {
+      white-space: normal;
+    }
   }
 `;

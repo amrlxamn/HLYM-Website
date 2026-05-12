@@ -4,12 +4,13 @@ import { toSentenceCase } from "@/lib/to-sentence-case";
 import { SocialLinksRoot } from "./social-links.styles";
 
 type SocialLinksProps = {
+  tone?: "inverse" | "primary";
   variant: "compact" | "round";
 };
 
-export function SocialLinks({ variant }: SocialLinksProps) {
+export function SocialLinks({ tone = "inverse", variant }: SocialLinksProps) {
   return (
-    <SocialLinksRoot $variant={variant}>
+    <SocialLinksRoot $tone={tone} $variant={variant}>
       {SOCIAL_LINKS.map((link) => (
         <a href={link.href} key={link.label} aria-label={toSentenceCase(link.label)}>
           {link.platform === "facebook" && <Facebook />}

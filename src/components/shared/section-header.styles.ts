@@ -56,7 +56,7 @@ export const SectionHeaderAccent = styled.span`
 export const SectionHeaderIntro = styled.p<{ $tone: "dark" | "light" }>`
   color: ${({ $tone }) =>
     $tone === "dark" ? "var(--color-text-soft-dark)" : "var(--color-text-muted-light)"};
-  font-size: 16px;
+  font-size: var(--font-size-description);
   line-height: 1.6;
   margin: 16px auto 0;
   width: ${({ $tone }) => ($tone === "dark" ? "600px" : "100%")};
