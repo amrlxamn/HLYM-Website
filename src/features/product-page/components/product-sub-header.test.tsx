@@ -1,7 +1,11 @@
 import { render, within, fireEvent } from "@testing-library/react";
 import { afterEach, describe, expect, it, vi } from "vitest";
 import { toSentenceCase } from "@/lib/to-sentence-case";
-import { PRODUCT_HERO_VIDEO, PRODUCT_PAGE_MODELS, PRODUCT_SUB_NAV_TABS } from "@/features/product-page";
+import {
+  PRODUCT_HERO_VIDEO,
+  PRODUCT_PAGE_MODELS,
+  PRODUCT_SUB_NAV_TABS
+} from "@/features/product-page";
 import { ProductSubHeader } from "./product-sub-header";
 
 afterEach(() => {
@@ -81,7 +85,7 @@ describe("ProductSubHeader", () => {
     const view = within(container);
 
     const product = PRODUCT_PAGE_MODELS[0]!;
-    const cta = view.getByRole("link", { name: /contact dealer/i });
+    const cta = view.getByRole("link", { name: /ask a dealer/i });
     expect(cta).toHaveAttribute("href", product.ctaHref);
   });
 

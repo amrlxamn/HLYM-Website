@@ -1,7 +1,7 @@
 import { cleanup, render } from "@testing-library/react";
 import { afterEach, describe, expect, it } from "vitest";
 import { App } from "@/app/app";
-import { PRODUCT_HERO_VIDEO, PRODUCT_PAGE_COPY } from "@/features/product-page";
+import { PRODUCT_HERO_VIDEO } from "@/features/product-page";
 import { SITE_COPY } from "@/data/site-copy.constants";
 import { toSentenceCase } from "@/lib/to-sentence-case";
 import { siteTheme } from "@/theme/site-theme";
@@ -46,9 +46,7 @@ describe("App", () => {
     expect(document.head.textContent).toContain("--footer-wordmark-stroke-top");
     expect(siteTheme.typography.body).toBe('"Lato", Arial, sans-serif');
     expect(document.head.textContent).toMatch(/@media \(max-width:\s*980px\)/);
-    expect(document.head.textContent).toMatch(
-      /width:\s*min\(calc\(100vw - 160px\),\s*1274px\)/
-    );
+    expect(document.head.textContent).toMatch(/width:\s*min\(calc\(100vw - 160px\),\s*1274px\)/);
     expect(document.querySelector("video source[src='/assets/hlym/nvx-hero.mp4']")).not.toBeNull();
     expect(view.queryByLabelText("custom cursor")).not.toBeInTheDocument();
   });
@@ -62,14 +60,8 @@ describe("App", () => {
     expect(
       view.getByRole("region", { name: toSentenceCase(PRODUCT_HERO_VIDEO.ariaLabel) })
     ).toBeInTheDocument();
-    expect(
-      view.getByRole("region", { name: toSentenceCase(PRODUCT_PAGE_COPY.colorSectionAriaLabel) })
-    ).toBeInTheDocument();
-    expect(
-      view.getByRole("region", {
-        name: toSentenceCase(PRODUCT_PAGE_COPY.featuresSectionAriaLabel)
-      })
-    ).toBeInTheDocument();
+    expect(view.getByRole("region", { name: "Yamaha NVX overview" })).toBeInTheDocument();
+    expect(view.getByRole("region", { name: "Yamaha NVX full specification" })).toBeInTheDocument();
     expect(view.getByRole("heading", { name: "Yamaha NVX SP" })).toBeInTheDocument();
     expect(
       view.queryByRole("region", { name: toSentenceCase(SITE_COPY.hero.ariaLabel) })
