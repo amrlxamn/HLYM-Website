@@ -1,4 +1,5 @@
 import { describe, expect, it } from "vitest";
+import { PRODUCTION_HEADERS } from "@/config/deployment-headers.constants";
 import INDEX_HTML from "../../index.html?raw";
 import VERCEL_CONFIG from "../../vercel.json";
 
@@ -13,19 +14,29 @@ type VercelConfig = {
   }>;
 };
 
-const DEPLOY_HEADERS = new Map(
+const DEPLOY_HEADERS = new Map(Object.entries(PRODUCTION_HEADERS));
+const VERCEL_HEADERS = new Map(
   (VERCEL_CONFIG as VercelConfig).headers
     ?.flatMap((entry) => entry.headers ?? [])
     .map((header) => [header.key, header.value])
 );
 
 describe("security headers", () => {
-  it("keeps the public CSP restricted to required origins", () => {
+  it("keeps the deployment CSP restricted to required origins", () => {
+    const csp = DEPLOY_HEADERS.get("Content-Security-Policy") ?? "";
+    expect(csp).toContain("https://api.mapbox.com");
+    expect(csp).toContain("https://events.mapbox.com");
+    expect(csp).toContain("https://*.tiles.mapbox.com");
+    expect(csp).toContain("img-src 'self' data: blob: https://*.supabase.co");
+    expect(csp).toContain("media-src 'self' blob: https://*.supabase.co");
+    expect(csp).toContain("connect-src");
+    expect(csp).toContain("https://*.supabase.co");
     expect(INDEX_HTML).not.toMatch(/\bws:/);
     expect(INDEX_HTML).not.toMatch(/\bhttp:/);
-    expect(INDEX_HTML).toContain("https://api.mapbox.com");
-    expect(INDEX_HTML).toContain("https://events.mapbox.com");
-    expect(INDEX_HTML).toContain("https://*.tiles.mapbox.com");
+  });
+
+  it("keeps Vercel headers in parity with shared deployment headers", () => {
+    expect(VERCEL_HEADERS).toEqual(DEPLOY_HEADERS);
   });
 
   it("does not expose the implementation stack in public metadata", () => {
@@ -36,7 +47,7 @@ describe("security headers", () => {
 
   it("sets deployment headers for browser hardening", () => {
     expect(DEPLOY_HEADERS.get("Access-Control-Allow-Origin")).toBe(
-      "https://hlym-website-mockup.vercel.app"
+      "https://yamaha-motor.vercel.app"
     );
     expect(DEPLOY_HEADERS.get("Access-Control-Allow-Origin")).not.toBe("*");
     expect(DEPLOY_HEADERS.get("Content-Security-Policy")).toContain("frame-ancestors 'none'");
