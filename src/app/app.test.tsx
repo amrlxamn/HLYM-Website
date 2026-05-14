@@ -3,6 +3,7 @@ import { afterEach, describe, expect, it } from "vitest";
 import { App } from "@/app/app";
 import { PRODUCT_HERO_VIDEO } from "@/features/product-page";
 import { SITE_COPY } from "@/data/site-copy.constants";
+import { getAssetUrl } from "@/lib/get-asset-url";
 import { toSentenceCase } from "@/lib/to-sentence-case";
 import { siteTheme } from "@/theme/site-theme";
 
@@ -39,15 +40,19 @@ describe("App", () => {
 
     expect(footerWordmarks.some((node) => node.closest("[aria-hidden='true']"))).toBe(true);
     expect(
-      document.querySelector("img[src='/assets/hlym/footer-wordmark/y-stroke.svg']")
+      document.querySelector(`img[src='${getAssetUrl("hlym/footer-wordmark/y-stroke.svg")}']`)
     ).not.toBeNull();
-    expect(document.head.textContent).toContain("/assets/hlym/footer-wordmark/yamaha-mask.svg");
+    expect(document.head.textContent).toContain(
+      getAssetUrl("hlym/footer-wordmark/yamaha-mask.svg")
+    );
     expect(document.head.textContent).toMatch(/height:\s*clamp\(64px,\s*11\.1vw,\s*196px\)/);
     expect(document.head.textContent).toContain("--footer-wordmark-stroke-top");
     expect(siteTheme.typography.body).toBe('"Lato", Arial, sans-serif');
     expect(document.head.textContent).toMatch(/@media \(max-width:\s*980px\)/);
     expect(document.head.textContent).toMatch(/width:\s*min\(calc\(100vw - 160px\),\s*1274px\)/);
-    expect(document.querySelector("video source[src='/assets/hlym/nvx-hero.mp4']")).not.toBeNull();
+    expect(
+      document.querySelector(`video source[src='${getAssetUrl("hlym/nvx-hero.mp4")}']`)
+    ).not.toBeNull();
     expect(view.queryByLabelText("custom cursor")).not.toBeInTheDocument();
   });
 

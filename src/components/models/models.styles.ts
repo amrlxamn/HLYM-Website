@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { getAssetUrl } from "@/lib/get-asset-url";
 import { Container } from "@/styles/layout";
 
 export const ModelsSectionRoot = styled.section`
@@ -17,7 +18,7 @@ export const ModelsSectionRoot = styled.section`
 
 export const ModelsBackground = styled.div`
   background-color: #f8f8f8;
-  background-image: url("/assets/hlym/product-bg.jpg");
+  background-image: url("${getAssetUrl("hlym/product-bg.jpg")}");
   background-position: center;
   background-size: cover;
   inset: 0;

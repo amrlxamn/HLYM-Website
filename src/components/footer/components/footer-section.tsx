@@ -1,4 +1,5 @@
 import { SITE_COPY } from "@/data/site-copy.constants";
+import { getAssetUrl } from "@/lib/get-asset-url";
 import { toSentenceCase } from "@/lib/to-sentence-case";
 import { FooterBrand } from "./footer-brand";
 import { FooterColumns } from "./footer-columns";
@@ -30,8 +31,8 @@ export function FooterSection() {
           </FooterBottom>
           <FooterVideoWordmark
             label={footerCopy.watermark}
-            poster="/assets/hlym/nvx-360/frame-01.jpg"
-            src="/assets/hlym/nvx-hero.mp4"
+            poster={getAssetUrl("hlym/nvx-360/frame-01.jpg")}
+            src={getAssetUrl("hlym/nvx-hero.mp4")}
           />
         </FooterContent>
       </MainFooter>

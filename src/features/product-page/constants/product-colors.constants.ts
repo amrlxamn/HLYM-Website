@@ -1,28 +1,29 @@
 import type { ProductColorOption } from "../types/product-page.types";
+import { getAssetUrl } from "@/lib/get-asset-url";
 
 export const PRODUCT_COLOR_OPTIONS: readonly ProductColorOption[] = [
   {
     alt: "Yamaha NVX in Gunmetal Grey",
-    image: "/assets/hlym/nvx-colors/gunmetal-grey-transparent.webp",
+    image: getAssetUrl("hlym/nvx-colors/gunmetal-grey-transparent.webp"),
     label: "Gunmetal Grey",
-    swatch: "/assets/hlym/nvx-colors/gunmetal-grey-swatch.jpg"
+    swatch: getAssetUrl("hlym/nvx-colors/gunmetal-grey-swatch.jpg")
   },
   {
     alt: "Yamaha NVX in Cyber Blu",
-    image: "/assets/hlym/nvx-colors/cyber-blu-transparent.webp",
+    image: getAssetUrl("hlym/nvx-colors/cyber-blu-transparent.webp"),
     label: "Cyber Blu",
-    swatch: "/assets/hlym/nvx-colors/cyber-blu-swatch.jpg"
+    swatch: getAssetUrl("hlym/nvx-colors/cyber-blu-swatch.jpg")
   },
   {
     alt: "Yamaha NVX in Electric Yellow",
-    image: "/assets/hlym/nvx-colors/electric-yellow-transparent.webp",
+    image: getAssetUrl("hlym/nvx-colors/electric-yellow-transparent.webp"),
     label: "Electric Yellow",
-    swatch: "/assets/hlym/nvx-colors/electric-yellow-swatch.jpg"
+    swatch: getAssetUrl("hlym/nvx-colors/electric-yellow-swatch.jpg")
   },
   {
     alt: "Yamaha NVX in Violet Rush",
-    image: "/assets/hlym/nvx-colors/violet-rush-transparent.webp",
+    image: getAssetUrl("hlym/nvx-colors/violet-rush-transparent.webp"),
     label: "Violet Rush",
-    swatch: "/assets/hlym/nvx-colors/violet-rush-swatch.jpg"
+    swatch: getAssetUrl("hlym/nvx-colors/violet-rush-swatch.jpg")
   }
 ] as const;

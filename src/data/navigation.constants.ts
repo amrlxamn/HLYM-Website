@@ -1,15 +1,16 @@
 import type { LanguageOption, LinkItem, NavItem, SocialLink } from "@/data/site-content.types";
+import { getAssetUrl } from "@/lib/get-asset-url";
 
 export const LANGUAGE_OPTIONS: readonly LanguageOption[] = [
   {
     code: "en",
-    icon: "/assets/hlym/generated-1771862940399.png",
+    icon: getAssetUrl("hlym/generated-1771862940399.png"),
     isActive: true,
     label: "english flag"
   },
   {
     code: "bm",
-    icon: "/assets/hlym/generated-1771862950783.png",
+    icon: getAssetUrl("hlym/generated-1771862950783.png"),
     isActive: false,
     label: "bahasa malaysia flag"
   }

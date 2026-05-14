@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { getAssetUrl } from "@/lib/get-asset-url";
 import { Container } from "@/styles/layout";
 
 export const ProductShowcasePageRoot = styled.section`
@@ -8,8 +9,8 @@ export const ProductShowcasePageRoot = styled.section`
   position: relative;
 
   &::before {
-    background: url("/assets/hlym/product-backgrounds/nvx-red-wave.png") center 48% / cover
-      no-repeat;
+    background: url("${getAssetUrl("hlym/product-backgrounds/nvx-red-wave.png")}") center 48% /
+      cover no-repeat;
     content: "";
     inset: 0;
     opacity: 0.28;

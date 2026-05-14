@@ -1,4 +1,5 @@
 import type { HeroSlide } from "@/data/site-content.types";
+import { getAssetUrl } from "@/lib/get-asset-url";
 
 export const HERO_SLIDES: readonly HeroSlide[] = [
   {
@@ -7,7 +8,7 @@ export const HERO_SLIDES: readonly HeroSlide[] = [
     ctaLabel: "explore model",
     description: "experience raw power meets precision engineering. 200hp of pure adrenaline.",
     eyebrow: "introducing the 2025 venom r1",
-    image: "/assets/hlym/generated-1771864038849.png",
+    image: getAssetUrl("hlym/generated-1771864038849.png"),
     indexLabel: "01",
     price: "rm110,000",
     stats: [
@@ -26,7 +27,7 @@ export const HERO_SLIDES: readonly HeroSlide[] = [
     description:
       "torque-rich acceleration, sharper electronics, and a hyper naked stance that owns the road.",
     eyebrow: "hyper naked performance",
-    image: "/assets/hlym/generated-1772089393521.png",
+    image: getAssetUrl("hlym/generated-1772089393521.png"),
     indexLabel: "02",
     price: "rm57,998",
     stats: [
@@ -46,7 +47,7 @@ export const HERO_SLIDES: readonly HeroSlide[] = [
       "premium urban mobility with connected tech, practical comfort, and everyday " +
       "yamaha refinement.",
     eyebrow: "smart mobility redefined",
-    image: "/assets/hlym/generated-1772089340820.png",
+    image: getAssetUrl("hlym/generated-1772089340820.png"),
     indexLabel: "03",
     price: "rm9,998",
     stats: [

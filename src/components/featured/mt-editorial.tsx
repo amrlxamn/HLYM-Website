@@ -2,6 +2,7 @@ import { Gauge, ShieldCheck, Zap } from "lucide-react";
 import { SectionTag } from "@/components/shared/section-tag";
 import { EDITORIAL_POINTS } from "@/data/featured.constants";
 import { SITE_COPY } from "@/data/site-copy.constants";
+import { getAssetUrl } from "@/lib/get-asset-url";
 import { toSentenceCase } from "@/lib/to-sentence-case";
 import {
   MtAccentHeading,
@@ -32,7 +33,7 @@ export function MtEditorial() {
       <MtImageWrap>
         <img
           loading="lazy"
-          src="/assets/hlym/generated-1772089393521.png"
+          src={getAssetUrl("hlym/generated-1772089393521.png")}
           alt={toSentenceCase(editorialCopy.imageAlt)}
         />
         <MtOverlay />

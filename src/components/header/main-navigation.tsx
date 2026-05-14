@@ -1,6 +1,7 @@
 import { ChevronDown, Menu, Search, X } from "lucide-react";
 import { NAV_LINKS } from "@/data/navigation.constants";
 import { SITE_COPY } from "@/data/site-copy.constants";
+import { getAssetUrl } from "@/lib/get-asset-url";
 import { toSentenceCase } from "@/lib/to-sentence-case";
 import { getMenuToggleLabel } from "./get-menu-toggle-label";
 import { useMainNavigationState } from "./use-main-navigation-state";
@@ -27,7 +28,7 @@ export function MainNavigation() {
     <MainNavBar>
       <MainNavInner>
         <NavLeft href="/" aria-label={toSentenceCase(headerCopy.logoLinkAriaLabel)}>
-          <MainLogo src="/assets/hlym/image.png" alt={toSentenceCase(headerCopy.logoAlt)} />
+          <MainLogo src={getAssetUrl("hlym/image.png")} alt={toSentenceCase(headerCopy.logoAlt)} />
         </NavLeft>
         <NavRight $isOpen={isMenuOpen} id="primaryNav">
           <NavLinks aria-label={toSentenceCase(headerCopy.mainNavigationAriaLabel)}>

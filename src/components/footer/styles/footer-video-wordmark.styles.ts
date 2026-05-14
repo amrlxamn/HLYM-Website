@@ -1,6 +1,7 @@
 import styled from "styled-components";
+import { getAssetUrl } from "@/lib/get-asset-url";
 
-const YAMAHA_TEXT_MASK = 'url("/assets/hlym/footer-wordmark/yamaha-mask.svg")';
+const YAMAHA_TEXT_MASK = `url("${getAssetUrl("hlym/footer-wordmark/yamaha-mask.svg")}")`;
 const FIGMA_WORDMARK_HEIGHT = "clamp(64px, 11.1vw, 196px)";
 const FIGMA_WORDMARK_STROKE_TOP = "-11px";
 const FIGMA_WORDMARK_WIDTH = "min(calc(100vw - 160px), 1274px)";

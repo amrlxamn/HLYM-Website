@@ -6,6 +6,7 @@ import {
   PRODUCT_PAGE_MODELS,
   ProductShowcasePage
 } from "@/features/product-page";
+import { getAssetUrl } from "@/lib/get-asset-url";
 
 describe("ProductShowcasePage", () => {
   it("renders a clean nvx 360 viewer without category controls", async () => {
@@ -38,21 +39,21 @@ describe("ProductShowcasePage", () => {
     await user.keyboard("[ArrowRight]");
     expect(view.queryByText("2 / 8")).toBeNull();
     expect(document.head.textContent).toContain(
-      "/assets/hlym/product-backgrounds/nvx-red-wave.png"
+      getAssetUrl("hlym/product-backgrounds/nvx-red-wave.png")
     );
     expect(document.head.textContent).toContain("opacity:0.28");
   });
 
   it("keeps the nvx frames in smooth rotation order", () => {
     expect(PRODUCT_PAGE_MODELS[0]?.frames).toEqual([
-      "/assets/hlym/nvx-360-transparent/frame-06.png",
-      "/assets/hlym/nvx-360-transparent/frame-01.png",
-      "/assets/hlym/nvx-360-transparent/frame-05.png",
-      "/assets/hlym/nvx-360-transparent/frame-04.png",
-      "/assets/hlym/nvx-360-transparent/frame-03.png",
-      "/assets/hlym/nvx-360-transparent/frame-02.png",
-      "/assets/hlym/nvx-360-transparent/frame-08.png",
-      "/assets/hlym/nvx-360-transparent/frame-07.png"
+      getAssetUrl("hlym/nvx-360-transparent/frame-06.png"),
+      getAssetUrl("hlym/nvx-360-transparent/frame-01.png"),
+      getAssetUrl("hlym/nvx-360-transparent/frame-05.png"),
+      getAssetUrl("hlym/nvx-360-transparent/frame-04.png"),
+      getAssetUrl("hlym/nvx-360-transparent/frame-03.png"),
+      getAssetUrl("hlym/nvx-360-transparent/frame-02.png"),
+      getAssetUrl("hlym/nvx-360-transparent/frame-08.png"),
+      getAssetUrl("hlym/nvx-360-transparent/frame-07.png")
     ]);
   });
 });

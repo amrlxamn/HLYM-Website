@@ -1,0 +1,2 @@
+-- Seed data for local Supabase resets.
+-- Keep this file free of production data and secrets.

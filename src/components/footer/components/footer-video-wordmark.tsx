@@ -1,3 +1,4 @@
+import { getAssetUrl } from "@/lib/get-asset-url";
 import {
   FooterVideoWordmarkFallback,
   FooterVideoWordmarkLetter,
@@ -23,7 +24,7 @@ export function FooterVideoWordmark({ label, poster, src }: FooterVideoWordmarkP
           $top={-5}
           $width={203.811}
           alt=""
-          src="/assets/hlym/footer-wordmark/y-stroke.svg"
+          src={getAssetUrl("hlym/footer-wordmark/y-stroke.svg")}
         />
         <FooterVideoWordmarkLetter
           $height={200.363}
@@ -31,7 +32,7 @@ export function FooterVideoWordmark({ label, poster, src }: FooterVideoWordmarkP
           $top={-5}
           $width={208.032}
           alt=""
-          src="/assets/hlym/footer-wordmark/a-stroke.svg"
+          src={getAssetUrl("hlym/footer-wordmark/a-stroke.svg")}
         />
         <FooterVideoWordmarkLetter
           $height={200.363}
@@ -39,7 +40,7 @@ export function FooterVideoWordmark({ label, poster, src }: FooterVideoWordmarkP
           $top={-5}
           $width={230.278}
           alt=""
-          src="/assets/hlym/footer-wordmark/m-stroke.svg"
+          src={getAssetUrl("hlym/footer-wordmark/m-stroke.svg")}
         />
         <FooterVideoWordmarkLetter
           $height={200.363}
@@ -47,7 +48,7 @@ export function FooterVideoWordmark({ label, poster, src }: FooterVideoWordmarkP
           $top={-5}
           $width={208.032}
           alt=""
-          src="/assets/hlym/footer-wordmark/a-stroke.svg"
+          src={getAssetUrl("hlym/footer-wordmark/a-stroke.svg")}
         />
         <FooterVideoWordmarkLetter
           $height={200.363}
@@ -55,7 +56,7 @@ export function FooterVideoWordmark({ label, poster, src }: FooterVideoWordmarkP
           $top={-5}
           $width={181.188}
           alt=""
-          src="/assets/hlym/footer-wordmark/h-stroke.svg"
+          src={getAssetUrl("hlym/footer-wordmark/h-stroke.svg")}
         />
         <FooterVideoWordmarkLetter
           $height={200.363}
@@ -63,7 +64,7 @@ export function FooterVideoWordmark({ label, poster, src }: FooterVideoWordmarkP
           $top={-5}
           $width={208.032}
           alt=""
-          src="/assets/hlym/footer-wordmark/a-stroke.svg"
+          src={getAssetUrl("hlym/footer-wordmark/a-stroke.svg")}
         />
       </FooterVideoWordmarkStrokeLayer>
       <FooterVideoWordmarkVideo autoPlay loop muted playsInline poster={poster} preload="metadata">

@@ -1,4 +1,5 @@
 import { AnimatePresence } from "framer-motion";
+import { getAssetUrl } from "@/lib/get-asset-url";
 import { SplashContent, SplashLogo, SplashOverlay, SplashRedLine } from "./splash.styles";
 
 const EASING = [0.22, 1, 0.36, 1] as const;
@@ -34,7 +35,7 @@ export function SplashScreen({ isVisible, onComplete }: SplashScreenProps) {
               alt="Hong Leong Yamaha Motor"
               animate={{ opacity: 1, scale: 1 }}
               initial={{ opacity: 0, scale: 0.96 }}
-              src="/assets/logo.png"
+              src={getAssetUrl("logo.png")}
               transition={{ delay: 0.3, duration: 0.8, ease: EASING }}
             />
             <SplashRedLine

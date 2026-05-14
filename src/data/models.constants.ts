@@ -1,4 +1,5 @@
 import type { ModelCard, ModelCategory } from "@/data/site-content.types";
+import { getAssetUrl } from "@/lib/get-asset-url";
 
 export const MODEL_TABS: readonly Exclude<ModelCategory, "all models">[] = [
   "moped",
@@ -15,7 +16,7 @@ export const MODELS: readonly ModelCard[] = [
     category: "street",
     detailHref: "#featured-model",
     engine: "155cc",
-    image: "/assets/hlym/generated-1772088891491.png",
+    image: getAssetUrl("hlym/generated-1772088891491.png"),
     name: "yzf-r15m",
     power: "19.3 ps",
     price: "rm14,998",
@@ -28,7 +29,7 @@ export const MODELS: readonly ModelCard[] = [
     category: "automatic",
     detailHref: "#featured-model",
     engine: "155cc",
-    image: "/assets/hlym/generated-1772088898269.png",
+    image: getAssetUrl("hlym/generated-1772088898269.png"),
     name: "nvx 155",
     power: "15.4 ps",
     price: "rm11,998",
@@ -41,7 +42,7 @@ export const MODELS: readonly ModelCard[] = [
     category: "big bikes",
     detailHref: "#featured-model",
     engine: "890cc",
-    image: "/assets/hlym/generated-1772088892507.png",
+    image: getAssetUrl("hlym/generated-1772088892507.png"),
     name: "mt-09",
     power: "119 ps",
     price: "rm57,998",
@@ -55,7 +56,7 @@ export const MODELS: readonly ModelCard[] = [
     compact: true,
     detailHref: "#featured-model",
     engine: "149cc",
-    image: "/assets/hlym/generated-1772088894678.png",
+    image: getAssetUrl("hlym/generated-1772088894678.png"),
     name: "y15zr",
     power: "15.4 ps",
     price: "rm9,498",
@@ -69,7 +70,7 @@ export const MODELS: readonly ModelCard[] = [
     compact: true,
     detailHref: "#featured-model",
     engine: "562cc",
-    image: "/assets/hlym/generated-1772088896897.png",
+    image: getAssetUrl("hlym/generated-1772088896897.png"),
     name: "tmax 560",
     power: "47.6 ps",
     price: "rm75,888",
