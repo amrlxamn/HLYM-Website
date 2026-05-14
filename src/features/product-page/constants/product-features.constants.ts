@@ -1,4 +1,5 @@
 import type { ProductFeature } from "../types/product-page.types";
+import { getAssetUrl } from "@/lib/get-asset-url";
 
 export const PRODUCT_FEATURES: readonly ProductFeature[] = [
   {
@@ -6,7 +7,7 @@ export const PRODUCT_FEATURES: readonly ProductFeature[] = [
       "Connect through Yamaha Y-Connect to track maintenance, alerts, fuel use, battery status, parking location, calls, and messages.",
     eyebrow: "01",
     id: "y-connect",
-    image: "/assets/hlym/nvx-features/y-connect.jpg",
+    image: getAssetUrl("hlym/nvx-features/y-connect.jpg"),
     imageAlt: "Yamaha NVX Y-Connect display feature",
     title: "Y-CONNECT"
   },
@@ -15,7 +16,7 @@ export const PRODUCT_FEATURES: readonly ProductFeature[] = [
       "YECVT 155cc Blue Core and VVA engine tuning with Downshift technology for stronger urban response.",
     eyebrow: "PERTAMA DALAM KELASNYA!",
     id: "downshift",
-    image: "/assets/hlym/nvx-features/downshift.jpg",
+    image: getAssetUrl("hlym/nvx-features/downshift.jpg"),
     imageAlt: "Yamaha NVX Downshift technology feature",
     title: "ENJIN YECVT 155CC BLUE CORE, VVA DENGAN TEKNOLOGI DOWNSHIFT"
   },
@@ -23,7 +24,7 @@ export const PRODUCT_FEATURES: readonly ProductFeature[] = [
     description: "Sports Mode and Town Mode let riders choose the response that matches the route.",
     eyebrow: "PERTAMA DALAM KELASNYA!",
     id: "riding-modes",
-    image: "/assets/hlym/nvx-features/riding-modes.jpg",
+    image: getAssetUrl("hlym/nvx-features/riding-modes.jpg"),
     imageAlt: "Yamaha NVX riding mode selector feature",
     title: "PILIHAN MOD MENUNGGANG"
   },
@@ -32,7 +33,7 @@ export const PRODUCT_FEATURES: readonly ProductFeature[] = [
       "Emergency Stop Signal alerts surrounding traffic during sudden braking for better road awareness.",
     eyebrow: "(ESS)",
     id: "emergency-stop-signal",
-    image: "/assets/hlym/nvx-features/emergency-stop-signal.jpg",
+    image: getAssetUrl("hlym/nvx-features/emergency-stop-signal.jpg"),
     imageAlt: "Yamaha NVX Emergency Stop Signal feature",
     title: "ISYARAT BERHENTI KECEMASAN"
   },
@@ -41,7 +42,7 @@ export const PRODUCT_FEATURES: readonly ProductFeature[] = [
       "Three display modes with adjustable background color keep ride information clear and personal.",
     eyebrow: "3 MOD",
     id: "display-modes",
-    image: "/assets/hlym/nvx-features/display-modes.jpg",
+    image: getAssetUrl("hlym/nvx-features/display-modes.jpg"),
     imageAlt: "Yamaha NVX adjustable display background feature",
     title: "PAPARAN DENGAN WARNA LATAR BELAKANG BOLEH UBAH"
   },
@@ -50,7 +51,7 @@ export const PRODUCT_FEATURES: readonly ProductFeature[] = [
       "Traction Control System helps manage rear-wheel grip for more confident acceleration.",
     eyebrow: "(TCS)",
     id: "traction-control",
-    image: "/assets/hlym/nvx-features/traction-control.jpg",
+    image: getAssetUrl("hlym/nvx-features/traction-control.jpg"),
     imageAlt: "Yamaha NVX Traction Control System feature",
     title: "SISTEM KAWALAN CENGKAMAN"
   }

@@ -4,12 +4,13 @@ import type {
   FeaturedCard,
   FeaturedModelSpotlight
 } from "@/data/site-content.types";
+import { getAssetUrl } from "@/lib/get-asset-url";
 
 export const FEATURED_CARDS: readonly FeaturedCard[] = [
   {
     alt: "nmax",
     description: "redefining urban commuting with premium comfort and connected technology.",
-    image: "/assets/hlym/generated-1772089340820.png",
+    image: getAssetUrl("hlym/generated-1772089340820.png"),
     name: "nmax",
     price: "from rm9,998",
     tag: "automatic"
@@ -18,7 +19,7 @@ export const FEATURED_CARDS: readonly FeaturedCard[] = [
     alt: "ego avantiz",
     description:
       "smart, stylish, and fuel-efficient. the perfect everyday companion for the modern rider.",
-    image: "/assets/hlym/generated-1772089352798.png",
+    image: getAssetUrl("hlym/generated-1772089352798.png"),
     name: "ego avantiz",
     price: "from rm5,560",
     tag: "automatic"
@@ -44,7 +45,7 @@ export const CATEGORY_TILES: readonly CategoryTile[] = [
   {
     alt: "yzf-r25",
     href: "#models",
-    image: "/assets/hlym/generated-1772089477186.png",
+    image: getAssetUrl("hlym/generated-1772089477186.png"),
     name: "yzf-r25",
     price: "from rm21,998",
     tag: "street"
@@ -52,7 +53,7 @@ export const CATEGORY_TILES: readonly CategoryTile[] = [
   {
     alt: "tenéré 700",
     href: "#models",
-    image: "/assets/hlym/generated-1772089478568.png",
+    image: getAssetUrl("hlym/generated-1772089478568.png"),
     name: "tenéré 700",
     price: "from rm73,888",
     tag: "big bikes"
@@ -60,7 +61,7 @@ export const CATEGORY_TILES: readonly CategoryTile[] = [
   {
     alt: "tracer 9 gt",
     href: "#models",
-    image: "/assets/hlym/generated-1772089479158.png",
+    image: getAssetUrl("hlym/generated-1772089479158.png"),
     name: "tracer 9 gt",
     price: "from rm73,888",
     tag: "big bikes"
@@ -68,12 +69,12 @@ export const CATEGORY_TILES: readonly CategoryTile[] = [
 ] as const;
 
 const TRACER_360_FRAMES: readonly string[] = [
-  "/assets/hlym/tracer-9-gt-360/frame-005.png", // 0°   — direct front
-  "/assets/hlym/tracer-9-gt-360/frame-003.png", // 60°  — front 3/4 right
-  "/assets/hlym/tracer-9-gt-360/frame-006.png", // 90°  — left side profile
-  "/assets/hlym/tracer-9-gt-360/frame-004.png", // 180° — direct rear
-  "/assets/hlym/tracer-9-gt-360/frame-001.png", // 225° — rear 3/4 right
-  "/assets/hlym/tracer-9-gt-360/frame-002.png" // 270° — right side profile
+  getAssetUrl("hlym/tracer-9-gt-360/frame-005.png"), // 0°   — direct front
+  getAssetUrl("hlym/tracer-9-gt-360/frame-003.png"), // 60°  — front 3/4 right
+  getAssetUrl("hlym/tracer-9-gt-360/frame-006.png"), // 90°  — left side profile
+  getAssetUrl("hlym/tracer-9-gt-360/frame-004.png"), // 180° — direct rear
+  getAssetUrl("hlym/tracer-9-gt-360/frame-001.png"), // 225° — rear 3/4 right
+  getAssetUrl("hlym/tracer-9-gt-360/frame-002.png") // 270° — right side profile
 ];
 
 export const FEATURED_MODEL_SPOTLIGHT: FeaturedModelSpotlight = {
@@ -110,7 +111,7 @@ export const FEATURED_MODEL_SPOTLIGHT: FeaturedModelSpotlight = {
     "long-distance versatility — a true road conqueror with 890cc crossplane power and " +
     "intelligent electronics for every journey.",
   frames: TRACER_360_FRAMES,
-  image: "/assets/hlym/tracer-9-gt-spotlight.png",
+  image: getAssetUrl("hlym/tracer-9-gt-spotlight.png"),
   name: "tracer 9 gt",
   price: "from rm71,888",
   tagLabel: "sport touring"

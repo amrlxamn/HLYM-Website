@@ -1,4 +1,5 @@
 import type { ProductOverviewColor, ProductOverviewContent } from "../types/product-page.types";
+import { getAssetUrl } from "@/lib/get-asset-url";
 
 export const PRODUCT_OVERVIEW_CONTENT: ProductOverviewContent = {
   description:
@@ -30,7 +31,7 @@ export const PRODUCT_OVERVIEW_COLORS: readonly ProductOverviewColor[] = [
     accentColor: "var(--red)",
     alt: "Yamaha NVX in Gunmetal Grey",
     description: "Signature edition. Loud, proud, unapologetic.",
-    image: "/assets/hlym/nvx/gunmetal-grey.png",
+    image: getAssetUrl("hlym/nvx/gunmetal-grey.png"),
     isFeatured: true,
     label: "Gunmetal Grey"
   },
@@ -38,21 +39,21 @@ export const PRODUCT_OVERVIEW_COLORS: readonly ProductOverviewColor[] = [
     accentColor: "var(--color-bg-primary)",
     alt: "Yamaha NVX in Cyber Blu",
     description: "Stealth meets sophistication. For the night riders.",
-    image: "/assets/hlym/nvx/cyber-blu.png",
+    image: getAssetUrl("hlym/nvx/cyber-blu.png"),
     label: "Cyber Blu"
   },
   {
     accentColor: "var(--product-color-violet-rush)",
     alt: "Yamaha NVX in Violet Rush",
     description: "Depth and dimension. A study in cool restraint.",
-    image: "/assets/hlym/nvx/violet-rush.png",
+    image: getAssetUrl("hlym/nvx/violet-rush.png"),
     label: "Violet Rush"
   },
   {
     accentColor: "var(--product-color-electric-yellow)",
     alt: "Yamaha NVX in Electric Yellow",
     description: "Industrial elegance. A modern classic, recast.",
-    image: "/assets/hlym/nvx/electric-yellow.png",
+    image: getAssetUrl("hlym/nvx/electric-yellow.png"),
     label: "Electric Yellow"
   }
 ] as const;

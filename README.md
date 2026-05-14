@@ -23,6 +23,55 @@ npm run build
 npm run security:scan
 ```
 
+## Supabase CLI
+
+The repository includes Supabase local development config in `supabase/`.
+Install the Supabase CLI locally with Homebrew or another supported installer,
+then verify it is available:
+
+```bash
+supabase --version
+```
+
+Local development commands:
+
+```bash
+npm run supabase:start
+npm run supabase:status
+npm run supabase:db:reset
+npm run supabase:assets:sync
+npm run supabase:stop
+```
+
+`supabase:assets:sync` uploads everything under `public/assets/` and `assets/`
+to the public `site-assets` bucket. The frontend reads asset URLs from
+`VITE_SUPABASE_URL` and `VITE_SUPABASE_ASSET_BUCKET`; when those values are not
+set it falls back to local `/assets/` paths for development safety.
+
+The default start command excludes Supabase's local `vector` and `logflare`
+containers because they bind-mount the Docker socket. On Colima, that mount can
+fail with `operation not supported` while creating
+`~/.colima/default/docker.sock`. The database, auth, REST, storage, Studio, and
+email testing services still run with the default command.
+
+Use the full logging stack only when your Docker runtime supports that socket
+mount:
+
+```bash
+npm run supabase:start:full
+```
+
+Remote project linking is intentionally not committed. After setting
+`SUPABASE_PROJECT_REF` in your local `.env`, link the CLI session with:
+
+```bash
+supabase login
+supabase link --project-ref "$SUPABASE_PROJECT_REF"
+```
+
+Do not commit access tokens, service role keys, local database dumps, or
+generated `.temp` Supabase state.
+
 ## Structure
 
 - `src/app/`: top-level application composition
@@ -46,6 +95,12 @@ Required variables:
 - `WEBFLOW_SITE_ID`: site id for `webflow devlink sync`
 - `WEBFLOW_SITE_API_TOKEN`: site API token for `webflow devlink sync`
 - `WEBFLOW_WORKSPACE_API_TOKEN`: workspace API token for `webflow library share`
+- `VITE_SUPABASE_URL`: Supabase API URL for local or hosted environments
+- `VITE_SUPABASE_ANON_KEY`: public anon key for browser-side Supabase clients
+- `VITE_SUPABASE_ASSET_BUCKET`: public storage bucket used by site assets
+- `SUPABASE_ASSET_BUCKET`: storage bucket targeted by the asset sync script
+- `SUPABASE_SERVICE_ROLE_KEY`: local-only key used by the asset sync script
+- `SUPABASE_PROJECT_REF`: local-only project ref used by `supabase link`
 
 Configured files:
 
