@@ -1,0 +1,136 @@
+{
+  "name": "Webflow Contact Enquiry to CRM",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "webflow-contact-enquiry",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "WebhookTrigger",
+      "name": "Webflow Contact Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        -760,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "const body = $json.body ?? $json;\nconst requiredFields = ['name', 'email', 'phone', 'topic', 'message', 'submissionId'];\nconst missingFields = requiredFields.filter((field) => !body[field]);\n\nif (missingFields.length > 0) {\n  throw new Error(`Missing required fields: ${missingFields.join(', ')}`);\n}\n\nif (body.consent !== true && body.consent !== 'true') {\n  throw new Error('Consent is required');\n}\n\nconst email = String(body.email).trim().toLowerCase();\nconst name = String(body.name).trim();\nconst [firstName, ...lastNameParts] = name.split(/\\s+/);\nconst lastName = lastNameParts.join(' ');\nconst phone = String(body.phone).trim();\nconst preferredBranch = body.preferredBranch || 'unknown';\nconst source = body.source || $env.CRM_DEFAULT_SOURCE || 'webflow-contact-page';\n\nreturn [{\n  json: {\n    provider: $env.CRM_PROVIDER || 'gencode-crm',\n    submissionId: String(body.submissionId),\n    source,\n    receivedAt: new Date().toISOString(),\n    contact: {\n      name,\n      firstName: firstName || name,\n      lastName,\n      email,\n      phone,\n      title: body.title || '',\n      ownerType: body.ownerType || ''\n    },\n    enquiry: {\n      topic: String(body.topic),\n      message: String(body.message),\n      preferredBranch,\n      vehicleModel: body.vehicleModel || '',\n      yearOfPurchase: body.yearOfPurchase || ''\n    },\n    crmPayload: {\n      name: {\n        firstName: firstName || name,\n        lastName\n      },\n      emails: {\n        primaryEmail: email,\n        additionalEmails: []\n      },\n      phones: {\n        primaryPhoneNumber: phone,\n        primaryPhoneCountryCode: '',\n        additionalPhones: []\n      },\n      city: preferredBranch === 'unknown' ? null : preferredBranch,\n      jobTitle: `Website enquiry: ${body.topic}`\n    }\n  }\n}];"
+      },
+      "id": "NormalizePayload",
+      "name": "Validate and Normalize Payload",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -500,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{$env.CRM_LEAD_ENDPOINT_URL}}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{$env.CRM_API_KEY}}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "name": "Idempotency-Key",
+              "value": "={{$json.submissionId}}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{$json.crmPayload}}",
+        "options": {
+          "response": {
+            "response": {
+              "fullResponse": true
+            }
+          }
+        }
+      },
+      "id": "CreateCrmContact",
+      "name": "Create CRM Contact",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -220,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ {\n  success: true,\n  submissionId: $('Validate and Normalize Payload').item.json.submissionId,\n  provider: $('Validate and Normalize Payload').item.json.provider,\n  crmStatusCode: $json.statusCode\n} }}",
+        "options": {
+          "responseCode": 202
+        }
+      },
+      "id": "SuccessResponse",
+      "name": "Return Success",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        60,
+        0
+      ]
+    }
+  ],
+  "connections": {
+    "Webflow Contact Webhook": {
+      "main": [
+        [
+          {
+            "node": "Validate and Normalize Payload",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Validate and Normalize Payload": {
+      "main": [
+        [
+          {
+            "node": "Create CRM Contact",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create CRM Contact": {
+      "main": [
+        [
+          {
+            "node": "Return Success",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2026-05-28T00:00:00.000Z",
+  "versionId": "webflow-contact-to-crm-template"
+}

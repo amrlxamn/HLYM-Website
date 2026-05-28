@@ -1,4 +1,5 @@
 export type ContactHeroCard = {
+  backgroundImage?: string;
   ctaHref: string;
   ctaLabel: string;
   number: string;
@@ -33,3 +34,10 @@ export type ContactFaqContent = {
   title: string;
   topics: readonly string[];
 };
+
+export type ContactEnquiryPanelProps = {
+  isOpen: boolean;
+  onClose: () => void;
+};
+
+export type ContactEnquiryStatus = "idle" | "loading" | "success" | "error";

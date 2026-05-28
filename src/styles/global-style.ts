@@ -18,6 +18,7 @@ export const GlobalStyle = createGlobalStyle`
     --color-text-muted-light: ${({ theme }) => theme.colors.text.mutedOnLight};
     --color-text-neutral-dark: ${({ theme }) => theme.colors.text.neutralOnDark};
     --color-text-primary: ${({ theme }) => theme.colors.text.primary};
+    --color-text-readable-dark: ${({ theme }) => theme.colors.text.readableOnDark};
     --color-text-soft-dark: ${({ theme }) => theme.colors.text.softOnDark};
     --color-text-subtle: ${({ theme }) => theme.colors.text.subtle};
     --color-text-wash-dark: ${({ theme }) => theme.colors.text.washOnDark};

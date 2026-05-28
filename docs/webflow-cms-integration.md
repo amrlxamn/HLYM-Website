@@ -6,6 +6,7 @@ This repo supports a hybrid Webflow workflow:
 2. Webflow hosts the editable website and CMS.
 3. Admins manage product content in Webflow CMS.
 4. Developers publish advanced React sections as Webflow Code Components.
+5. n8n handles form and CRM handoffs so Webflow does not store API secrets.
 
 This is not a one-click import of the Vite app into native Webflow elements. Webflow pages and
 Collection templates still need to be assembled in Webflow, then bound to CMS fields and Code
@@ -78,9 +79,21 @@ Product colors:
 - Product showcase currently supports 8 360-frame props.
 - Product colors currently supports up to 4 colors.
 - Webflow API tokens must not be used in browser code.
+- CRM API tokens must stay in n8n or another server-only boundary.
 - Heavy interaction logic stays in code; admins edit content and media only.
 - For products that need more than 8 frames or more than 4 colors, extend the Code Component prop
   contract first and publish a new component version.
+
+## Support Model
+
+- L1 works in Webflow for content, CMS, SEO, and simple form checks.
+- L2 works across Webflow and this repository for Code Components, CMS mapping,
+  and n8n workflow templates.
+- L3 owns n8n hosting, CRM credentials, GenCode CRM endpoint validation, and
+  production integration incidents.
+
+Use `docs/webflow-migration-operating-model.md` as the source of truth for the
+support split and backend decision.
 
 ## Developer Workflow
 

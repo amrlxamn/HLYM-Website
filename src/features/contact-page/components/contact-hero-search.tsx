@@ -7,12 +7,17 @@ import {
 
 type ContactHeroSearchProps = {
   ariaLabel: string;
+  backgroundImage: string;
   placeholder: string;
 };
 
-export function ContactHeroSearch({ ariaLabel, placeholder }: ContactHeroSearchProps) {
+export function ContactHeroSearch({
+  ariaLabel,
+  backgroundImage,
+  placeholder
+}: ContactHeroSearchProps) {
   return (
-    <ContactHeroSearchRoot role="search">
+    <ContactHeroSearchRoot $backgroundImage={backgroundImage} role="search">
       <ContactHeroSearchIcon aria-hidden="true">
         <Search />
       </ContactHeroSearchIcon>

@@ -1,4 +1,5 @@
 import { toSentenceCase } from "@/lib/to-sentence-case";
+import { useState } from "react";
 import { CONTACT_HERO_CONTENT } from "../constants/contact-hero.constants";
 import {
   ContactHeroBackground,
@@ -13,6 +14,7 @@ import {
 } from "../styles/contact-hero-shell.styles";
 import type { ContactHeroContent } from "../types/contact-page.types";
 import { ContactHeroSearch } from "./contact-hero-search";
+import { ContactEnquiryPanel } from "./contact-enquiry-panel";
 import { ContactSupportCard } from "./contact-support-card";
 
 type ContactHeroSectionProps = {
@@ -20,6 +22,8 @@ type ContactHeroSectionProps = {
 };
 
 export function ContactHeroSection({ content = CONTACT_HERO_CONTENT }: ContactHeroSectionProps) {
+  const [isEnquiryPanelOpen, setIsEnquiryPanelOpen] = useState(false);
+
   return (
     <ContactHeroRoot aria-label={toSentenceCase(content.ariaLabel)} data-cursor-tone="light">
       <ContactHeroBackground
@@ -34,15 +38,28 @@ export function ContactHeroSection({ content = CONTACT_HERO_CONTENT }: ContactHe
           <ContactHeroCopy>{content.description}</ContactHeroCopy>
           <ContactHeroSearch
             ariaLabel={toSentenceCase(content.searchAriaLabel)}
+            backgroundImage={content.backgroundImage}
             placeholder={content.searchPlaceholder}
           />
         </ContactHeroContentPanel>
         <ContactHeroCardGrid>
           {content.cards.map((card) => (
-            <ContactSupportCard card={card} key={card.number} />
+            <ContactSupportCard
+              card={card}
+              key={card.number}
+              onEnquiryClick={() => {
+                setIsEnquiryPanelOpen(true);
+              }}
+            />
           ))}
         </ContactHeroCardGrid>
       </ContactHeroInner>
+      <ContactEnquiryPanel
+        isOpen={isEnquiryPanelOpen}
+        onClose={() => {
+          setIsEnquiryPanelOpen(false);
+        }}
+      />
     </ContactHeroRoot>
   );
 }

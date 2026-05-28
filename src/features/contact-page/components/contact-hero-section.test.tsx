@@ -5,7 +5,7 @@ import { ContactHeroSection } from "@/features/contact-page";
 import { CONTACT_HERO_CONTENT } from "../constants/contact-hero.constants";
 
 describe("ContactHeroSection", () => {
-  it("renders the contact support hero and office action cards", async () => {
+  it("renders the contact support hero and action cards", async () => {
     const user = userEvent.setup();
     const view = render(<ContactHeroSection />);
 
@@ -30,18 +30,18 @@ describe("ContactHeroSection", () => {
     expect(view.getAllByText("Got any").length).toBeGreaterThan(0);
     expect(view.getAllByText("enquiry?").length).toBeGreaterThan(0);
 
-    CONTACT_HERO_CONTENT.cards.forEach((card) => {
-      const cardLinks = view
-        .getAllByRole("link", { name: new RegExp(card.ctaLabel, "i") })
-        .filter((link) => link.getAttribute("href") === card.ctaHref);
+    expect(view.queryByRole("dialog")).not.toBeInTheDocument();
+    expect(view.getAllByRole("link", { name: /view locations/i })).toHaveLength(5);
 
-      expect(cardLinks.length).toBeGreaterThan(0);
-    });
+    await user.click(view.getByRole("button", { name: /submit to us/i }));
 
-    const selangorCard = view.getByRole("button", { name: "Selangor Office" });
-    expect(selangorCard).toHaveAttribute("aria-pressed", "false");
-
-    await user.click(selangorCard);
-    expect(selangorCard).toHaveAttribute("aria-pressed", "true");
+    expect(
+      view.getByRole("dialog", {
+        name: /got any enquiry/i
+      })
+    ).toBeInTheDocument();
+    expect(view.getByLabelText("Full name")).toBeInTheDocument();
+    expect(view.getByLabelText("Type of enquiry")).toBeInTheDocument();
+    expect(view.getByLabelText("Vehicle registration no.")).toBeInTheDocument();
   });
 });
