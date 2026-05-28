@@ -27,6 +27,7 @@ export const siteTheme = {
       mutedOnLight: "#00000066",
       neutralOnDark: "#989898",
       primary: "#0a0a0a",
+      readableOnDark: "#cacaca",
       softOnDark: "#ffffff50",
       washOnDark: "rgba(255, 255, 255, 0.47)",
       subtle: "#00000050"

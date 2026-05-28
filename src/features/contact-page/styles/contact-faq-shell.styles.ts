@@ -6,7 +6,7 @@ export const ContactFaqRoot = styled.section`
   color: var(--color-text-primary);
   display: grid;
   gap: 50px;
-  padding: 0 0 100px;
+  padding: 100px;
 `;
 
 export const ContactFaqHeader = styled(Container)`

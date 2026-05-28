@@ -7,36 +7,37 @@ export const CONTACT_HERO_CONTENT: ContactHeroContent = {
   backgroundImage: getAssetUrl("hlym/contact/contact-hero.png"),
   cards: [
     {
-      ctaHref: "#selangor-office",
+      ctaHref: "/#dealer-locator",
       ctaLabel: "View locations",
       number: "01",
       titleLines: ["Selangor", "Office"]
     },
     {
-      ctaHref: "#johor-office",
+      ctaHref: "/#dealer-locator",
       ctaLabel: "View locations",
       number: "02",
       titleLines: ["Johor", "Office"]
     },
     {
-      ctaHref: "#faq",
+      ctaHref: "/#dealer-locator",
       ctaLabel: "View locations",
       number: "03",
       titleLines: ["Pahang", "Office"]
     },
     {
-      ctaHref: "#faq",
+      ctaHref: "/#dealer-locator",
       ctaLabel: "View locations",
       number: "04",
       titleLines: ["Penang", "Office"]
     },
     {
-      ctaHref: "#faq",
+      ctaHref: "/#dealer-locator",
       ctaLabel: "View locations",
       number: "05",
       titleLines: ["Perak", "Office"]
     },
     {
+      backgroundImage: "/assets/hlym/contact/contact-enquiry-card-bg.webp",
       ctaHref: "#contact-form",
       ctaLabel: "Submit to us",
       number: "06",

@@ -1,34 +1,11 @@
 import styled, { css } from "styled-components";
 
 type ContactHeroCardRootProps = {
-  $flipped: boolean;
-};
-
-type ContactHeroCardFaceProps = {
-  $back?: boolean;
+  $backgroundImage: string | undefined;
   $featured: boolean;
 };
 
-export const ContactHeroCardRoot = styled.article`
-  cursor: pointer;
-  height: 280px;
-  perspective: 1200px;
-`;
-
-export const ContactHeroCardFrame = styled.div<ContactHeroCardRootProps>`
-  height: 100%;
-  position: relative;
-  transform: ${({ $flipped }) => ($flipped ? "rotateY(180deg)" : "rotateY(0deg)")};
-  transform-style: preserve-3d;
-  transition: transform var(--duration-base) var(--easing-standard);
-  width: 100%;
-
-  @media (prefers-reduced-motion: reduce) {
-    transition: none;
-  }
-`;
-
-export const ContactHeroCardFace = styled.div<ContactHeroCardFaceProps>`
+export const ContactHeroCardRoot = styled.article<ContactHeroCardRootProps>`
   --contact-card-accent: var(--red);
   --contact-card-bg: var(--color-bg-canvas);
   --contact-card-border: var(--color-border-subtle);
@@ -36,30 +13,37 @@ export const ContactHeroCardFace = styled.div<ContactHeroCardFaceProps>`
   --contact-card-number: var(--color-text-muted-light);
   --contact-card-text: var(--color-text-primary);
 
-  background: var(--contact-card-bg);
-  backface-visibility: hidden;
+  background: ${({ $backgroundImage }) =>
+    $backgroundImage
+      ? css`
+          linear-gradient(180deg, rgba(5, 5, 8, 0.12), rgba(5, 5, 8, 0.72)),
+          linear-gradient(90deg, rgba(5, 5, 8, 0.88), rgba(5, 5, 8, 0.28)),
+          url(${$backgroundImage}) center / cover no-repeat
+        `
+      : css`
+          var(--contact-card-bg)
+        `};
   border: var(--contact-card-border-width) solid var(--contact-card-border);
   color: var(--contact-card-text);
   display: flex;
   flex-direction: column;
-  height: 100%;
-  inset: 0;
+  height: 280px;
   justify-content: space-between;
   overflow: hidden;
   padding: 32px;
-  position: absolute;
-  transform: ${({ $back }) => ($back ? "rotateY(180deg)" : "rotateY(0deg)")};
-  transform-style: preserve-3d;
-  width: 100%;
+  position: relative;
+  transition:
+    border-color var(--duration-base) var(--easing-standard),
+    transform var(--duration-base) var(--easing-standard);
 
   ${({ $featured }) =>
     $featured &&
     css`
-      --contact-card-accent: var(--color-text-inverse);
+      --contact-card-accent: var(--red);
       --contact-card-bg: var(--color-text-primary);
       --contact-card-border: var(--red);
       --contact-card-border-width: 2px;
-      --contact-card-number: var(--color-text-neutral-dark);
+      --contact-card-number: var(--red);
       --contact-card-text: var(--color-text-inverse);
 
       &::before {
