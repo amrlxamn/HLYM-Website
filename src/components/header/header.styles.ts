@@ -1,10 +1,28 @@
 import styled from "styled-components";
 import { Container } from "@/styles/layout";
 
-export const HeaderShell = styled.header`
-  position: sticky;
+type HeaderShellProps = {
+  $overlay: boolean;
+  $reveal: boolean;
+};
+
+export const HeaderShell = styled.header<HeaderShellProps>`
+  left: 0;
+  opacity: ${({ $reveal }) => ($reveal ? 1 : 0)};
+  pointer-events: ${({ $reveal }) => ($reveal ? "auto" : "none")};
+  position: ${({ $overlay }) => ($overlay ? "fixed" : "sticky")};
+  right: 0;
   top: 0;
+  transform: translate3d(0, ${({ $reveal }) => ($reveal ? "0" : "28px")}, 0);
+  transition:
+    opacity 520ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 640ms cubic-bezier(0.22, 1, 0.36, 1);
   z-index: 50;
+
+  @media (prefers-reduced-motion: reduce) {
+    transform: none;
+    transition: none;
+  }
 `;
 
 export const UtilityBarShell = styled.div`

@@ -9,6 +9,7 @@ import {
   HeroBackground,
   HeroBottomGradient,
   HeroCenter,
+  HeroContentLayer,
   HeroCtaLink,
   HeroCtaRow,
   HeroDescription,
@@ -26,7 +27,16 @@ const HERO_FADE_TRANSITION = {
   ease: [0.22, 1, 0.36, 1] as [number, number, number, number]
 };
 
-export function HeroSection() {
+const HERO_REVEAL_TRANSITION = {
+  duration: 0.72,
+  ease: [0.22, 1, 0.36, 1] as [number, number, number, number]
+};
+
+type HeroSectionProps = {
+  revealContent?: boolean;
+};
+
+export function HeroSection({ revealContent = true }: HeroSectionProps) {
   const { currentSlide, currentSlideIndex, setCurrentSlideIndex } = useHeroCarouselState();
   const heroCopy = SITE_COPY.hero;
 
@@ -52,13 +62,15 @@ export function HeroSection() {
       <HeroBottomGradient />
       <HeroVignette />
       <AnimatePresence initial={false} mode="wait">
-        <motion.div
-          animate={{ opacity: 1 }}
+        <HeroContentLayer
+          animate={{
+            opacity: revealContent ? 1 : 0,
+            y: revealContent ? 0 : 56
+          }}
           exit={{ opacity: 0 }}
-          initial={{ opacity: 0 }}
+          initial={false}
           key={`${currentSlide.image}-content`}
-          style={{ inset: 0, position: "absolute" }}
-          transition={HERO_FADE_TRANSITION}
+          transition={HERO_REVEAL_TRANSITION}
         >
           <HeroSideIndicators heroCopy={heroCopy} slide={currentSlide} />
           <HeroCenter>
@@ -85,7 +97,7 @@ export function HeroSection() {
             setCurrentSlideIndex={setCurrentSlideIndex}
             slide={currentSlide}
           />
-        </motion.div>
+        </HeroContentLayer>
       </AnimatePresence>
       <HeroRedLine />
     </HeroSectionRoot>
