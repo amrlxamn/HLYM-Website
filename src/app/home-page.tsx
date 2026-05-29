@@ -7,16 +7,13 @@ import { HeroSection } from "@/components/hero/hero-section";
 import { ModelsSection } from "@/components/models/models-section";
 import { NewsSection } from "@/components/news/news-section";
 import { PageShell } from "@/styles/layout";
-import { useHomeHeroIntro } from "./use-home-hero-intro";
 
 export function HomePage() {
-  const isHeroIntroComplete = useHomeHeroIntro();
-
   return (
     <PageShell id="top">
-      <SiteHeader overlay reveal={isHeroIntroComplete} />
+      <SiteHeader />
       <main>
-        <HeroSection revealContent={isHeroIntroComplete} />
+        <HeroSection />
         <ModelsSection />
         <FeaturedSection />
         <FeaturedModelSpotlight />

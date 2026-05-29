@@ -1,10 +1,8 @@
 import styled from "styled-components";
-import { motion } from "framer-motion";
 import { Container } from "@/styles/layout";
 
 export const HeroSectionRoot = styled.section`
   height: 900px;
-  min-height: 100dvh;
   overflow: hidden;
   position: relative;
 
@@ -16,20 +14,9 @@ export const HeroSectionRoot = styled.section`
 export const HeroBackground = styled.img`
   height: 100%;
   inset: 0;
-  object-fit: cover;
   object-position: center;
   position: absolute;
   width: 100%;
-`;
-
-export const HeroContentLayer = styled(motion.div)`
-  inset: 0;
-  position: absolute;
-  will-change: opacity, transform;
-
-  @media (prefers-reduced-motion: reduce) {
-    transform: none !important;
-  }
 `;
 
 export const HeroTopGradient = styled.div`
@@ -100,15 +87,14 @@ export const HeroCenter = styled(Container)`
   display: flex;
   flex-direction: column;
   gap: 24px;
-  justify-content: center;
-  min-height: calc(100dvh - 90px);
-  padding: calc(var(--header-height-total) + 56px) 0 132px;
+  height: 740px;
   position: relative;
+  top: 60px;
   z-index: 5;
 
   @media (max-width: 980px) {
-    min-height: calc(100dvh - 120px);
-    padding: calc(var(--header-height-total) + 36px) 0 158px;
+    height: 640px;
+    top: 30px;
   }
 `;
 
