@@ -24,6 +24,30 @@ The page includes the enquiry drawer UI. When this project is rebuilt in
 Webflow, the Webflow form must submit to n8n instead of directly to GenCode
 CRM.
 
+The React implementation submits to the same n8n boundary while Webflow is not
+ready. For local development, keep the browser-facing value pointed at the
+same-origin API path:
+
+```txt
+VITE_CONTACT_ENQUIRY_WEBHOOK_URL=/api/contact-enquiries
+```
+
+In Vite dev, that path is proxied to:
+
+```txt
+http://localhost:5679/webhook/webflow-contact-enquiry
+```
+
+In Vercel or another hosted deployment, keep the `VITE_*` value as
+`/api/contact-enquiries` and configure the server-side function instead:
+
+```txt
+CONTACT_ENQUIRY_WEBHOOK_URL=https://<n8n-host>/webhook/webflow-contact-enquiry
+```
+
+This keeps the n8n URL out of the client bundle. CRM credentials still belong
+in n8n only.
+
 ## Integration Boundary
 
 Use n8n as the first server-side boundary:
@@ -53,8 +77,17 @@ Content-Type: application/json
 For local n8n testing, use:
 
 ```txt
-POST http://localhost:5678/webhook-test/webflow-contact-enquiry
+POST http://localhost:5679/webhook-test/webflow-contact-enquiry
 ```
+
+For the React development server after the workflow is active in n8n, use:
+
+```txt
+POST /api/contact-enquiries
+```
+
+For hosted React deployments, `/api/contact-enquiries` is handled by the
+Vercel serverless route in `api/contact-enquiries.ts`.
 
 ## Payload Contract
 
@@ -121,6 +154,8 @@ person fields: `name`, `emails`, `phones`, `city`, and `jobTitle`.
 
 - Keep `CRM_API_KEY` server-only in n8n.
 - Do not add CRM secrets to `VITE_*` variables.
+- Do not point `VITE_CONTACT_ENQUIRY_WEBHOOK_URL` directly at n8n in hosted
+  deployments; use the same-origin `/api/contact-enquiries` route.
 - Validate and rate limit the n8n webhook.
 - Log `submissionId` and CRM record IDs only, not raw personal data.
 - Treat support-search input as search behavior only; it must not create CRM

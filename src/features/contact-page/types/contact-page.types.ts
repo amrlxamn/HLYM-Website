@@ -41,3 +41,19 @@ export type ContactEnquiryPanelProps = {
 };
 
 export type ContactEnquiryStatus = "idle" | "loading" | "success" | "error";
+
+export type ContactEnquiryPayload = {
+  consent: true;
+  email: string;
+  message: string;
+  name: string;
+  phone: string;
+  preferredBranch: string;
+  source: "webflow-contact-page";
+  submissionId: string;
+  topic: string;
+  title?: string;
+  ownerType?: string;
+  vehicleModel?: string;
+  yearOfPurchase?: string;
+};

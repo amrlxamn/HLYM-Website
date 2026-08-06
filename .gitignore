@@ -20,6 +20,8 @@ pnpm-debug.log*
 .env
 .env.local
 .env.*.local
+.n8n-contact/
+docs/n8n/*.local.env
 .webflow/
 .webflow-home/
 .vercel

@@ -5,6 +5,9 @@ import react from "@vitejs/plugin-react";
 import { defineConfig } from "vite";
 import { PRODUCTION_HEADERS } from "./src/config/deployment-headers.constants";
 
+const CONTACT_ENQUIRY_PROXY_TARGET =
+  process.env.CONTACT_ENQUIRY_PROXY_TARGET ?? `http://localhost:${process.env.N8N_PORT ?? "5679"}`;
+
 export default defineConfig({
   plugins: [react()],
   preview: {
@@ -23,6 +26,13 @@ export default defineConfig({
       "X-Content-Type-Options": "nosniff",
       "X-Frame-Options": "DENY",
       "X-XSS-Protection": "1; mode=block"
+    },
+    proxy: {
+      "/api/contact-enquiries": {
+        changeOrigin: true,
+        rewrite: () => "/webhook/webflow-contact-enquiry",
+        target: CONTACT_ENQUIRY_PROXY_TARGET
+      }
     }
   },
   test: {

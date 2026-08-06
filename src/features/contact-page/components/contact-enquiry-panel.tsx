@@ -1,15 +1,12 @@
 import { AnimatePresence, useReducedMotion } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
-import type { FormEvent } from "react";
+import { useEffect } from "react";
+import { useContactEnquirySubmit } from "../hooks/use-contact-enquiry-submit";
 import { ContactEnquiryBody } from "../styles/contact-enquiry-fields.styles";
 import {
   ContactEnquiryOverlay,
   ContactEnquiryPanelRoot
 } from "../styles/contact-enquiry-shell.styles";
-import type {
-  ContactEnquiryPanelProps,
-  ContactEnquiryStatus
-} from "../types/contact-page.types";
+import type { ContactEnquiryPanelProps } from "../types/contact-page.types";
 import { ContactEnquiryConsentSection } from "./contact-enquiry-consent-section";
 import { ContactEnquiryDetailsSection } from "./contact-enquiry-details-section";
 import { ContactEnquiryPanelHeader } from "./contact-enquiry-panel-header";
@@ -18,8 +15,7 @@ import { ContactEnquiryVehicleSection } from "./contact-enquiry-vehicle-section"
 
 export function ContactEnquiryPanel({ isOpen, onClose }: ContactEnquiryPanelProps) {
   const shouldReduceMotion = useReducedMotion();
-  const [status, setStatus] = useState<ContactEnquiryStatus>("idle");
-  const timerRef = useRef<number>();
+  const { handleSubmit, status } = useContactEnquirySubmit();
 
   useEffect(() => {
     if (!isOpen) {
@@ -38,14 +34,6 @@ export function ContactEnquiryPanel({ isOpen, onClose }: ContactEnquiryPanelProp
       document.removeEventListener("keydown", handleKeyDown);
     };
   }, [isOpen, onClose]);
-
-  useEffect(() => {
-    return () => {
-      if (timerRef.current) {
-        window.clearTimeout(timerRef.current);
-      }
-    };
-  }, []);
 
   return (
     <AnimatePresence>
@@ -69,16 +57,7 @@ export function ContactEnquiryPanel({ isOpen, onClose }: ContactEnquiryPanelProp
             transition={{ damping: 28, stiffness: 180, type: "spring" }}
           >
             <ContactEnquiryPanelHeader onClose={onClose} />
-            <ContactEnquiryBody
-              id="contact-form"
-              onSubmit={(event: FormEvent<HTMLFormElement>) => {
-                event.preventDefault();
-                setStatus("loading");
-                timerRef.current = window.setTimeout(() => {
-                  setStatus("success");
-                }, 650);
-              }}
-            >
+            <ContactEnquiryBody id="contact-form" onSubmit={handleSubmit}>
               <ContactEnquiryPersonalSection />
               <ContactEnquiryDetailsSection />
               <ContactEnquiryVehicleSection />

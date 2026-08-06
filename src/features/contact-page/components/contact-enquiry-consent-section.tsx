@@ -17,22 +17,22 @@ export function ContactEnquiryConsentSection({ status }: ContactEnquiryConsentSe
       <ContactEnquiryConsent>
         <input name="consent" required type="checkbox" />
         <span>
-          I certify that I have read and agree to the Privacy Policy and consent to us contacting
-          me about this enquiry.
+          I certify that I have read and agree to the Privacy Policy and consent to us contacting me
+          about this enquiry.
         </span>
       </ContactEnquiryConsent>
       <ContactEnquiryActions>
         {status === "success" ? (
           <ContactEnquiryStatusMessage $tone="success">
-            Enquiry captured locally. Connect the Webflow form to n8n for CRM handoff.
+            Enquiry submitted. Our team will review it in GenCode CRM.
           </ContactEnquiryStatusMessage>
         ) : (
           <ContactEnquiryStatusMessage $tone="error">
-            {status === "error" ? "Please check the highlighted fields." : ""}
+            {status === "error" ? "Submission failed. Please try again." : ""}
           </ContactEnquiryStatusMessage>
         )}
         <ContactEnquirySubmitButton disabled={status === "loading"} type="submit">
-          {status === "loading" ? "Preparing handoff" : "Submit enquiry"}
+          {status === "loading" ? "Submitting" : "Submit enquiry"}
         </ContactEnquirySubmitButton>
       </ContactEnquiryActions>
     </ContactEnquirySection>
