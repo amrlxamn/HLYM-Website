@@ -145,6 +145,28 @@ export const NavLinks = styled.nav`
   }
 `;
 
+export const NavItemWrap = styled.div`
+  align-items: center;
+  display: inline-flex;
+  height: var(--header-height-main);
+  position: relative;
+
+  &:focus-within > div,
+  &:hover > div {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+    visibility: visible;
+  }
+
+  @media (max-width: 980px) {
+    align-items: stretch;
+    display: flex;
+    flex-direction: column;
+    height: auto;
+  }
+`;
+
 export const NavLink = styled.a<{ $active: boolean }>`
   align-items: center;
   color: ${({ $active }) => ($active ? "var(--red)" : "#1a1a1a")};
@@ -163,6 +185,57 @@ export const NavLink = styled.a<{ $active: boolean }>`
 
   @media (max-width: 1360px) {
     letter-spacing: 0.8px;
+  }
+`;
+
+export const DropdownMenu = styled.div`
+  background: #242424;
+  min-width: 205px;
+  opacity: 0;
+  padding: 0.45rem 0;
+  pointer-events: none;
+  position: absolute;
+  right: 0;
+  top: 100%;
+  transform: translateY(-6px);
+  transition:
+    opacity 160ms ease,
+    transform 160ms ease,
+    visibility 160ms ease;
+  visibility: hidden;
+  z-index: 5;
+
+  @media (max-width: 980px) {
+    background: #f6f6f6;
+    min-width: 0;
+    opacity: 1;
+    padding: 0.25rem 0 0.15rem 1rem;
+    pointer-events: auto;
+    position: static;
+    transform: none;
+    visibility: visible;
+  }
+`;
+
+export const DropdownLink = styled.a`
+  color: #b8b8b8;
+  display: block;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 1.3px;
+  line-height: 1.2;
+  padding: 0.85rem 1.2rem;
+  text-transform: uppercase;
+  white-space: nowrap;
+
+  &:focus-visible,
+  &:hover {
+    color: #fff;
+  }
+
+  @media (max-width: 980px) {
+    color: #3a3a3a;
+    padding: 0.55rem 0;
   }
 `;
 

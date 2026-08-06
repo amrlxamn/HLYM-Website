@@ -38,6 +38,7 @@ export type SocialLink = LinkItem & {
 };
 
 export type NavItem = LinkItem & {
+  children?: readonly LinkItem[];
   hasDropdown?: boolean;
 };
 
