@@ -16,5 +16,12 @@
     "cssModules": true,
     "overwriteModule": true,
     "relativeHrefRoot": "/"
+  },
+  "telemetry": {
+    "global": {
+      "allowTelemetry": true,
+      "lastPrompted": 1782358637697,
+      "version": "1.21.0"
+    }
   }
 }

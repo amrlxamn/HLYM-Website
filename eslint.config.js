@@ -7,7 +7,7 @@ import tseslint from "typescript-eslint";
 
 export default tseslint.config(
   {
-    ignores: [".webflow", "coverage", "dist", "node_modules", "public/assets"]
+    ignores: [".agents", ".serena", ".webflow", "coverage", "dist", "node_modules", "public/assets"]
   },
   js.configs.recommended,
   {
