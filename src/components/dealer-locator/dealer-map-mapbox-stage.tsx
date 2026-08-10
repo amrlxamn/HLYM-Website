@@ -9,6 +9,7 @@ import { DealerMapCanvas } from "./dealer-locator.styles";
 import { useDealerMapCamera } from "./use-dealer-map-camera";
 import { useDealerMapClusters } from "./use-dealer-map-clusters";
 import { useDealerMapInstance } from "./use-dealer-map-instance";
+import { useDealerMapPopup } from "./use-dealer-map-popup";
 import { useDealerMapRoute } from "./use-dealer-map-route";
 import { useDealerMapUserLocation } from "./use-dealer-map-user-location";
 import { useSelectedDealerMapMarker } from "./use-selected-dealer-map-marker";
@@ -32,6 +33,11 @@ export function DealerMapMapboxStage({
 }: DealerMapMapboxStageProps) {
   const dealerLocatorCopy = SITE_COPY.dealerLocator;
   const { canvasRef, hasMapInitError, mapInstance } = useDealerMapInstance();
+  const { openPopup, popupDealerId } = useDealerMapPopup({
+    mapInstance,
+    onSelectDealer,
+    selectedDealerId
+  });
 
   useDealerMapRoute({
     mapInstance,
@@ -40,11 +46,12 @@ export function DealerMapMapboxStage({
   useDealerMapClusters({
     dealers,
     mapInstance,
-    onSelectDealer
+    onSelectDealer: openPopup
   });
   useSelectedDealerMapMarker({
+    isPopupOpen: popupDealerId === selectedDealerId,
     mapInstance,
-    onSelectDealer,
+    onSelectDealer: openPopup,
     selectedDealer
   });
   const isMapNavigating = useDealerMapCamera({
