@@ -3,7 +3,7 @@
 import { fileURLToPath, URL } from "node:url";
 import react from "@vitejs/plugin-react";
 import { defineConfig } from "vite";
-import { PRODUCTION_HEADERS } from "./src/config/deployment-headers.constants";
+import { PRODUCTION_HEADERS } from "./src/config/deployment-headers.constants.js";
 
 const CONTACT_ENQUIRY_PROXY_TARGET =
   process.env.CONTACT_ENQUIRY_PROXY_TARGET ?? `http://localhost:${process.env.N8N_PORT ?? "5679"}`;
