@@ -47,9 +47,7 @@ export const ProductVideoHeroContent = styled.div`
   align-items: flex-end;
   display: flex;
   min-height: calc(100vh - var(--header-height-total));
-  padding:
-    clamp(24px, 6vh, 96px) clamp(24px, 6.94vw, 100px)
-    var(--product-video-edge-inset);
+  padding: clamp(24px, 6vh, 96px) clamp(24px, 6.94vw, 100px) var(--product-video-edge-inset);
   position: relative;
   z-index: 1;
 `;

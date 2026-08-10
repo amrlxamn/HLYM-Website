@@ -214,8 +214,7 @@ const dealerMapMarkerStyles = css`
       opacity: 0.28;
     }
 
-    &:focus-visible .dealer-map-marker__tooltip,
-    &.is-selected .dealer-map-marker__tooltip {
+    &.is-popup-open .dealer-map-marker__tooltip {
       opacity: 1;
       transform: translate(0, -50%) scale(1);
     }

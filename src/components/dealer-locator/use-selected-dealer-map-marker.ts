@@ -5,12 +5,14 @@ import { createDealerMapMarkerElement } from "./create-dealer-map-marker-element
 import { setDealerMarkerSelected } from "./set-dealer-marker-selected";
 
 type UseSelectedDealerMapMarkerOptions = {
+  isPopupOpen: boolean;
   mapInstance: MapboxMap | null;
   onSelectDealer: (dealerId: string) => void;
   selectedDealer: DealerLocation;
 };
 
 export function useSelectedDealerMapMarker({
+  isPopupOpen,
   mapInstance,
   onSelectDealer,
   selectedDealer
@@ -36,6 +38,7 @@ export function useSelectedDealerMapMarker({
       );
 
       setDealerMarkerSelected(element, true);
+      element.classList.toggle("is-popup-open", isPopupOpen);
       selectedMarker = new mapboxgl.Marker({ anchor: "center", element })
         .setLngLat([...selectedDealer.coordinates])
         .addTo(mapInstance);
@@ -45,5 +48,5 @@ export function useSelectedDealerMapMarker({
       isCancelled = true;
       selectedMarker?.remove();
     };
-  }, [mapInstance, selectedDealer]);
+  }, [isPopupOpen, mapInstance, selectedDealer]);
 }

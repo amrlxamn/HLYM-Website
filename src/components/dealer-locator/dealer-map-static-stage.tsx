@@ -3,6 +3,7 @@ import type { DealerLocation } from "@/data/site-content.types";
 import { toSentenceCase } from "@/lib/to-sentence-case";
 import { DealerMapBackdrop } from "./dealer-locator.styles";
 import { getStaticMarkerPosition } from "./get-static-marker-position";
+import { useDealerMapPopup } from "./use-dealer-map-popup";
 
 type DealerMapStaticStageProps = {
   dealers: readonly DealerLocation[];
@@ -16,19 +17,28 @@ export function DealerMapStaticStage({
   selectedDealerId
 }: DealerMapStaticStageProps) {
   const dealerLocatorCopy = SITE_COPY.dealerLocator;
+  const { closePopup, openPopup, popupDealerId } = useDealerMapPopup({
+    mapInstance: null,
+    onSelectDealer,
+    selectedDealerId
+  });
 
   return (
-    <DealerMapBackdrop aria-label={toSentenceCase(dealerLocatorCopy.mapAriaLabel)}>
+    <DealerMapBackdrop
+      aria-label={toSentenceCase(dealerLocatorCopy.mapAriaLabel)}
+      onClick={closePopup}
+    >
       {dealers.map((dealer) => (
         <button
           aria-label={`Show ${dealer.label}`}
-          className={
-            dealer.id === selectedDealerId
-              ? "dealer-map-marker dealer-map-marker--static is-selected"
-              : "dealer-map-marker dealer-map-marker--static"
-          }
+          className={`dealer-map-marker dealer-map-marker--static${
+            dealer.id === selectedDealerId ? " is-selected" : ""
+          }${dealer.id === popupDealerId ? " is-popup-open" : ""}`}
           key={dealer.id}
-          onClick={() => onSelectDealer(dealer.id)}
+          onClick={(event) => {
+            event.stopPropagation();
+            openPopup(dealer.id);
+          }}
           style={{
             ...getStaticMarkerPosition(dealer.coordinates),
             zIndex: dealer.id === selectedDealerId ? 999 : 1

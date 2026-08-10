@@ -19,18 +19,23 @@ describe("DealerMapStaticStage", () => {
       />
     );
 
-    expect(view.getByRole("button", { name: "Show inti deras motors sdn bhd" })).toHaveClass(
-      "is-selected"
-    );
-    expect(view.getByText("inti deras motors sdn bhd")).toBeInTheDocument();
-    expect(
-      view.getByRole("button", { name: "Show shiang chin motors batteries sdn bhd" })
-    ).toBeInTheDocument();
+    const selectedMarker = view.getByRole("button", {
+      name: "Show inti deras motors sdn bhd"
+    });
+    const secondMarker = view.getByRole("button", {
+      name: "Show shiang chin motors batteries sdn bhd"
+    });
 
-    fireEvent.click(
-      view.getByRole("button", { name: "Show shiang chin motors batteries sdn bhd" })
-    );
+    expect(selectedMarker).toHaveClass("is-selected");
+    expect(selectedMarker).not.toHaveClass("is-popup-open");
+    expect(view.getByText("inti deras motors sdn bhd")).toBeInTheDocument();
+    fireEvent.click(secondMarker);
 
     expect(onSelectDealer).toHaveBeenCalledWith("shiang-chin-motors-batteries-sdn-bhd");
+    expect(secondMarker).toHaveClass("is-popup-open");
+
+    fireEvent.click(view.container.firstElementChild!);
+
+    expect(secondMarker).not.toHaveClass("is-popup-open");
   });
 });

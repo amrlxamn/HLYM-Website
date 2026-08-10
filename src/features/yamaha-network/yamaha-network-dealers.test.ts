@@ -53,6 +53,17 @@ describe("Yamaha dealer dataset", () => {
     }
   });
 
+  it("serves every dealer image from the public Supabase asset bucket", () => {
+    for (const dealer of dataset.dealers) {
+      const imageUrl = new URL(dealer.image);
+
+      expect(imageUrl.hostname).toBe("fbnhcdpvqlkfkahtigwh.supabase.co");
+      expect(imageUrl.pathname).toMatch(
+        /^\/storage\/v1\/object\/public\/site-assets\/hlym\/dealers\//
+      );
+    }
+  });
+
   it("keeps audited coordinate corrections and navigation links aligned", () => {
     for (const dealer of dataset.dealers) {
       const [longitude, latitude] = dealer.coordinates;

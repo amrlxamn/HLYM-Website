@@ -1,4 +1,6 @@
 .claude
+.agents
+.serena
 coverage
 dist
 node_modules
