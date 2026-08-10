@@ -1,5 +1,6 @@
 import { toSentenceCase } from "@/lib/to-sentence-case";
 import { useState } from "react";
+import { SearchField } from "@/components/shared/search-field";
 import { CONTACT_HERO_CONTENT } from "../constants/contact-hero.constants";
 import {
   ContactHeroBackground,
@@ -13,7 +14,6 @@ import {
   ContactHeroVerticalShade
 } from "../styles/contact-hero-shell.styles";
 import type { ContactHeroContent } from "../types/contact-page.types";
-import { ContactHeroSearch } from "./contact-hero-search";
 import { ContactEnquiryPanel } from "./contact-enquiry-panel";
 import { ContactSupportCard } from "./contact-support-card";
 
@@ -36,10 +36,11 @@ export function ContactHeroSection({ content = CONTACT_HERO_CONTENT }: ContactHe
         <ContactHeroContentPanel>
           <ContactHeroTitle>{content.title}</ContactHeroTitle>
           <ContactHeroCopy>{content.description}</ContactHeroCopy>
-          <ContactHeroSearch
+          <SearchField
             ariaLabel={toSentenceCase(content.searchAriaLabel)}
             backgroundImage={content.backgroundImage}
             placeholder={content.searchPlaceholder}
+            variant="gloss"
           />
         </ContactHeroContentPanel>
         <ContactHeroCardGrid>
