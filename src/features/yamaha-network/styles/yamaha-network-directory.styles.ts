@@ -36,9 +36,7 @@ export const NetworkDealerCard = styled.button<{ $isSelected: boolean; $isGrid: 
   border: ${({ $isGrid, $isSelected }) =>
     $isGrid ? `1px solid ${$isSelected ? "#ad1e28" : "#e4e6e1"}` : "0"};
   border-bottom: ${({ $isGrid, $isSelected }) =>
-    $isGrid
-      ? `1px solid ${$isSelected ? "#ad1e28" : "#e4e6e1"}`
-      : "1px solid #e8e9e5"};
+    $isGrid ? `1px solid ${$isSelected ? "#ad1e28" : "#e4e6e1"}` : "1px solid #e8e9e5"};
   border-radius: 0;
   box-shadow: ${({ $isGrid, $isSelected }) =>
     $isGrid
