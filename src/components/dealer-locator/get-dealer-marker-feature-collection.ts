@@ -3,22 +3,19 @@ import type { DealerLocation } from "@/data/site-content.types";
 
 type DealerMarkerProperties = {
   dealerId: string;
-  isSelected: boolean;
 };
 
 export function getDealerMarkerFeatureCollection(
-  dealers: readonly DealerLocation[],
-  selectedDealerId: string
+  dealers: readonly DealerLocation[]
 ): FeatureCollection<Point, DealerMarkerProperties> {
   return {
     features: dealers.map((dealer) => ({
       geometry: {
-        coordinates: [dealer.coordinates[0], dealer.coordinates[1]],
+        coordinates: [...dealer.coordinates],
         type: "Point"
       },
       properties: {
-        dealerId: dealer.id,
-        isSelected: dealer.id === selectedDealerId
+        dealerId: dealer.id
       },
       type: "Feature"
     })),

@@ -87,36 +87,37 @@ const dealerMapMarkerStyles = css`
     }
 
     .dealer-map-marker__tooltip {
-      align-items: center;
       background: #fffffff2;
-      border: 1px solid #ffffff80;
+      border: 1px solid #e4e6e1;
       border-radius: 0;
       box-shadow: 0 24px 60px #00000018;
-      display: inline-flex;
-      gap: 10px;
-      left: 50%;
-      min-width: 220px;
+      display: grid;
+      gap: 0;
+      grid-template-rows: 112px auto;
+      left: calc(100% + 8px);
+      min-width: 240px;
       opacity: 0;
-      padding: 10px 12px;
+      padding: 0;
       pointer-events: none;
-      top: -8px;
-      transform: translate(-50%, calc(-100% - 8px)) scale(0.96);
-      transform-origin: center bottom;
+      text-align: left;
+      top: 50%;
+      transform: translate(-8px, -50%) scale(0.96);
+      transform-origin: left center;
       transition:
         opacity 180ms ease,
         transform 180ms ease;
       z-index: 5;
 
       &::after {
-        border-left: 10px solid transparent;
-        border-right: 10px solid transparent;
-        border-top: 10px solid #fffffff2;
-        bottom: -10px;
+        border-bottom: 9px solid transparent;
+        border-right: 10px solid #fffffff2;
+        border-top: 9px solid transparent;
         content: "";
         height: 0;
-        left: 50%;
+        left: -10px;
         position: absolute;
-        transform: translateX(-50%);
+        top: 50%;
+        transform: translateY(-50%);
         width: 0;
       }
     }
@@ -134,43 +135,71 @@ const dealerMapMarkerStyles = css`
       flex: 0 0 auto;
       font-size: 12px;
       font-weight: 800;
-      height: 48px;
+      height: 112px;
       justify-content: center;
       letter-spacing: 1px;
       position: relative;
       text-transform: uppercase;
-      width: 56px;
+      overflow: hidden;
+      width: 100%;
       z-index: 1;
 
       &.has-image {
         color: transparent;
       }
+
+      img {
+        height: 100%;
+        object-fit: cover;
+        width: 100%;
+      }
     }
 
     .dealer-map-marker__tooltip-body {
+      align-items: start;
       display: grid;
-      gap: 4px;
+      gap: 6px;
       min-width: 0;
+      padding: 14px 16px 16px;
       position: relative;
       z-index: 1;
     }
 
     .dealer-map-marker__tooltip-title {
-      color: #090909;
-      font-size: 11px;
-      font-weight: 800;
-      letter-spacing: 0.8px;
-      line-height: 1.2;
+      color: #171a17;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0;
+      line-height: 1.3;
+      text-transform: uppercase;
+    }
+
+    .dealer-map-marker__tooltip-tag {
+      background: #f5f6f3;
+      border: 1px solid #dcdfda;
+      border-radius: 0;
+      color: #4e534e;
+      font-size: 9px;
+      font-weight: 600;
+      justify-self: start;
+      line-height: 1;
+      padding: 4px 8px;
       text-transform: uppercase;
     }
 
     .dealer-map-marker__tooltip-meta {
-      color: #1111118a;
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 1.2px;
+      color: #666c66;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0;
       line-height: 1.3;
-      text-transform: uppercase;
+      text-transform: capitalize;
+    }
+
+    .dealer-map-marker__tooltip-hours {
+      color: #7c817c;
+      font-size: 10px;
+      line-height: 1.35;
     }
 
     &:focus-visible .dealer-map-marker__middle,
@@ -186,10 +215,9 @@ const dealerMapMarkerStyles = css`
     }
 
     &:focus-visible .dealer-map-marker__tooltip,
-    &:hover .dealer-map-marker__tooltip,
     &.is-selected .dealer-map-marker__tooltip {
       opacity: 1;
-      transform: translate(-50%, calc(-100% - 12px)) scale(1);
+      transform: translate(0, -50%) scale(1);
     }
   }
 
@@ -213,13 +241,13 @@ export const DealerLocatorSectionRoot = styled.section`
   }
 `;
 
-export const DealerMapStage = styled.div`
+export const DealerMapStage = styled.div<{ $fillParent: boolean }>`
   inset: 0;
   position: absolute;
 
   @media (max-width: 980px) {
-    height: 460px;
-    position: relative;
+    height: ${({ $fillParent }) => ($fillParent ? "100%" : "460px")};
+    position: ${({ $fillParent }) => ($fillParent ? "absolute" : "relative")};
   }
 `;
 
@@ -310,7 +338,7 @@ export const DealerMapCanvas = styled.div`
   a.mapboxgl-ctrl-logo {
     backdrop-filter: blur(12px);
     background-color: #ffffffe3;
-    border-radius: 999px;
+    border-radius: 0;
     box-shadow: 0 12px 30px #00000012;
   }
 
@@ -323,7 +351,7 @@ export const DealerMapCanvas = styled.div`
   }
 
   .mapboxgl-ctrl-attrib-button {
-    border-radius: 999px;
+    border-radius: 0;
   }
 
   a.mapboxgl-ctrl-logo {

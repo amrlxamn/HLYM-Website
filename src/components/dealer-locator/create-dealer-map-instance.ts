@@ -10,7 +10,7 @@ export async function createDealerMapInstance(container: HTMLDivElement): Promis
 
   mapboxgl.default.accessToken = DEALER_LOCATOR_MAP_CONFIG.accessToken;
 
-  return new mapboxgl.default.Map({
+  const map = new mapboxgl.default.Map({
     antialias: true,
     bearing: DEALER_LOCATOR_MAP_CONFIG.bearing,
     center: [...DEALER_LOCATOR_MAP_CONFIG.center],
@@ -24,4 +24,15 @@ export async function createDealerMapInstance(container: HTMLDivElement): Promis
     style: DEALER_LOCATOR_MAP_CONFIG.style,
     zoom: DEALER_LOCATOR_MAP_CONFIG.zoom
   });
+
+  map.addControl(
+    new mapboxgl.default.NavigationControl({
+      showCompass: false,
+      showZoom: true,
+      visualizePitch: false
+    }),
+    "top-right"
+  );
+
+  return map;
 }

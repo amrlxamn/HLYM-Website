@@ -7,6 +7,7 @@ import { DealerMapStage } from "./dealer-locator.styles";
 
 type DealerMapStageViewProps = {
   dealers: readonly DealerLocation[];
+  fillParent?: boolean;
   onSelectDealer: (dealerId: string) => void;
   route: DealerRoute | null;
   selectedDealer: DealerLocation;
@@ -16,6 +17,7 @@ type DealerMapStageViewProps = {
 
 export function DealerMapStageView({
   dealers,
+  fillParent = false,
   onSelectDealer,
   route,
   selectedDealer,
@@ -25,7 +27,7 @@ export function DealerMapStageView({
   const hasMapboxToken = Boolean(DEALER_LOCATOR_MAP_CONFIG.accessToken);
 
   return (
-    <DealerMapStage>
+    <DealerMapStage $fillParent={fillParent}>
       {hasMapboxToken ? (
         <DealerMapMapboxStage
           dealers={dealers}

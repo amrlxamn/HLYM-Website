@@ -38,7 +38,7 @@ export const NAV_LINKS: readonly NavItem[] = [
   { href: "/#site-footer", label: "corporate" },
   { href: "/products", label: "products" },
   { href: "/#latest-news", label: "news & events" },
-  { href: "/#dealer-locator", label: "yamaha network" },
+  { href: "/yamaha-network", label: "yamaha network" },
   { href: "/#featured-model", label: "merchandise" },
   {
     children: [
