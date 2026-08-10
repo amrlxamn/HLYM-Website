@@ -22,6 +22,7 @@
     "supabase:db:diff": "supabase db diff",
     "supabase:db:push": "supabase db push",
     "supabase:assets:sync": "node scripts/sync-supabase-assets.mjs",
+    "supabase:dealer-images:sync": "node scripts/sync-supabase-dealer-images.mjs",
     "webflow:library:bundle": "webflow library bundle --public-path /public --output-path .webflow/library-dist --no-input --skip-update-check",
     "webflow:library:share": "webflow library share --skip-update-check",
     "webflow:devlink:sync": "webflow devlink sync --skip-update-check"
@@ -50,7 +51,7 @@
     "@webflow/data-types": "^1.2.1",
     "@webflow/react": "^1.2.1",
     "@webflow/styled-components-utils": "^1.2.1",
-    "@webflow/webflow-cli": "^1.21.0",
+    "@webflow/webflow-cli": "1.21.0",
     "ajv": "^8.18.0",
     "babel-plugin-styled-components": "^2.1.4",
     "eslint": "^9.17.0",
@@ -66,6 +67,9 @@
     "vitest": "^4.1.6"
   },
   "overrides": {
-    "koa": "3.2.0"
+    "adm-zip": "0.6.0",
+    "form-data": "4.0.6",
+    "koa": "3.2.0",
+    "ws": "8.21.3"
   }
 }
