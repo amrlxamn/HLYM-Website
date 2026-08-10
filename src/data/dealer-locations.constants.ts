@@ -3,6 +3,7 @@ import type { DealerLocation } from "@/data/site-content.types";
 export const DEALER_LOCATIONS: readonly DealerLocation[] = [
   {
     area: "kompleks yamaha motor",
+    category: "hq and branch",
     coordinates: [101.564444, 3.228056],
     focus: "flagship enquiries, delivery handover, and brand-direct rider support",
     hours: "mon - sat | 9:00 am - 6:00 pm",
@@ -17,6 +18,7 @@ export const DEALER_LOCATIONS: readonly DealerLocation[] = [
   },
   {
     area: "jalan sentul",
+    category: "authorized dealer",
     coordinates: [101.6924, 3.1794],
     focus: "city commuter support, quick servicing, and accessory consultations",
     hours: "mon - sat | 9:00 am - 6:00 pm",
@@ -31,6 +33,7 @@ export const DEALER_LOCATIONS: readonly DealerLocation[] = [
   },
   {
     area: "jalan bagan luar",
+    category: "authorized dealer",
     coordinates: [100.3813, 5.4096],
     focus: "northern coastal support, handovers, and everyday servicing",
     hours: "mon - sat | 9:00 am - 6:00 pm",
@@ -45,6 +48,7 @@ export const DEALER_LOCATIONS: readonly DealerLocation[] = [
   },
   {
     area: "jalan sungai rambai",
+    category: "star shop",
     coordinates: [100.4597, 5.3617],
     focus: "northern rider support, diagnostics, and commuter maintenance",
     hours: "mon - sat | 9:00 am - 6:00 pm",
@@ -59,6 +63,7 @@ export const DEALER_LOCATIONS: readonly DealerLocation[] = [
   },
   {
     area: "jalan sultanah",
+    category: "authorized dealer",
     coordinates: [102.9335, 1.8548],
     focus: "southern town support, servicing, and ownership guidance",
     hours: "mon - sat | 9:00 am - 6:00 pm",
@@ -73,6 +78,7 @@ export const DEALER_LOCATIONS: readonly DealerLocation[] = [
   },
   {
     area: "jalan sri indah",
+    category: "star shop",
     coordinates: [103.1108, 1.8651],
     focus: "southern commuter support, handovers, and routine servicing",
     hours: "mon - sat | 9:00 am - 6:00 pm",
@@ -87,6 +93,7 @@ export const DEALER_LOCATIONS: readonly DealerLocation[] = [
   },
   {
     area: "golden plaza wisma inti deras",
+    category: "authorized dealer",
     coordinates: [116.0726, 5.9455],
     focus: "sabah metro support, deliveries, and rider onboarding",
     hours: "mon - sat | 8:30 am - 5:30 pm",
@@ -101,6 +108,7 @@ export const DEALER_LOCATIONS: readonly DealerLocation[] = [
   },
   {
     area: "jalan singamata",
+    category: "spare parts stockist",
     coordinates: [118.3268, 5.0286],
     focus: "east sabah support, scheduled servicing, and ownership care",
     hours: "mon - sat | 9:00 am - 6:00 pm",
@@ -115,6 +123,7 @@ export const DEALER_LOCATIONS: readonly DealerLocation[] = [
   },
   {
     area: "jalan lanang",
+    category: "star center",
     coordinates: [111.8257, 2.289],
     focus: "regional sarawak support, commuter servicing, and parts access",
     hours: "mon - sat | 8:00 am - 5:30 pm",
@@ -129,6 +138,7 @@ export const DEALER_LOCATIONS: readonly DealerLocation[] = [
   },
   {
     area: "jalan tun ahmad zaidi adruce",
+    category: "authorized dealer",
     coordinates: [110.3597, 1.5508],
     focus: "sarawak metro support, rider consultations, and handovers",
     hours: "mon - sat | 8:00 am - 5:00 pm",

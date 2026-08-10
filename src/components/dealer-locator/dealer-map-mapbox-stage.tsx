@@ -2,14 +2,16 @@ import { SITE_COPY } from "@/data/site-copy.constants";
 import type { DealerLocation } from "@/data/site-content.types";
 import { toSentenceCase } from "@/lib/to-sentence-case";
 import { DealerMapStaticStage } from "./dealer-map-static-stage";
+import { DealerMapLoading } from "./dealer-map-loading.styles";
 import { DEALER_LOCATOR_MAP_CONFIG } from "./dealer-locator-map.constants";
 import type { BrowserCoordinates, DealerRoute } from "./dealer-location.types";
 import { DealerMapCanvas } from "./dealer-locator.styles";
 import { useDealerMapCamera } from "./use-dealer-map-camera";
+import { useDealerMapClusters } from "./use-dealer-map-clusters";
 import { useDealerMapInstance } from "./use-dealer-map-instance";
-import { useDealerMapMarkers } from "./use-dealer-map-markers";
 import { useDealerMapRoute } from "./use-dealer-map-route";
 import { useDealerMapUserLocation } from "./use-dealer-map-user-location";
+import { useSelectedDealerMapMarker } from "./use-selected-dealer-map-marker";
 
 type DealerMapMapboxStageProps = {
   dealers: readonly DealerLocation[];
@@ -35,16 +37,19 @@ export function DealerMapMapboxStage({
     mapInstance,
     route
   });
-  useDealerMapMarkers({
+  useDealerMapClusters({
     dealers,
     mapInstance,
-    onSelectDealer,
-    selectedDealerId
+    onSelectDealer
   });
-  useDealerMapCamera({
+  useSelectedDealerMapMarker({
     mapInstance,
-    selectedDealer,
-    userCoordinates
+    onSelectDealer,
+    selectedDealer
+  });
+  const isMapNavigating = useDealerMapCamera({
+    mapInstance,
+    selectedDealer
   });
   useDealerMapUserLocation({
     coordinates: userCoordinates,
@@ -62,10 +67,15 @@ export function DealerMapMapboxStage({
   }
 
   return (
-    <DealerMapCanvas
-      aria-label={toSentenceCase(dealerLocatorCopy.mapAriaLabel)}
-      ref={canvasRef}
-      role="img"
-    />
+    <>
+      <DealerMapCanvas
+        aria-label={toSentenceCase(dealerLocatorCopy.mapAriaLabel)}
+        ref={canvasRef}
+        role="img"
+      />
+      {isMapNavigating && (
+        <DealerMapLoading aria-live="polite">Loading {selectedDealer.label}...</DealerMapLoading>
+      )}
+    </>
   );
 }

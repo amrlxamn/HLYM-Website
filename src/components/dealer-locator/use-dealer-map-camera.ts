@@ -1,71 +1,72 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import type { DealerLocation } from "@/data/site-content.types";
 import type { Map } from "mapbox-gl";
-import { DEALER_LOCATOR_MAP_CONFIG } from "./dealer-locator-map.constants";
-import type { BrowserCoordinates } from "./dealer-location.types";
-import { getDistanceBetweenCoordinates } from "./get-distance-between-coordinates";
+import { getDealerCameraOptions } from "./get-dealer-camera-options";
 
 type UseDealerMapCameraOptions = {
   mapInstance: Map | null;
   selectedDealer: DealerLocation;
-  userCoordinates: BrowserCoordinates | null;
 };
 
-export function useDealerMapCamera({
-  mapInstance,
-  selectedDealer,
-  userCoordinates
-}: UseDealerMapCameraOptions) {
+const TILE_PRELOAD_TIMEOUT_MS = 3000;
+
+export function useDealerMapCamera({ mapInstance, selectedDealer }: UseDealerMapCameraOptions) {
+  const [isNavigating, setIsNavigating] = useState(false);
+
   useEffect(() => {
     if (!mapInstance) {
       return;
     }
 
-    const containerWidth = mapInstance.getContainer().clientWidth;
-    const desktopPanelWidth = Math.min(540, Math.round(containerWidth * 0.36));
-    const offsetX = containerWidth > 980 ? Math.round(desktopPanelWidth * -0.5) : 0;
-    const dealerDistanceFromUser = userCoordinates
-      ? getDistanceBetweenCoordinates(userCoordinates, selectedDealer.coordinates)
-      : null;
+    const map = mapInstance;
+    let isCancelled = false;
+    let preloadTimeout: ReturnType<typeof setTimeout> | null = null;
 
-    if (
-      userCoordinates &&
-      dealerDistanceFromUser !== null &&
-      dealerDistanceFromUser <= DEALER_LOCATOR_MAP_CONFIG.autoRouteMaxDistanceKilometers
-    ) {
-      const [userLongitude, userLatitude] = userCoordinates;
-      const [dealerLongitude, dealerLatitude] = selectedDealer.coordinates;
+    const startFlight = () => {
+      if (isCancelled) {
+        return;
+      }
 
-      mapInstance.fitBounds(
-        [
-          [Math.min(userLongitude, dealerLongitude), Math.min(userLatitude, dealerLatitude)],
-          [Math.max(userLongitude, dealerLongitude), Math.max(userLatitude, dealerLatitude)]
-        ],
-        {
-          bearing: DEALER_LOCATOR_MAP_CONFIG.bearing,
-          duration: 900,
-          essential: true,
-          maxZoom: 13.8,
-          padding: {
-            bottom: 72,
-            left: containerWidth > 980 ? 84 : 32,
-            right: containerWidth > 980 ? desktopPanelWidth + 84 : 32,
-            top: 72
-          },
-          pitch: DEALER_LOCATOR_MAP_CONFIG.pitch
-        }
-      );
+      if (preloadTimeout) {
+        clearTimeout(preloadTimeout);
+      }
 
-      return;
+      map.off("idle", startFlight);
+      setIsNavigating(false);
+      map.flyTo(getDealerCameraOptions(selectedDealer, map.getContainer().clientWidth));
+    };
+
+    const preloadFlight = () => {
+      if (isCancelled) {
+        return;
+      }
+
+      map.stop();
+      setIsNavigating(true);
+      map.once("idle", startFlight);
+      map.flyTo({
+        ...getDealerCameraOptions(selectedDealer, map.getContainer().clientWidth),
+        preloadOnly: true
+      });
+      preloadTimeout = setTimeout(startFlight, TILE_PRELOAD_TIMEOUT_MS);
+    };
+
+    if (map.isStyleLoaded()) {
+      preloadFlight();
+    } else {
+      map.once("load", preloadFlight);
     }
 
-    mapInstance.easeTo({
-      bearing: DEALER_LOCATOR_MAP_CONFIG.bearing,
-      center: [...selectedDealer.coordinates],
-      duration: 900,
-      essential: true,
-      offset: [offsetX, 0],
-      pitch: DEALER_LOCATOR_MAP_CONFIG.pitch
-    });
-  }, [mapInstance, selectedDealer, userCoordinates]);
+    return () => {
+      isCancelled = true;
+      map.off("load", preloadFlight);
+      map.off("idle", startFlight);
+      if (preloadTimeout) {
+        clearTimeout(preloadTimeout);
+      }
+      map.stop();
+    };
+  }, [mapInstance, selectedDealer]);
+
+  return isNavigating;
 }

@@ -1,3 +1,0 @@
-export function getMapPointerStyleReset() {
-  return "";
-}

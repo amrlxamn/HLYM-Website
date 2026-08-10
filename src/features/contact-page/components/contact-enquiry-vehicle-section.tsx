@@ -14,7 +14,7 @@ export function ContactEnquiryVehicleSection() {
       <ContactEnquiryGrid>
         <ContactEnquiryField>
           <ContactEnquiryLabelText>Model</ContactEnquiryLabelText>
-          <ContactEnquiryInput name="model" />
+          <ContactEnquiryInput name="vehicleModel" />
         </ContactEnquiryField>
         <ContactEnquiryField>
           <ContactEnquiryLabelText>Year of purchase</ContactEnquiryLabelText>

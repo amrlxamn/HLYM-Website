@@ -3,13 +3,20 @@ import { DEALER_LOCATIONS } from "@/data/dealer-locations.constants";
 import { getDealerMarkerFeatureCollection } from "./get-dealer-marker-feature-collection";
 
 describe("getDealerMarkerFeatureCollection", () => {
-  it("marks only the selected dealer as selected", () => {
-    const featureCollection = getDealerMarkerFeatureCollection(
-      DEALER_LOCATIONS.slice(0, 2),
-      DEALER_LOCATIONS[1]!.id
-    );
+  it("creates one clusterable point feature per dealer", () => {
+    const collection = getDealerMarkerFeatureCollection(DEALER_LOCATIONS);
+    const firstDealer = DEALER_LOCATIONS[0]!;
 
-    expect(featureCollection.features[0]?.properties.isSelected).toBe(false);
-    expect(featureCollection.features[1]?.properties.isSelected).toBe(true);
+    expect(collection.features).toHaveLength(DEALER_LOCATIONS.length);
+    expect(collection.features[0]).toEqual({
+      geometry: {
+        coordinates: [...firstDealer.coordinates],
+        type: "Point"
+      },
+      properties: {
+        dealerId: firstDealer.id
+      },
+      type: "Feature"
+    });
   });
 });

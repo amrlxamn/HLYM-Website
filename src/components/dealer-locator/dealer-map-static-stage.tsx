@@ -19,54 +19,48 @@ export function DealerMapStaticStage({
 
   return (
     <DealerMapBackdrop aria-label={toSentenceCase(dealerLocatorCopy.mapAriaLabel)}>
-      {dealers.map((dealer) => {
-        const position = getStaticMarkerPosition(dealer.coordinates);
-        const isSelected = dealer.id === selectedDealerId;
-
-        return (
-          <button
-            aria-label={`Show ${dealer.label}`}
-            className={
-              isSelected
-                ? "dealer-map-marker dealer-map-marker--static is-selected"
-                : "dealer-map-marker dealer-map-marker--static"
-            }
-            key={dealer.id}
-            onClick={() => {
-              onSelectDealer(dealer.id);
-            }}
-            style={position}
-            type="button"
-          >
-            <span aria-hidden="true" className="dealer-map-marker__tooltip">
-              <span
-                aria-hidden="true"
-                className={
-                  dealer.image
-                    ? "dealer-map-marker__tooltip-media has-image"
-                    : "dealer-map-marker__tooltip-media"
-                }
-                style={dealer.image ? { backgroundImage: `url("${dealer.image}")` } : undefined}
-              >
-                {dealer.image
-                  ? null
-                  : dealer.label
-                      .split(" ")
-                      .slice(0, 2)
-                      .map((word) => word.charAt(0).toUpperCase())
-                      .join("")}
-              </span>
-              <span className="dealer-map-marker__tooltip-body">
-                <span className="dealer-map-marker__tooltip-title">{dealer.label}</span>
-                <span className="dealer-map-marker__tooltip-meta">{dealer.locality}</span>
-              </span>
+      {dealers.map((dealer) => (
+        <button
+          aria-label={`Show ${dealer.label}`}
+          className={
+            dealer.id === selectedDealerId
+              ? "dealer-map-marker dealer-map-marker--static is-selected"
+              : "dealer-map-marker dealer-map-marker--static"
+          }
+          key={dealer.id}
+          onClick={() => onSelectDealer(dealer.id)}
+          style={{
+            ...getStaticMarkerPosition(dealer.coordinates),
+            zIndex: dealer.id === selectedDealerId ? 999 : 1
+          }}
+          type="button"
+        >
+          <span className="dealer-map-marker__outer" />
+          <span className="dealer-map-marker__middle" />
+          <span className="dealer-map-marker__inner" />
+          <span className="dealer-map-marker__tooltip">
+            <span
+              className={
+                dealer.image
+                  ? "dealer-map-marker__tooltip-media has-image"
+                  : "dealer-map-marker__tooltip-media"
+              }
+            >
+              {dealer.image ? (
+                <img alt="" decoding="async" loading="lazy" src={dealer.image} />
+              ) : (
+                "Yamaha"
+              )}
             </span>
-            <span aria-hidden="true" className="dealer-map-marker__outer" />
-            <span aria-hidden="true" className="dealer-map-marker__middle" />
-            <span aria-hidden="true" className="dealer-map-marker__inner" />
-          </button>
-        );
-      })}
+            <span className="dealer-map-marker__tooltip-body">
+              <strong className="dealer-map-marker__tooltip-title">{dealer.label}</strong>
+              <span className="dealer-map-marker__tooltip-tag">{dealer.category}</span>
+              <span className="dealer-map-marker__tooltip-meta">{dealer.locality}</span>
+              <span className="dealer-map-marker__tooltip-hours">{dealer.hours}</span>
+            </span>
+          </span>
+        </button>
+      ))}
     </DealerMapBackdrop>
   );
 }

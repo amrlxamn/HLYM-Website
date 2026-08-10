@@ -38,6 +38,7 @@ export type SocialLink = LinkItem & {
 };
 
 export type NavItem = LinkItem & {
+  children?: readonly LinkItem[];
   hasDropdown?: boolean;
 };
 
@@ -121,8 +122,21 @@ export type NewsCard = {
 
 export type DealerRegion = "central" | "northern" | "southern" | "sabah" | "sarawak";
 
+export type DealerCategory =
+  | "authorized dealer"
+  | "yqs"
+  | "spare parts stockist"
+  | "hq and branch"
+  | "star center"
+  | "star shop"
+  | "big bike"
+  | "ygp store"
+  | "genblu merchant"
+  | "yes";
+
 export type DealerLocation = {
   area: string;
+  category: DealerCategory;
   coordinates: readonly [number, number];
   focus: string;
   hours: string;

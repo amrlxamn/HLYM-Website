@@ -1,4 +1,4 @@
-import { ChevronDown, Menu, Search, X } from "lucide-react";
+import { Menu, Search, X } from "lucide-react";
 import { NAV_LINKS } from "@/data/navigation.constants";
 import { SITE_COPY } from "@/data/site-copy.constants";
 import { getAssetUrl } from "@/lib/get-asset-url";
@@ -10,8 +10,11 @@ import {
   MainLogo,
   MainNavBar,
   MainNavInner,
+  DropdownLink,
+  DropdownMenu,
   MenuToggle,
   NavLeft,
+  NavItemWrap,
   NavLink,
   NavLinks,
   NavRight,
@@ -32,17 +35,36 @@ export function MainNavigation() {
         </NavLeft>
         <NavRight $isOpen={isMenuOpen} id="primaryNav">
           <NavLinks aria-label={toSentenceCase(headerCopy.mainNavigationAriaLabel)}>
-            {NAV_LINKS.map((item) => (
-              <NavLink
-                $active={getNavLinkActive(item, pathname)}
-                href={item.href}
-                key={item.label}
-                onClick={() => setIsMenuOpen(false)}
-              >
-                <span>{item.label}</span>
-                {item.hasDropdown && <ChevronDown />}
-              </NavLink>
-            ))}
+            {NAV_LINKS.map((item) => {
+              const dropdownItems = item.children ?? [];
+              const hasDropdown = dropdownItems.length > 0;
+
+              return (
+                <NavItemWrap key={item.label}>
+                  <NavLink
+                    $active={getNavLinkActive(item, pathname)}
+                    aria-haspopup={hasDropdown ? "true" : undefined}
+                    href={item.href}
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    <span>{item.label}</span>
+                  </NavLink>
+                  {hasDropdown && (
+                    <DropdownMenu aria-label={`${toSentenceCase(item.label)} submenu`}>
+                      {dropdownItems.map((dropdownItem) => (
+                        <DropdownLink
+                          href={dropdownItem.href}
+                          key={dropdownItem.label}
+                          onClick={() => setIsMenuOpen(false)}
+                        >
+                          {dropdownItem.label}
+                        </DropdownLink>
+                      ))}
+                    </DropdownMenu>
+                  )}
+                </NavItemWrap>
+              );
+            })}
           </NavLinks>
         </NavRight>
         <SearchButton type="button" aria-label={toSentenceCase(headerCopy.searchButtonAriaLabel)}>

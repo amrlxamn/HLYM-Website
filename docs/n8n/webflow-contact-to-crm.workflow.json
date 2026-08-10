@@ -1,4 +1,5 @@
 {
+  "id": "hlymContactCrm1",
   "name": "Webflow Contact Enquiry to CRM",
   "nodes": [
     {
@@ -12,23 +13,18 @@
       "name": "Webflow Contact Webhook",
       "type": "n8n-nodes-base.webhook",
       "typeVersion": 2,
-      "position": [
-        -760,
-        0
-      ]
+      "position": [-760, 0],
+      "webhookId": "7b2f2f75-20c9-4e53-9bb0-6ba01c32a50e"
     },
     {
       "parameters": {
-        "jsCode": "const body = $json.body ?? $json;\nconst requiredFields = ['name', 'email', 'phone', 'topic', 'message', 'submissionId'];\nconst missingFields = requiredFields.filter((field) => !body[field]);\n\nif (missingFields.length > 0) {\n  throw new Error(`Missing required fields: ${missingFields.join(', ')}`);\n}\n\nif (body.consent !== true && body.consent !== 'true') {\n  throw new Error('Consent is required');\n}\n\nconst email = String(body.email).trim().toLowerCase();\nconst name = String(body.name).trim();\nconst [firstName, ...lastNameParts] = name.split(/\\s+/);\nconst lastName = lastNameParts.join(' ');\nconst phone = String(body.phone).trim();\nconst preferredBranch = body.preferredBranch || 'unknown';\nconst source = body.source || $env.CRM_DEFAULT_SOURCE || 'webflow-contact-page';\n\nreturn [{\n  json: {\n    provider: $env.CRM_PROVIDER || 'gencode-crm',\n    submissionId: String(body.submissionId),\n    source,\n    receivedAt: new Date().toISOString(),\n    contact: {\n      name,\n      firstName: firstName || name,\n      lastName,\n      email,\n      phone,\n      title: body.title || '',\n      ownerType: body.ownerType || ''\n    },\n    enquiry: {\n      topic: String(body.topic),\n      message: String(body.message),\n      preferredBranch,\n      vehicleModel: body.vehicleModel || '',\n      yearOfPurchase: body.yearOfPurchase || ''\n    },\n    crmPayload: {\n      name: {\n        firstName: firstName || name,\n        lastName\n      },\n      emails: {\n        primaryEmail: email,\n        additionalEmails: []\n      },\n      phones: {\n        primaryPhoneNumber: phone,\n        primaryPhoneCountryCode: '',\n        additionalPhones: []\n      },\n      city: preferredBranch === 'unknown' ? null : preferredBranch,\n      jobTitle: `Website enquiry: ${body.topic}`\n    }\n  }\n}];"
+        "jsCode": "const candidates = [$json.body, $json.body?.data, $json.body?.fields, $json.data, $json.fields, $json];\nconst fieldKeys = ['name', 'fullName', 'Full name', 'email', 'emailAddress', 'Email address'];\nconst body = candidates.find((candidate) => {\n  return candidate &&\n    typeof candidate === 'object' &&\n    !Array.isArray(candidate) &&\n    fieldKeys.some((field) => candidate[field] !== undefined);\n}) ?? {};\n\nconst name = String(body.name ?? body.fullName ?? body['Full name'] ?? '').trim();\nconst email = String(body.email ?? body.emailAddress ?? body['Email address'] ?? '').trim().toLowerCase();\nconst phone = String(body.phone ?? body.mobilePhone ?? body['Mobile phone'] ?? '').trim();\nconst topic = String(body.topic ?? body.enquiryType ?? body['Type of enquiry'] ?? '').trim();\nconst message = String(body.message ?? body.details ?? body.Details ?? '').trim();\n\nconst requiredValues = { name, email, phone, topic, message };\nconst missingFields = Object.entries(requiredValues)\n  .filter(([, value]) => !value)\n  .map(([field]) => field);\n\nif (missingFields.length > 0) {\n  throw new Error(`Missing required fields: ${missingFields.join(', ')}`);\n}\n\nif (body.consent !== true && body.consent !== 'true' && body.consent !== 'on') {\n  throw new Error('Consent is required');\n}\n\nconst submissionId = String(\n  body.submissionId ?? body['Submission ID'] ?? `contact-${Date.now()}`\n);\nconst [firstName, ...lastNameParts] = name.split(/\\s+/);\nconst lastName = lastNameParts.join(' ');\nconst preferredBranch = body.preferredBranch || body['Preferred branch'] || 'unknown';\nconst source = body.source || 'webflow-contact-page';\n\nreturn [{\n  json: {\n    provider: 'gencode-crm',\n    submissionId,\n    source,\n    receivedAt: new Date().toISOString(),\n    contact: {\n      name,\n      firstName: firstName || name,\n      lastName,\n      email,\n      phone,\n      title: body.title || '',\n      ownerType: body.ownerType || ''\n    },\n    enquiry: {\n      topic,\n      message,\n      preferredBranch,\n      vehicleModel: body.vehicleModel || body.Model || '',\n      yearOfPurchase: body.yearOfPurchase || body['Year of purchase'] || ''\n    },\n    crmPayload: {\n      name: {\n        firstName: firstName || name,\n        lastName\n      },\n      emails: {\n        primaryEmail: email,\n        additionalEmails: []\n      },\n      phones: {\n        primaryPhoneNumber: phone,\n        primaryPhoneCountryCode: '',\n        additionalPhones: []\n      },\n      city: preferredBranch === 'unknown' ? null : preferredBranch,\n      intro: message,\n      jobTitle: `Website enquiry: ${topic}`\n    }\n  }\n}];"
       },
       "id": "NormalizePayload",
       "name": "Validate and Normalize Payload",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
-      "position": [
-        -500,
-        0
-      ]
+      "position": [-500, 0]
     },
     {
       "parameters": {
@@ -66,10 +62,7 @@
       "name": "Create CRM Contact",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
-      "position": [
-        -220,
-        0
-      ]
+      "position": [-220, 0]
     },
     {
       "parameters": {
@@ -83,10 +76,7 @@
       "name": "Return Success",
       "type": "n8n-nodes-base.respondToWebhook",
       "typeVersion": 1.1,
-      "position": [
-        60,
-        0
-      ]
+      "position": [60, 0]
     }
   ],
   "connections": {

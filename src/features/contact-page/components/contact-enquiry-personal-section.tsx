@@ -20,7 +20,7 @@ export function ContactEnquiryPersonalSection() {
       <ContactEnquiryGrid>
         <ContactEnquiryField>
           <ContactEnquiryLabelText>I'm</ContactEnquiryLabelText>
-          <ContactEnquirySelect defaultValue="Owner" name="customerType" required>
+          <ContactEnquirySelect defaultValue="Owner" name="ownerType" required>
             {CONTACT_ENQUIRY_OWNER_OPTIONS.map((option) => (
               <option key={option} value={option}>
                 {option}
