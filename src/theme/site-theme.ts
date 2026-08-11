@@ -1,4 +1,23 @@
+import {
+  ALPHA_COLORS,
+  BRAND_COLORS,
+  NEUTRAL_COLORS,
+  SEMANTIC_COLORS
+} from "./tokens/color-tokens.constants";
+import { BREAKPOINTS, CONTAINERS, Z_INDEX } from "./tokens/layout-tokens.constants";
+import { MOTION_DURATIONS, MOTION_EASINGS } from "./tokens/motion-tokens.constants";
+import { RADII, SHADOWS, SPACING } from "./tokens/spacing-tokens.constants";
+import {
+  FONT_FAMILIES,
+  FONT_SIZES,
+  FONT_WEIGHTS,
+  LETTER_SPACINGS,
+  LINE_HEIGHTS
+} from "./tokens/typography-tokens.constants";
+
 export const siteTheme = {
+  alpha: ALPHA_COLORS,
+  breakpoints: BREAKPOINTS,
   colors: {
     background: {
       base: "#0a0a0a",
@@ -14,9 +33,12 @@ export const siteTheme = {
       subtle: "#00000014"
     },
     brand: {
-      marker: "#ee393d",
-      primary: "#ec1c24"
+      ...BRAND_COLORS,
+      marker: BRAND_COLORS[400],
+      primary: BRAND_COLORS[500]
     },
+    neutral: NEUTRAL_COLORS,
+    semantic: SEMANTIC_COLORS,
     shadow: {
       card: "0 24px 60px rgba(0, 0, 0, 0.14)"
     },
@@ -33,6 +55,7 @@ export const siteTheme = {
       subtle: "#00000050"
     }
   },
+  containers: CONTAINERS,
   contactHero: {
     gradients: {
       leftShade:
@@ -52,23 +75,24 @@ export const siteTheme = {
     violetRush: "#143a52"
   },
   layout: {
-    container: "1240px"
+    container: CONTAINERS.default
   },
   motion: {
-    duration: {
-      base: "240ms",
-      slow: "420ms"
-    },
-    easing: {
-      standard: "cubic-bezier(0.22, 1, 0.36, 1)"
-    }
+    duration: MOTION_DURATIONS,
+    easing: MOTION_EASINGS
   },
-  radii: {
-    pill: "999px"
-  },
+  radii: RADII,
+  shadows: SHADOWS,
+  spacing: SPACING,
   typography: {
-    body: '"Lato", Arial, sans-serif'
-  }
+    body: FONT_FAMILIES.body,
+    family: FONT_FAMILIES,
+    letterSpacing: LETTER_SPACINGS,
+    lineHeight: LINE_HEIGHTS,
+    size: FONT_SIZES,
+    weight: FONT_WEIGHTS
+  },
+  zIndex: Z_INDEX
 } as const;
 
 export type SiteTheme = typeof siteTheme;
