@@ -10,6 +10,10 @@ const YamahaNetworkPage = lazy(() =>
   import("@/features/yamaha-network").then((module) => ({ default: module.YamahaNetworkPage }))
 );
 
+const DesignSystemPage = lazy(() =>
+  import("@/docs/design-system-docs").then((module) => ({ default: module.DesignSystemPage }))
+);
+
 export function App() {
   const { isVisible, isRemoved, onComplete } = useSplashScreen();
   const pathname = typeof window === "undefined" ? "/" : window.location.pathname;
@@ -25,6 +29,18 @@ export function App() {
 
   if (pathname.startsWith("/yamaha-network")) {
     page = <YamahaNetworkPage />;
+  }
+
+  if (pathname.startsWith("/design-system")) {
+    return (
+      <>
+        <CustomCursor />
+        {!isRemoved && <SplashScreen isVisible={isVisible} onComplete={onComplete} />}
+        <Suspense fallback={null}>
+          <DesignSystemPage />
+        </Suspense>
+      </>
+    );
   }
 
   return (
