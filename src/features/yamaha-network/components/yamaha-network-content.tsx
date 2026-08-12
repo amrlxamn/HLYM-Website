@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import { DealerMapStageView } from "@/components/dealer-locator/dealer-map-stage";
 import { getNearestDealer } from "@/components/dealer-locator/get-nearest-dealer";
+import type { DealerCategory } from "@/data/site-content.types";
 import { useBrowserLocation } from "@/components/dealer-locator/use-browser-location";
 import { useDealerRoute } from "@/components/dealer-locator/use-dealer-route";
 import { SiteHeader } from "@/components/header/site-header";
@@ -17,13 +18,13 @@ type YamahaNetworkContentProps = {
 
 export function YamahaNetworkContent({ dealers }: YamahaNetworkContentProps) {
   const {
-    activeCategory,
+    activeCategories,
     isGridLayout,
     scopedDealers,
     searchQuery,
     selectedDealer,
     selectedDealerId,
-    setActiveCategory,
+    setActiveCategories,
     setIsGridLayout,
     setSearchQuery,
     setSelectedDealerId
@@ -67,11 +68,22 @@ export function YamahaNetworkContent({ dealers }: YamahaNetworkContentProps) {
           />
         )}
         <YamahaNetworkSidebar
-          activeCategory={activeCategory}
+          activeCategories={activeCategories}
           dealers={scopedDealers}
           isGridLayout={isGridLayout}
+          origin={coordinates}
           onSelectDealer={setSelectedDealerId}
-          onSelectCategory={setActiveCategory}
+          onSelectCategory={(category: DealerCategory | "all") => {
+            setActiveCategories((currentCategories) => {
+              if (category === "all") {
+                return [];
+              }
+
+              return currentCategories.includes(category)
+                ? currentCategories.filter((currentCategory) => currentCategory !== category)
+                : [...currentCategories, category];
+            });
+          }}
           onSearchChange={setSearchQuery}
           onToggleLayout={setIsGridLayout}
           searchQuery={searchQuery}

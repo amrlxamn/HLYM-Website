@@ -78,29 +78,6 @@ export const NetworkFilterBar = styled.div`
   }
 `;
 
-export const NetworkFilterTag = styled.button<{ $isActive: boolean }>`
-  background: ${({ $isActive }) => ($isActive ? "#ad1e28" : "#f5f6f3")};
-  border: 1px solid ${({ $isActive }) => ($isActive ? "#ad1e28" : "#dcdfda")};
-  border-radius: 0;
-  color: ${({ $isActive }) => ($isActive ? "#ffffff" : "#4e534e")};
-  font-size: 10px;
-  font-weight: 600;
-  padding: 7px 12px;
-  text-transform: uppercase;
-  transition:
-    transform 120ms ease-out,
-    border-color 160ms ease-out;
-  white-space: nowrap;
-
-  &:hover {
-    border-color: ${({ $isActive }) => ($isActive ? "#ad1e28" : "#aeb2ad")};
-  }
-
-  &:active {
-    transform: scale(0.97);
-  }
-`;
-
 export const NetworkLayoutToggle = styled.div`
   display: flex;
   gap: 4px;

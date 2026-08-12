@@ -197,9 +197,43 @@ const dealerMapMarkerStyles = css`
     }
 
     .dealer-map-marker__tooltip-hours {
+      align-items: center;
+      border-top: 1px solid #e4e6e1;
       color: #7c817c;
-      font-size: 10px;
+      display: flex;
+      font-size: 12px;
+      gap: 6px;
       line-height: 1.35;
+      margin-top: 4px;
+      padding-top: 10px;
+      width: 100%;
+    }
+
+    .dealer-map-marker__tooltip-hours-icon {
+      color: #666c66;
+      flex: 0 0 auto;
+      height: 14px;
+      width: 14px;
+    }
+
+    .dealer-map-marker__tooltip-hours-separator {
+      background: #aeb2ad;
+      border-radius: 50%;
+      height: 3px;
+      width: 3px;
+    }
+
+    .dealer-map-marker__tooltip-status {
+      font-weight: 700;
+      white-space: nowrap;
+
+      &.is-open {
+        color: #287a43;
+      }
+
+      &.is-closed {
+        color: #ad1e28;
+      }
     }
 
     &:focus-visible .dealer-map-marker__middle,

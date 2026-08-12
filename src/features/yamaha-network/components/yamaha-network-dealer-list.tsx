@@ -1,3 +1,4 @@
+import type { BrowserCoordinates } from "@/components/dealer-locator/dealer-location.types";
 import type { YamahaDealerLocation } from "../yamaha-network.types";
 import {
   NetworkDealerGrid,
@@ -9,6 +10,7 @@ import { YamahaNetworkDealerCard } from "./yamaha-network-dealer-card";
 type YamahaNetworkDealerListProps = {
   dealers: readonly YamahaDealerLocation[];
   isGrid: boolean;
+  origin: BrowserCoordinates | null;
   onSelectDealer: (dealerId: string) => void;
   selectedDealerId: string;
 };
@@ -16,6 +18,7 @@ type YamahaNetworkDealerListProps = {
 export function YamahaNetworkDealerList({
   dealers,
   isGrid,
+  origin,
   onSelectDealer,
   selectedDealerId
 }: YamahaNetworkDealerListProps) {
@@ -33,6 +36,7 @@ export function YamahaNetworkDealerList({
             isSelected={dealer.id === selectedDealerId}
             key={dealer.id}
             onSelect={onSelectDealer}
+            origin={origin}
           />
         ))}
       </NetworkDealerGrid>

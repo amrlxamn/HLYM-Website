@@ -85,6 +85,7 @@ function PreviewContent({ entry }: { entry: DocComponentEntry }) {
           isGrid={true}
           isSelected={false}
           onSelect={() => {}}
+          origin={null}
         />
       );
     case "ContactFaqItem":
