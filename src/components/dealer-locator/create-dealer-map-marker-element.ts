@@ -1,4 +1,5 @@
 import type { DealerLocation } from "@/data/site-content.types";
+import { isDealerOpenNow } from "./is-dealer-open-now";
 
 export function createDealerMapMarkerElement(
   dealer: DealerLocation,
@@ -15,6 +16,12 @@ export function createDealerMapMarkerElement(
   const tag = document.createElement("span");
   const meta = document.createElement("span");
   const hours = document.createElement("span");
+  const hoursIcon = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+  const hoursIconCircle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+  const hoursIconHands = document.createElementNS("http://www.w3.org/2000/svg", "path");
+  const hoursText = document.createElement("span");
+  const hoursSeparator = document.createElement("span");
+  const openStatus = document.createElement("span");
 
   element.className = "dealer-map-marker";
   element.type = "button";
@@ -30,10 +37,30 @@ export function createDealerMapMarkerElement(
   tag.className = "dealer-map-marker__tooltip-tag";
   meta.className = "dealer-map-marker__tooltip-meta";
   hours.className = "dealer-map-marker__tooltip-hours";
+  hoursIcon.setAttribute("class", "dealer-map-marker__tooltip-hours-icon");
+  hoursIcon.setAttribute("aria-hidden", "true");
+  hoursIcon.setAttribute("fill", "none");
+  hoursIcon.setAttribute("stroke", "currentColor");
+  hoursIcon.setAttribute("stroke-linecap", "round");
+  hoursIcon.setAttribute("stroke-linejoin", "round");
+  hoursIcon.setAttribute("stroke-width", "2");
+  hoursIcon.setAttribute("viewBox", "0 0 24 24");
+  hoursIconCircle.setAttribute("cx", "12");
+  hoursIconCircle.setAttribute("cy", "12");
+  hoursIconCircle.setAttribute("r", "10");
+  hoursIconHands.setAttribute("d", "M12 6v6l4 2");
+  hoursIcon.append(hoursIconCircle, hoursIconHands);
+  hoursText.textContent = dealer.hours || "Hours unavailable";
+  hoursSeparator.className = "dealer-map-marker__tooltip-hours-separator";
+  hoursSeparator.setAttribute("aria-hidden", "true");
+  openStatus.className = `dealer-map-marker__tooltip-status ${
+    isDealerOpenNow(dealer.hours) ? "is-open" : "is-closed"
+  }`;
+  openStatus.textContent = isDealerOpenNow(dealer.hours) ? "Open Now" : "Closed";
   title.textContent = dealer.label;
   tag.textContent = dealer.category;
   meta.textContent = dealer.locality;
-  hours.textContent = dealer.hours;
+  hours.append(hoursIcon, hoursText, hoursSeparator, openStatus);
 
   if (dealer.image) {
     const image = document.createElement("img");

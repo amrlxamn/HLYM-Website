@@ -1,23 +1,28 @@
 import type { DealerCategory } from "@/data/site-content.types";
 import { SearchField } from "@/components/shared/search-field";
+import type { BrowserCoordinates } from "@/components/dealer-locator/dealer-location.types";
 import type { YamahaDealerLocation } from "../yamaha-network.types";
 import { useScrollFade } from "../hooks/use-scroll-fade";
 import {
-  NetworkCategoryLabel,
   NetworkCategoryRow,
   NetworkCategoryScroll,
   NetworkListHeader,
   NetworkListPanel,
   NetworkSearchRow
 } from "../styles/yamaha-network-shell.styles";
-import { NetworkFilterTag } from "../styles/yamaha-network-controls.styles";
+import {
+  NetworkDealerCount,
+  NetworkFilterCheckbox,
+  NetworkFilterTag
+} from "../styles/yamaha-network-category-filter.styles";
 import { YamahaNetworkDealerList } from "./yamaha-network-dealer-list";
 import { YamahaNetworkLayoutToggle } from "./yamaha-network-layout-toggle";
 
 type YamahaNetworkSidebarProps = {
-  activeCategory: DealerCategory | "all";
+  activeCategories: readonly DealerCategory[];
   dealers: readonly YamahaDealerLocation[];
   isGridLayout: boolean;
+  origin: BrowserCoordinates | null;
   onSelectDealer: (dealerId: string) => void;
   onSelectCategory: (category: DealerCategory | "all") => void;
   onSearchChange: (value: string) => void;
@@ -41,9 +46,10 @@ const CATEGORY_TAGS: readonly { label: string; value: DealerCategory | "all" }[]
 ];
 
 export function YamahaNetworkSidebar({
-  activeCategory,
+  activeCategories,
   dealers,
   isGridLayout,
+  origin,
   onSelectDealer,
   onSelectCategory,
   onSearchChange,
@@ -67,7 +73,6 @@ export function YamahaNetworkSidebar({
           <YamahaNetworkLayoutToggle isGrid={isGridLayout} onToggle={onToggleLayout} />
         </NetworkSearchRow>
         <NetworkCategoryRow>
-          <NetworkCategoryLabel>Category:</NetworkCategoryLabel>
           <NetworkCategoryScroll
             ref={scrollRef}
             $canScrollLeft={fadeState.canScrollLeft}
@@ -75,21 +80,33 @@ export function YamahaNetworkSidebar({
           >
             {CATEGORY_TAGS.map((tag) => (
               <NetworkFilterTag
-                $isActive={activeCategory === tag.value}
-                aria-pressed={activeCategory === tag.value}
+                $isActive={
+                  tag.value === "all"
+                    ? activeCategories.length === 0
+                    : activeCategories.includes(tag.value)
+                }
                 key={tag.value}
-                onClick={() => onSelectCategory(tag.value)}
-                type="button"
               >
-                {tag.label}
+                <NetworkFilterCheckbox
+                  checked={
+                    tag.value === "all"
+                      ? activeCategories.length === 0
+                      : activeCategories.includes(tag.value)
+                  }
+                  onChange={() => onSelectCategory(tag.value)}
+                  type="checkbox"
+                />
+                <span>{tag.label}</span>
               </NetworkFilterTag>
             ))}
           </NetworkCategoryScroll>
+          <NetworkDealerCount aria-live="polite">{dealers.length} Dealers</NetworkDealerCount>
         </NetworkCategoryRow>
       </NetworkListHeader>
       <YamahaNetworkDealerList
         dealers={dealers}
         isGrid={isGridLayout}
+        origin={origin}
         onSelectDealer={onSelectDealer}
         selectedDealerId={selectedDealerId}
       />

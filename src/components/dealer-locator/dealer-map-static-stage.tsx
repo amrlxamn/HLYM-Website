@@ -3,6 +3,7 @@ import type { DealerLocation } from "@/data/site-content.types";
 import { toSentenceCase } from "@/lib/to-sentence-case";
 import { DealerMapBackdrop } from "./dealer-locator.styles";
 import { getStaticMarkerPosition } from "./get-static-marker-position";
+import { isDealerOpenNow } from "./is-dealer-open-now";
 import { useDealerMapPopup } from "./use-dealer-map-popup";
 
 type DealerMapStaticStageProps = {
@@ -66,7 +67,30 @@ export function DealerMapStaticStage({
               <strong className="dealer-map-marker__tooltip-title">{dealer.label}</strong>
               <span className="dealer-map-marker__tooltip-tag">{dealer.category}</span>
               <span className="dealer-map-marker__tooltip-meta">{dealer.locality}</span>
-              <span className="dealer-map-marker__tooltip-hours">{dealer.hours}</span>
+              <span className="dealer-map-marker__tooltip-hours">
+                <svg
+                  aria-hidden="true"
+                  className="dealer-map-marker__tooltip-hours-icon"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  viewBox="0 0 24 24"
+                >
+                  <circle cx="12" cy="12" r="10" />
+                  <path d="M12 6v6l4 2" />
+                </svg>
+                <span>{dealer.hours || "Hours unavailable"}</span>
+                <span aria-hidden="true" className="dealer-map-marker__tooltip-hours-separator" />
+                <span
+                  className={`dealer-map-marker__tooltip-status ${
+                    isDealerOpenNow(dealer.hours) ? "is-open" : "is-closed"
+                  }`}
+                >
+                  {isDealerOpenNow(dealer.hours) ? "Open Now" : "Closed"}
+                </span>
+              </span>
             </span>
           </span>
         </button>

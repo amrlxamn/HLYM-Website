@@ -63,17 +63,8 @@ export const NetworkSearchRow = styled.div`
 `;
 
 export const NetworkCategoryRow = styled.div`
-  align-items: center;
-  display: flex;
+  display: grid;
   gap: 8px;
-`;
-
-export const NetworkCategoryLabel = styled.span`
-  color: #5d625d;
-  flex: 0 0 auto;
-  font-size: 12px;
-  font-weight: 600;
-  white-space: nowrap;
 `;
 
 export const NetworkCategoryScroll = styled.div<{
