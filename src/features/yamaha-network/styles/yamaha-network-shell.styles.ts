@@ -17,6 +17,7 @@ export const NetworkMapWrapper = styled.div`
   overflow: hidden;
   position: relative;
   width: 100%;
+  z-index: var(--z-base);
 `;
 
 export const NetworkListPanel = styled.div`
@@ -28,10 +29,10 @@ export const NetworkListPanel = styled.div`
   display: flex;
   flex-direction: column;
   left: 16px;
-  max-height: calc(100% - 32px);
+  max-height: calc(100% - var(--header-height-total) - var(--space-8));
   overflow: hidden;
   position: absolute;
-  top: 16px;
+  top: calc(var(--header-height-total) + var(--space-4));
   max-width: calc(100vw - 32px);
   width: 480px;
   z-index: 10;

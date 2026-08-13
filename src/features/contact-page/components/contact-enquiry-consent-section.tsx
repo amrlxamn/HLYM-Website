@@ -9,9 +9,13 @@ import type { ContactEnquiryStatus } from "../types/contact-page.types";
 
 type ContactEnquiryConsentSectionProps = {
   status: ContactEnquiryStatus;
+  ticketReference: string | null;
 };
 
-export function ContactEnquiryConsentSection({ status }: ContactEnquiryConsentSectionProps) {
+export function ContactEnquiryConsentSection({
+  status,
+  ticketReference
+}: ContactEnquiryConsentSectionProps) {
   return (
     <ContactEnquirySection>
       <ContactEnquiryConsent>
@@ -24,7 +28,7 @@ export function ContactEnquiryConsentSection({ status }: ContactEnquiryConsentSe
       <ContactEnquiryActions>
         {status === "success" ? (
           <ContactEnquiryStatusMessage $tone="success">
-            Enquiry submitted. Our team will review it in GenCode CRM.
+            Enquiry submitted. Your ticket reference is {ticketReference}.
           </ContactEnquiryStatusMessage>
         ) : (
           <ContactEnquiryStatusMessage $tone="error">

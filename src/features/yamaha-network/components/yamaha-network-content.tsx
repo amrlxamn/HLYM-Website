@@ -48,7 +48,7 @@ export function YamahaNetworkContent({ dealers }: YamahaNetworkContentProps) {
 
   return (
     <NetworkPageRoot>
-      <SiteHeader />
+      <SiteHeader overlay />
       <NetworkMapWrapper>
         <NetworkMapStage>
           <DealerMapStageView

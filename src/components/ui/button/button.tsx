@@ -1,4 +1,5 @@
 import type { ButtonHTMLAttributes, ReactNode } from "react";
+import { ArrowRight } from "lucide-react";
 import { ButtonRoot, type ButtonSize, type ButtonVariant } from "./button.styles";
 
 export type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
@@ -18,7 +19,8 @@ export function Button({
 }: ButtonProps) {
   return (
     <ButtonRoot $fullWidth={fullWidth} $size={size} $variant={variant} type={type} {...props}>
-      {children}
+      <span>{children}</span>
+      <ArrowRight aria-hidden="true" />
     </ButtonRoot>
   );
 }

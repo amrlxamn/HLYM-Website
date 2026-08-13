@@ -15,7 +15,7 @@ import { ContactEnquiryVehicleSection } from "./contact-enquiry-vehicle-section"
 
 export function ContactEnquiryPanel({ isOpen, onClose }: ContactEnquiryPanelProps) {
   const shouldReduceMotion = useReducedMotion();
-  const { handleSubmit, status } = useContactEnquirySubmit();
+  const { handleSubmit, status, ticketReference } = useContactEnquirySubmit();
 
   useEffect(() => {
     if (!isOpen) {
@@ -61,7 +61,7 @@ export function ContactEnquiryPanel({ isOpen, onClose }: ContactEnquiryPanelProp
               <ContactEnquiryPersonalSection />
               <ContactEnquiryDetailsSection />
               <ContactEnquiryVehicleSection />
-              <ContactEnquiryConsentSection status={status} />
+              <ContactEnquiryConsentSection status={status} ticketReference={ticketReference} />
             </ContactEnquiryBody>
           </ContactEnquiryPanelRoot>
         </>

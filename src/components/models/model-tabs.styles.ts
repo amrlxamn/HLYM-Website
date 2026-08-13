@@ -1,18 +1,23 @@
 import styled from "styled-components";
 
-export const ModelTabsRoot = styled.div<{ $orientation: "horizontal" | "vertical" }>`
+export const ModelTabsRoot = styled.div<{
+  $orientation: "horizontal" | "vertical";
+}>`
   display: flex;
   ${({ $orientation }) =>
     $orientation === "vertical"
       ? `
-        align-items: center;
+        align-items: flex-start;
         flex-direction: column;
-        width: 40px;
+        height: 100%;
+        justify-content: center;
+        width: 48px;
       `
       : `
-        gap: 12px;
+        align-items: center;
+        gap: var(--space-3);
         overflow-x: auto;
-        padding-bottom: 8px;
+        padding-bottom: var(--space-2);
       `}
 
   ${({ $orientation }) =>
@@ -29,9 +34,21 @@ export const ModelTabsRoot = styled.div<{ $orientation: "horizontal" | "vertical
       : ""}
 `;
 
-export const ModelTabRow = styled.div`
+export const ModelTabRow = styled.div<{
+  $active: boolean;
+  $orientation: "horizontal" | "vertical";
+}>`
   align-items: center;
   display: inline-flex;
+  position: relative;
+
+  ${({ $orientation }) =>
+    $orientation === "vertical"
+      ? `
+        align-self: stretch;
+        flex-direction: column;
+      `
+      : ""}
 `;
 
 export const ModelTabButton = styled.button<{
@@ -39,7 +56,7 @@ export const ModelTabButton = styled.button<{
   $orientation: "horizontal" | "vertical";
 }>`
   background: transparent;
-  border: ${({ $orientation }) => ($orientation === "horizontal" ? "1px solid #00000014" : "0")};
+  border: 0;
   color: ${({ $active, $orientation }) => {
     if ($active) {
       return "var(--red)";
@@ -47,10 +64,10 @@ export const ModelTabButton = styled.button<{
 
     return $orientation === "vertical" ? "#00000025" : "#00000055";
   }};
-  font-size: ${({ $orientation }) => ($orientation === "vertical" ? "9px" : "inherit")};
+  font-size: ${({ $orientation }) => ($orientation === "vertical" ? "9px" : "10px")};
   font-weight: ${({ $active }) => ($active ? 700 : 600)};
-  letter-spacing: ${({ $orientation }) => ($orientation === "vertical" ? "2px" : "normal")};
-  padding: ${({ $orientation }) => ($orientation === "vertical" ? "12px 4px" : "12px 18px")};
+  letter-spacing: 2px;
+  padding: ${({ $orientation }) => ($orientation === "vertical" ? "12px 4px" : "12px 0")};
   text-transform: uppercase;
   transform: ${({ $orientation }) => ($orientation === "vertical" ? "rotate(180deg)" : "none")};
   white-space: nowrap;
@@ -64,8 +81,23 @@ export const ModelTabButton = styled.button<{
 `;
 
 export const ModelTabDivider = styled.span<{ $orientation: "horizontal" | "vertical" }>`
-  background: #00000012;
-  display: ${({ $orientation }) => ($orientation === "vertical" ? "inline-block" : "none")};
-  height: 20px;
-  width: 1px;
+  ${({ $orientation }) =>
+    $orientation === "vertical"
+      ? `
+        background: var(--alpha-black-24);
+        display: block;
+        height: 8px;
+        margin: 8px auto 12px;
+        transform: rotate(90deg);
+        width: 2px;
+      `
+      : `
+        background: var(--alpha-black-24);
+        display: inline-block;
+        flex: none;
+        height: 8px;
+        margin-left: var(--space-3);
+        transform: rotate(0deg);
+        width: 2px;
+      `}
 `;

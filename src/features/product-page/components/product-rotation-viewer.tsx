@@ -8,15 +8,20 @@ import { ProductRotationViewerSurface } from "../styles/product-showcase-media.s
 type ProductRotationViewerProps = {
   alt: string;
   frames: readonly string[];
+  normalize?: boolean;
 };
 
-export function ProductRotationViewer({ alt, frames }: ProductRotationViewerProps) {
+export function ProductRotationViewer({
+  alt,
+  frames,
+  normalize = false
+}: ProductRotationViewerProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const { frameIndex, onKeyDown, onPointerDown, onPointerMove, onPointerUp } =
     useProductRotationFrame(frames.length);
   const { images, isLoaded } = useImageSequence(frames);
 
-  useCanvasFrameRenderer(canvasRef, images, frameIndex, isLoaded);
+  useCanvasFrameRenderer(canvasRef, images, frameIndex, isLoaded, normalize);
 
   return (
     <ProductRotationViewerSurface

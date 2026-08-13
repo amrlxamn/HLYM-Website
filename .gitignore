@@ -25,3 +25,4 @@ docs/n8n/*.local.env
 .webflow/
 .webflow-home/
 .vercel
+.env*.local

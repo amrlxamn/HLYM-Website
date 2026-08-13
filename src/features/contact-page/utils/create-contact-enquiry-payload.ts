@@ -8,14 +8,18 @@ export function createContactEnquiryPayload(form: HTMLFormElement): ContactEnqui
   const formData = new FormData(form);
 
   return {
+    alternatePhone: getContactEnquiryFormValue(formData, "alternatePhone"),
     consent: true,
+    dealerShop: getContactEnquiryFormValue(formData, "dealerShop"),
     email: getContactEnquiryFormValue(formData, "email").toLowerCase(),
     message: getContactEnquiryFormValue(formData, "message"),
+    mileage: getContactEnquiryFormValue(formData, "mileage"),
     name: getContactEnquiryFormValue(formData, "name"),
     phone: getContactEnquiryFormValue(formData, "phone"),
     preferredBranch: getNormalizedContactBranch(
       getContactEnquiryFormValue(formData, "preferredBranch")
     ),
+    registrationNumber: getContactEnquiryFormValue(formData, "registrationNumber"),
     source: "webflow-contact-page",
     submissionId: createContactEnquirySubmissionId(),
     topic: getContactEnquiryFormValue(formData, "topic"),

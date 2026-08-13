@@ -19,6 +19,7 @@ import {
   Tooltip
 } from "@/components/ui";
 import type { DocComponentEntry } from "../types/design-system-docs.types";
+import { DocButtonPreview } from "./doc-button-preview";
 
 export function DocPrimitivePreview({ entry }: { entry: DocComponentEntry }) {
   const [checked, setChecked] = useState(true);
@@ -26,13 +27,7 @@ export function DocPrimitivePreview({ entry }: { entry: DocComponentEntry }) {
 
   switch (entry.componentName) {
     case "Button":
-      return (
-        <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
-          <Button>Primary</Button>
-          <Button variant="outline">Outline</Button>
-          <Button variant="ghost">Ghost</Button>
-        </div>
-      );
+      return <DocButtonPreview />;
     case "Badge":
       return (
         <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
@@ -85,7 +80,7 @@ export function DocPrimitivePreview({ entry }: { entry: DocComponentEntry }) {
     case "Tooltip":
       return (
         <Tooltip content="View complete specifications">
-          <Button variant="outline">Hover or focus</Button>
+          <Button variant="secondary">Hover or focus</Button>
         </Tooltip>
       );
     case "Toast":

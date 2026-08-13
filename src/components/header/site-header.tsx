@@ -2,11 +2,16 @@ import { MainNavigation } from "@/components/header/main-navigation";
 import { UtilityBar } from "@/components/header/utility-bar";
 import { HeaderShell } from "./header.styles";
 
-export function SiteHeader() {
+type SiteHeaderProps = {
+  fullWidthNavigation?: boolean;
+  overlay?: boolean;
+};
+
+export function SiteHeader({ fullWidthNavigation = false, overlay = false }: SiteHeaderProps) {
   return (
-    <HeaderShell>
+    <HeaderShell $overlay={overlay}>
       <UtilityBar />
-      <MainNavigation />
+      <MainNavigation fullWidth={fullWidthNavigation} />
     </HeaderShell>
   );
 }

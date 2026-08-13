@@ -51,8 +51,11 @@ describe("ContactHeroSection", () => {
     expect(view.getByLabelText("Vehicle registration no.")).toBeInTheDocument();
   });
 
-  it("submits the enquiry form to the configured CRM handoff webhook", async () => {
-    const fetchMock = vi.fn().mockResolvedValue({ ok: true });
+  it("submits the enquiry form and displays its ticket reference", async () => {
+    const fetchMock = vi.fn().mockResolvedValue({
+      json: async () => ({ status: "accepted", ticketReference: "HLYM-2026-ABC123" }),
+      ok: true
+    });
     const user = userEvent.setup();
 
     vi.stubEnv(
@@ -111,7 +114,7 @@ describe("ContactHeroSection", () => {
     expect(requestBody.submissionId).toEqual(expect.any(String));
     await waitFor(() => {
       expect(
-        view.getByText("Enquiry submitted. Our team will review it in GenCode CRM.")
+        view.getByText("Enquiry submitted. Your ticket reference is HLYM-2026-ABC123.")
       ).toBeInTheDocument();
     });
   });

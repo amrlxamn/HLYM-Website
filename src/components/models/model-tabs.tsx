@@ -12,6 +12,8 @@ type ModelTabsProps = {
 
 export function ModelTabs({ activeCategory, orientation, scrollCategory }: ModelTabsProps) {
   const modelsCopy = SITE_COPY.models;
+  const highlightedCategory =
+    activeCategory === "all models" && scrollCategory ? scrollCategory : activeCategory;
 
   return (
     <ModelTabsRoot
@@ -19,13 +21,10 @@ export function ModelTabs({ activeCategory, orientation, scrollCategory }: Model
       aria-label={toSentenceCase(modelsCopy.tabListAriaLabel)}
     >
       {MODEL_TABS.map((tab, index) => {
-        const isScrollHighlighted =
-          activeCategory === "all models" && scrollCategory != null
-            ? scrollCategory === tab
-            : activeCategory === tab;
+        const isScrollHighlighted = highlightedCategory === tab;
 
         return (
-          <ModelTabRow key={tab}>
+          <ModelTabRow $active={isScrollHighlighted} $orientation={orientation} key={tab}>
             <ModelTabButton
               $active={isScrollHighlighted}
               $orientation={orientation}

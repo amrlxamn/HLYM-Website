@@ -1,4 +1,4 @@
-import type { ContactEnquiryPayload } from "../types/contact-page.types";
+import type { ContactEnquiryPayload, ContactEnquiryResult } from "../types/contact-page.types";
 import { getContactEnquiryWebhookUrl } from "./get-contact-enquiry-webhook-url";
 
 export async function submitContactEnquiry(payload: ContactEnquiryPayload) {
@@ -19,4 +19,6 @@ export async function submitContactEnquiry(payload: ContactEnquiryPayload) {
   if (!response.ok) {
     throw new Error("Contact enquiry submission failed");
   }
+
+  return (await response.json()) as ContactEnquiryResult;
 }

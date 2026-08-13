@@ -39,10 +39,6 @@ export type HeaderCopy = {
 
 export type HeroCopy = {
   ariaLabel: string;
-  nextSlideAriaLabel: string;
-  previousSlideAriaLabel: string;
-  scrollLabel: string;
-  startingFromLabel: string;
 };
 
 export type ModelsCopy = {

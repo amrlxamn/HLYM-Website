@@ -11,4 +11,12 @@ describe("Button", () => {
 
     expect(onClick).toHaveBeenCalledOnce();
   });
+
+  it("renders the directional arrow as decorative", () => {
+    const view = render(<Button variant="related">Related action</Button>);
+
+    expect(
+      view.getByRole("button", { name: "Related action" }).querySelector("svg")
+    ).toHaveAttribute("aria-hidden", "true");
+  });
 });
