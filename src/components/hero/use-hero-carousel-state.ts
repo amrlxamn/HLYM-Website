@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { HERO_SLIDES } from "@/data/hero-slides.constants";
 
-const HERO_AUTO_ADVANCE_MS = 5000;
+const HERO_AUTO_ADVANCE_MS = 12000;
 
 export function useHeroCarouselState() {
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0);

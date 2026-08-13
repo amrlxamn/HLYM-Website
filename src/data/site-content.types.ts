@@ -5,17 +5,8 @@ export type FooterColumn = {
 
 export type HeroSlide = {
   alt: string;
-  ctaHref: string;
-  ctaLabel: string;
-  description: string;
-  eyebrow: string;
+  href: string;
   image: string;
-  indexLabel: string;
-  price: string;
-  stats: readonly { label: string; value: string }[];
-  titleAccent: string;
-  titleLead: string;
-  totalLabel: string;
 };
 
 export type LanguageOption = {
@@ -50,6 +41,7 @@ export type ModelCard = {
   compact?: boolean;
   detailHref: string;
   engine: string;
+  frames?: readonly string[];
   image: string;
   name: string;
   power: string;

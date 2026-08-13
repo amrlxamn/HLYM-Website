@@ -85,7 +85,7 @@ export const GlobalStyle = createGlobalStyle`
     --easing-in-out: ${({ theme }) => theme.motion.easing.inOut};
     --easing-drawer: ${({ theme }) => theme.motion.easing.drawer};
     --header-height-main: 76px;
-    --header-height-utility: 34px;
+    --header-height-utility: 70px;
     --header-height-total: calc(
       var(--header-height-main) + var(--header-height-utility)
     );

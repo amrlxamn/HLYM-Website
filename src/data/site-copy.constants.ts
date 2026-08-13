@@ -73,15 +73,11 @@ export const SITE_COPY: SiteCopy = {
     utilityNavigationAriaLabel: "utility navigation"
   },
   hero: {
-    ariaLabel: "hero carousel",
-    nextSlideAriaLabel: "show next featured model",
-    previousSlideAriaLabel: "show previous featured model",
-    scrollLabel: "scroll",
-    startingFromLabel: "starting from"
+    ariaLabel: "featured Yamaha promotions"
   },
   models: {
     ariaLabel: "stacked models section",
-    detailsLabel: "details",
+    detailsLabel: "discover more",
     heading: "compare",
     modelCountSuffix: "models",
     specLabels: {

@@ -15,8 +15,11 @@ export const ModelCardRoot = styled.article`
   }
 
   @media (max-width: 980px) {
-    grid-template-columns: 1fr;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
     height: auto;
+    justify-content: center;
   }
 `;
 
@@ -24,25 +27,32 @@ export const ModelCopy = styled.div<{ $compact: boolean }>`
   color: #0a0a0a;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 24px;
+  height: 100%;
   justify-content: center;
   padding: 40px 48px;
   position: relative;
   z-index: 3;
 
   @media (max-width: 980px) {
-    order: 2;
-    padding: 24px;
+    flex: 0 1 42%;
+    gap: var(--space-4);
+    order: 1;
+    padding: var(--space-6) var(--space-4);
   }
 `;
 
 export const ModelNumber = styled.p`
   color: #00000008;
-  font-size: 80px;
+  font-size: 72px;
   font-weight: 700;
   letter-spacing: -2px;
   line-height: 0.85;
   margin: 0;
+
+  @media (max-width: 980px) {
+    font-size: clamp(36px, 7vw, 52px);
+  }
 `;
 
 export const ModelCategory = styled.div`
@@ -52,11 +62,20 @@ export const ModelCategory = styled.div`
 
   p {
     color: #00000060;
-    font-size: 10px;
+    font-size: 14px;
     font-weight: 600;
     letter-spacing: 3px;
     margin: 0;
     text-transform: uppercase;
+  }
+
+  @media (max-width: 980px) {
+    gap: var(--space-2);
+
+    p {
+      font-size: 10px;
+      letter-spacing: 2px;
+    }
   }
 `;
 
@@ -64,15 +83,24 @@ export const ModelCategoryAccent = styled.span`
   background: var(--red);
   height: 14px;
   width: 2px;
+
+  @media (max-width: 980px) {
+    height: 10px;
+  }
 `;
 
 export const ModelName = styled.h3`
   color: #0a0a0a;
-  font-size: 40px;
+  font-size: clamp(52px, 5vw, 68px);
   font-weight: 700;
   letter-spacing: 1px;
   margin: 0;
   text-transform: uppercase;
+
+  @media (max-width: 980px) {
+    font-size: clamp(26px, 6vw, 42px);
+    letter-spacing: 0;
+  }
 `;
 
 export const ModelSpecs = styled.div`
@@ -81,25 +109,44 @@ export const ModelSpecs = styled.div`
   flex-wrap: wrap;
   gap: 24px;
   row-gap: 10px;
+
+  @media (max-width: 980px) {
+    gap: var(--space-3);
+    row-gap: var(--space-2);
+  }
 `;
 
-export const ModelSpecGroup = styled.div<{ $compact: boolean }>`
+export const ModelSpecGroup = styled.div`
   display: flex;
   flex-direction: column;
   gap: 2px;
 
-  strong {
+  > span:first-child {
     color: #0a0a0a;
-    font-size: ${({ $compact }) => ($compact ? "16px" : "20px")};
-    font-weight: 600;
+    font-size: 24px;
+    font-weight: 300;
+    line-height: 1;
+    text-transform: uppercase;
   }
 
-  span {
+  > span:last-child {
     color: #00000040;
-    font-size: ${({ $compact }) => ($compact ? "8px" : "9px")};
-    font-weight: ${({ $compact }) => ($compact ? 500 : 600)};
+    font-size: 18px;
+    font-weight: 300;
     letter-spacing: 2px;
+    line-height: 1;
     text-transform: uppercase;
+  }
+
+  @media (max-width: 980px) {
+    > span:first-child {
+      font-size: 16px;
+    }
+
+    > span:last-child {
+      font-size: 10px;
+      letter-spacing: 1px;
+    }
   }
 `;
 
@@ -108,55 +155,113 @@ export const ModelDivider = styled.span`
   display: inline-block;
   height: 28px;
   width: 1px;
+
+  @media (max-width: 980px) {
+    height: 20px;
+  }
 `;
 
 export const ModelPriceRow = styled.div`
   align-items: center;
   display: inline-flex;
-  gap: 24px;
-  row-gap: 8px;
 
-  strong {
-    color: #0a0a0a;
-    font-size: 20px;
-    font-weight: 500;
-    letter-spacing: 1px;
-    text-transform: uppercase;
+  button {
+    font-size: 16px;
   }
-`;
 
-export const ModelPriceLink = styled.a`
-  align-items: center;
-  color: #00000050;
-  display: inline-flex;
-  gap: 8px;
-  font-size: 10px;
-  font-weight: 500;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-
-  svg {
-    color: var(--red);
-    height: 16px;
-    width: 16px;
+  @media (max-width: 980px) {
+    button {
+      font-size: 12px;
+    }
   }
 `;
 
 export const ModelImage = styled.div`
+  align-items: center;
+  background: var(--color-bg-canvas);
+  display: flex;
+  height: 100%;
+  justify-content: center;
   position: relative;
   z-index: 1;
 
+  > img {
+    filter: none;
+    height: 100%;
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+    width: 100%;
+  }
+
   @media (max-width: 980px) {
-    height: 220px;
+    flex: 1 1 58%;
+    height: clamp(220px, 52vw, 380px);
+    min-width: 0;
     order: 1;
   }
 `;
 
-export const ModelImageFade = styled.span`
-  background: linear-gradient(90deg, #f7f7f7 0%, #f7f7f700 100%);
-  inset: 0 auto 0 0;
-  position: absolute;
-  width: 200px;
+export const ModelRotationStage = styled.div`
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  justify-content: center;
+  margin-inline: auto;
+  max-width: 780px;
+  width: 100%;
+
+  > div[role="group"] {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin-inline: auto;
+    width: 100%;
+  }
+
+  canvas {
+    aspect-ratio: 3 / 2;
+    filter: none;
+    height: auto;
+    max-width: 100%;
+    object-fit: contain;
+    width: 100%;
+  }
+`;
+
+export const ModelRotationCue = styled.div`
+  align-items: center;
+  color: var(--color-text-muted-light);
+  display: inline-flex;
+  flex: none;
+  gap: var(--space-2);
+  font-size: 10px;
+  font-weight: var(--font-weight-bold);
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+  white-space: nowrap;
+
+  span {
+    display: inline-block;
+  }
+
+  svg {
+    color: var(--red);
+    height: 22px;
+    overflow: visible;
+    width: 22px;
+  }
+
+  @media (max-width: 980px) {
+    font-size: 8px;
+    gap: var(--space-1);
+
+    svg {
+      height: 18px;
+      width: 18px;
+    }
+  }
 `;
 
 export const ModelLeftAccent = styled.span`

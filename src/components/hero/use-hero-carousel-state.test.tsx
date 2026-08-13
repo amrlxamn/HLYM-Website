@@ -4,7 +4,7 @@ import { HERO_SLIDES } from "@/data/hero-slides.constants";
 import { useHeroCarouselState } from "./use-hero-carousel-state";
 
 describe("useHeroCarouselState", () => {
-  it("auto-advances to the next hero slide after a few seconds", () => {
+  it("auto-advances to the next hero slide after twelve seconds", () => {
     vi.useFakeTimers();
 
     const { result } = renderHook(() => useHeroCarouselState());
@@ -12,7 +12,7 @@ describe("useHeroCarouselState", () => {
     expect(result.current.currentSlideIndex).toBe(0);
 
     act(() => {
-      vi.advanceTimersByTime(5000);
+      vi.advanceTimersByTime(12000);
     });
 
     expect(result.current.currentSlideIndex).toBe(1);
