@@ -1,0 +1,55 @@
+{
+  "name": "HLYM Support Notifications",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "hlym-support-notifications",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "support-webhook",
+      "name": "Support Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [0, 0],
+      "webhookId": "hlym-support-notifications"
+    },
+    {
+      "parameters": {
+        "jsCode": "const expected = $env.N8N_SUPPORT_WEBHOOK_SECRET;\nconst provided = $json.headers?.['x-support-webhook-secret'];\nif (!expected || provided !== expected) throw new Error('Unauthorized support notification');\nconst allowed = ['support.access.requested', 'support.staff.magic-link', 'support.ticket.created', 'support.customer.replied', 'support.staff.replied', 'support.status.changed'];\nif (!allowed.includes($json.body?.event)) throw new Error('Unsupported support event');\nreturn [{ json: $json.body }];"
+      },
+      "id": "validate-event",
+      "name": "Validate Event",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [240, 0]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ { accepted: true, event: $json.event } }}",
+        "options": { "responseCode": 202 }
+      },
+      "id": "accepted-response",
+      "name": "Accepted Response",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.4,
+      "position": [480, 0]
+    }
+  ],
+  "connections": {
+    "Support Webhook": {
+      "main": [[{ "node": "Validate Event", "type": "main", "index": 0 }]]
+    },
+    "Validate Event": {
+      "main": [[{ "node": "Accepted Response", "type": "main", "index": 0 }]]
+    }
+  },
+  "pinData": {},
+  "settings": { "executionOrder": "v1" },
+  "active": false,
+  "versionId": "f0f25ed0-b60b-4ba4-b195-5ea54f49bd2d",
+  "meta": { "templateCredsSetupCompleted": false },
+  "tags": []
+}

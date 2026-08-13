@@ -6,6 +6,7 @@ import { submitContactEnquiry } from "../utils/submit-contact-enquiry";
 
 export function useContactEnquirySubmit() {
   const [status, setStatus] = useState<ContactEnquiryStatus>("idle");
+  const [ticketReference, setTicketReference] = useState<string | null>(null);
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -14,13 +15,15 @@ export function useContactEnquirySubmit() {
     try {
       const form = event.currentTarget;
 
-      await submitContactEnquiry(createContactEnquiryPayload(form));
+      const result = await submitContactEnquiry(createContactEnquiryPayload(form));
+
       form.reset();
+      setTicketReference(result.ticketReference);
       setStatus("success");
     } catch {
       setStatus("error");
     }
   };
 
-  return { handleSubmit, status };
+  return { handleSubmit, status, ticketReference };
 }

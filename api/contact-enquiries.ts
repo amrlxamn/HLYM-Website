@@ -1,11 +1,10 @@
-import { forwardContactEnquiry } from "../server/contact-enquiries/forward-contact-enquiry";
-import { getContactEnquiryWebhookUrl } from "../server/contact-enquiries/get-contact-enquiry-webhook-url";
-import { readContactEnquiryRequestBody } from "../server/contact-enquiries/read-contact-enquiry-request-body";
+import { readContactEnquiryRequestBody } from "../server/contact-enquiries/read-contact-enquiry-request-body.js";
 import type {
   ContactEnquiryApiRequest,
   ContactEnquiryApiResponse
-} from "../server/contact-enquiries/contact-enquiry-api.types";
-import { validateContactEnquiryPayload } from "../server/contact-enquiries/validate-contact-enquiry-payload";
+} from "../server/contact-enquiries/contact-enquiry-api.types.js";
+import { createSupportTicket } from "../server/support/create-support-ticket.js";
+import { supportTicketSchema } from "../src/features/support-portal/schemas/support-ticket.schema.js";
 
 export default async function contactEnquiries(
   request: ContactEnquiryApiRequest,
@@ -16,32 +15,16 @@ export default async function contactEnquiries(
     return;
   }
 
-  const webhookUrl = getContactEnquiryWebhookUrl();
-
-  if (!webhookUrl) {
-    response.status(503).json({
-      code: "contact_enquiry_webhook_not_configured",
-      message: "Contact enquiry handoff is not configured"
-    });
-    return;
-  }
-
   try {
     const body = await readContactEnquiryRequestBody(request);
-    const payload = validateContactEnquiryPayload(JSON.parse(body));
-    const webhookResponse = await forwardContactEnquiry(webhookUrl, payload);
+    const payload = supportTicketSchema.parse(JSON.parse(body));
+    const result = await createSupportTicket(payload);
 
-    response.status(202).json({
-      provider: "gencode-crm",
-      status: "accepted",
-      webhookStatusCode: webhookResponse.status
-    });
-  } catch (error) {
-    const message = error instanceof Error ? error.message : "Contact enquiry submission failed";
-
+    response.status(201).json(result);
+  } catch {
     response.status(400).json({
       code: "contact_enquiry_submission_failed",
-      message
+      message: "Unable to submit this enquiry. Check the details and try again."
     });
   }
 }
