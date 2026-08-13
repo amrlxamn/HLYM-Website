@@ -1,7 +1,9 @@
 import styled, { css } from "styled-components";
+import { BUTTON_INTERACTION_STYLES } from "./button-interaction.styles";
+import { BUTTON_VARIANT_STYLES } from "./button-variants.styles";
 
 export type ButtonSize = "sm" | "md" | "lg";
-export type ButtonVariant = "primary" | "ghost" | "outline";
+export type ButtonVariant = "primary" | "related" | "secondary";
 
 export const ButtonRoot = styled.button<{
   $fullWidth: boolean;
@@ -9,79 +11,81 @@ export const ButtonRoot = styled.button<{
   $variant: ButtonVariant;
 }>`
   align-items: center;
-  border: 1px solid transparent;
-  border-radius: var(--radius-none);
-  display: inline-flex;
+  color: var(--button-color);
+  display: inline-grid;
   font-weight: var(--font-weight-bold);
-  gap: var(--space-2);
-  justify-content: center;
+  gap: var(--space-4);
+  grid-template-columns: minmax(0, 1fr) auto;
+  justify-content: stretch;
+  letter-spacing: var(--tracking-widest);
   line-height: var(--leading-none, 1);
+  padding: 0 0 var(--space-3);
+  position: relative;
+  text-align: left;
+  text-transform: uppercase;
   transition:
-    background-color var(--duration-press) var(--easing-out),
-    border-color var(--duration-press) var(--easing-out),
     color var(--duration-press) var(--easing-out),
     transform var(--duration-press) var(--easing-out);
-  width: ${({ $fullWidth }) => ($fullWidth ? "100%" : "auto")};
+  width: ${({ $fullWidth, $variant }) => {
+    if ($fullWidth) {
+      return "100%";
+    }
+
+    return $variant === "related" ? "auto" : "min(100%, 280px)";
+  }};
+
+  ${BUTTON_INTERACTION_STYLES}
+
+  > svg {
+    color: var(--button-arrow);
+    flex: none;
+    transition: transform var(--duration-press) var(--easing-out);
+  }
 
   ${({ $size }) => {
     if ($size === "sm") {
       return css`
-        font-size: var(--font-size-sm);
+        font-size: 11px;
         min-height: 32px;
-        padding: var(--space-2) var(--space-3);
+
+        > svg {
+          height: 17px;
+          width: 17px;
+        }
       `;
     }
 
     if ($size === "lg") {
       return css`
-        font-size: var(--font-size-lg);
+        font-size: var(--font-size-md);
         min-height: 48px;
-        padding: var(--space-3) var(--space-6);
+
+        > svg {
+          height: 24px;
+          width: 24px;
+        }
       `;
     }
 
     return css`
-      font-size: var(--font-size-md);
+      font-size: 12px;
       min-height: 40px;
-      padding: var(--space-2) var(--space-5);
-    `;
-  }}
 
-  ${({ $variant }) => {
-    if ($variant === "outline") {
-      return css`
-        border-color: var(--alpha-white-20);
-        color: var(--color-text-inverse);
-
-        &:hover:not(:disabled) {
-          border-color: var(--color-brand-500);
-        }
-      `;
-    }
-
-    if ($variant === "ghost") {
-      return css`
-        color: var(--color-text-readable-dark);
-
-        &:hover:not(:disabled) {
-          background: var(--alpha-white-08);
-          color: var(--color-text-inverse);
-        }
-      `;
-    }
-
-    return css`
-      background: var(--color-brand-500);
-      color: var(--color-text-inverse);
-
-      &:hover:not(:disabled) {
-        background: var(--color-brand-600);
+      > svg {
+        height: 20px;
+        width: 20px;
       }
     `;
   }}
 
+  ${({ $variant }) => BUTTON_VARIANT_STYLES[$variant]}
+
+  &:hover:not(:disabled) > svg {
+    transform: translateX(var(--space-1));
+  }
+
   &:active:not(:disabled) {
-    transform: scale(0.97);
+    transform: scale(0.98);
   }
 
   &:disabled {

@@ -3,10 +3,12 @@ import type { DocComponentEntry } from "../types/design-system-docs.types";
 export const DOC_PRIMITIVE_CATALOG: readonly DocComponentEntry[] = [
   {
     category: "Actions",
-    code: '<Button variant="primary">Explore models</Button>',
+    code: `<Button variant="primary">Explore models</Button>
+<Button variant="secondary">Request access</Button>
+<Button variant="related">View specifications</Button>`,
     componentName: "Button",
     description:
-      "Canonical pressable action with three variants, three sizes, disabled state, and tactile press feedback.",
+      "Editorial label-arrow action with primary, secondary, and related variants. Hover or focus reveals the label and full-width rule in Yamaha red with a synchronized 360ms left-to-right sweep.",
     id: "ui-button",
     name: "Button",
     previewTone: "dark",
@@ -14,7 +16,7 @@ export const DOC_PRIMITIVE_CATALOG: readonly DocComponentEntry[] = [
       {
         name: "variant",
         required: false,
-        type: '"primary" | "ghost" | "outline"',
+        type: '"primary" | "secondary" | "related"',
         default: '"primary"'
       },
       { name: "size", required: false, type: '"sm" | "md" | "lg"', default: '"md"' },
