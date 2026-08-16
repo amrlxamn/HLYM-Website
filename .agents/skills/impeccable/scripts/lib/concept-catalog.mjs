@@ -393,3 +393,4 @@ export function approvedPoolRevision(concepts) {
     .join('\n');
   return crypto.createHash('sha256').update(payload).digest('hex').slice(0, 12);
 }
+
