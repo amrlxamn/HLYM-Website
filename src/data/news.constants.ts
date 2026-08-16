@@ -1,57 +1,58 @@
-import type { FeaturedNews, NewsCard } from "@/data/site-content.types";
-import { getAssetUrl } from "@/lib/get-asset-url";
+import type { NewsCard } from "@/data/site-content.types";
 
-export const FEATURED_NEWS: FeaturedNews = {
-  alt: "yzf-r9 feature",
-  dateLabel: "march 4, 2026",
-  image: getAssetUrl("hlym/generated-1772610727201.png"),
-  readTime: "5 min read",
-  title: "the all-new yzf-r9: born from motogp dna"
-};
-
-export const NEWS_HIGHLIGHTS: readonly NewsCard[] = [
+export const NEWS_ITEMS: readonly NewsCard[] = [
   {
-    alt: "arrc story",
-    dateLabel: "feb 28, 2026",
-    image: getAssetUrl("hlym/generated-1772610737793.png"),
-    readTime: "3 min read",
-    title: "yamaha racing team dominates arrc round 3 in sepang"
+    alt: "Yamaha XMAX 300 Tech Max",
+    ctaLabel: "Read more",
+    dateLabel: "12 August 2026",
+    description: "Find the selected authorised dealers carrying the XMAX 300 Tech Max.",
+    href: "https://www.yamaha-motor.com.my/xmax300available/",
+    image: "https://www.yamaha-motor.com.my/wp-content/uploads/2026/08/26XMAX-NE.jpg",
+    title: "XMAX 300 Tech Max sales network"
   },
   {
-    alt: "nmax turbo story",
-    dateLabel: "feb 20, 2026",
-    image: getAssetUrl("hlym/generated-1772610745607.png"),
-    readTime: "4 min read",
-    title: "nmax turbo series unveiled - a new era of urban mobility"
+    alt: "Yamaha TMAX Tech Max in Crystal Graphite",
+    ctaLabel: "Read more",
+    dateLabel: "20 April 2026",
+    description: "The premium TMAX Tech Max arrives in an exclusive Crystal Graphite finish.",
+    href: "https://www.yamaha-motor.com.my/tmax-tech-max-now-in-crystal-graphite/",
+    image: "https://www.yamaha-motor.com.my/wp-content/uploads/2026/04/26TMAX-NE.jpg",
+    title: "TMAX Tech Max now in Crystal Graphite"
+  },
+  {
+    alt: "Yamaha Tenere 700",
+    ctaLabel: "Read more",
+    dateLabel: "31 March 2026",
+    description: "The new Tenere 700 brings confident touring and off-road capability.",
+    href: "https://www.yamaha-motor.com.my/hong-leong-yamaha-motor-launches-the-new-tenere-700/",
+    image: "https://www.yamaha-motor.com.my/wp-content/uploads/2026/03/26TENERE700-NE.jpg",
+    title: "One bike, no boundaries: the new Tenere 700"
+  },
+  {
+    alt: "Hong Leong Yamaha Motor supporting WITUS",
+    ctaLabel: "Read more",
+    dateLabel: "16 March 2026",
+    description: "A Ramadan initiative supporting the women and single mothers of WITUS.",
+    href: "https://www.yamaha-motor.com.my/berkongsi-kegembiraan/",
+    image: "https://www.yamaha-motor.com.my/wp-content/uploads/2026/02/Untitled-design-1.png",
+    title: "Berkongsi kegembiraan sempena musim perayaan"
+  },
+  {
+    alt: "Yamalube Scan and Win Contest",
+    ctaLabel: "Read more",
+    dateLabel: "27 February 2026",
+    description: "Scan participating Yamalube products for a chance to win Yamaha prizes.",
+    href: "https://www.yamaha-motor.com.my/yamalubescanandwincontest/",
+    image: "https://www.yamaha-motor.com.my/wp-content/uploads/2022/01/22YSW-NE.jpg",
+    title: "Yamalube Scan & Win Contest"
+  },
+  {
+    alt: "Yamaha PG-1 in new colours",
+    ctaLabel: "Read more",
+    dateLabel: "3 February 2026",
+    description: "The 2026 Yamaha PG-1 is introduced in Classic Black and Sky Blue.",
+    href: "https://www.yamaha-motor.com.my/new-colours-yamaha-pg-1/",
+    image: "https://www.yamaha-motor.com.my/wp-content/uploads/2026/02/26PG1-NE.jpg",
+    title: "Introducing new colours for the Yamaha PG-1"
   }
-] as const;
-
-export const NEWS_UPDATES: readonly NewsCard[] = [
-  {
-    alt: "y-connect ai story",
-    dateLabel: "feb 15, 2026",
-    image: getAssetUrl("hlym/generated-1772610758724.png"),
-    readTime: "3 min",
-    title: "yamaha y-connect app gets major ai update for 2026"
-  },
-  {
-    alt: "mt-09 engineering story",
-    dateLabel: "feb 10, 2026",
-    image: getAssetUrl("hlym/generated-1772610766611.png"),
-    readTime: "6 min",
-    title: "behind the scenes: how the mt-09 sp was engineered"
-  },
-  {
-    alt: "tenéré journey story",
-    dateLabel: "feb 5, 2026",
-    image: getAssetUrl("hlym/generated-1772610774151.png"),
-    readTime: "8 min",
-    title: "exploring malaysia's east coast: a ténéré 700 journey"
-  }
-] as const;
-
-export const NEWS_MINI_RAIL: readonly NewsCard[] = [
-  FEATURED_NEWS,
-  ...NEWS_HIGHLIGHTS,
-  ...NEWS_UPDATES
 ] as const;
