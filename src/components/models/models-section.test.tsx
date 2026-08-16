@@ -2,6 +2,7 @@ import { render } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
 import { getVisibleModels } from "@/components/models/get-visible-models";
 import { ModelsSection } from "@/components/models/models-section";
+import { getAssetUrl } from "@/lib/get-asset-url";
 import { MODELS, MODEL_TABS } from "@/data/models.constants";
 import {
   MT_15_360_FRAMES,
@@ -63,11 +64,11 @@ describe("ModelsSection", () => {
     expect(document.head.textContent).toContain("aspect-ratio:3/2");
     expect(document.head.textContent).toContain("font-size:18px");
     expect(document.head.textContent).not.toContain("height:min(60vh,560px)");
-    expect(Y15ZR_360_FRAMES[0]).toBe("/assets/hlym/model-360/y15zr/07.jpg");
-    expect(NVX_360_FRAMES[0]).toBe("/assets/hlym/model-360/nvx/04.jpg");
-    expect(XSR155_360_FRAMES[0]).toBe("/assets/hlym/model-360/xsr155/03.jpg");
-    expect(MT_09_360_FRAMES[0]).toBe("/assets/hlym/model-360/mt-09/02.jpg");
-    expect(MT_15_360_FRAMES[0]).toBe("/assets/hlym/model-360/mt-15/03.jpg");
+    expect(Y15ZR_360_FRAMES[0]).toBe(getAssetUrl("hlym/model-360/y15zr/07.jpg"));
+    expect(NVX_360_FRAMES[0]).toBe(getAssetUrl("hlym/model-360/nvx/04.jpg"));
+    expect(XSR155_360_FRAMES[0]).toBe(getAssetUrl("hlym/model-360/xsr155/03.jpg"));
+    expect(MT_09_360_FRAMES[0]).toBe(getAssetUrl("hlym/model-360/mt-09/02.jpg"));
+    expect(MT_15_360_FRAMES[0]).toBe(getAssetUrl("hlym/model-360/mt-15/03.jpg"));
   });
 
   it("animates spec digits while keeping units static", () => {
