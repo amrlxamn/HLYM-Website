@@ -218,30 +218,6 @@ export const DOC_COMPONENT_CATALOG: readonly DocComponentEntry[] = [
     tier: 1
   },
   {
-    category: "Cards",
-    code: "<NewsFeaturedCard item={news} ... />",
-    componentName: "NewsFeaturedCard",
-    description:
-      "Scroll-linked featured news card with mini carousel. Requires MotionValue instances from a parent useScroll context.",
-    id: "news-featured-card",
-    name: "News Featured Card",
-    note: "Requires framer-motion MotionValue instances from a parent scroll context. Shown as static preview.",
-    previewTone: "dark",
-    props: [
-      { name: "item", required: true, type: "NewsCard" },
-      { name: "railItems", required: true, type: "readonly NewsCard[]" },
-      { name: "width", required: true, type: "MotionValue<number>" },
-      { name: "height", required: true, type: "MotionValue<number>" },
-      { name: "y", required: true, type: "MotionValue<number>" },
-      { name: "borderRadius", required: true, type: "MotionValue<number>" },
-      { name: "miniCardsY", required: true, type: "MotionValue<number>" },
-      { name: "miniCardsOpacity", required: true, type: "MotionValue<number>" },
-      { name: "selectedNewsIndex", required: true, type: "number" },
-      { name: "onSelectNews", required: true, type: "(index) => void" }
-    ],
-    tier: 3
-  },
-  {
     category: "Forms & Feedback",
     code: "<ContactFaqItem item={faq} />",
     componentName: "ContactFaqItem",

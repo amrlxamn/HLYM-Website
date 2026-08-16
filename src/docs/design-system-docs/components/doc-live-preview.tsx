@@ -75,7 +75,7 @@ function PreviewContent({ entry }: { entry: DocComponentEntry }) {
     case "FeaturedCard":
       return <FeaturedCard card={MOCK_FEATURED_CARD} />;
     case "CategoryTile":
-      return <CategoryTile tile={MOCK_CATEGORY_TILE} />;
+      return <CategoryTile index={0} tile={MOCK_CATEGORY_TILE} />;
     case "ContactSupportCard":
       return <ContactSupportCard card={MOCK_CONTACT_HERO_CARD} />;
     case "YamahaNetworkDealerCard":
@@ -92,8 +92,6 @@ function PreviewContent({ entry }: { entry: DocComponentEntry }) {
       return <ContactFaqItem item={MOCK_CONTACT_FAQ_ITEM} />;
     case "ProductOverviewSpecRow":
       return <ProductOverviewSpecRow spec={MOCK_PRODUCT_SPEC} index={0} />;
-    case "NewsFeaturedCard":
-      return <PreviewNote>{entry.note ?? "Requires motion context"}</PreviewNote>;
     case "SplashScreen":
       return <PreviewNote>{entry.note ?? "Full-screen overlay"}</PreviewNote>;
     case "CustomCursor":
