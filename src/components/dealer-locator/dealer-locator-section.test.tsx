@@ -59,6 +59,11 @@ describe("DealerLocatorSection", () => {
     expect(view.getByRole("button", { name: "Show next dealer" })).toBeInTheDocument();
     expect(view.getByText("marker count: 10")).toBeInTheDocument();
     expect(view.getByText("user location idle")).toBeInTheDocument();
+    expect(view.getByRole("heading", { name: "Explore the Yamaha network" })).toBeInTheDocument();
+    expect(view.getByRole("link", { name: "find a dealer" })).toHaveAttribute(
+      "href",
+      "/yamaha-network"
+    );
   });
 
   it("updates the dealer panel when another marker is selected", async () => {

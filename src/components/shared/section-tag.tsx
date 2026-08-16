@@ -2,6 +2,7 @@ import { SectionTagRoot } from "./section-tag.styles";
 
 type SectionTagProps = {
   accent?: boolean;
+  category?: boolean;
   centered?: boolean;
   label: string;
   lineWidth?: "default" | "medium" | "wide";
@@ -9,15 +10,21 @@ type SectionTagProps = {
 
 export function SectionTag({
   accent = false,
+  category = false,
   centered = false,
   label,
   lineWidth = "default"
 }: SectionTagProps) {
   return (
-    <SectionTagRoot $accent={accent} $centered={centered} $lineWidth={lineWidth}>
+    <SectionTagRoot
+      $accent={accent}
+      $category={category}
+      $centered={centered}
+      $lineWidth={lineWidth}
+    >
       <span />
       <p>{label}</p>
-      <span />
+      {category ? null : <span />}
     </SectionTagRoot>
   );
 }

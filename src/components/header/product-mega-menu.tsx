@@ -3,7 +3,6 @@ import { useState } from "react";
 import { Button } from "@/components/ui";
 import { MODEL_TABS } from "@/data/models.constants";
 import type { ModelCategory } from "@/data/site-content.types";
-import { getAssetUrl } from "@/lib/get-asset-url";
 import { toSentenceCase } from "@/lib/to-sentence-case";
 import { PRODUCT_CURTAIN_MODELS } from "./product-curtain-models.constants";
 import {
@@ -85,11 +84,11 @@ export function ProductMegaMenu({ contentTop, fullWidth, onClose, open }: Produc
                 ))}
               </MegaModelList>
               <MegaProductPreview>
-                <MegaProductImage src={getAssetUrl(activeModel.image)} alt={activeModel.name} />
+                <MegaProductImage src={activeModel.image} alt={activeModel.name} />
                 <Button
                   onClick={() => window.location.assign("/products")}
                   size="sm"
-                  variant="related"
+                  variant="light"
                 >
                   Discover more
                 </Button>

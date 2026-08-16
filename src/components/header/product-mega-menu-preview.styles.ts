@@ -15,6 +15,10 @@ export const MegaProductPreview = styled.div`
   justify-content: center;
   min-width: 0;
   padding: var(--space-3) var(--space-8) var(--space-6);
+
+  > button {
+    justify-self: center;
+  }
 `;
 
 export const MegaProductImage = styled.img`

@@ -25,6 +25,7 @@ export const MOCK_MODEL_CARD: ModelCard = {
 export const MOCK_FEATURED_CARD: FeaturedCard = {
   alt: "Yamaha Tracer 9 GT sport touring motorcycle",
   description: "Cross-dynamic touring with refined suspension and ride intelligence.",
+  href: "/products/tracer-9-gt",
   image: "/assets/hlym/slide-1.png",
   name: "Tracer 9 GT",
   price: "RM 58,000",
@@ -33,6 +34,7 @@ export const MOCK_FEATURED_CARD: FeaturedCard = {
 
 export const MOCK_CATEGORY_TILE: CategoryTile = {
   alt: "Yamaha big bikes category",
+  description: "High-performance motorcycles engineered for open roads and long journeys.",
   href: "/products",
   image: "/assets/hlym/slide-2.png",
   name: "Big Bikes",
@@ -42,9 +44,11 @@ export const MOCK_CATEGORY_TILE: CategoryTile = {
 
 export const MOCK_NEWS_CARD: NewsCard = {
   alt: "Yamaha racing event",
+  ctaLabel: "Read more",
   dateLabel: "15 Aug 2026",
+  description: "Latest news from Yamaha Motor Malaysia.",
+  href: "/news",
   image: "/assets/hlym/slide-3.png",
-  readTime: "4 min read",
   title: "Yamaha Dominates Sepang Round"
 };
 

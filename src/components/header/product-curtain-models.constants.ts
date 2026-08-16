@@ -1,4 +1,5 @@
 import type { ModelCategory } from "@/data/site-content.types";
+import { getAssetUrl } from "@/lib/get-asset-url";
 
 type ProductCategory = Exclude<ModelCategory, "all models">;
 
@@ -10,19 +11,19 @@ type CurtainModel = {
 export const PRODUCT_CURTAIN_MODELS: Record<ProductCategory, readonly CurtainModel[]> = {
   automatic: [
     {
-      image: "/assets/hlym/product-curtain/nmax.jpg",
+      image: getAssetUrl("hlym/product-curtain/nmax.jpg"),
       name: "NMAX"
     },
     {
-      image: "/assets/hlym/product-curtain/ego-avantiz.jpg",
+      image: getAssetUrl("hlym/product-curtain/ego-avantiz.jpg"),
       name: "EGO AVANTIZ"
     },
     {
-      image: "/assets/hlym/product-curtain/ego-gear.jpg",
+      image: getAssetUrl("hlym/product-curtain/ego-gear.jpg"),
       name: "EGO GEAR"
     },
     {
-      image: "/assets/hlym/product-curtain/nvx.jpg",
+      image: getAssetUrl("hlym/product-curtain/nvx.jpg"),
       name: "NVX"
     }
   ],
@@ -37,7 +38,7 @@ export const PRODUCT_CURTAIN_MODELS: Record<ProductCategory, readonly CurtainMod
       ["MT-25", "mt-25"]
     ] as const
   ).map(([name, file]) => ({
-    image: `/assets/hlym/product-curtain/${file}.jpg`,
+    image: getAssetUrl(`hlym/product-curtain/${file}.jpg`),
     name
   })),
   moped: (
@@ -51,7 +52,7 @@ export const PRODUCT_CURTAIN_MODELS: Record<ProductCategory, readonly CurtainMod
       ["EZ115", "ez115"]
     ] as const
   ).map(([name, file]) => ({
-    image: `/assets/hlym/product-curtain/${file}.jpg`,
+    image: getAssetUrl(`hlym/product-curtain/${file}.jpg`),
     name
   })),
   street: (
@@ -62,7 +63,7 @@ export const PRODUCT_CURTAIN_MODELS: Record<ProductCategory, readonly CurtainMod
       ["MT-15", "mt-15"]
     ] as const
   ).map(([name, file]) => ({
-    image: `/assets/hlym/product-curtain/${file}.jpg`,
+    image: getAssetUrl(`hlym/product-curtain/${file}.jpg`),
     name
   }))
 };

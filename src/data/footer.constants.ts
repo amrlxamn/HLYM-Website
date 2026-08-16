@@ -6,22 +6,12 @@ export const FOOTER_LINK_GROUPS: readonly FooterColumn[] = [
       { href: "/", label: "home" },
       { href: "/#site-footer", label: "corporate" },
       { href: "/#site-footer", label: "career" },
-      { href: "/#site-footer", label: "contact us" }
-    ],
-    title: "corporate"
-  },
-  {
-    links: [
+      { href: "/#site-footer", label: "contact us" },
       { href: "/#latest-news", label: "news & events" },
-      { href: "/#latest-news", label: "motorsports" }
-    ],
-    title: "news"
-  },
-  {
-    links: [
+      { href: "/#latest-news", label: "motorsports" },
       { href: "/#dealer-locator", label: "yamaha network" },
       { href: "/#featured-model", label: "merchandise" }
     ],
-    title: "network"
+    title: "explore site"
   }
 ] as const;

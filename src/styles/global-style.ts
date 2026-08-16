@@ -106,6 +106,7 @@ export const GlobalStyle = createGlobalStyle`
     --font-size-7xl: ${({ theme }) => theme.typography.size["7xl"]};
     --font-size-8xl: ${({ theme }) => theme.typography.size["8xl"]};
     --font-size-description: ${({ theme }) => theme.typography.size.lg};
+    --font-weight-light: ${({ theme }) => theme.typography.weight.light};
     --font-weight-normal: ${({ theme }) => theme.typography.weight.normal};
     --font-weight-medium: ${({ theme }) => theme.typography.weight.medium};
     --font-weight-semibold: ${({ theme }) => theme.typography.weight.semibold};

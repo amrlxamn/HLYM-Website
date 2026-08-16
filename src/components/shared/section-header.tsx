@@ -14,7 +14,8 @@ type SectionHeaderProps = {
   align?: "center" | "left";
   heading: ReactNode;
   intro?: ReactNode;
-  tagLabel: string;
+  tagLabel?: string;
+  tagVariant?: "accent" | "category";
   tone?: "dark" | "light";
 };
 
@@ -24,12 +25,21 @@ export function SectionHeader({
   heading,
   intro,
   tagLabel,
+  tagVariant = "accent",
   tone = "light"
 }: SectionHeaderProps) {
   return (
     <SectionHeaderRoot $align={align} $hasAction={Boolean(action)}>
       <SectionHeaderCopy $align={align}>
-        <SectionTag accent centered={align === "center"} label={tagLabel} lineWidth="wide" />
+        {tagLabel ? (
+          <SectionTag
+            accent={tagVariant === "accent"}
+            category={tagVariant === "category"}
+            centered={align === "center"}
+            label={tagLabel}
+            lineWidth="wide"
+          />
+        ) : null}
         <SectionHeaderTitle $tone={tone}>{heading}</SectionHeaderTitle>
         {intro ? <SectionHeaderIntro $tone={tone}>{intro}</SectionHeaderIntro> : null}
       </SectionHeaderCopy>

@@ -47,7 +47,7 @@ export const ModelsDesktopStickyView = styled.div`
   display: flex;
   height: calc(100vh - var(--header-height-total));
   overflow: visible;
-  padding-bottom: clamp(var(--space-8), 8vh, var(--space-16));
+  padding-bottom: var(--space-16);
   position: sticky;
   top: var(--header-height-total);
 

@@ -1,0 +1,50 @@
+{
+  "mcpServers": {
+    "github": {
+      "type": "http",
+      "url": "https://api.githubcopilot.com/mcp/",
+      "headers": {
+        "Authorization": "Bearer $GITHUB_PAT_TOKEN"
+      }
+    },
+    "grep": {
+      "command": "/Users/amirulamin/.local/share/mcp/grep-mcp/node_modules/.bin/grep-mcp",
+      "args": ["--transport", "stdio"],
+      "env": {
+        "GREP_API_TIMEOUT": "10000",
+        "GREP_MAX_RESULTS": "10"
+      }
+    },
+    "webflow": {
+      "type": "http",
+      "url": "https://mcp.webflow.com/mcp"
+    },
+    "framer": {
+      "type": "http",
+      "url": "https://mcp.unframer.co/mcp?id=$FRAMER_MCP_ID&secret=$FRAMER_MCP_SECRET"
+    },
+    "figma": {
+      "type": "http",
+      "url": "http://127.0.0.1:3845/mcp"
+    },
+    "headroom": {
+      "command": "/Users/amirulamin/.local/bin/headroom",
+      "args": ["mcp", "serve"]
+    },
+    "pencil": {
+      "command": "/Applications/Pencil.app/Contents/Resources/app.asar.unpacked/out/mcp-server-darwin-arm64",
+      "args": ["--app", "desktop"]
+    },
+    "motionsites": {
+      "type": "http",
+      "url": "https://xgdzyqfalbibzelpdpvr.supabase.co/functions/v1/mcp"
+    },
+    "21st": {
+      "type": "http",
+      "url": "https://mcp.21st.dev/mcp",
+      "params": {
+        "api_key": "$API_KEY_21ST"
+      }
+    }
+  }
+}

@@ -58,6 +58,7 @@ export type EditorialPoint = {
 export type FeaturedCard = {
   alt: string;
   description: string;
+  href: string;
   image: string;
   name: string;
   price: string;
@@ -66,6 +67,7 @@ export type FeaturedCard = {
 
 export type CategoryTile = {
   alt: string;
+  description: string;
   href: string;
   image: string;
   name: string;
@@ -96,19 +98,13 @@ export type FeaturedModelSpotlight = {
   tagLabel: string;
 };
 
-export type FeaturedNews = {
-  alt: string;
-  dateLabel: string;
-  image: string;
-  readTime: string;
-  title: string;
-};
-
 export type NewsCard = {
   alt: string;
+  ctaLabel: string;
   dateLabel: string;
+  description: string;
+  href: string;
   image: string;
-  readTime: string;
   title: string;
 };
 

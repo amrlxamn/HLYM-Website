@@ -3,7 +3,7 @@ import { getAssetUrl } from "@/lib/get-asset-url";
 
 export const HERO_SLIDES: readonly HeroSlide[] = [
   {
-    alt: "Yamaha Quality Service centres and mobile service support",
+    alt: "Yamaha Service",
     href: "https://www.yamaha-motor.com.my/servis-yamaha-sentiasa-dekat-dengan-anda/",
     image: getAssetUrl("hlym/home-carousel/yqs-service.webp")
   },

@@ -49,11 +49,7 @@ export function ModelInformation({ index, model }: ModelInformationProps) {
         </ModelSpecGroup>
       </ModelSpecs>
       <ModelPriceRow>
-        <Button
-          onClick={() => window.location.assign(model.detailHref)}
-          size="sm"
-          variant="related"
-        >
+        <Button onClick={() => window.location.assign(model.detailHref)} size="sm" variant="light">
           {modelsCopy.detailsLabel}
         </Button>
       </ModelPriceRow>

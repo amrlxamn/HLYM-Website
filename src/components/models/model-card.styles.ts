@@ -51,7 +51,11 @@ export const ModelNumber = styled.p`
   margin: 0;
 
   @media (max-width: 980px) {
-    font-size: clamp(36px, 7vw, 52px);
+    font-size: 52px;
+  }
+
+  @media (max-width: 640px) {
+    font-size: 36px;
   }
 `;
 
@@ -91,15 +95,20 @@ export const ModelCategoryAccent = styled.span`
 
 export const ModelName = styled.h3`
   color: #0a0a0a;
-  font-size: clamp(52px, 5vw, 68px);
+  font-size: 68px;
   font-weight: 700;
   letter-spacing: 1px;
   margin: 0;
   text-transform: uppercase;
+  white-space: nowrap;
 
   @media (max-width: 980px) {
-    font-size: clamp(26px, 6vw, 42px);
+    font-size: 42px;
     letter-spacing: 0;
+  }
+
+  @media (max-width: 640px) {
+    font-size: 26px;
   }
 `;
 
@@ -164,16 +173,6 @@ export const ModelDivider = styled.span`
 export const ModelPriceRow = styled.div`
   align-items: center;
   display: inline-flex;
-
-  button {
-    font-size: 16px;
-  }
-
-  @media (max-width: 980px) {
-    button {
-      font-size: 12px;
-    }
-  }
 `;
 
 export const ModelImage = styled.div`

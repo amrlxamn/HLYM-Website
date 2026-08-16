@@ -5,6 +5,10 @@ export type DealerLocatorCopy = {
   description: string;
   headingLines: string;
   mapAriaLabel: string;
+  networkCta: {
+    actionLabel: string;
+    ariaLabel: string;
+  };
   panelEyebrow: string;
   panelHint: string;
   panelHoursLabel: string;
@@ -22,8 +26,7 @@ export type FooterCopy = {
   brandAddressLines: readonly string[];
   brandTitle: string;
   copyright: string;
-  policyLinks: readonly LinkItem[];
-  watermark: string;
+  legalLinks: readonly LinkItem[];
 };
 
 export type HeaderCopy = {
@@ -64,16 +67,29 @@ export type FeaturedEditorialCopy = {
   watermark: string;
 };
 
+export type FeaturedBannerCopy = {
+  specs: FeaturedBannerSpecs;
+};
+
+export type FeaturedBannerSpecs = {
+  engine: string;
+  power: string;
+  weight: string;
+};
+
 export type FeaturedCopy = {
   ariaLabel: string;
+  banner: FeaturedBannerCopy;
   bottomCtaLabel: string;
   bottomDescription: string;
   bottomTitle: string;
+  detailsLabel: string;
   editorial: FeaturedEditorialCopy;
   headingAccent: string;
-  headingBottom: string;
   headingLead: string;
   intro: string;
+  nextSlideLabel: string;
+  previousSlideLabel: string;
   tileLinkLabelPrefix: string;
   tagLabel: string;
 };

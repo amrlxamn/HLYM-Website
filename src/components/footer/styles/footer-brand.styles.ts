@@ -7,18 +7,22 @@ export const FooterBrandColumn = styled.div`
   max-width: 480px;
 `;
 
-export const FooterBrandTitle = styled.h3`
-  color: var(--color-text-primary);
-  font-size: 38px;
-  font-weight: 800;
-  letter-spacing: 8px;
-  margin: 0;
-  text-transform: uppercase;
+export const FooterBrandLogo = styled.img`
+  height: 40px;
+  object-fit: contain;
+  width: 215px;
+
+  @media (max-width: 640px) {
+    height: 34px;
+    width: 150px;
+  }
 `;
 
 export const FooterBrandAddress = styled.p`
   color: var(--color-text-muted-light);
-  font-size: 14px;
+  font-size: 13px;
+  font-weight: var(--font-weight-normal);
+  letter-spacing: 1px;
   line-height: 1.7;
   margin: 0;
   text-transform: uppercase;

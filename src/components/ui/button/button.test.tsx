@@ -1,6 +1,8 @@
-import { fireEvent, render } from "@testing-library/react";
-import { describe, expect, it, vi } from "vitest";
+import { cleanup, fireEvent, render } from "@testing-library/react";
+import { afterEach, describe, expect, it, vi } from "vitest";
 import { Button } from "./button";
+
+afterEach(cleanup);
 
 describe("Button", () => {
   it("forwards native button behavior", () => {
@@ -18,5 +20,12 @@ describe("Button", () => {
     expect(
       view.getByRole("button", { name: "Related action" }).querySelector("svg")
     ).toHaveAttribute("aria-hidden", "true");
+  });
+
+  it("pins the arrow to the rule's end so the underline aligns with the arrow tip", () => {
+    const view = render(<Button>Explore models</Button>);
+    const button = view.getByRole("button", { name: "Explore models" });
+
+    expect(button).toHaveStyle({ gridTemplateColumns: "1fr auto" });
   });
 });

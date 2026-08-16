@@ -6,6 +6,10 @@ export const SITE_COPY: SiteCopy = {
     description: "locate authorized dealers and service centers across malaysia.",
     headingLines: "search your nearest yamaha dealer",
     mapAriaLabel: "dealer locator map background",
+    networkCta: {
+      actionLabel: "find a dealer",
+      ariaLabel: "explore the yamaha dealer network"
+    },
     panelEyebrow: "selected dealer",
     panelHint: "select another red marker to compare nearby support.",
     panelHoursLabel: "hours",
@@ -25,9 +29,17 @@ export const SITE_COPY: SiteCopy = {
   },
   featured: {
     ariaLabel: "featured model section",
-    bottomCtaLabel: "view all",
+    banner: {
+      specs: {
+        engine: "890cc",
+        power: "119 ps",
+        weight: "193 kg"
+      }
+    },
+    bottomCtaLabel: "see more",
     bottomDescription: "discover the complete yamaha malaysia lineup from mopeds to superbikes.",
     bottomTitle: "explore all models",
+    detailsLabel: "discover more",
     editorial: {
       description:
         "the mt-09 is a torque-rich hyper naked that delivers pure riding excitement. " +
@@ -38,10 +50,11 @@ export const SITE_COPY: SiteCopy = {
       tagLabel: "mt series",
       watermark: "mt"
     },
-    headingAccent: "gaya dan",
-    headingBottom: "inovasi!",
-    headingLead: "prestasi,",
+    headingAccent: "perform",
+    headingLead: "born to",
     intro: "performance, style, and innovation. yamaha's latest lineup pushes boundaries.",
+    nextSlideLabel: "next",
+    previousSlideLabel: "prev",
     tileLinkLabelPrefix: "open",
     tagLabel: "featured model"
   },
@@ -56,11 +69,10 @@ export const SITE_COPY: SiteCopy = {
     brandTitle: "yamaha",
     copyright:
       "Copyright © 2021 Hong Leong Yamaha Motor Sdn. Bhd 197901002563 (46829-P). All Rights Reserved.",
-    policyLinks: [
-      { href: "#site-footer", label: "terms of use" },
-      { href: "#site-footer", label: "privacy policy" }
-    ],
-    watermark: "yamaha"
+    legalLinks: [
+      { href: "/terms-of-use", label: "terms of use" },
+      { href: "/privacy-policy", label: "privacy policy" }
+    ]
   },
   header: {
     languageOptionsAriaLabel: "language options",
