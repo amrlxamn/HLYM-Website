@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from "react";
-import type { Map } from "mapbox-gl";
+import type { ControlPosition, Map } from "mapbox-gl";
 import { createDealerMapInstance } from "./create-dealer-map-instance";
 
-export function useDealerMapInstance() {
+export function useDealerMapInstance(controlPosition: ControlPosition = "top-right") {
   const canvasRef = useRef<HTMLDivElement | null>(null);
   const [hasMapInitError, setHasMapInitError] = useState(false);
   const [mapInstance, setMapInstance] = useState<Map | null>(null);
@@ -21,7 +21,7 @@ export function useDealerMapInstance() {
       liveMapInstance?.resize();
     };
 
-    void createDealerMapInstance(observedCanvas)
+    void createDealerMapInstance(observedCanvas, controlPosition)
       .then((map) => {
         if (isCancelled) {
           map?.remove();
@@ -62,7 +62,7 @@ export function useDealerMapInstance() {
       setMapInstance(null);
       liveMapInstance?.remove();
     };
-  }, []);
+  }, [controlPosition]);
 
   return {
     canvasRef,

@@ -1,3 +1,4 @@
+import type { ControlPosition } from "mapbox-gl";
 import type { DealerLocation } from "@/data/site-content.types";
 import { DealerMapMapboxStage } from "./dealer-map-mapbox-stage";
 import { DealerMapStaticStage } from "./dealer-map-static-stage";
@@ -6,6 +7,7 @@ import type { BrowserCoordinates, DealerRoute } from "./dealer-location.types";
 import { DealerMapStage } from "./dealer-locator.styles";
 
 type DealerMapStageViewProps = {
+  controlPosition?: ControlPosition;
   dealers: readonly DealerLocation[];
   fillParent?: boolean;
   onSelectDealer: (dealerId: string) => void;
@@ -16,6 +18,7 @@ type DealerMapStageViewProps = {
 };
 
 export function DealerMapStageView({
+  controlPosition = "top-right",
   dealers,
   fillParent = false,
   onSelectDealer,
@@ -30,6 +33,7 @@ export function DealerMapStageView({
     <DealerMapStage $fillParent={fillParent}>
       {hasMapboxToken ? (
         <DealerMapMapboxStage
+          controlPosition={controlPosition}
           dealers={dealers}
           onSelectDealer={onSelectDealer}
           route={route}

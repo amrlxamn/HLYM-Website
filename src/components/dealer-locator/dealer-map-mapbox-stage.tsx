@@ -1,3 +1,4 @@
+import type { ControlPosition } from "mapbox-gl";
 import { SITE_COPY } from "@/data/site-copy.constants";
 import type { DealerLocation } from "@/data/site-content.types";
 import { toSentenceCase } from "@/lib/to-sentence-case";
@@ -15,6 +16,7 @@ import { useDealerMapUserLocation } from "./use-dealer-map-user-location";
 import { useSelectedDealerMapMarker } from "./use-selected-dealer-map-marker";
 
 type DealerMapMapboxStageProps = {
+  controlPosition?: ControlPosition;
   dealers: readonly DealerLocation[];
   onSelectDealer: (dealerId: string) => void;
   route: DealerRoute | null;
@@ -24,6 +26,7 @@ type DealerMapMapboxStageProps = {
 };
 
 export function DealerMapMapboxStage({
+  controlPosition = "top-right",
   dealers,
   onSelectDealer,
   route,
@@ -32,7 +35,7 @@ export function DealerMapMapboxStage({
   userCoordinates
 }: DealerMapMapboxStageProps) {
   const dealerLocatorCopy = SITE_COPY.dealerLocator;
-  const { canvasRef, hasMapInitError, mapInstance } = useDealerMapInstance();
+  const { canvasRef, hasMapInitError, mapInstance } = useDealerMapInstance(controlPosition);
   const { openPopup, popupDealerId } = useDealerMapPopup({
     mapInstance,
     onSelectDealer,
@@ -81,7 +84,12 @@ export function DealerMapMapboxStage({
         role="img"
       />
       {isMapNavigating && (
-        <DealerMapLoading aria-live="polite">Loading {selectedDealer.label}...</DealerMapLoading>
+        <DealerMapLoading
+          $corner={controlPosition === "bottom-right" ? "bottom" : "top"}
+          aria-live="polite"
+        >
+          Loading {selectedDealer.label}...
+        </DealerMapLoading>
       )}
     </>
   );
