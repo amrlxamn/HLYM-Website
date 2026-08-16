@@ -21,13 +21,23 @@ export const SocialLinksRoot = styled.div<{
     display: grid;
     height: ${({ $variant }) => ($variant === "round" ? "40px" : "auto")};
     place-items: center;
+    transition: border-color var(--duration-base) var(--easing-standard);
     width: ${({ $variant }) => ($variant === "round" ? "40px" : "auto")};
+
+    &:hover {
+      border-color: var(--red);
+    }
   }
 
   svg {
     color: ${({ $tone }) =>
       $tone === "inverse" ? "var(--color-text-soft-dark)" : "var(--color-text-subtle)"};
     height: ${({ $variant }) => ($variant === "compact" ? "14px" : "18px")};
+    transition: color var(--duration-base) var(--easing-standard);
     width: ${({ $variant }) => ($variant === "compact" ? "14px" : "18px")};
+  }
+
+  a:hover svg {
+    color: var(--red);
   }
 `;

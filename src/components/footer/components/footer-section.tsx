@@ -1,10 +1,8 @@
 import { SITE_COPY } from "@/data/site-copy.constants";
-import { getAssetUrl } from "@/lib/get-asset-url";
 import { toSentenceCase } from "@/lib/to-sentence-case";
 import { FooterBrand } from "./footer-brand";
 import { FooterColumns } from "./footer-columns";
-import { FooterPolicyLinks } from "./footer-policy-links";
-import { FooterVideoWordmark } from "./footer-video-wordmark";
+import { FooterLegalLinks } from "./footer-legal-links";
 import {
   FooterBottom,
   FooterBottomText,
@@ -27,13 +25,8 @@ export function FooterSection() {
           </FooterTop>
           <FooterBottom>
             <FooterBottomText>{toSentenceCase(footerCopy.copyright)}</FooterBottomText>
-            <FooterPolicyLinks />
+            <FooterLegalLinks />
           </FooterBottom>
-          <FooterVideoWordmark
-            label={footerCopy.watermark}
-            poster={getAssetUrl("hlym/nvx-360/frame-01.jpg")}
-            src={getAssetUrl("hlym/nvx-hero.mp4")}
-          />
         </FooterContent>
       </MainFooter>
     </FooterSectionRoot>
