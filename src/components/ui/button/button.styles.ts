@@ -3,20 +3,22 @@ import { BUTTON_INTERACTION_STYLES } from "./button-interaction.styles";
 import { BUTTON_VARIANT_STYLES } from "./button-variants.styles";
 
 export type ButtonSize = "sm" | "md" | "lg";
-export type ButtonVariant = "primary" | "related" | "secondary";
+export type ButtonVariant = "light" | "primary" | "related" | "secondary";
 
 export const ButtonRoot = styled.button<{
   $fullWidth: boolean;
+  $iconPosition: "left" | "right";
   $size: ButtonSize;
   $variant: ButtonVariant;
 }>`
   align-items: center;
   color: var(--button-color);
   display: inline-grid;
+  flex-shrink: 0;
   font-weight: var(--font-weight-bold);
   gap: var(--space-4);
-  grid-template-columns: minmax(0, 1fr) auto;
-  justify-content: stretch;
+  grid-template-columns: ${({ $iconPosition }) =>
+    $iconPosition === "left" ? "auto 1fr" : "1fr auto"};
   letter-spacing: var(--tracking-widest);
   line-height: var(--leading-none, 1);
   padding: 0 0 var(--space-3);
@@ -26,12 +28,12 @@ export const ButtonRoot = styled.button<{
   transition:
     color var(--duration-press) var(--easing-out),
     transform var(--duration-press) var(--easing-out);
-  width: ${({ $fullWidth, $variant }) => {
+  width: ${({ $fullWidth }) => {
     if ($fullWidth) {
       return "100%";
     }
 
-    return $variant === "related" ? "auto" : "min(100%, 280px)";
+    return "auto";
   }};
 
   ${BUTTON_INTERACTION_STYLES}
@@ -46,11 +48,12 @@ export const ButtonRoot = styled.button<{
     if ($size === "sm") {
       return css`
         font-size: 11px;
+        gap: var(--space-2);
         min-height: 32px;
 
         > svg {
-          height: 17px;
-          width: 17px;
+          height: 14px;
+          width: 14px;
         }
       `;
     }
@@ -80,8 +83,20 @@ export const ButtonRoot = styled.button<{
 
   ${({ $variant }) => BUTTON_VARIANT_STYLES[$variant]}
 
+  ${({ $iconPosition }) =>
+    $iconPosition === "left"
+      ? css`
+          &:hover:not(:disabled)::before {
+            left: calc(-1 * var(--button-rule-slide, var(--space-1)));
+          }
+        `
+      : null}
+
   &:hover:not(:disabled) > svg {
-    transform: translateX(var(--space-1));
+    transform: translateX(
+      ${({ $iconPosition }) =>
+        $iconPosition === "left" ? "calc(-1 * var(--space-1))" : "var(--space-1)"}
+    );
   }
 
   &:active:not(:disabled) {

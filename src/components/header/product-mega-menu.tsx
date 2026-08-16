@@ -89,7 +89,7 @@ export function ProductMegaMenu({ contentTop, fullWidth, onClose, open }: Produc
                 <Button
                   onClick={() => window.location.assign("/products")}
                   size="sm"
-                  variant="related"
+                  variant="light"
                 >
                   Discover more
                 </Button>

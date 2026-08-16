@@ -30,7 +30,7 @@ describe("ModelsSection", () => {
     expect(document.head.textContent).toContain("top:var(--header-height-total)");
     expect(document.head.textContent).not.toContain("padding-top:var(--header-height-total)");
     expect(document.head.textContent).toContain("align-items:center");
-    expect(document.head.textContent).toContain("padding-bottom:clamp(");
+    expect(document.head.textContent).toContain("padding-bottom:var(--space-16)");
     expect(document.head.textContent).toContain("overflow:clip");
   });
 
@@ -133,7 +133,8 @@ describe("ModelsSection", () => {
     expect(document.head.textContent).toContain("order:1");
     expect(document.head.textContent).toContain("order:2");
     expect(document.head.textContent).toContain("align-content:center");
-    expect(document.head.textContent).toContain("font-size:clamp(26px, 6vw, 42px)");
+    expect(document.head.textContent).toContain("font-size:42px");
+    expect(document.head.textContent).toContain("font-size:26px");
     expect(card?.firstElementChild).toHaveTextContent("y15zr");
     expect(card?.lastElementChild?.querySelector("[data-model-image-transition]")).not.toBeNull();
   });

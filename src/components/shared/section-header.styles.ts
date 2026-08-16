@@ -6,7 +6,7 @@ export const SectionHeaderRoot = styled(Container).attrs({ as: "header" })<{
   $hasAction: boolean;
 }>`
   align-items: ${({ $align, $hasAction }) =>
-    $align === "center" || !$hasAction ? "center" : "flex-end"};
+    $align === "center" ? "center" : $hasAction ? "flex-end" : "flex-start"};
   display: flex;
   flex-direction: ${({ $align, $hasAction }) =>
     $align === "center" || !$hasAction ? "column" : "row"};
@@ -39,13 +39,18 @@ export const SectionHeaderTitle = styled.h2<{ $tone: "dark" | "light" }>`
   line-height: 1.05;
   margin: 16px 0 0;
   text-transform: uppercase;
+  white-space: nowrap;
+
+  &:first-child {
+    margin-top: 0;
+  }
 
   @media (max-width: 980px) {
     font-size: 40px;
   }
 
   @media (max-width: 640px) {
-    font-size: 32px;
+    font-size: 28px;
   }
 `;
 

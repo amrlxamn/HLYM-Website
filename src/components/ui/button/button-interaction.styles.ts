@@ -30,14 +30,18 @@ export const BUTTON_INTERACTION_STYLES = css`
     background-size: 200% 100%;
     color: transparent;
     overflow: hidden;
-    text-overflow: ellipsis;
     transition: background-position 360ms var(--easing-out);
+    white-space: nowrap;
     -webkit-background-clip: text;
   }
 
-  &:focus-visible::before,
+  &:focus-visible::before {
+    transform: scaleX(1);
+  }
+
   &:hover:not(:disabled)::before {
     transform: scaleX(1);
+    width: calc(100% + var(--button-rule-slide, var(--space-1)));
   }
 
   &:focus-visible > span,
