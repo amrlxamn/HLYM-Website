@@ -1,0 +1,5 @@
+export const FEATURED_MODEL_MARQUEE_ROWS = [
+  ["NMAX", "EGO AVANTIZ", "EGO GEAR", "NVX", "XMAX 300", "TMAX", "TENERE 700"],
+  ["TRACER 9 GT", "MT-09", "XMAX 250", "MT-25", "Y16ZR-R", "Y15ZR", "135LC FI"],
+  ["PG-1", "Y16ZR 6MRO", "Y16ZR DOXOU", "EZ115", "XSR155", "YZF-R25", "R15M", "MT-15"]
+] as const;

@@ -1,42 +1,27 @@
-import { ArrowUpRight } from "lucide-react";
-import { SITE_COPY } from "@/data/site-copy.constants";
 import type { CategoryTile as CategoryTileType } from "@/data/site-content.types";
-import { toSentenceCase } from "@/lib/to-sentence-case";
-import {
-  CategoryTileArrow,
-  CategoryTileCopy,
-  CategoryTileLink,
-  CategoryTilePrice,
-  CategoryTileRoot,
-  CategoryTileTag,
-  CategoryTileTitle,
-  FeaturedOverlay
-} from "./featured.styles";
+import { FeaturedImageCard } from "./featured-image-card";
+import { CategoryTileNumber, CategoryTileRoot } from "./category-tile.styles";
 
 type CategoryTileProps = {
+  index: number;
   tile: CategoryTileType;
 };
 
-export function CategoryTile({ tile }: CategoryTileProps) {
-  const featuredCopy = SITE_COPY.featured;
+export function CategoryTile({ index, tile }: CategoryTileProps) {
+  const number = String(index + 1).padStart(2, "0");
 
   return (
     <CategoryTileRoot>
-      <img loading="lazy" src={tile.image} alt={toSentenceCase(tile.alt)} />
-      <FeaturedOverlay />
-      <CategoryTileCopy>
-        <CategoryTileTag>{tile.tag}</CategoryTileTag>
-        <CategoryTileTitle>{tile.name}</CategoryTileTitle>
-        <CategoryTilePrice>{tile.price}</CategoryTilePrice>
-      </CategoryTileCopy>
-      <CategoryTileLink
+      <CategoryTileNumber aria-hidden="true" data-gallery-index={number}>
+        {number}
+      </CategoryTileNumber>
+      <FeaturedImageCard
+        alt={tile.alt}
+        description={tile.description}
         href={tile.href}
-        aria-label={toSentenceCase(`${featuredCopy.tileLinkLabelPrefix} ${tile.name}`)}
-      >
-        <CategoryTileArrow>
-          <ArrowUpRight />
-        </CategoryTileArrow>
-      </CategoryTileLink>
+        image={tile.image}
+        title={tile.name}
+      />
     </CategoryTileRoot>
   );
 }

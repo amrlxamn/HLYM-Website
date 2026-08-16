@@ -1,93 +1,158 @@
 import styled from "styled-components";
+import { motion } from "framer-motion";
 import { Container } from "@/styles/layout";
 
 export const FeaturedSectionRoot = styled.section`
   background: var(--color-bg-primary);
+  overflow: clip;
+  position: relative;
 `;
 
-export const FeaturedCardsRow = styled(Container)`
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  height: 480px;
-
-  @media (max-width: 1360px) {
-    grid-template-columns: 1fr;
-    height: auto;
-  }
-`;
-
-export const FeaturedCardRoot = styled.article`
+export const BornToPerformStage = styled.div`
   overflow: hidden;
+  padding-bottom: var(--space-20);
   position: relative;
 
-  @media (max-width: 1360px) {
-    min-height: 320px;
+  &::before,
+  &::after {
+    animation:
+      beamSweep 11s linear infinite,
+      beamPulse 3s ease-in-out infinite;
+    box-shadow: 0 0 8px 1px var(--red);
+    content: "";
+    filter: blur(3px);
+    height: 2px;
+    left: -50%;
+    pointer-events: none;
+    position: absolute;
+    width: 35%;
+  }
+
+  &::before {
+    animation-delay: 0s, 0s;
+    background: linear-gradient(90deg, transparent, var(--red) 30%, var(--red) 70%, transparent);
+    top: 15%;
+  }
+
+  &::after {
+    animation-delay: 3s, 1.5s;
+    animation-duration: 16s, 3s;
+    background: linear-gradient(90deg, transparent, var(--red) 30%, var(--red) 70%, transparent);
+    top: 82%;
+  }
+
+  @keyframes beamSweep {
+    0% {
+      transform: translateX(0) scaleX(1);
+    }
+    50% {
+      transform: translateX(300%) scaleX(1.3);
+    }
+    100% {
+      transform: translateX(600%) scaleX(1);
+    }
+  }
+
+  @keyframes beamPulse {
+    0%,
+    100% {
+      opacity: 0.3;
+    }
+    50% {
+      opacity: 0.6;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    &::before,
+    &::after {
+      animation: none;
+      display: none;
+    }
+  }
+
+  header h2 {
+    align-items: center;
+    display: flex;
+    font-weight: var(--font-weight-light);
+    gap: var(--space-4);
+
+    &::before {
+      background: var(--red);
+      content: "";
+      flex: 0 0 2px;
+      height: 52px;
+    }
+
+    @media (max-width: 640px) {
+      &::before {
+        height: 32px;
+      }
+    }
+  }
+
+  @media (max-width: 980px) {
+    header {
+      align-items: flex-end;
+      flex-direction: row;
+      gap: var(--space-4);
+      justify-content: space-between;
+    }
   }
 `;
 
-export const FeaturedOverlay = styled.div`
-  background: linear-gradient(180deg, #0a0a0a00 0%, #0a0a0add 50%, #0a0a0a 100%);
+export const BeamTrails = styled.div`
   inset: 0;
+  pointer-events: none;
   position: absolute;
-`;
 
-export const FeaturedCardCopy = styled.div`
-  bottom: 42px;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  left: 48px;
-  position: absolute;
-  width: 400px;
-  z-index: 2;
+  > span {
+    animation:
+      beamSweep 13s linear infinite,
+      beamPulse 3s ease-in-out infinite;
+    box-shadow: 0 0 8px 1px var(--red);
+    filter: blur(3px);
+    height: 2px;
+    left: -50%;
+    position: absolute;
+    width: 35%;
+  }
 
-  @media (max-width: 980px) {
-    left: 20px;
-    right: 20px;
-    width: auto;
+  > span:nth-child(1) {
+    animation-delay: 1.5s, 0s;
+    animation-duration: 13s, 3s;
+    background: linear-gradient(90deg, transparent, var(--red) 30%, var(--red) 70%, transparent);
+    top: 35%;
+  }
+
+  > span:nth-child(2) {
+    animation-delay: 5s, 1s;
+    animation-duration: 18s, 4s;
+    background: linear-gradient(90deg, transparent, var(--red) 30%, var(--red) 70%, transparent);
+    top: 55%;
+  }
+
+  > span:nth-child(3) {
+    animation-delay: 7s, 2s;
+    animation-duration: 9s, 3.5s;
+    background: linear-gradient(90deg, transparent, var(--red) 30%, var(--red) 70%, transparent);
+    top: 68%;
+  }
+
+  > span:nth-child(4) {
+    animation-delay: 2s, 0.5s;
+    animation-duration: 15s, 4s;
+    background: linear-gradient(90deg, transparent, var(--red) 30%, var(--red) 70%, transparent);
+    top: 25%;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    display: none;
   }
 `;
 
-export const FeaturedCardTag = styled.p`
-  color: var(--red);
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 3px;
-  margin: 0;
-  text-transform: uppercase;
-`;
-
-export const FeaturedCardTitle = styled.h3`
-  font-size: 40px;
-  font-weight: 700;
-  letter-spacing: -1px;
-  margin: 0;
-  text-transform: uppercase;
-
-  @media (max-width: 980px) {
-    font-size: 28px;
-  }
-`;
-
-export const FeaturedCardDescription = styled.p`
-  color: var(--color-text-soft-dark);
-  font-size: var(--font-size-description);
-  line-height: 1.6;
-  margin: 0;
-  width: 340px;
-
-  @media (max-width: 980px) {
-    width: auto;
-  }
-`;
-
-export const FeaturedCardPrice = styled.p`
-  color: var(--color-text-muted-dark);
-  font-size: 12px;
-  font-weight: 500;
-  letter-spacing: 1px;
-  margin: 0;
-  text-transform: uppercase;
+export const FeaturedMediaSection = styled.div`
+  background: var(--color-bg-primary);
 `;
 
 export const MtEditorialRoot = styled(Container).attrs({ as: "article" })`
@@ -202,130 +267,64 @@ export const MtPrice = styled.strong`
   text-transform: uppercase;
 `;
 
-export const CategoryTilesRow = styled(Container)`
-  display: grid;
-  gap: 2px;
-  grid-template-columns: repeat(3, 1fr);
-  height: 360px;
-
-  @media (max-width: 1360px) {
-    grid-template-columns: 1fr;
-    height: auto;
-  }
+export const SliderControl = styled.div`
+  align-items: center;
+  display: flex;
+  gap: var(--space-3);
 `;
 
-export const CategoryTileRoot = styled.article`
-  overflow: hidden;
+export const HorizontalPinSection = styled.div`
+  margin-top: 100px;
   position: relative;
 
-  @media (max-width: 1360px) {
-    min-height: 320px;
+  @media (max-width: 980px) {
+    margin-top: var(--space-20);
+  }
+
+  @media (max-width: 720px) {
+    margin-top: var(--space-16);
   }
 `;
 
-export const CategoryTileCopy = styled.div`
-  bottom: 26px;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  left: 32px;
-  position: absolute;
-  z-index: 2;
+export const HorizontalPinSticky = styled.div`
+  overflow: hidden;
 
   @media (max-width: 980px) {
-    left: 20px;
-    right: 20px;
-    width: auto;
+    padding: 0 var(--space-4);
   }
 `;
 
-export const CategoryTileTag = styled.p`
-  color: var(--red);
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 3px;
-  margin: 0;
-  text-transform: uppercase;
-`;
-
-export const CategoryTileTitle = styled.h3`
-  font-size: 28px;
-  font-weight: 700;
-  letter-spacing: -1px;
-  margin: 0;
-  text-transform: uppercase;
-`;
-
-export const CategoryTilePrice = styled.p`
-  color: #ffffff80;
-  font-size: 12px;
-  font-weight: 500;
-  letter-spacing: 1px;
-  margin: 0;
-  text-transform: uppercase;
-`;
-
-export const CategoryTileLink = styled.a`
-  inset: 0;
-  position: absolute;
-  z-index: 3;
-`;
-
-export const CategoryTileArrow = styled.div`
-  color: #ffffff40;
-  height: 24px;
-  position: absolute;
-  right: 26px;
-  top: 20px;
-  width: 24px;
-`;
-
-export const FeaturedBottomCta = styled(Container)`
-  align-items: center;
-  background: #0d0d0d;
-  border-top: 1px solid #ffffff08;
+export const HorizontalTrack = styled(motion.div)`
   display: flex;
-  gap: 1rem;
-  justify-content: space-between;
-  min-height: 138px;
-  padding: 48px 0;
+  gap: var(--space-4);
+
+  @media (min-width: 981px) {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    will-change: transform;
+  }
 
   @media (max-width: 980px) {
-    align-items: flex-start;
-    flex-direction: column;
-    padding: 28px 0;
+    overflow-x: auto;
+    padding-bottom: var(--space-4);
+    scroll-snap-type: x mandatory;
   }
-`;
 
-export const FeaturedBottomTitle = styled.h3`
-  font-size: 22px;
-  font-weight: 700;
-  letter-spacing: -0.5px;
-  margin: 0;
-  text-transform: uppercase;
-`;
+  > * {
+    flex: 0 0 calc((100vw - 2 * var(--space-4)) / 3);
+    height: 597px;
+    max-width: 480px;
 
-export const FeaturedBottomDescription = styled.p`
-  color: #ffffff40;
-  font-size: var(--font-size-description);
-  margin: 4px 0 0;
-`;
+    @media (max-width: 980px) {
+      flex: 0 0 calc((100% - var(--space-4)) / 2);
+      scroll-snap-align: start;
+    }
 
-export const FeaturedCtaButton = styled.a`
-  align-items: center;
-  background: var(--red);
-  color: #fff;
-  display: inline-flex;
-  gap: 10px;
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 2px;
-  padding: 14px 32px;
-  text-transform: uppercase;
-
-  svg {
-    height: 16px;
-    width: 16px;
+    @media (max-width: 720px) {
+      flex: 0 0 100%;
+      height: 520px;
+      max-width: none;
+    }
   }
 `;
 
@@ -348,7 +347,7 @@ export const FeaturedModelSpotlightGrid = styled(Container)`
   display: flex;
   height: 100vh;
   justify-content: center;
-  padding: clamp(48px, 8vw, 96px) 0;
+  padding: 96px 0;
   position: sticky;
   top: 0;
 
@@ -404,7 +403,7 @@ export const FeaturedModelSpotlightCalloutNumber = styled.p`
 `;
 
 export const FeaturedModelSpotlightCalloutTitle = styled.h4`
-  font-size: clamp(32px, 4.5vw, 64px);
+  font-size: 64px;
   font-style: italic;
   font-weight: 900;
   letter-spacing: -2px;

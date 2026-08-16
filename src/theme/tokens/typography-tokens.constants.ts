@@ -21,6 +21,7 @@ export const FONT_SIZES = {
 } as const;
 
 export const FONT_WEIGHTS = {
+  light: 300,
   normal: 400,
   medium: 500,
   semibold: 600,
