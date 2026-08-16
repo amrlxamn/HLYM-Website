@@ -1,7 +1,7 @@
 # HLYM Website
 
-React + TypeScript + Vite rebuild of the original HLYM static mockup, now
-styled with `styled-components`.
+Official Hong Leong Yamaha Motor (HLYM) website for the Malaysian market.
+React + TypeScript + Vite, styled with `styled-components`.
 
 ## Run locally
 
@@ -11,6 +11,35 @@ npm run dev
 ```
 
 Open the local Vite URL printed in the terminal.
+
+## Environment
+
+Copy `.env.example` to `.env` and fill in the values:
+
+```bash
+cp .env.example .env
+```
+
+Key variables:
+
+- `VITE_SUPABASE_URL`, `VITE_SUPABASE_ANON_KEY`, `VITE_SUPABASE_ASSET_BUCKET` -
+  Supabase project and the public `site-assets` storage bucket.
+- `VITE_MAPBOX_ACCESS_TOKEN` - Mapbox GL token for the dealer network map.
+- `VITE_CONTACT_ENQUIRY_WEBHOOK_URL` - endpoint that receives contact enquiries.
+- `WEBFLOW_*` - credentials for the Webflow code component library.
+- Support portal: `AIRTABLE_*`, `N8N_SUPPORT_*`, `SUPPORT_*` - ticket storage,
+  notifications, and access control.
+
+## Pages
+
+| Route | Description |
+| --- | --- |
+| `/` | Homepage: hero carousel, model range, featured gallery, news, dealer network CTA |
+| `/products` | Product catalogue pages |
+| `/contact-us` | Contact page with enquiry form |
+| `/yamaha-network` | Interactive dealer locator (Mapbox) with searchable dealer list and routing |
+| `/support` | Owner support ticket portal (`/support/access`, `/support/ticket`, `/support/admin`) |
+| `/design-system` | Design system component documentation |
 
 ## Quality gates
 
@@ -22,6 +51,21 @@ npm run test:run
 npm run build
 npm run security:scan
 ```
+
+## Supabase assets
+
+The site serves its assets (images, video, dealer photos) from the public
+`site-assets` Supabase bucket. Source files live under `public/assets/` and are
+uploaded with:
+
+```bash
+npm run supabase:assets:sync          # everything under public/assets/ and assets/
+npm run supabase:dealer-images:sync   # dealer photos
+```
+
+`getAssetUrl()` in `src/lib/` resolves `hlym/...` paths to the bucket URL using
+`VITE_SUPABASE_URL` and `VITE_SUPABASE_ASSET_BUCKET`, falling back to local
+`/assets/` paths when those values are unset.
 
 ## Supabase CLI
 
@@ -42,11 +86,6 @@ npm run supabase:db:reset
 npm run supabase:assets:sync
 npm run supabase:stop
 ```
-
-`supabase:assets:sync` uploads everything under `public/assets/` and `assets/`
-to the public `site-assets` bucket. The frontend reads asset URLs from
-`VITE_SUPABASE_URL` and `VITE_SUPABASE_ASSET_BUCKET`; when those values are not
-set it falls back to local `/assets/` paths for development safety.
 
 The default start command excludes Supabase's local `vector` and `logflare`
 containers because they bind-mount the Docker socket. On Colima, that mount can
@@ -74,33 +113,27 @@ generated `.temp` Supabase state.
 
 ## Structure
 
-- `src/app/`: top-level application composition
-- `src/components/`: small React components split by section
-- `src/data/`: typed content models, shared UI copy, and constants
-- `src/styles/`: styled-components global styles
-- `src/test/`: Vitest setup
-- `public/assets/`: runtime images copied from the original mockup
+- `src/app/` - top-level page composition and routing
+- `src/components/` - shared and section components (header, footer, hero,
+  models, featured, news, dealer-locator, ui)
+- `src/features/` - page-scoped features: `contact-page`, `product-page`,
+  `support-portal`, `yamaha-network`
+- `src/data/` - typed content models, shared UI copy, and constants
+- `src/theme/` - design tokens (color, spacing, typography) and the site theme
+- `src/lib/` - utilities (`getAssetUrl`, `toSentenceCase`, ...)
+- `src/docs/` - design system documentation
+- `scripts/` - asset sync and tooling
+- `public/assets/` - runtime images synced to Supabase
 
 ## Webflow CLI + DevLink
 
-Install dependencies with `npm install`, then create a local env file from
-`.env.example`.
-
-```bash
-cp .env.example .env
-```
+Create a local env file from `.env.example`, then:
 
 Required variables:
 
 - `WEBFLOW_SITE_ID`: site id for `webflow devlink sync`
 - `WEBFLOW_SITE_API_TOKEN`: site API token for `webflow devlink sync`
 - `WEBFLOW_WORKSPACE_API_TOKEN`: workspace API token for `webflow library share`
-- `VITE_SUPABASE_URL`: Supabase API URL for local or hosted environments
-- `VITE_SUPABASE_ANON_KEY`: public anon key for browser-side Supabase clients
-- `VITE_SUPABASE_ASSET_BUCKET`: public storage bucket used by site assets
-- `SUPABASE_ASSET_BUCKET`: storage bucket targeted by the asset sync script
-- `SUPABASE_SERVICE_ROLE_KEY`: local-only key used by the asset sync script
-- `SUPABASE_PROJECT_REF`: local-only project ref used by `supabase link`
 
 Configured files:
 
@@ -127,13 +160,16 @@ The sample code component lives in `src/webflow/code-components/promo-card.webfl
 See `docs/webflow-cms-integration.md` for the CMS migration workflow and the
 product Code Component field contract.
 
-## Dealer Locator Stage
+## Dealer network map
 
-The dealer locator uses Mapbox GL JS with the Mapbox Standard style configured
-for a monochrome basemap and a pitched 3D camera inside
-`src/components/dealer-locator/`. Configure:
+The dealer locator (`/yamaha-network`) uses Mapbox GL JS with the Mapbox
+Standard style configured for a monochrome basemap and a pitched 3D camera.
+Configure `VITE_MAPBOX_ACCESS_TOKEN`; the page falls back to a branded static
+stage when the token is absent or the browser cannot initialize the map.
 
-- `VITE_MAPBOX_ACCESS_TOKEN`
+## Deployment
 
-The section still falls back to the branded static stage when the token is
-absent or the browser cannot initialize the map.
+Production is deployed on Vercel and auto-deploys `main`. Every pull request
+gets its own preview deployment. Keep changes reviewable: commit small, atomic
+changes locally, pull the latest remote before pushing, and push to a dedicated
+feature branch rather than directly to `main`.
