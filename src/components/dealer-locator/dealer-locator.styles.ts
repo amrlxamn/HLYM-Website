@@ -405,11 +405,17 @@ export const DealerHeading = styled.h2`
   margin: 0;
   text-transform: capitalize;
   color: #000000;
+  white-space: nowrap;
 
   width: 100%;
 
   @media (max-width: 980px) {
-    font-size: 40px;
+    font-size: 32px;
+  }
+
+  @media (max-width: 640px) {
+    font-size: 20px;
+    letter-spacing: -1px;
   }
 `;
 

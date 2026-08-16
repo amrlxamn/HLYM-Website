@@ -1,5 +1,5 @@
-import { DealerLocatorSection } from "@/components/dealer-locator/dealer-locator-section";
-import { FeaturedModelSpotlight } from "@/components/featured/featured-model-spotlight";
+import { DealerNetworkCta } from "@/components/dealer-locator/dealer-network-cta";
+// import { FeaturedModelSpotlight } from "@/components/featured/featured-model-spotlight";
 import { FeaturedSection } from "@/components/featured/featured-section";
 import { FooterSection } from "@/components/footer";
 import { SiteHeader } from "@/components/header/site-header";
@@ -16,9 +16,9 @@ export function HomePage() {
         <HeroSection />
         <ModelsSection />
         <FeaturedSection />
-        <FeaturedModelSpotlight />
+        {/* <FeaturedModelSpotlight /> */}
         <NewsSection />
-        <DealerLocatorSection />
+        <DealerNetworkCta />
       </main>
       <FooterSection />
     </PageShell>
