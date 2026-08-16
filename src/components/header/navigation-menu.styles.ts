@@ -47,7 +47,13 @@ export const NavLink = styled.a<{ $active: boolean }>`
   font-weight: ${({ $active }) => ($active ? 700 : 600)};
   letter-spacing: 1.5px;
   text-transform: uppercase;
+  transition: color var(--duration-base) var(--easing-standard);
   white-space: nowrap;
+
+  &:hover,
+  &:focus-visible {
+    color: var(--color-brand-500);
+  }
 
   svg {
     height: 18px;
