@@ -52,6 +52,7 @@ export function YamahaNetworkContent({ dealers }: YamahaNetworkContentProps) {
       <NetworkMapWrapper>
         <NetworkMapStage>
           <DealerMapStageView
+            controlPosition="bottom-right"
             dealers={dealers}
             fillParent
             onSelectDealer={setSelectedDealerId}

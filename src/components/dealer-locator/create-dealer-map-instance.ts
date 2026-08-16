@@ -1,7 +1,10 @@
-import type { Map } from "mapbox-gl";
+import type { ControlPosition, Map } from "mapbox-gl";
 import { DEALER_LOCATOR_MAP_CONFIG } from "./dealer-locator-map.constants";
 
-export async function createDealerMapInstance(container: HTMLDivElement): Promise<Map | null> {
+export async function createDealerMapInstance(
+  container: HTMLDivElement,
+  controlPosition: ControlPosition = "top-right"
+): Promise<Map | null> {
   const mapboxgl = await import("mapbox-gl");
 
   if (!mapboxgl.default.supported()) {
@@ -31,7 +34,7 @@ export async function createDealerMapInstance(container: HTMLDivElement): Promis
       showZoom: true,
       visualizePitch: false
     }),
-    "top-right"
+    controlPosition
   );
 
   return map;

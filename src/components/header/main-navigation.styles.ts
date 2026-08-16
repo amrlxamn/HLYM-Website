@@ -57,6 +57,12 @@ export const MainNavContent = styled(Container)`
 export const NavLeft = styled.a`
   align-items: center;
   display: flex;
+  transition: opacity var(--duration-base) var(--easing-standard);
+
+  &:hover,
+  &:focus-visible {
+    opacity: 0.75;
+  }
 `;
 
 export const MainLogo = styled.img`
@@ -96,7 +102,13 @@ export const SearchButton = styled.button`
   display: inline-flex;
   height: 40px;
   justify-content: center;
+  transition: color var(--duration-base) var(--easing-standard);
   width: 40px;
+
+  &:hover,
+  &:focus-visible {
+    color: var(--red);
+  }
 
   svg {
     height: 18px;
@@ -118,6 +130,15 @@ export const MenuToggle = styled.button`
   justify-content: center;
   min-height: 34px;
   padding: 0 10px;
+  transition:
+    border-color var(--duration-base) var(--easing-standard),
+    color var(--duration-base) var(--easing-standard);
+
+  &:hover,
+  &:focus-visible {
+    border-color: var(--red);
+    color: var(--red);
+  }
 
   span {
     font-size: 11px;

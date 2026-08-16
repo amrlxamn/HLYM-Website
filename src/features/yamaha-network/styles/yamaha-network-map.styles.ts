@@ -14,6 +14,21 @@ export const NetworkMapPanel = styled.div`
 export const NetworkMapStage = styled.div`
   height: 100%;
   position: relative;
+
+  /* Keep the zoom controls level with the left dealer panel: the panel sits
+     16px above the viewport bottom, so the bottom-right control stack matches.
+     Mapbox stacks the attribution below the zoom group by default; reversing
+     the column anchors the zoom group to the very bottom. */
+  .mapboxgl-ctrl-bottom-right {
+    align-items: flex-end;
+    bottom: var(--space-4);
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  .mapboxgl-ctrl-group {
+    border-radius: 0;
+  }
 `;
 
 export const NetworkMapLabel = styled.div`

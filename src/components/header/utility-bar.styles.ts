@@ -106,5 +106,11 @@ export const UtilityLink = styled.a`
   font-weight: 500;
   letter-spacing: 1px;
   text-transform: uppercase;
+  transition: color var(--duration-base) var(--easing-standard);
   white-space: nowrap;
+
+  &:hover,
+  &:focus-visible {
+    color: var(--red);
+  }
 `;
