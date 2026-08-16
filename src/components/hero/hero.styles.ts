@@ -36,35 +36,3 @@ export const HeroImage = styled.img`
   object-position: center;
   width: 100%;
 `;
-
-export const HeroPaginationRoot = styled.div`
-  align-items: center;
-  bottom: var(--space-5);
-  display: flex;
-  gap: var(--space-2);
-  justify-content: center;
-  left: 50%;
-  position: absolute;
-  transform: translateX(-50%);
-  z-index: 2;
-`;
-
-export const HeroDot = styled.button<{ $active: boolean }>`
-  align-items: center;
-  display: flex;
-  height: 24px;
-  justify-content: center;
-  width: 24px;
-
-  &::before {
-    background: ${({ $active }) => ($active ? "var(--color-brand-500)" : "var(--alpha-white-60)")};
-    border-radius: 50%;
-    content: "";
-    height: ${({ $active }) => ($active ? "10px" : "7px")};
-    transition:
-      background var(--duration-fast) var(--easing-out),
-      height var(--duration-fast) var(--easing-out),
-      width var(--duration-fast) var(--easing-out);
-    width: ${({ $active }) => ($active ? "10px" : "7px")};
-  }
-`;
