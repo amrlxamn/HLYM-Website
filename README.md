@@ -1,6 +1,6 @@
 # HLYM Website
 
-Official Hong Leong Yamaha Motor (HLYM) website for the Malaysian market.
+Official Hong Leong Yamaha Motor (HLYM) website.
 React + TypeScript + Vite, styled with `styled-components`.
 
 ## Run locally
