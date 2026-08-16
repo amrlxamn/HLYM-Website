@@ -40,14 +40,5 @@ export const NAV_LINKS: readonly NavItem[] = [
   { href: "/#latest-news", label: "news & events" },
   { href: "/yamaha-network", label: "yamaha network" },
   { href: "/#featured-model", label: "merchandise" },
-  {
-    children: [
-      { href: "/contact-us#contact-information", label: "contact information" },
-      { href: "/contact-us#feedback-form", label: "feedback form" },
-      { href: "/contact-us#faq", label: "faq" }
-    ],
-    hasDropdown: true,
-    href: "/contact-us",
-    label: "contact us"
-  }
+  { href: "/contact-us", label: "contact us" }
 ] as const;

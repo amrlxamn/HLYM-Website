@@ -20,27 +20,17 @@ describe("MainNavigation", () => {
     expect(toggle).toHaveAttribute("aria-expanded", "true");
     expect(view.getByRole("link", { name: NAV_LINKS[6]!.label })).toBeInTheDocument();
   });
-
-  it("renders a submenu only for navigation items with dropdown children", () => {
+  it("renders no hover submenus for the main navigation links", () => {
     const view = render(<MainNavigation />);
     const currentView = within(view.container);
-    const submenu = currentView.getByLabelText("Contact us submenu");
 
-    expect(submenu).toBeInTheDocument();
-    expect(within(submenu).getByText("contact information").closest("a")).toHaveAttribute(
-      "href",
-      "/contact-us#contact-information"
-    );
-    expect(within(submenu).getByText("feedback form").closest("a")).toHaveAttribute(
-      "href",
-      "/contact-us#feedback-form"
-    );
-    expect(within(submenu).getByText("faq").closest("a")).toHaveAttribute(
-      "href",
-      "/contact-us#faq"
-    );
+    expect(currentView.queryByLabelText("Contact us submenu")).not.toBeInTheDocument();
     expect(currentView.queryByLabelText("Corporate submenu")).not.toBeInTheDocument();
     expect(currentView.queryByLabelText("News & events submenu")).not.toBeInTheDocument();
+    const contactLinks = view.getAllByRole("link", { name: "contact us" });
+
+    expect(contactLinks.length).toBeGreaterThan(0);
+    expect(contactLinks[0]).toHaveAttribute("href", "/contact-us");
   });
 
   it("updates the products mega menu when a category is hovered", async () => {
