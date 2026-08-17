@@ -25,8 +25,13 @@ export default async function supportAdminTicket(
   request: SupportApiRequest,
   response: SupportApiResponse
 ) {
-  if (!(await isAdminPortalEnabled())) {
-    response.status(503).json({ code: "portal_disabled" });
+  try {
+    if (!(await isAdminPortalEnabled())) {
+      response.status(503).json({ code: "portal_disabled" });
+      return;
+    }
+  } catch {
+    response.status(503).json({ code: "portal_disabled", message: "Staff portal is disabled" });
     return;
   }
 
