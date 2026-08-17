@@ -30,7 +30,7 @@ export const ContactHeroCardRoot = styled.article<ContactHeroCardRootProps>`
   height: 280px;
   justify-content: space-between;
   overflow: hidden;
-  padding: 32px;
+  padding: var(--space-8);
   position: relative;
   transition:
     border-color var(--duration-base) var(--easing-standard),
@@ -68,37 +68,18 @@ export const ContactHeroCardRoot = styled.article<ContactHeroCardRootProps>`
 
 export const ContactHeroCardNumber = styled.p`
   color: var(--contact-card-number);
-  font-size: 12px;
-  font-weight: 500;
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
   line-height: 1;
   margin: 0;
 `;
 
 export const ContactHeroCardTitle = styled.h2`
   display: grid;
-  font-size: 20px;
-  font-weight: 500;
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-medium);
   letter-spacing: 0;
   line-height: 1.12;
-  margin: 0 0 14px;
+  margin: 0 0 var(--space-4);
   text-transform: uppercase;
-`;
-
-export const ContactHeroCardCta = styled.a`
-  align-items: center;
-  color: var(--contact-card-accent);
-  display: inline-flex;
-  gap: 8px;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-
-  svg {
-    background: var(--contact-card-accent);
-    color: var(--contact-card-bg);
-    height: 12px;
-    padding: 2px;
-    width: 12px;
-  }
 `;

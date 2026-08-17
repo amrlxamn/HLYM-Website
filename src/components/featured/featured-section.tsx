@@ -120,7 +120,7 @@ export function FeaturedSection() {
               <SliderControl ref={controlsRef}>
                 <Button
                   aria-label="previous slide"
-                  iconPosition="left"
+                  icon="left"
                   onClick={() => scrollByCard(-1)}
                   size="sm"
                   variant="secondary"

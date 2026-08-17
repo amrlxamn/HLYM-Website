@@ -33,38 +33,60 @@ export const ContactHeroVerticalShade = styled.div`
 
 export const ContactHeroInner = styled(Container)`
   display: grid;
-  gap: 50px;
-  padding: 100px 0;
+  gap: var(--space-12);
+  padding: var(--space-24) 0;
   position: relative;
   z-index: 1;
 `;
 
 export const ContactHeroContentPanel = styled.div`
   display: grid;
-  gap: 24px;
+  gap: var(--space-6);
   max-width: 600px;
 `;
 
 export const ContactHeroTitle = styled.h1`
-  font-size: clamp(30px, 3vw, 38px);
-  font-weight: 500;
-  letter-spacing: 0;
-  line-height: 48px;
+  align-items: center;
+  display: flex;
+  font-size: 56px;
+  font-weight: var(--font-weight-light);
+  gap: var(--space-4);
+  letter-spacing: -2px;
+  line-height: 1.05;
   margin: 0;
   text-transform: uppercase;
+
+  &::before {
+    background: var(--red);
+    content: "";
+    flex: 0 0 2px;
+    height: 52px;
+  }
+
+  @media (max-width: 980px) {
+    font-size: 40px;
+  }
+
+  @media (max-width: 640px) {
+    font-size: 28px;
+
+    &::before {
+      height: 32px;
+    }
+  }
 `;
 
 export const ContactHeroCopy = styled.p`
   color: var(--color-text-neutral-dark);
-  font-size: 18px;
-  line-height: 1.45;
+  font-size: var(--font-size-description);
+  line-height: var(--leading-relaxed);
   margin: 0;
   max-width: 600px;
 `;
 
 export const ContactHeroCardGrid = styled.div`
   display: grid;
-  gap: 24px;
+  gap: var(--space-6);
   grid-template-columns: repeat(4, minmax(0, 1fr));
 
   @media (max-width: 1080px) {

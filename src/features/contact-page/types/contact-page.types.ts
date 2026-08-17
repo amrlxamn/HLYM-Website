@@ -27,7 +27,6 @@ export type ContactFaqItem = {
 
 export type ContactFaqContent = {
   ariaLabel: string;
-  description: string;
   emptyMessage: string;
   filterLabel: string;
   items: readonly ContactFaqItem[];
@@ -60,6 +59,7 @@ export type ContactEnquiryPayload = {
   ownerType?: string;
   vehicleModel?: string;
   yearOfPurchase?: string;
+  turnstileToken?: string;
 };
 
 export type ContactEnquiryResult = {

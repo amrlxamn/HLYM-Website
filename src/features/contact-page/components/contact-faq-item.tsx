@@ -1,6 +1,7 @@
 import { AnimatePresence, useReducedMotion } from "framer-motion";
 import { Minus, Plus } from "lucide-react";
 import { useId, useState } from "react";
+import { Button } from "@/components/ui";
 import {
   CONTACT_FAQ_PANEL_TRANSITION,
   CONTACT_FAQ_PANEL_VARIANTS,
@@ -9,7 +10,6 @@ import {
 import {
   ContactFaqAnswer,
   ContactFaqHelpful,
-  ContactFaqHelpfulButton,
   ContactFaqIcon,
   ContactFaqItemRoot,
   ContactFaqPanel,
@@ -63,14 +63,12 @@ export function ContactFaqItem({ item }: ContactFaqItemProps) {
               <ContactFaqAnswer>{item.answer}</ContactFaqAnswer>
               <ContactFaqHelpful aria-label="FAQ helpful feedback">
                 <span>Was this helpful?</span>
-                <ContactFaqHelpfulButton type="button">
-                  <span />
+                <Button icon="none" size="sm" variant="light">
                   Yes
-                </ContactFaqHelpfulButton>
-                <ContactFaqHelpfulButton type="button">
-                  <span />
+                </Button>
+                <Button icon="none" size="sm" variant="light">
                   No
-                </ContactFaqHelpfulButton>
+                </Button>
               </ContactFaqHelpful>
             </ContactFaqPanelInner>
           </ContactFaqPanel>
