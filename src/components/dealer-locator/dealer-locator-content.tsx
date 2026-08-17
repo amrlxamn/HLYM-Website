@@ -35,7 +35,7 @@ export function DealerLocatorContent({
   const dealerLocatorCopy = SITE_COPY.dealerLocator;
 
   return (
-    <DealerContent id="dealer-locator" data-cursor-tone="light">
+    <DealerContent id="dealer-locator">
       <DealerContentInner>
         <SectionTag accent label={dealerLocatorCopy.tagLabel} lineWidth="wide" />
         <DealerHeading>{dealerLocatorCopy.headingLines}</DealerHeading>

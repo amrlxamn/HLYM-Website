@@ -9,11 +9,7 @@ export function ModelsSection() {
   const { activeCategory, visibleModels } = useModelCatalogState();
 
   return (
-    <ModelsSectionRoot
-      id="models"
-      aria-label={toSentenceCase(modelsCopy.ariaLabel)}
-      data-cursor-tone="light"
-    >
+    <ModelsSectionRoot id="models" aria-label={toSentenceCase(modelsCopy.ariaLabel)}>
       <DesktopModelScroller activeCategory={activeCategory} models={visibleModels} />
     </ModelsSectionRoot>
   );

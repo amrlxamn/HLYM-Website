@@ -1,5 +1,4 @@
 import { lazy, Suspense } from "react";
-import { CustomCursor } from "@/components/cursor/custom-cursor";
 import { SplashScreen } from "@/components/splash/splash-screen";
 import { useSplashScreen } from "@/components/splash/use-splash-screen";
 import { HomePage } from "@/app/home-page";
@@ -34,7 +33,6 @@ export function App() {
   if (pathname.startsWith("/design-system")) {
     return (
       <>
-        <CustomCursor />
         {!isRemoved && <SplashScreen isVisible={isVisible} onComplete={onComplete} />}
         <Suspense fallback={null}>
           <DesignSystemPage />
@@ -45,7 +43,6 @@ export function App() {
 
   return (
     <>
-      <CustomCursor />
       {!isRemoved && <SplashScreen isVisible={isVisible} onComplete={onComplete} />}
       <Suspense fallback={null}>{page}</Suspense>
     </>

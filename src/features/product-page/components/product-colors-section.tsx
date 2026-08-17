@@ -27,7 +27,7 @@ export function ProductColorsSection({
   const [selectedColor, setSelectedColor] = useState(colors[0] ?? PRODUCT_COLOR_OPTIONS[0]!);
 
   return (
-    <ProductColorsRoot aria-label={toSentenceCase(ariaLabel)} data-cursor-tone="light">
+    <ProductColorsRoot aria-label={toSentenceCase(ariaLabel)}>
       <ProductColorsInner>
         <ProductColorStage>
           <img alt={selectedColor.alt} src={selectedColor.image} />

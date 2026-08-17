@@ -94,8 +94,6 @@ function PreviewContent({ entry }: { entry: DocComponentEntry }) {
       return <ProductOverviewSpecRow spec={MOCK_PRODUCT_SPEC} index={0} />;
     case "SplashScreen":
       return <PreviewNote>{entry.note ?? "Full-screen overlay"}</PreviewNote>;
-    case "CustomCursor":
-      return <PreviewNote>{entry.note ?? "Requires cursor context"}</PreviewNote>;
     case "ProductOverviewColorCard":
       return <PreviewNote>{entry.note ?? "Requires scroll context"}</PreviewNote>;
     default:

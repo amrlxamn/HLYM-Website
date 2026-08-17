@@ -17,7 +17,7 @@ describe("ProductColorsSection", () => {
       view.getByRole("region", {
         name: toSentenceCase(PRODUCT_PAGE_COPY.colorSectionAriaLabel)
       })
-    ).toHaveAttribute("data-cursor-tone", "light");
+    ).toBeInTheDocument();
     expect(view.queryByText("Body")).toBeNull();
     expect(view.queryByText("Choose your Yamaha NVX finish.")).toBeNull();
     expect(view.getByRole("img", { name: firstColor.alt })).toHaveAttribute(

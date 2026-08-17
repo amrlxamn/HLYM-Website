@@ -9,10 +9,7 @@ describe("ProductFullSpecificationSection", () => {
   it("renders the Figma full specification layout content", () => {
     const view = render(<ProductFullSpecificationSection />);
 
-    expect(view.getByRole("region", { name: "Yamaha NVX full specification" })).toHaveAttribute(
-      "data-cursor-tone",
-      "light"
-    );
+    expect(view.getByRole("region", { name: "Yamaha NVX full specification" })).toBeInTheDocument();
     expect(view.getByText(PRODUCT_FULL_SPECIFICATION_CONTENT.eyebrow)).toBeInTheDocument();
     expect(
       view.getByRole("heading", {

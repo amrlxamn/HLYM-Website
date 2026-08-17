@@ -14,10 +14,7 @@ describe("ProductShowcasePage", () => {
     const view = render(<ProductShowcasePage />);
     const viewer = view.getByRole("group", { name: "360 view of Nvx 155 automatic scooter" });
 
-    expect(view.getByRole("region", { name: "Products showcase page" })).toHaveAttribute(
-      "data-cursor-tone",
-      "light"
-    );
+    expect(view.getByRole("region", { name: "Products showcase page" })).toBeInTheDocument();
     expect(view.getByText("YAMAHA")).toBeInTheDocument();
     const posterLogo = view.getByRole("heading", { name: PRODUCT_HERO_VIDEO.brandMark.alt });
     expect(posterLogo.querySelector("img")).toHaveAttribute(

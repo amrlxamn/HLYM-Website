@@ -42,7 +42,7 @@ export function ProductOverviewSection({
   });
 
   return (
-    <ProductOverviewRoot aria-label={toSentenceCase(ariaLabel)} data-cursor-tone="dark">
+    <ProductOverviewRoot aria-label={toSentenceCase(ariaLabel)}>
       <ProductOverviewInner>
         <ProductOverviewContent>
           <ProductOverviewEyebrow>{content.eyebrow}</ProductOverviewEyebrow>

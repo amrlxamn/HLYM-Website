@@ -10,10 +10,7 @@ describe("ProductOverviewSection", () => {
   it("renders the Figma overview copy, specs, and color cards", () => {
     const view = render(<ProductOverviewSection />);
 
-    expect(view.getByRole("region", { name: "Yamaha NVX overview" })).toHaveAttribute(
-      "data-cursor-tone",
-      "dark"
-    );
+    expect(view.getByRole("region", { name: "Yamaha NVX overview" })).toBeInTheDocument();
     expect(view.getByText(PRODUCT_OVERVIEW_CONTENT.eyebrow)).toBeInTheDocument();
     expect(
       view.getByRole("heading", {

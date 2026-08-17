@@ -25,7 +25,7 @@ export function ContactHeroSection({ content = CONTACT_HERO_CONTENT }: ContactHe
   const [isEnquiryPanelOpen, setIsEnquiryPanelOpen] = useState(false);
 
   return (
-    <ContactHeroRoot aria-label={toSentenceCase(content.ariaLabel)} data-cursor-tone="light">
+    <ContactHeroRoot aria-label={toSentenceCase(content.ariaLabel)}>
       <ContactHeroBackground
         alt={toSentenceCase(content.backgroundAlt)}
         src={content.backgroundImage}
