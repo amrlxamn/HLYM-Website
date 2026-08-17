@@ -4,37 +4,62 @@ import { Container } from "@/styles/layout";
 export const ContactHeroRoot = styled.section`
   background: var(--color-bg-canvas);
   color: var(--color-text-inverse);
+  margin-top: calc(var(--header-height-total) * -1);
   min-height: 720px;
   overflow: hidden;
   position: relative;
 `;
 
 export const ContactHeroBackground = styled.img`
-  height: 550px;
+  height: 650px;
   inset: 0;
   object-position: center;
   position: absolute;
   width: 100%;
+
+  @media (max-width: 980px) {
+    height: 480px;
+  }
+
+  @media (max-width: 640px) {
+    height: 380px;
+  }
 `;
 
 export const ContactHeroGradient = styled.div`
   background: var(--contact-hero-gradient-left);
-  height: 550px;
+  height: 650px;
   inset: 0;
   position: absolute;
+
+  @media (max-width: 980px) {
+    height: 480px;
+  }
+
+  @media (max-width: 640px) {
+    height: 380px;
+  }
 `;
 
 export const ContactHeroVerticalShade = styled.div`
   background: var(--contact-hero-gradient-vertical);
-  height: 550px;
+  height: 650px;
   inset: 0;
   position: absolute;
+
+  @media (max-width: 980px) {
+    height: 480px;
+  }
+
+  @media (max-width: 640px) {
+    height: 380px;
+  }
 `;
 
 export const ContactHeroInner = styled(Container)`
   display: grid;
   gap: var(--space-12);
-  padding: var(--space-24) 0;
+  padding: calc(var(--header-height-total) + var(--space-12)) 0 var(--space-24);
   position: relative;
   z-index: 1;
 `;

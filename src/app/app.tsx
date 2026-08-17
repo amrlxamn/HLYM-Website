@@ -1,5 +1,4 @@
 import { lazy, Suspense } from "react";
-import { CustomCursor } from "@/components/cursor/custom-cursor";
 import { SplashScreen } from "@/components/splash/splash-screen";
 import { useSplashScreen } from "@/components/splash/use-splash-screen";
 import { HomePage } from "@/app/home-page";
@@ -12,22 +11,6 @@ const YamahaNetworkPage = lazy(() =>
 
 const DesignSystemPage = lazy(() =>
   import("@/docs/design-system-docs").then((module) => ({ default: module.DesignSystemPage }))
-);
-
-const SupportPortalPage = lazy(() =>
-  import("@/features/support-portal").then((module) => ({ default: module.SupportPortalPage }))
-);
-
-const SupportAccessPage = lazy(() =>
-  import("@/features/support-portal").then((module) => ({ default: module.SupportAccessPage }))
-);
-
-const SupportTicketPage = lazy(() =>
-  import("@/features/support-portal").then((module) => ({ default: module.SupportTicketPage }))
-);
-
-const SupportAdminPage = lazy(() =>
-  import("@/features/support-portal").then((module) => ({ default: module.SupportAdminPage }))
 );
 
 export function App() {
@@ -47,26 +30,9 @@ export function App() {
     page = <YamahaNetworkPage />;
   }
 
-  if (pathname === "/support" || pathname === "/support/") {
-    page = <SupportPortalPage />;
-  }
-
-  if (pathname.startsWith("/support/access")) {
-    page = <SupportAccessPage />;
-  }
-
-  if (pathname.startsWith("/support/ticket")) {
-    page = <SupportTicketPage />;
-  }
-
-  if (pathname.startsWith("/support/admin")) {
-    page = <SupportAdminPage />;
-  }
-
   if (pathname.startsWith("/design-system")) {
     return (
       <>
-        <CustomCursor />
         {!isRemoved && <SplashScreen isVisible={isVisible} onComplete={onComplete} />}
         <Suspense fallback={null}>
           <DesignSystemPage />
@@ -77,7 +43,6 @@ export function App() {
 
   return (
     <>
-      <CustomCursor />
       {!isRemoved && <SplashScreen isVisible={isVisible} onComplete={onComplete} />}
       <Suspense fallback={null}>{page}</Suspense>
     </>

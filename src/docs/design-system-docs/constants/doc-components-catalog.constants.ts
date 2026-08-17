@@ -246,19 +246,6 @@ export const DOC_COMPONENT_CATALOG: readonly DocComponentEntry[] = [
     tier: 2
   },
   {
-    category: "Forms & Feedback",
-    code: "<CustomCursor />",
-    componentName: "CustomCursor",
-    description:
-      "Custom mouse cursor with play/pause labels for video contexts. Requires useCustomCursor context provider to be active.",
-    id: "custom-cursor",
-    name: "Custom Cursor",
-    note: "Requires useCustomCursor context provider and desktop pointer. Shown as static preview.",
-    previewTone: "dark",
-    props: [],
-    tier: 3
-  },
-  {
     category: "Product",
     code: "<ProductOverviewSpecRow spec={spec} index={0} />",
     componentName: "ProductOverviewSpecRow",

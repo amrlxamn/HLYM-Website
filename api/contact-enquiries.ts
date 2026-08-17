@@ -5,7 +5,7 @@ import type {
 } from "../server/contact-enquiries/contact-enquiry-api.types.js";
 import { createSupportTicket } from "../server/support/create-support-ticket.js";
 import { verifyTurnstileToken } from "../server/support/verify-turnstile-token.js";
-import { supportTicketSchema } from "../src/features/support-portal/schemas/support-ticket.schema.js";
+import { supportTicketSchema } from "../server/support/support-ticket.schema.js";
 
 export default async function contactEnquiries(
   request: ContactEnquiryApiRequest,

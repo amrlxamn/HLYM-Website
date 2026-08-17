@@ -40,11 +40,7 @@ export function ProductFullSpecificationSection({
   ]);
 
   return (
-    <ProductFullSpecificationRoot
-      ref={sectionRef}
-      aria-label={toSentenceCase(ariaLabel)}
-      data-cursor-tone="light"
-    >
+    <ProductFullSpecificationRoot ref={sectionRef} aria-label={toSentenceCase(ariaLabel)}>
       <ProductFullSpecificationInner>
         <ProductFullSpecificationHeader>
           <ProductFullSpecificationEyebrow>{content.eyebrow}</ProductFullSpecificationEyebrow>

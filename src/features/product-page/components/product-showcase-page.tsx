@@ -33,7 +33,7 @@ export function ProductShowcasePage({
   const productModel = model ?? activeModel ?? PRODUCT_PAGE_MODELS[0]!;
 
   return (
-    <ProductShowcasePageRoot aria-label={toSentenceCase(ariaLabel)} data-cursor-tone="light">
+    <ProductShowcasePageRoot aria-label={toSentenceCase(ariaLabel)}>
       <ProductShowcasePageInner>
         <ProductShowcaseStage>
           <ProductTitleLayer>

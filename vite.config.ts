@@ -46,7 +46,7 @@ export default defineConfig({
     },
     environment: "jsdom",
     exclude: [".claude/**", "**/node_modules/**", "deliverables/**", "proposal/**"],
-    include: ["src/**/*.test.ts", "src/**/*.test.tsx"],
+    include: ["src/**/*.test.ts", "src/**/*.test.tsx", "server/**/*.test.ts"],
     setupFiles: "./src/test/setup.ts"
   }
 });

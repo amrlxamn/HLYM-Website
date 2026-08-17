@@ -32,7 +32,7 @@ describe("ProductVideoHero", () => {
     expect((video as HTMLVideoElement).muted).toBe(true);
   });
 
-  it("toggles playback from the hero cursor zone and the control button", async () => {
+  it("toggles playback from the hero zone and the control button", async () => {
     const user = userEvent.setup();
     const pauseSpy = vi.spyOn(HTMLMediaElement.prototype, "pause").mockImplementation(() => {});
     const playSpy = vi.spyOn(HTMLMediaElement.prototype, "play").mockResolvedValue(undefined);
@@ -41,19 +41,14 @@ describe("ProductVideoHero", () => {
       name: toSentenceCase(PRODUCT_HERO_VIDEO.ariaLabel)
     });
 
-    expect(hero).toHaveAttribute("data-cursor-label", "Pause");
-    expect(hero).toHaveAttribute("data-cursor-tone", "dark");
-
     await user.click(hero);
 
     expect(pauseSpy).toHaveBeenCalled();
-    expect(hero).toHaveAttribute("data-cursor-label", "Play");
     expect(view.getByRole("button", { name: "Play Yamaha NVX video" })).toBeInTheDocument();
 
     await user.click(view.getByRole("button", { name: "Play Yamaha NVX video" }));
 
     expect(playSpy).toHaveBeenCalled();
-    expect(hero).toHaveAttribute("data-cursor-label", "Pause");
     expect(view.getByRole("button", { name: "Pause Yamaha NVX video" })).toBeInTheDocument();
   });
 });

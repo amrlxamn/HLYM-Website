@@ -16,7 +16,7 @@ describe("ModelsSection", () => {
   it("renders display-only category tabs without the all models option", () => {
     const view = render(<ModelsSection />);
 
-    expect(view.getByRole("region")).toHaveAttribute("data-cursor-tone", "light");
+    expect(view.getByRole("region")).toBeInTheDocument();
     expect(view.queryByRole("button", { name: "all models" })).toBeNull();
 
     for (const tab of MODEL_TABS) {

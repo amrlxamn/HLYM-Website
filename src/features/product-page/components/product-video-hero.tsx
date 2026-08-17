@@ -22,15 +22,9 @@ export function ProductVideoHero({ video = PRODUCT_HERO_VIDEO }: ProductVideoHer
     useProductVideoPlayback();
   const ControlIcon = isPaused ? Play : Pause;
   const controlLabel = isPaused ? "Play Yamaha NVX video" : "Pause Yamaha NVX video";
-  const cursorLabel = isPaused ? "Play" : "Pause";
 
   return (
-    <ProductVideoHeroRoot
-      aria-label={toSentenceCase(video.ariaLabel)}
-      data-cursor-label={cursorLabel}
-      data-cursor-tone="dark"
-      onClick={onTogglePlayback}
-    >
+    <ProductVideoHeroRoot aria-label={toSentenceCase(video.ariaLabel)} onClick={onTogglePlayback}>
       <ProductVideoHeroMedia
         ref={videoRef}
         aria-label={toSentenceCase(video.alt)}

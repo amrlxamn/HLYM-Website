@@ -19,7 +19,7 @@ describe("ProductFeaturesSection", () => {
       view.getByRole("region", {
         name: toSentenceCase(PRODUCT_PAGE_COPY.featuresSectionAriaLabel)
       })
-    ).toHaveAttribute("data-cursor-tone", "light");
+    ).toBeInTheDocument();
     expect(view.getByText("01 / 06")).toBeInTheDocument();
     expect(view.getByRole("heading", { name: firstFeature.title })).toBeInTheDocument();
     expect(view.getByRole("img", { name: firstFeature.imageAlt })).toHaveAttribute(

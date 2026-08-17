@@ -34,7 +34,6 @@ export function ProductFeaturesSection({
   return (
     <ProductFeaturesRoot
       aria-label={toSentenceCase(ariaLabel)}
-      data-cursor-tone="light"
       onKeyDown={(event) => {
         if (event.key === "ArrowLeft") {
           event.preventDefault();

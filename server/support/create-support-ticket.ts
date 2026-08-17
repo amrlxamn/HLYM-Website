@@ -1,5 +1,5 @@
 import { randomUUID } from "node:crypto";
-import type { SupportTicketInput } from "../../src/features/support-portal/schemas/support-ticket.schema.js";
+import type { SupportTicketInput } from "./support-ticket.schema.js";
 import { createAirtableRecord } from "./create-airtable-record.js";
 import { createCustomerAccessToken } from "./create-customer-access-token.js";
 import { createTicketReference } from "./create-ticket-reference.js";

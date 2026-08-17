@@ -15,10 +15,7 @@ describe("ContactHeroSection", () => {
     const user = userEvent.setup();
     const view = render(<ContactHeroSection />);
 
-    expect(view.getByRole("region", { name: CONTACT_HERO_CONTENT.ariaLabel })).toHaveAttribute(
-      "data-cursor-tone",
-      "light"
-    );
+    expect(view.getByRole("region", { name: CONTACT_HERO_CONTENT.ariaLabel })).toBeInTheDocument();
     expect(view.getByRole("heading", { name: CONTACT_HERO_CONTENT.title })).toBeInTheDocument();
     expect(view.getByLabelText(CONTACT_HERO_CONTENT.searchAriaLabel)).toHaveAttribute(
       "placeholder",
