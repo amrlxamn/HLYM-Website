@@ -12,12 +12,7 @@ export default async function supportAdminTickets(
     return;
   }
 
-  try {
-    if (!(await isAdminPortalEnabled())) {
-      response.status(503).json({ code: "portal_disabled", message: "Staff portal is disabled" });
-      return;
-    }
-  } catch {
+  if (!(await isAdminPortalEnabled())) {
     response.status(503).json({ code: "portal_disabled", message: "Staff portal is disabled" });
     return;
   }
