@@ -5,7 +5,7 @@ import { ButtonRoot, type ButtonSize, type ButtonVariant } from "./button.styles
 type ButtonOnlyProps = {
   children: ReactNode;
   fullWidth?: boolean;
-  iconPosition?: "left" | "right";
+  icon?: "left" | "none" | "right";
   size?: ButtonSize;
   variant?: ButtonVariant;
 };
@@ -20,27 +20,27 @@ export type ButtonProps = ButtonAsButton | ButtonAsLink;
 export function Button({
   children,
   fullWidth = false,
-  iconPosition = "right",
+  icon = "right",
   size = "md",
   type = "button",
   variant = "primary",
   ...props
 }: ButtonProps): ReactElement {
-  const Icon = iconPosition === "left" ? ArrowLeft : ArrowRight;
+  const Icon = icon === "left" ? ArrowLeft : ArrowRight;
   const isLink = (props as ButtonAsLink).as === "a";
 
   return (
     <ButtonRoot
       $fullWidth={fullWidth}
-      $iconPosition={iconPosition}
+      $icon={icon}
       $size={size}
       $variant={variant}
       {...(isLink ? {} : { type: type as "button" | "submit" | "reset" })}
       {...(props as Record<string, unknown>)}
     >
-      {iconPosition === "left" && <Icon aria-hidden="true" />}
+      {icon === "left" && <Icon aria-hidden="true" />}
       <span>{children}</span>
-      {iconPosition === "right" && <Icon aria-hidden="true" />}
+      {icon === "right" && <Icon aria-hidden="true" />}
     </ButtonRoot>
   );
 }

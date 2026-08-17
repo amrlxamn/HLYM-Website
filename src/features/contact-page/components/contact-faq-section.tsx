@@ -1,14 +1,12 @@
 import { useState } from "react";
 import { toSentenceCase } from "@/lib/to-sentence-case";
+import { SectionHeader } from "@/components/shared/section-header";
 import { CONTACT_FAQ_CONTENT } from "../constants/contact-faq.constants";
 import {
   ContactFaqBody,
-  ContactFaqCopy,
   ContactFaqEmpty,
-  ContactFaqHeader,
   ContactFaqList,
-  ContactFaqRoot,
-  ContactFaqTitle
+  ContactFaqRoot
 } from "../styles/contact-faq-shell.styles";
 import type { ContactFaqContent } from "../types/contact-page.types";
 import { ContactFaqItem } from "./contact-faq-item";
@@ -28,10 +26,7 @@ export function ContactFaqSection({ content = CONTACT_FAQ_CONTENT }: ContactFaqS
 
   return (
     <ContactFaqRoot id="faq" aria-label={toSentenceCase(content.ariaLabel)}>
-      <ContactFaqHeader>
-        <ContactFaqTitle>{content.title}</ContactFaqTitle>
-        <ContactFaqCopy>{content.description}</ContactFaqCopy>
-      </ContactFaqHeader>
+      <SectionHeader align="left" heading={content.title} tone="light" />
       <ContactFaqBody>
         <ContactFaqTopicFilter
           activeTopic={activeTopic}

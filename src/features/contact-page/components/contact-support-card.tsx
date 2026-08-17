@@ -1,7 +1,6 @@
-import { ArrowRight } from "lucide-react";
+import { Button } from "@/components/ui";
 import { toSentenceCase } from "@/lib/to-sentence-case";
 import {
-  ContactHeroCardCta,
   ContactHeroCardNumber,
   ContactHeroCardRoot,
   ContactHeroCardTitle
@@ -31,15 +30,13 @@ export function ContactSupportCard({ card, onEnquiryClick }: ContactSupportCardP
           ))}
         </ContactHeroCardTitle>
         {isFeatured ? (
-          <ContactHeroCardCta as="button" onClick={onEnquiryClick} type="button">
+          <Button onClick={onEnquiryClick} size="sm" variant="primary">
             {card.ctaLabel}
-            <ArrowRight aria-hidden="true" />
-          </ContactHeroCardCta>
+          </Button>
         ) : (
-          <ContactHeroCardCta href={card.ctaHref}>
+          <Button as="a" href={card.ctaHref} size="sm" variant="light">
             {card.ctaLabel}
-            <ArrowRight aria-hidden="true" />
-          </ContactHeroCardCta>
+          </Button>
         )}
       </div>
     </ContactHeroCardRoot>

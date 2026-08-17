@@ -4,7 +4,10 @@ import { getContactEnquiryFormValue } from "./get-contact-enquiry-form-value";
 import { getNormalizedContactBranch } from "./get-normalized-contact-branch";
 import { getNormalizedContactOwnerType } from "./get-normalized-contact-owner-type";
 
-export function createContactEnquiryPayload(form: HTMLFormElement): ContactEnquiryPayload {
+export function createContactEnquiryPayload(
+  form: HTMLFormElement,
+  turnstileToken?: string | null
+): ContactEnquiryPayload {
   const formData = new FormData(form);
 
   return {
@@ -26,6 +29,7 @@ export function createContactEnquiryPayload(form: HTMLFormElement): ContactEnqui
     title: getContactEnquiryFormValue(formData, "title"),
     ownerType: getNormalizedContactOwnerType(getContactEnquiryFormValue(formData, "ownerType")),
     vehicleModel: getContactEnquiryFormValue(formData, "vehicleModel"),
-    yearOfPurchase: getContactEnquiryFormValue(formData, "yearOfPurchase")
+    yearOfPurchase: getContactEnquiryFormValue(formData, "yearOfPurchase"),
+    ...(turnstileToken ? { turnstileToken } : {})
   };
 }

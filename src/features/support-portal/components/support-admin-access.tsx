@@ -2,6 +2,7 @@ import type { FormEvent } from "react";
 import { useState } from "react";
 import { ShieldCheck } from "lucide-react";
 import { Button } from "@/components/ui";
+import { TurnstileWidget } from "@/components/ui/turnstile/turnstile-widget";
 import {
   SupportAdminForm,
   SupportAdminPanel,
@@ -10,13 +11,22 @@ import {
 
 export function SupportAdminAccess() {
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
+
+  const siteKeyConfigured = Boolean(import.meta.env.VITE_TURNSTILE_SITE_KEY);
+  const canSubmit = !siteKeyConfigured || Boolean(turnstileToken);
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+
+    if (!canSubmit) {
+      return;
+    }
+
     setStatus("loading");
     const formData = new FormData(event.currentTarget);
     const response = await fetch("/api/support-admin-auth-request", {
-      body: JSON.stringify({ email: String(formData.get("email") ?? "") }),
+      body: JSON.stringify({ email: String(formData.get("email") ?? ""), turnstileToken }),
       headers: { "Content-Type": "application/json" },
       method: "POST"
     });
@@ -35,7 +45,8 @@ export function SupportAdminAccess() {
       <SupportAdminForm onSubmit={handleSubmit}>
         <label htmlFor="staff-email">Staff email</label>
         <input autoComplete="email" id="staff-email" name="email" required type="email" />
-        <Button disabled={status === "loading"} fullWidth size="lg" type="submit">
+        <TurnstileWidget onChange={setTurnstileToken} />
+        <Button disabled={status === "loading" || !canSubmit} fullWidth size="lg" type="submit">
           {status === "loading" ? "Requesting access" : "Email staff access link"}
         </Button>
       </SupportAdminForm>

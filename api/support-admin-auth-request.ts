@@ -4,6 +4,7 @@ import { createStaffMagicLink } from "../server/support/create-staff-magic-link.
 import { getSupportStaff } from "../server/support/get-support-staff.js";
 import { isAdminPortalEnabled } from "../server/support/is-admin-portal-enabled.js";
 import { notifyStaffMagicLink } from "../server/support/notify-staff-magic-link.js";
+import { verifyTurnstileToken } from "../server/support/verify-turnstile-token.js";
 import type { SupportApiRequest, SupportApiResponse } from "../server/support/support-api.types.js";
 
 const staffAccessSchema = z.object({ email: z.string().trim().email().max(254) });
@@ -24,7 +25,14 @@ export default async function supportAdminAuthRequest(
     }
 
     const body = await readContactEnquiryRequestBody(request);
-    const input = staffAccessSchema.parse(JSON.parse(body));
+    const raw = JSON.parse(body) as { email?: string; turnstileToken?: string };
+
+    if (!(await verifyTurnstileToken(raw.turnstileToken))) {
+      response.status(400).json({ code: "challenge_failed", message: "Security check failed" });
+      return;
+    }
+
+    const input = staffAccessSchema.parse(raw);
     const staff = await getSupportStaff(input.email);
 
     if (staff) {

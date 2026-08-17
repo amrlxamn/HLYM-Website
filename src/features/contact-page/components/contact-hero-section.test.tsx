@@ -114,8 +114,12 @@ describe("ContactHeroSection", () => {
     expect(requestBody.submissionId).toEqual(expect.any(String));
     await waitFor(() => {
       expect(
-        view.getByText("Enquiry submitted. Your ticket reference is HLYM-2026-ABC123.")
+        view.getByText(/Enquiry submitted\. Your ticket reference is HLYM-2026-ABC123\./)
       ).toBeInTheDocument();
+      expect(view.getByRole("link", { name: /track your ticket/i })).toHaveAttribute(
+        "href",
+        "/support/access"
+      );
     });
   });
 });

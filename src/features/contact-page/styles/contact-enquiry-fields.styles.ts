@@ -4,18 +4,18 @@ export const ContactEnquiryBody = styled.form`
   display: grid;
   gap: 0;
   overflow-y: auto;
-  padding: 0 32px 34px;
+  padding: 0 var(--space-8) var(--space-8);
 
   @media (max-width: 640px) {
-    padding: 0 22px 30px;
+    padding: 0 var(--space-5) var(--space-6);
   }
 `;
 
 export const ContactEnquirySection = styled.section`
   border-top: 1px solid var(--color-border-muted);
   display: grid;
-  gap: 18px;
-  padding: 28px 0;
+  gap: var(--space-4);
+  padding: var(--space-6) 0;
 
   &:first-child {
     border-top: 1px solid var(--color-border-muted);
@@ -23,9 +23,9 @@ export const ContactEnquirySection = styled.section`
 `;
 
 export const ContactEnquirySectionTitle = styled.h3`
-  font-size: 12px;
-  font-weight: 800;
-  letter-spacing: 1.8px;
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: 2px;
   line-height: 1;
   margin: 0;
   text-transform: uppercase;
@@ -33,35 +33,37 @@ export const ContactEnquirySectionTitle = styled.h3`
 
 export const ContactEnquiryGrid = styled.div`
   display: grid;
-  gap: 14px;
+  gap: var(--space-4);
   grid-template-columns: 1fr;
 `;
 
 export const ContactEnquiryField = styled.label`
   display: grid;
-  gap: 8px;
+  gap: var(--space-2);
 `;
 
 export const ContactEnquiryLabelText = styled.span`
   color: var(--color-text-primary);
-  font-size: 13px;
-  font-weight: 700;
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  text-transform: capitalize;
 `;
 
 export const ContactEnquiryInput = styled.input`
   background: var(--color-bg-canvas);
   border: 1px solid var(--color-border-muted);
   color: var(--color-text-primary);
+  font-size: var(--font-size-md);
   min-height: 48px;
-  padding: 0 15px;
+  padding: var(--space-3) var(--space-4);
   transition:
-    border-color var(--duration-base) var(--easing-standard),
-    box-shadow var(--duration-base) var(--easing-standard);
+    border-color var(--duration-press) var(--easing-out),
+    box-shadow var(--duration-press) var(--easing-out);
   width: 100%;
 
   &:focus {
-    border-color: var(--red);
-    box-shadow: 0 0 0 3px color-mix(in srgb, var(--red) 16%, transparent);
+    border-color: var(--color-brand-500);
+    box-shadow: var(--shadow-focus);
     outline: 0;
   }
 `;
@@ -70,13 +72,14 @@ export const ContactEnquirySelect = styled.select`
   background: var(--color-bg-canvas);
   border: 1px solid var(--color-border-muted);
   color: var(--color-text-primary);
+  font-size: var(--font-size-md);
   min-height: 48px;
-  padding: 0 15px;
+  padding: var(--space-3) var(--space-4);
   width: 100%;
 
   &:focus {
-    border-color: var(--red);
-    box-shadow: 0 0 0 3px color-mix(in srgb, var(--red) 16%, transparent);
+    border-color: var(--color-brand-500);
+    box-shadow: var(--shadow-focus);
     outline: 0;
   }
 `;
@@ -85,20 +88,21 @@ export const ContactEnquiryTextarea = styled.textarea`
   background: var(--color-bg-canvas);
   border: 1px solid var(--color-border-muted);
   color: var(--color-text-primary);
+  font-size: var(--font-size-md);
   min-height: 116px;
-  padding: 14px;
+  padding: var(--space-3) var(--space-4);
   resize: vertical;
   width: 100%;
 
   &:focus {
-    border-color: var(--red);
-    box-shadow: 0 0 0 3px color-mix(in srgb, var(--red) 16%, transparent);
+    border-color: var(--color-brand-500);
+    box-shadow: var(--shadow-focus);
     outline: 0;
   }
 `;
 
 export const ContactEnquiryHelper = styled.span`
   color: var(--color-text-subtle);
-  font-size: 11px;
-  line-height: 1.45;
+  font-size: var(--font-size-sm);
+  line-height: var(--leading-normal);
 `;

@@ -7,7 +7,7 @@ export type ButtonVariant = "light" | "primary" | "related" | "secondary";
 
 export const ButtonRoot = styled.button<{
   $fullWidth: boolean;
-  $iconPosition: "left" | "right";
+  $icon: "left" | "none" | "right";
   $size: ButtonSize;
   $variant: ButtonVariant;
 }>`
@@ -17,8 +17,8 @@ export const ButtonRoot = styled.button<{
   flex-shrink: 0;
   font-weight: var(--font-weight-bold);
   gap: var(--space-4);
-  grid-template-columns: ${({ $iconPosition }) =>
-    $iconPosition === "left" ? "auto 1fr" : "1fr auto"};
+  grid-template-columns: ${({ $icon }) =>
+    $icon === "left" ? "auto 1fr" : $icon === "right" ? "1fr auto" : "1fr"};
   letter-spacing: var(--tracking-widest);
   line-height: var(--leading-none, 1);
   padding: 0 0 var(--space-3);
@@ -83,8 +83,8 @@ export const ButtonRoot = styled.button<{
 
   ${({ $variant }) => BUTTON_VARIANT_STYLES[$variant]}
 
-  ${({ $iconPosition }) =>
-    $iconPosition === "left"
+  ${({ $icon }) =>
+    $icon === "left"
       ? css`
           &:hover:not(:disabled)::before {
             left: calc(-1 * var(--button-rule-slide, var(--space-1)));
@@ -94,8 +94,7 @@ export const ButtonRoot = styled.button<{
 
   &:hover:not(:disabled) > svg {
     transform: translateX(
-      ${({ $iconPosition }) =>
-        $iconPosition === "left" ? "calc(-1 * var(--space-1))" : "var(--space-1)"}
+      ${({ $icon }) => ($icon === "left" ? "calc(-1 * var(--space-1))" : "var(--space-1)")}
     );
   }
 

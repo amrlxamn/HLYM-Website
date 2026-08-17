@@ -34,31 +34,31 @@ export const ContactEnquiryCloseRail = styled.div`
   border-bottom: 1px solid var(--color-border-muted);
   display: flex;
   justify-content: flex-end;
-  padding: 0 20px;
+  padding: 0 var(--space-5);
 `;
 
 export const ContactEnquiryHeaderRoot = styled.header`
-  padding: 28px 32px 24px;
+  padding: var(--space-6) var(--space-8) var(--space-6);
 
   @media (max-width: 640px) {
-    padding: 24px 22px 22px;
+    padding: var(--space-6) var(--space-5) var(--space-6);
   }
 `;
 
 export const ContactEnquiryTitle = styled.h2`
-  font-size: 24px;
-  font-weight: 700;
-  letter-spacing: 0;
-  line-height: 1.18;
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: var(--tracking-normal);
+  line-height: var(--leading-snug);
   margin: 0;
   text-transform: uppercase;
 `;
 
 export const ContactEnquiryDescription = styled.p`
   color: var(--color-text-dim);
-  font-size: 14px;
-  line-height: 1.5;
-  margin: 10px 0 0;
+  font-size: var(--font-size-md);
+  line-height: var(--leading-normal);
+  margin: var(--space-3) 0 0;
 `;
 
 export const ContactEnquiryCloseButton = styled.button`

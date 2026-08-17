@@ -30,15 +30,25 @@ Initial administrator: `dev23gencode@gmail.com`.
 ## n8n
 
 The isolated local instance is available at `http://localhost:5678`. The owner password is stored
-only in the ignored `n8n-docker/.env` file. Workflow `HLYM Support Notifications` is imported but
-must remain inactive until an approved Gmail or Microsoft 365 credential is connected and the
-email node is added.
+only in the ignored `n8n-docker/.env` file. Two workflows automate portal email:
+`HLYM Support Notifications` (signed events from the Vercel API) and
+`HLYM Airtable Reply Sync` (Airtable Automation webhook for replies made in Airtable).
+Both ship with Gmail nodes and stay inactive until an approved Gmail OAuth credential is
+connected. See `docs/n8n/hlym-support-notifications-runbook.md`.
+
+## Security
+
+Cloudflare Turnstile protects anonymous ticket creation, customer access requests, and
+staff auth requests. The widget renders when `VITE_TURNSTILE_SITE_KEY` is set; the Vercel
+functions verify the token against `TURNSTILE_SECRET_KEY`. See
+`docs/support-portal-airtable-schema.md` for the full env contract.
 
 ## Launch blockers
 
-1. Connect an approved email credential in n8n and activate the notification workflow.
-2. Configure `N8N_SUPPORT_WEBHOOK_URL` and `N8N_SUPPORT_WEBHOOK_SECRET` in Vercel.
-3. Add Cloudflare Turnstile to anonymous ticket creation and access requests.
+1. Connect an approved Gmail OAuth credential in n8n and activate both workflows.
+2. Configure `N8N_SUPPORT_WEBHOOK_URL`, `N8N_SUPPORT_WEBHOOK_SECRET`, `SUPPORT_PUBLIC_BASE_URL`,
+   `SUPPORT_INBOX_EMAIL`, `VITE_TURNSTILE_SITE_KEY`, and `TURNSTILE_SECRET_KEY` in Vercel.
+3. Create the Airtable Automation that posts staff replies to `hlym-airtable-reply-sync`.
 4. Configure production support URL and production-only secrets.
 5. Complete malware scanning before allowing downloaded customer attachments in staff workflows.
 6. Run user acceptance testing before adding the server variables to Production.

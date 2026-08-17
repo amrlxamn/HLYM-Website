@@ -27,15 +27,186 @@
     },
     {
       "parameters": {
+        "dataPropertyName": "event",
+        "rules": [
+          {
+            "type": "string",
+            "value": "support.access.requested"
+          },
+          {
+            "type": "string",
+            "value": "support.staff.magic-link"
+          },
+          {
+            "type": "string",
+            "value": "support.ticket.created"
+          },
+          {
+            "type": "string",
+            "value": "support.customer.replied"
+          },
+          {
+            "type": "string",
+            "value": "support.staff.replied"
+          },
+          {
+            "type": "string",
+            "value": "support.status.changed"
+          }
+        ],
+        "options": {}
+      },
+      "id": "route-event",
+      "name": "Route Event",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3,
+      "position": [480, 0]
+    },
+    {
+      "parameters": {
+        "resource": "message",
+        "operation": "send",
+        "to": "={{ $json.email }}",
+        "subject": "Your HLYM support request {{ $json.ticketReference }}",
+        "emailType": "html",
+        "message": "<p>Hi there,</p><p>You can continue your support conversation with Hong Leong Yamaha Motor using the link below. It expires after a short time.</p><p><a href=\"{{ $json.magicLink }}\">Open your ticket {{ $json.ticketReference }}</a></p><p>If the link does not work, copy it into your browser:</p><p>{{ $json.magicLink }}</p>",
+        "options": {}
+      },
+      "id": "gmail-access-link",
+      "name": "Send Customer Access Link",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2,
+      "position": [720, -300],
+      "credentials": {
+        "googleOAuth2Api": {
+          "id": "pending-gmail-credential",
+          "name": "HLYM Gmail"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "message",
+        "operation": "send",
+        "to": "={{ $json.email }}",
+        "subject": "HLYM staff portal access link",
+        "emailType": "html",
+        "message": "<p>Hi,</p><p>Here is your Hong Leong Yamaha Motor support staff access link. It expires after a short time.</p><p><a href=\"{{ $json.magicLink }}\">Open the staff portal</a></p><p>If the link does not work, copy it into your browser:</p><p>{{ $json.magicLink }}</p>",
+        "options": {}
+      },
+      "id": "gmail-staff-magic-link",
+      "name": "Send Staff Magic Link",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2,
+      "position": [720, -180],
+      "credentials": {
+        "googleOAuth2Api": {
+          "id": "pending-gmail-credential",
+          "name": "HLYM Gmail"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "message",
+        "operation": "send",
+        "to": "={{ $json.email }}",
+        "subject": "We received your enquiry {{ $json.ticketReference }}",
+        "emailType": "html",
+        "message": "<p>Hi there,</p><p>Thank you for contacting Hong Leong Yamaha Motor. Your enquiry has been logged as ticket <strong>{{ $json.ticketReference }}</strong> and our team will get back to you.</p>",
+        "options": {}
+      },
+      "id": "gmail-ticket-created",
+      "name": "Send Ticket Created Confirmation",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2,
+      "position": [720, -60],
+      "credentials": {
+        "googleOAuth2Api": {
+          "id": "pending-gmail-credential",
+          "name": "HLYM Gmail"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "message",
+        "operation": "send",
+        "to": "={{ $json.email }}",
+        "subject": "Customer replied on {{ $json.ticketReference }}",
+        "emailType": "html",
+        "message": "<p>Hi,</p><p>The customer added a reply to ticket <strong>{{ $json.ticketReference }}</strong>.</p><p>{{ $json.body }}</p><p>Open the staff portal to continue the conversation.</p>",
+        "options": {}
+      },
+      "id": "gmail-customer-replied",
+      "name": "Notify Staff of Customer Reply",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2,
+      "position": [720, 60],
+      "credentials": {
+        "googleOAuth2Api": {
+          "id": "pending-gmail-credential",
+          "name": "HLYM Gmail"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "message",
+        "operation": "send",
+        "to": "={{ $json.email }}",
+        "subject": "New reply on your ticket {{ $json.ticketReference }}",
+        "emailType": "html",
+        "message": "<p>Hi there,</p><p>Hong Leong Yamaha Motor replied on ticket <strong>{{ $json.ticketReference }}</strong>.</p><p>{{ $json.body }}</p><p><a href=\"{{ $env.SUPPORT_PUBLIC_BASE_URL }}/support/access\">Continue the conversation</a></p>",
+        "options": {}
+      },
+      "id": "gmail-staff-replied",
+      "name": "Notify Customer of Staff Reply",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2,
+      "position": [720, 180],
+      "credentials": {
+        "googleOAuth2Api": {
+          "id": "pending-gmail-credential",
+          "name": "HLYM Gmail"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "message",
+        "operation": "send",
+        "to": "={{ $json.email }}",
+        "subject": "Ticket {{ $json.ticketReference }} is now {{ $json.status }}",
+        "emailType": "html",
+        "message": "<p>Hi there,</p><p>The status of ticket <strong>{{ $json.ticketReference }}</strong> changed to <strong>{{ $json.status }}</strong>.</p><p><a href=\"{{ $env.SUPPORT_PUBLIC_BASE_URL }}/support/access\">View your ticket</a></p>",
+        "options": {}
+      },
+      "id": "gmail-status-changed",
+      "name": "Notify Customer of Status Change",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2,
+      "position": [720, 300],
+      "credentials": {
+        "googleOAuth2Api": {
+          "id": "pending-gmail-credential",
+          "name": "HLYM Gmail"
+        }
+      }
+    },
+    {
+      "parameters": {
         "respondWith": "json",
-        "responseBody": "={{ { accepted: true, event: $json.event } }}",
-        "options": { "responseCode": 202 }
+        "responseBody": "={{ { accepted: true, event: $('Validate Event').item.json.event } }}",
+        "options": {
+          "responseCode": 202
+        }
       },
       "id": "accepted-response",
       "name": "Accepted Response",
       "type": "n8n-nodes-base.respondToWebhook",
       "typeVersion": 1.4,
-      "position": [480, 0]
+      "position": [960, 0]
     }
   ],
   "connections": {
@@ -43,13 +214,46 @@
       "main": [[{ "node": "Validate Event", "type": "main", "index": 0 }]]
     },
     "Validate Event": {
+      "main": [[{ "node": "Route Event", "type": "main", "index": 0 }]]
+    },
+    "Route Event": {
+      "main": [
+        [{ "node": "Send Customer Access Link", "type": "main", "index": 0 }],
+        [{ "node": "Send Staff Magic Link", "type": "main", "index": 0 }],
+        [{ "node": "Send Ticket Created Confirmation", "type": "main", "index": 0 }],
+        [{ "node": "Notify Staff of Customer Reply", "type": "main", "index": 0 }],
+        [{ "node": "Notify Customer of Staff Reply", "type": "main", "index": 0 }],
+        [{ "node": "Notify Customer of Status Change", "type": "main", "index": 0 }],
+        [{ "node": "Accepted Response", "type": "main", "index": 0 }]
+      ]
+    },
+    "Send Customer Access Link": {
+      "main": [[{ "node": "Accepted Response", "type": "main", "index": 0 }]]
+    },
+    "Send Staff Magic Link": {
+      "main": [[{ "node": "Accepted Response", "type": "main", "index": 0 }]]
+    },
+    "Send Ticket Created Confirmation": {
+      "main": [[{ "node": "Accepted Response", "type": "main", "index": 0 }]]
+    },
+    "Notify Staff of Customer Reply": {
+      "main": [[{ "node": "Accepted Response", "type": "main", "index": 0 }]]
+    },
+    "Notify Customer of Staff Reply": {
+      "main": [[{ "node": "Accepted Response", "type": "main", "index": 0 }]]
+    },
+    "Notify Customer of Status Change": {
       "main": [[{ "node": "Accepted Response", "type": "main", "index": 0 }]]
     }
   },
   "pinData": {},
-  "settings": { "executionOrder": "v1" },
+  "settings": {
+    "executionOrder": "v1"
+  },
   "active": false,
   "versionId": "f0f25ed0-b60b-4ba4-b195-5ea54f49bd2d",
-  "meta": { "templateCredsSetupCompleted": false },
+  "meta": {
+    "templateCredsSetupCompleted": false
+  },
   "tags": []
 }
