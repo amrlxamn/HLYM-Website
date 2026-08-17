@@ -4,6 +4,7 @@ import type {
   ContactEnquiryApiResponse
 } from "../server/contact-enquiries/contact-enquiry-api.types.js";
 import { createSupportTicket } from "../server/support/create-support-ticket.js";
+import { verifyTurnstileToken } from "../server/support/verify-turnstile-token.js";
 import { supportTicketSchema } from "../src/features/support-portal/schemas/support-ticket.schema.js";
 
 export default async function contactEnquiries(
@@ -17,8 +18,17 @@ export default async function contactEnquiries(
 
   try {
     const body = await readContactEnquiryRequestBody(request);
-    const payload = supportTicketSchema.parse(JSON.parse(body));
-    const result = await createSupportTicket(payload);
+    const input = JSON.parse(body) as { turnstileToken?: string };
+
+    if (!(await verifyTurnstileToken(input.turnstileToken))) {
+      response.status(400).json({
+        code: "challenge_failed",
+        message: "Security check failed. Please try again."
+      });
+      return;
+    }
+
+    const result = await createSupportTicket(supportTicketSchema.parse(input));
 
     response.status(201).json(result);
   } catch {

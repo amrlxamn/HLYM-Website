@@ -4,6 +4,7 @@ import { ArrowLeft, Mail } from "lucide-react";
 import { FooterSection } from "@/components/footer";
 import { SiteHeader } from "@/components/header/site-header";
 import { Button } from "@/components/ui";
+import { TurnstileWidget } from "@/components/ui/turnstile/turnstile-widget";
 import {
   SupportAccessCard,
   SupportAccessForm,
@@ -14,6 +15,10 @@ import {
 
 export function SupportAccessPage() {
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
+
+  const siteKeyConfigured = Boolean(import.meta.env.VITE_TURNSTILE_SITE_KEY);
+  const canSubmit = !siteKeyConfigured || Boolean(turnstileToken);
 
   useEffect(() => {
     const token = new URLSearchParams(window.location.search).get("token");
@@ -40,12 +45,18 @@ export function SupportAccessPage() {
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+
+    if (!canSubmit) {
+      return;
+    }
+
     setStatus("loading");
     const formData = new FormData(event.currentTarget);
     const response = await fetch("/api/support-access-request", {
       body: JSON.stringify({
         email: String(formData.get("email") ?? ""),
-        ticketReference: String(formData.get("ticketReference") ?? "")
+        ticketReference: String(formData.get("ticketReference") ?? ""),
+        turnstileToken
       }),
       headers: { "Content-Type": "application/json" },
       method: "POST"
@@ -86,7 +97,8 @@ export function SupportAccessPage() {
               required
               type="email"
             />
-            <Button disabled={status === "loading"} fullWidth size="lg" type="submit">
+            <TurnstileWidget onChange={setTurnstileToken} />
+            <Button disabled={status === "loading" || !canSubmit} fullWidth size="lg" type="submit">
               {status === "loading" ? "Requesting link" : "Send secure access link"}
             </Button>
           </SupportAccessForm>
