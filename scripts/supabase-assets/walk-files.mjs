@@ -6,6 +6,10 @@ export async function walkFiles(directory) {
   const files = [];
 
   for (const entry of entries) {
+    if (entry.name === ".DS_Store") {
+      continue;
+    }
+
     const path = join(directory, entry.name);
 
     if (entry.isDirectory()) {
