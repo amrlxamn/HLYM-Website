@@ -1,0 +1,86 @@
+{
+  "name": "HLYM Airtable Reply Sync",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "hlym-airtable-reply-sync",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "airtable-reply-webhook",
+      "name": "Airtable Reply Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [0, 0],
+      "webhookId": "hlym-airtable-reply-sync"
+    },
+    {
+      "parameters": {
+        "jsCode": "const expected = $env.N8N_SUPPORT_WEBHOOK_SECRET;\nconst provided = $json.headers?.['x-support-webhook-secret'];\nif (!expected || provided !== expected) throw new Error('Unauthorized Airtable reply sync');\nconst { body } = $json;\nif (!body?.ticketReference || !body?.email || !body?.body) throw new Error('Missing reply sync fields');\nif (body.visibility === 'Internal') throw new Error('Internal replies do not notify customers');\nreturn [{ json: body }];"
+      },
+      "id": "validate-reply",
+      "name": "Validate Reply",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [240, 0]
+    },
+    {
+      "parameters": {
+        "resource": "message",
+        "operation": "send",
+        "to": "={{ $json.email }}",
+        "subject": "New reply on your ticket {{ $json.ticketReference }}",
+        "emailType": "html",
+        "message": "<p>Hi there,</p><p>Hong Leong Yamaha Motor replied on ticket <strong>{{ $json.ticketReference }}</strong>.</p><p>{{ $json.body }}</p><p><a href=\"{{ $env.SUPPORT_PUBLIC_BASE_URL }}/support/access\">Continue the conversation</a></p>",
+        "options": {}
+      },
+      "id": "gmail-airtable-reply",
+      "name": "Notify Customer of Airtable Reply",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2,
+      "position": [480, 0],
+      "credentials": {
+        "googleOAuth2Api": {
+          "id": "pending-gmail-credential",
+          "name": "HLYM Gmail"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ { accepted: true, ticketReference: $('Validate Reply').item.json.ticketReference } }}",
+        "options": {
+          "responseCode": 202
+        }
+      },
+      "id": "reply-accepted-response",
+      "name": "Reply Accepted Response",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.4,
+      "position": [720, 0]
+    }
+  ],
+  "connections": {
+    "Airtable Reply Webhook": {
+      "main": [[{ "node": "Validate Reply", "type": "main", "index": 0 }]]
+    },
+    "Validate Reply": {
+      "main": [[{ "node": "Notify Customer of Airtable Reply", "type": "main", "index": 0 }]]
+    },
+    "Notify Customer of Airtable Reply": {
+      "main": [[{ "node": "Reply Accepted Response", "type": "main", "index": 0 }]]
+    }
+  },
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "active": false,
+  "versionId": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+  "meta": {
+    "templateCredsSetupCompleted": false
+  },
+  "tags": []
+}

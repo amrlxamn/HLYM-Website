@@ -8,13 +8,17 @@ Use this setup while Webflow is not ready. The React app submits to:
 POST /api/contact-enquiries
 ```
 
-Vite proxies that request to local n8n:
+In local development the request is served by the Vercel functions in `api/` (run with
+`vercel dev`), which create the support ticket in Airtable. This legacy n8n workflow
+(`webflow-contact-to-crm`) mirrors the old flow where the contact payload was forwarded
+to GenCode CRM:
 
 ```txt
 http://localhost:5679/webhook/webflow-contact-enquiry
 ```
 
-n8n then sends the normalized contact payload to GenCode CRM.
+The support portal does not route through this workflow; n8n handles portal email
+notifications only (see `hlym-support-notifications-runbook.md`).
 
 ## Prerequisites
 
