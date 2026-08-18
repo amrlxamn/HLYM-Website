@@ -6,7 +6,8 @@ export const ProductVideoHeroRoot = styled.section`
 
   background: var(--color-bg-primary);
   cursor: pointer;
-  min-height: calc(100vh - var(--header-height-total));
+  margin-top: calc(var(--header-height-total) * -1);
+  min-height: 100dvh;
   overflow: hidden;
   position: relative;
 
@@ -46,8 +47,9 @@ export const ProductVideoHeroShade = styled.div`
 export const ProductVideoHeroContent = styled.div`
   align-items: flex-end;
   display: flex;
-  min-height: calc(100vh - var(--header-height-total));
-  padding: clamp(24px, 6vh, 96px) clamp(24px, 6.94vw, 100px) var(--product-video-edge-inset);
+  min-height: 100dvh;
+  padding: calc(var(--header-height-total) + clamp(24px, 6vh, 96px)) clamp(24px, 6.94vw, 100px)
+    var(--product-video-edge-inset);
   position: relative;
   z-index: 1;
 `;

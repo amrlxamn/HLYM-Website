@@ -1,25 +1,39 @@
+import { motion } from "framer-motion";
 import styled from "styled-components";
-import { Container } from "@/styles/layout";
 
-export const ProductSubHeaderRoot = styled.div`
-  background: var(--color-bg-surface);
-  border-top: 1px solid var(--color-border-subtle);
-  border-bottom: 1px solid var(--color-border-subtle);
-  padding: 0;
-  position: sticky;
-  top: var(--header-height-total);
-  width: 100%;
-  z-index: 49;
+export const ProductSubHeaderRoot = styled(motion.div)`
+  background: var(--color-bg-canvas);
+  bottom: 0;
+  left: 50%;
+  margin: 0 auto;
+  max-width: 1280px;
+  position: fixed;
+  width: calc(100% - var(--space-16));
+  z-index: 35;
+
+  @media (max-width: 1360px) {
+    width: calc(100% - var(--space-12));
+  }
+
+  @media (max-width: 980px) {
+    width: calc(100% - var(--space-8));
+  }
+
+  @media (max-width: 640px) {
+    width: calc(100% - var(--space-4));
+  }
 `;
 
-export const ProductSubHeaderInner = styled(Container)`
+export const ProductSubHeaderInner = styled.div`
   align-items: stretch;
   display: grid;
   grid-template-columns: auto 1fr auto;
   height: 50px;
+  padding: 0 var(--space-6);
 
   @media (max-width: 760px) {
     grid-template-columns: auto 1fr auto;
     height: 50px;
+    padding: 0 var(--space-4);
   }
 `;

@@ -7,7 +7,6 @@ export function ProductShowcaseWebflow(props: ProductShowcaseWebflowProps) {
     <ProductShowcasePage
       model={createProductPageModel(props)}
       {...(props.ariaLabel ? { ariaLabel: props.ariaLabel } : {})}
-      {...(props.brandLabel ? { brandLabel: props.brandLabel } : {})}
     />
   );
 }

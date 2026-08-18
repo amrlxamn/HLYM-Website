@@ -1,5 +1,5 @@
 import { render, within, fireEvent } from "@testing-library/react";
-import { afterEach, describe, expect, it, vi } from "vitest";
+import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { toSentenceCase } from "@/lib/to-sentence-case";
 import {
   PRODUCT_HERO_VIDEO,
@@ -10,6 +10,10 @@ import { ProductSubHeader } from "./product-sub-header";
 
 afterEach(() => {
   vi.restoreAllMocks();
+});
+
+beforeEach(() => {
+  vi.stubGlobal("scrollY", 100);
 });
 
 describe("ProductSubHeader", () => {
@@ -89,17 +93,17 @@ describe("ProductSubHeader", () => {
     expect(cta).toHaveAttribute("href", product.ctaHref);
   });
 
-  it("sticks directly under the site header", () => {
+  it("sits flush with the bottom of the viewport", () => {
     render(<ProductSubHeader />);
 
-    expect(document.head.textContent).toContain("position:sticky");
-    expect(document.head.textContent).toContain("top:var(--header-height-total)");
+    expect(document.head.textContent).toContain("position:fixed");
+    expect(document.head.textContent).toContain("bottom:0");
   });
 
-  it("uses the shared site container for header alignment", () => {
+  it("matches the header menu width", () => {
     render(<ProductSubHeader />);
 
-    expect(document.head.textContent).toContain("max-width:var(--container)");
-    expect(document.head.textContent).toContain("width:calc(100% - 2rem)");
+    expect(document.head.textContent).toContain("max-width:1280px");
+    expect(document.head.textContent).toContain("left:50%");
   });
 });
