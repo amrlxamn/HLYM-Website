@@ -90,6 +90,7 @@ export type ProductPageModel = {
   posterLabel: string;
   posterMark?: ProductBrandMark;
   price: string;
+  slug: string;
   specs: readonly [ProductPageStat, ProductPageStat, ProductPageStat, ProductPageStat];
 };
 

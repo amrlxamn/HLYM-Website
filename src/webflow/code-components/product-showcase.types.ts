@@ -6,7 +6,6 @@ type ProductCategory = ProductPageModel["category"];
 export type ProductShowcaseWebflowProps = {
   alt?: string;
   ariaLabel?: string;
-  brandLabel?: string;
   category?: ProductCategory;
   ctaLabel?: string;
   ctaLink?: WebflowLinkValue;

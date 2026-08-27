@@ -12,6 +12,7 @@ export const PRODUCT_PAGE_MODELS: readonly ProductPageModel[] = [
     frames: NVX_360_FRAMES,
     image: getAssetUrl("hlym/generated-1772088898269.png"),
     name: "nvx 155",
+    slug: "nvx",
     posterLabel: "nvx sp",
     posterMark: PRODUCT_HERO_VIDEO.brandMark,
     price: "rm11,998",
@@ -29,6 +30,7 @@ export const PRODUCT_PAGE_MODELS: readonly ProductPageModel[] = [
     ctaLabel: "build & price",
     image: getAssetUrl("hlym/generated-1772088891491.png"),
     name: "yzf-r15m",
+    slug: "r15m",
     posterLabel: "r15m",
     price: "rm14,998",
     specs: [
@@ -45,6 +47,7 @@ export const PRODUCT_PAGE_MODELS: readonly ProductPageModel[] = [
     ctaLabel: "build & price",
     image: getAssetUrl("hlym/generated-1772088892507.png"),
     name: "mt-09",
+    slug: "mt-09",
     posterLabel: "mt-09",
     price: "rm57,998",
     specs: [
@@ -61,6 +64,7 @@ export const PRODUCT_PAGE_MODELS: readonly ProductPageModel[] = [
     ctaLabel: "build & price",
     image: getAssetUrl("hlym/generated-1772088894678.png"),
     name: "y15zr",
+    slug: "y15zr",
     posterLabel: "y15zr",
     price: "rm9,498",
     specs: [
@@ -77,6 +81,7 @@ export const PRODUCT_PAGE_MODELS: readonly ProductPageModel[] = [
     ctaLabel: "build & price",
     image: getAssetUrl("hlym/generated-1772088896897.png"),
     name: "tmax 560",
+    slug: "tmax",
     posterLabel: "tmax",
     price: "rm75,888",
     specs: [

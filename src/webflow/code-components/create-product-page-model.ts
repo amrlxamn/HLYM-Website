@@ -25,6 +25,7 @@ export function createProductPageModel(props: ProductShowcaseWebflowProps): Prod
     name: props.name || fallback.name,
     posterLabel: props.posterLabel || fallback.posterLabel,
     price: props.price || fallback.price,
+    slug: fallback.slug,
     specs: [
       {
         label: props.spec1Label || fallback.specs[0]!.label,

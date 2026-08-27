@@ -1,11 +1,7 @@
 import { render } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { describe, expect, it } from "vitest";
-import {
-  PRODUCT_HERO_VIDEO,
-  PRODUCT_PAGE_MODELS,
-  ProductShowcasePage
-} from "@/features/product-page";
+import { PRODUCT_PAGE_MODELS, ProductShowcasePage } from "@/features/product-page";
 import { getAssetUrl } from "@/lib/get-asset-url";
 
 describe("ProductShowcasePage", () => {
@@ -15,14 +11,14 @@ describe("ProductShowcasePage", () => {
     const viewer = view.getByRole("group", { name: "360 view of Nvx 155 automatic scooter" });
 
     expect(view.getByRole("region", { name: "Products showcase page" })).toBeInTheDocument();
-    expect(view.getByText("YAMAHA")).toBeInTheDocument();
-    const posterLogo = view.getByRole("heading", { name: PRODUCT_HERO_VIDEO.brandMark.alt });
-    expect(posterLogo.querySelector("img")).toHaveAttribute(
-      "src",
-      PRODUCT_HERO_VIDEO.brandMark.src
-    );
+    expect(view.queryByText("YAMAHA")).toBeNull();
+    expect(view.queryByRole("heading", { name: "Yamaha NVX SP" })).toBeNull();
     expect(view.queryByText("nvx sp")).toBeNull();
-    expect(view.getByText("15.4 ps")).toBeInTheDocument();
+    expect(view.queryByText("15.4 ps")).toBeNull();
+    expect(view.queryByText("engine")).toBeNull();
+    expect(view.queryByText("power")).toBeNull();
+    expect(view.queryByText("weight")).toBeNull();
+    expect(view.queryByText("msrp")).toBeNull();
     expect(view.getByRole("img", { name: "Nvx 155 automatic scooter" })).toBeInTheDocument();
     expect(view.queryByText(/drag to rotate/i)).toBeNull();
     expect(view.queryByText("1 / 8")).toBeNull();
@@ -35,22 +31,18 @@ describe("ProductShowcasePage", () => {
     viewer.focus();
     await user.keyboard("[ArrowRight]");
     expect(view.queryByText("2 / 8")).toBeNull();
-    expect(document.head.textContent).toContain(
-      getAssetUrl("hlym/product-backgrounds/nvx-red-wave.png")
-    );
-    expect(document.head.textContent).toContain("opacity:0.28");
   });
 
   it("keeps the nvx frames in smooth rotation order", () => {
     expect(PRODUCT_PAGE_MODELS[0]?.frames).toEqual([
-      getAssetUrl("hlym/nvx-360-transparent/frame-06.png"),
-      getAssetUrl("hlym/nvx-360-transparent/frame-01.png"),
-      getAssetUrl("hlym/nvx-360-transparent/frame-05.png"),
       getAssetUrl("hlym/nvx-360-transparent/frame-04.png"),
-      getAssetUrl("hlym/nvx-360-transparent/frame-03.png"),
-      getAssetUrl("hlym/nvx-360-transparent/frame-02.png"),
+      getAssetUrl("hlym/nvx-360-transparent/frame-05.png"),
+      getAssetUrl("hlym/nvx-360-transparent/frame-06.png"),
+      getAssetUrl("hlym/nvx-360-transparent/frame-07.png"),
       getAssetUrl("hlym/nvx-360-transparent/frame-08.png"),
-      getAssetUrl("hlym/nvx-360-transparent/frame-07.png")
+      getAssetUrl("hlym/nvx-360-transparent/frame-01.png"),
+      getAssetUrl("hlym/nvx-360-transparent/frame-02.png"),
+      getAssetUrl("hlym/nvx-360-transparent/frame-03.png")
     ]);
   });
 });

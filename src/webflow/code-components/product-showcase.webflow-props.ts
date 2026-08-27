@@ -14,11 +14,6 @@ export const PRODUCT_SHOWCASE_WEBFLOW_PROPS = {
     group: CONTENT_GROUP,
     defaultValue: PRODUCT_PAGE_COPY.ariaLabel
   }),
-  brandLabel: props.Text({
-    name: toSentenceCase("brand label"),
-    group: CONTENT_GROUP,
-    defaultValue: "YAMAHA"
-  }),
   name: props.Text({
     name: toSentenceCase("product name"),
     group: CONTENT_GROUP,

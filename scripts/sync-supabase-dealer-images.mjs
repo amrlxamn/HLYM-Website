@@ -10,11 +10,13 @@ const supabaseUrl = getRequiredEnv(process.env, "VITE_SUPABASE_URL", "SUPABASE_U
   /\/$/,
   ""
 );
+const assetCdnUrl = (process.env.SUPABASE_ASSET_CDN_URL ?? supabaseUrl).replace(/\/$/, "");
 const serviceRoleKey = getRequiredEnv(process.env, "SUPABASE_SERVICE_ROLE_KEY");
 const syncOptions = {
   assetBucket: ASSET_BUCKET,
   serviceRoleKey,
-  supabaseUrl
+  supabaseUrl,
+  assetCdnUrl
 };
 const dealers = [];
 const batchSize = 4;

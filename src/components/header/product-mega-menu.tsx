@@ -86,7 +86,7 @@ export function ProductMegaMenu({ contentTop, fullWidth, onClose, open }: Produc
               <MegaProductPreview>
                 <MegaProductImage src={activeModel.image} alt={activeModel.name} />
                 <Button
-                  onClick={() => window.location.assign("/products")}
+                  onClick={() => window.location.assign(`/products/${activeModel.slug}`)}
                   size="sm"
                   variant="light"
                 >

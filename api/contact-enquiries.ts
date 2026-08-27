@@ -3,6 +3,7 @@ import type {
   ContactEnquiryApiRequest,
   ContactEnquiryApiResponse
 } from "../server/contact-enquiries/contact-enquiry-api.types.js";
+import { checkSupportRateLimit } from "../server/support/check-support-rate-limit.js";
 import { createSupportTicket } from "../server/support/create-support-ticket.js";
 import { verifyTurnstileToken } from "../server/support/verify-turnstile-token.js";
 import { supportTicketSchema } from "../server/support/support-ticket.schema.js";
@@ -25,6 +26,18 @@ export default async function contactEnquiries(
         code: "challenge_failed",
         message: "Security check failed. Please try again."
       });
+      return;
+    }
+
+    const rateLimit = await checkSupportRateLimit(
+      `ticket:${request.headers["x-forwarded-for"] ?? "unknown"}`
+    );
+
+    if (!rateLimit.allowed) {
+      response.setHeader("Retry-After", String(rateLimit.retryAfterSeconds));
+      response
+        .status(429)
+        .json({ code: "rate_limited", message: "Too many requests. Try again shortly." });
       return;
     }
 
