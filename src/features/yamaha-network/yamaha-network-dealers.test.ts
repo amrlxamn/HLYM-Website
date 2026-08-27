@@ -53,14 +53,9 @@ describe("Yamaha dealer dataset", () => {
     }
   });
 
-  it("serves every dealer image from the public Supabase asset bucket", () => {
+  it("falls back to the Yamaha mark when a dealer photo is absent", () => {
     for (const dealer of dataset.dealers) {
-      const imageUrl = new URL(dealer.image);
-
-      expect(imageUrl.hostname).toBe("fbnhcdpvqlkfkahtigwh.supabase.co");
-      expect(imageUrl.pathname).toMatch(
-        /^\/storage\/v1\/object\/public\/site-assets\/hlym\/dealers\//
-      );
+      expect(dealer).not.toHaveProperty("image");
     }
   });
 
