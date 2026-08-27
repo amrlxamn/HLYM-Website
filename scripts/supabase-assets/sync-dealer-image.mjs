@@ -1,4 +1,7 @@
-export async function syncDealerImage(dealer, { assetBucket, serviceRoleKey, supabaseUrl }) {
+export async function syncDealerImage(
+  dealer,
+  { assetBucket, serviceRoleKey, supabaseUrl, assetCdnUrl = supabaseUrl }
+) {
   if (!dealer.image || dealer.image.includes(".supabase.co/storage/")) {
     return dealer;
   }
@@ -45,6 +48,7 @@ export async function syncDealerImage(dealer, { assetBucket, serviceRoleKey, sup
       headers: {
         Authorization: `Bearer ${serviceRoleKey}`,
         "Content-Type": contentType,
+        "Cache-Control": "public, max-age=31536000, immutable",
         "x-upsert": "true"
       },
       method: "POST"
@@ -57,6 +61,6 @@ export async function syncDealerImage(dealer, { assetBucket, serviceRoleKey, sup
 
   return {
     ...dealer,
-    image: `${supabaseUrl}/storage/v1/object/public/${assetBucket}/${storagePath}`
+    image: `${assetCdnUrl}/storage/v1/object/public/${assetBucket}/${storagePath}`
   };
 }

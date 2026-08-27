@@ -67,6 +67,11 @@ npm run supabase:dealer-images:sync   # dealer photos
 `VITE_SUPABASE_URL` and `VITE_SUPABASE_ASSET_BUCKET`, falling back to local
 `/assets/` paths when those values are unset.
 
+For self-hosted Supabase, put a public HTTPS CDN or reverse proxy in front of
+the public Storage object route and set `VITE_SUPABASE_ASSET_CDN_URL` for the
+browser plus `SUPABASE_ASSET_CDN_URL` when syncing assets. Keep
+`SUPABASE_URL` private as the upload origin; never expose the service role key.
+
 ## Supabase CLI
 
 The repository includes Supabase local development config in `supabase/`.
