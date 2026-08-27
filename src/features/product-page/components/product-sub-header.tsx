@@ -1,12 +1,9 @@
-import { ChevronRight } from "lucide-react";
 import { AnimatePresence, useReducedMotion } from "framer-motion";
 import { useEffect, useState } from "react";
+import { Button } from "@/components/ui";
 import { toSentenceCase } from "@/lib/to-sentence-case";
 import { PRODUCT_SUB_HEADER_COPY, PRODUCT_SUB_NAV_TABS } from "../constants/product-page.constants";
-import {
-  ProductSubHeaderActions,
-  ProductSubHeaderCta
-} from "../styles/product-sub-header-actions.styles";
+import { ProductSubHeaderActions } from "../styles/product-sub-header-actions.styles";
 import {
   ProductSubHeaderName,
   ProductSubHeaderNameMark
@@ -81,13 +78,15 @@ export function ProductSubHeader() {
             </ProductSubHeaderTabs>
 
             <ProductSubHeaderActions>
-              <ProductSubHeaderCta
+              <Button
+                as="a"
                 aria-label={toSentenceCase(PRODUCT_SUB_HEADER_COPY.contactDealerAriaLabel)}
                 href={product?.ctaHref ?? "#"}
+                size="sm"
+                variant="light"
               >
                 {toSentenceCase(PRODUCT_SUB_HEADER_COPY.contactDealerLabel)}
-                <ChevronRight aria-hidden="true" size={16} strokeWidth={2.4} />
-              </ProductSubHeaderCta>
+              </Button>
             </ProductSubHeaderActions>
           </ProductSubHeaderInner>
         </ProductSubHeaderRoot>

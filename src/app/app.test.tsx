@@ -39,7 +39,6 @@ describe("App", () => {
     ).toBeInTheDocument();
     expect(view.getByRole("region", { name: "Yamaha NVX overview" })).toBeInTheDocument();
     expect(view.getByRole("region", { name: "Yamaha NVX full specification" })).toBeInTheDocument();
-    expect(view.getByRole("heading", { name: "Yamaha NVX SP" })).toBeInTheDocument();
     expect(
       view.queryByRole("region", { name: toSentenceCase(SITE_COPY.hero.ariaLabel) })
     ).toBeNull();

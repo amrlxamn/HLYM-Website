@@ -28,12 +28,11 @@ export const ProductSubHeaderInner = styled.div`
   align-items: stretch;
   display: grid;
   grid-template-columns: auto 1fr auto;
-  height: 50px;
-  padding: 0 var(--space-6);
+  min-height: var(--header-height-main);
+  padding: var(--space-4) var(--space-6);
 
   @media (max-width: 760px) {
     grid-template-columns: auto 1fr auto;
-    height: 50px;
-    padding: 0 var(--space-4);
+    padding: var(--space-3) var(--space-4);
   }
 `;
