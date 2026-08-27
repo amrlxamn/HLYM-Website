@@ -53,12 +53,8 @@ describe("Yamaha dealer dataset", () => {
     }
   });
 
-  it("serves dealer photos from the repo asset path when present", () => {
-    const withImage = dataset.dealers.filter((dealer) => dealer.image);
-
-    expect(withImage.length).toBeGreaterThan(0);
-
-    for (const dealer of withImage) {
+  it("serves every dealer photo from the repo asset path", () => {
+    for (const dealer of dataset.dealers) {
       expect(dealer.image).toMatch(/^\/assets\/hlym\/dealers\//);
     }
   });
