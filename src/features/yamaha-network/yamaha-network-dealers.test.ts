@@ -53,9 +53,13 @@ describe("Yamaha dealer dataset", () => {
     }
   });
 
-  it("falls back to the Yamaha mark when a dealer photo is absent", () => {
-    for (const dealer of dataset.dealers) {
-      expect(dealer).not.toHaveProperty("image");
+  it("serves dealer photos from the repo asset path when present", () => {
+    const withImage = dataset.dealers.filter((dealer) => dealer.image);
+
+    expect(withImage.length).toBeGreaterThan(0);
+
+    for (const dealer of withImage) {
+      expect(dealer.image).toMatch(/^\/assets\/hlym\/dealers\//);
     }
   });
 
