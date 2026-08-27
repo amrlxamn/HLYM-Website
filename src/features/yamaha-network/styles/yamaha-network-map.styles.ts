@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { DealerMapLoading } from "@/components/dealer-locator/dealer-map-loading.styles";
 
 export const NetworkMapPanel = styled.div`
   background: #0a0a0a;
@@ -16,18 +17,19 @@ export const NetworkMapStage = styled.div`
   position: relative;
 
   /* Keep the zoom controls level with the left dealer panel: the panel sits
-     16px above the viewport bottom, so the bottom-right control stack matches.
-     Mapbox stacks the attribution below the zoom group by default; reversing
-     the column anchors the zoom group to the very bottom. */
-  .mapboxgl-ctrl-bottom-right {
-    align-items: flex-end;
-    bottom: var(--space-4);
-    display: flex;
-    flex-direction: column-reverse;
+     16px below the header, so the top-right control stack matches. */
+  .mapboxgl-ctrl-top-right {
+    top: calc(var(--header-height-total) + var(--space-4));
   }
 
   .mapboxgl-ctrl-group {
     border-radius: 0;
+  }
+
+  /* Sit the loading label beside the zoom control: same top edge, to its left. */
+  ${DealerMapLoading} {
+    right: calc(var(--space-4) + 54px);
+    top: calc(var(--header-height-total) + var(--space-4));
   }
 `;
 
