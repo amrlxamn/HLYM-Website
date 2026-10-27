@@ -11,7 +11,7 @@ export const DEALER_LOCATOR_MAP_CONFIG = {
       showRoadLabels: true,
       show3dObjects: false,
       showTransitLabels: false,
-      theme: "monochrome"
+      theme: "default"
     }
   },
   pitch: 68,

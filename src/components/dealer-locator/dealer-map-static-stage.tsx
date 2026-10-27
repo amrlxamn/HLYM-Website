@@ -3,6 +3,8 @@ import type { DealerLocation } from "@/data/site-content.types";
 import { toSentenceCase } from "@/lib/to-sentence-case";
 import { DealerMapBackdrop } from "./dealer-locator.styles";
 import { getStaticMarkerPosition } from "./get-static-marker-position";
+import { getDealerMarkerLabel } from "./get-dealer-marker-label";
+import { getAssetUrl } from "@/lib/get-asset-url";
 import { isDealerOpenNow } from "./is-dealer-open-now";
 import { useDealerMapPopup } from "./use-dealer-map-popup";
 
@@ -48,19 +50,30 @@ export function DealerMapStaticStage({
         >
           <span className="dealer-map-marker__outer" />
           <span className="dealer-map-marker__middle" />
-          <span className="dealer-map-marker__inner" />
+          <span className="dealer-map-marker__inner">
+            {getDealerMarkerLabel(dealer) === "YQS" ? (
+              <img alt="" src={getAssetUrl("hlym/yqs-logo.png")} />
+            ) : (
+              getDealerMarkerLabel(dealer)
+            )}
+          </span>
           <span className="dealer-map-marker__tooltip">
             <span
               className={
                 dealer.image
                   ? "dealer-map-marker__tooltip-media has-image"
-                  : "dealer-map-marker__tooltip-media"
+                  : "dealer-map-marker__tooltip-media has-brand"
               }
             >
               {dealer.image ? (
                 <img alt="" decoding="async" loading="lazy" src={dealer.image} />
               ) : (
-                "Yamaha"
+                <img
+                  alt=""
+                  src={getAssetUrl(
+                    dealer.serviceTags.includes("yqs") ? "hlym/yqs-logo.png" : "hlym/image.png"
+                  )}
+                />
               )}
             </span>
             <span className="dealer-map-marker__tooltip-body">

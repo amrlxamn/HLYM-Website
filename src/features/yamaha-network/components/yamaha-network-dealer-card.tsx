@@ -60,10 +60,16 @@ export function YamahaNetworkDealerCard({
     >
       <NetworkDealerImage $isGrid={isGrid}>
         {dealer.image ? (
-          <img alt={dealer.label} decoding="async" loading="lazy" src={dealer.image} />
+          <img alt="" decoding="async" loading="lazy" src={dealer.image} />
         ) : (
-          <NetworkDealerImageFallback>
-            <img alt="Yamaha" src={getAssetUrl("hlym/image.png")} />
+          <NetworkDealerImageFallback $isYqs={dealer.categories.includes("yqs")}>
+            <img
+              alt=""
+              src={getAssetUrl(
+                dealer.categories.includes("yqs") ? "hlym/yqs-logo.png" : "hlym/image.png"
+              )}
+            />
+            <span>Yamaha network</span>
           </NetworkDealerImageFallback>
         )}
       </NetworkDealerImage>

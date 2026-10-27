@@ -32,14 +32,14 @@ Key variables:
 
 ## Pages
 
-| Route | Description |
-| --- | --- |
-| `/` | Homepage: hero carousel, model range, featured gallery, news, dealer network CTA |
-| `/products` | Product catalogue pages |
-| `/contact-us` | Contact page with enquiry form |
-| `/yamaha-network` | Interactive dealer locator (Mapbox) with searchable dealer list and routing |
-| `/support` | Owner support ticket portal (`/support/access`, `/support/ticket`, `/support/admin`) |
-| `/design-system` | Design system component documentation |
+| Route             | Description                                                                          |
+| ----------------- | ------------------------------------------------------------------------------------ |
+| `/`               | Homepage: hero carousel, model range, featured gallery, news, dealer network CTA     |
+| `/products`       | Product catalogue pages                                                              |
+| `/contact-us`     | Contact page with enquiry form                                                       |
+| `/yamaha-network` | Interactive dealer locator (Mapbox) with searchable dealer list and routing          |
+| `/support`        | Owner support ticket portal (`/support/access`, `/support/ticket`, `/support/admin`) |
+| `/design-system`  | Design system component documentation                                                |
 
 ## Quality gates
 
@@ -168,9 +168,10 @@ product Code Component field contract.
 ## Dealer network map
 
 The dealer locator (`/yamaha-network`) uses Mapbox GL JS with the Mapbox
-Standard style configured for a monochrome basemap and a pitched 3D camera.
-Configure `VITE_MAPBOX_ACCESS_TOKEN`; the page falls back to a branded static
-stage when the token is absent or the browser cannot initialize the map.
+Standard style and a pitched 3D camera. Set `VITE_MAPBOX_ACCESS_TOKEN` in
+`.env.local` for local development and in the deployment environment. If
+WebGL is unavailable, the page uses a Mapbox Static Images map with the same
+token. Without a token, it displays a location link instead of a blank map.
 
 ## Deployment
 

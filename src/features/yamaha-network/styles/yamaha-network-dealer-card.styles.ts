@@ -69,17 +69,28 @@ export const NetworkDealerImage = styled.div<{ $isGrid: boolean }>`
   }
 `;
 
-export const NetworkDealerImageFallback = styled.div`
+export const NetworkDealerImageFallback = styled.div<{ $isYqs: boolean }>`
   align-items: center;
+  background: #f2f4f6;
+  color: #29394e;
   display: flex;
+  flex-direction: column;
+  gap: 6px;
   height: 100%;
   justify-content: center;
   width: 100%;
 
   img {
-    height: 28px;
+    height: ${({ $isYqs }) => ($isYqs ? "64px" : "24px")};
+    max-width: calc(100% - 12px);
     object-fit: contain;
-    width: auto;
+  }
+
+  span {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
   }
 `;
 

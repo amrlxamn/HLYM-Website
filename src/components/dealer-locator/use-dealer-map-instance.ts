@@ -48,6 +48,14 @@ export function useDealerMapInstance(controlPosition: ControlPosition = "top-rig
         map.once("load", () => {
           syncMapSize();
         });
+        map.on("error", (event) => {
+          if (
+            !isCancelled &&
+            /Not Authorized|Invalid Token|Forbidden/.test(event.error?.message ?? "")
+          ) {
+            setHasMapInitError(true);
+          }
+        });
       })
       .catch(() => {
         if (!isCancelled) {

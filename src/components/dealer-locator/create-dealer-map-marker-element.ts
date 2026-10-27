@@ -1,5 +1,7 @@
 import type { DealerLocation } from "@/data/site-content.types";
 import { isDealerOpenNow } from "./is-dealer-open-now";
+import { getDealerMarkerLabel } from "./get-dealer-marker-label";
+import { getAssetUrl } from "@/lib/get-asset-url";
 
 export function createDealerMapMarkerElement(
   dealer: DealerLocation,
@@ -30,6 +32,16 @@ export function createDealerMapMarkerElement(
   outerPulse.className = "dealer-map-marker__outer";
   middlePulse.className = "dealer-map-marker__middle";
   dot.className = "dealer-map-marker__inner";
+  const markerLabel = getDealerMarkerLabel(dealer);
+
+  if (markerLabel === "YQS") {
+    const logo = document.createElement("img");
+    logo.alt = "";
+    logo.src = getAssetUrl("hlym/yqs-logo.png");
+    dot.append(logo);
+  } else {
+    dot.textContent = markerLabel;
+  }
   card.className = "dealer-map-marker__tooltip";
   media.className = "dealer-map-marker__tooltip-media";
   body.className = "dealer-map-marker__tooltip-body";
@@ -72,7 +84,13 @@ export function createDealerMapMarkerElement(
     media.classList.add("has-image");
     media.append(image);
   } else {
-    media.textContent = "Yamaha";
+    const image = document.createElement("img");
+    image.alt = "";
+    image.src = getAssetUrl(
+      dealer.serviceTags.includes("yqs") ? "hlym/yqs-logo.png" : "hlym/image.png"
+    );
+    media.classList.add("has-brand");
+    media.append(image);
   }
 
   body.append(title, tag, meta, hours);

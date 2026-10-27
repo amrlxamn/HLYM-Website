@@ -65,36 +65,6 @@ export const NetworkSearchRow = styled.div`
 
 export const NetworkCategoryRow = styled.div`
   display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 8px;
-`;
-
-export const NetworkCategoryScroll = styled.div<{
-  $canScrollLeft: boolean;
-  $canScrollRight: boolean;
-}>`
-  -webkit-mask-image: linear-gradient(
-    to right,
-    ${({ $canScrollLeft }) => ($canScrollLeft ? "transparent 0, #000 12px," : "#000 0,")}
-      ${({ $canScrollRight }) =>
-        $canScrollRight ? "#000 calc(100% - 12px), transparent 100%" : "#000 100%"}
-  );
-  display: flex;
-  flex: 1 1 auto;
-  gap: 6px;
-  mask-image: linear-gradient(
-    to right,
-    ${({ $canScrollLeft }) => ($canScrollLeft ? "transparent 0, #000 12px," : "#000 0,")}
-      ${({ $canScrollRight }) =>
-        $canScrollRight ? "#000 calc(100% - 12px), transparent 100%" : "#000 100%"}
-  );
-  overflow-x: auto;
-  padding-bottom: 2px;
-  scrollbar-width: none;
-  transition:
-    -webkit-mask-image 200ms ease-out,
-    mask-image 200ms ease-out;
-
-  &::-webkit-scrollbar {
-    display: none;
-  }
 `;

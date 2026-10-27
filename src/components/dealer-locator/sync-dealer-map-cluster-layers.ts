@@ -4,7 +4,10 @@ import {
   DEALER_CLUSTER_COUNT_LAYER_ID,
   DEALER_CLUSTER_LAYER_ID,
   DEALER_CLUSTER_SOURCE_ID,
-  DEALER_MARKER_LAYER_ID
+  DEALER_MARKER_LAYER_ID,
+  DEALER_MARKER_LABEL_LAYER_ID,
+  DEALER_MARKER_LOGO_LAYER_ID,
+  YQS_MARKER_IMAGE_ID
 } from "./dealer-map-cluster.constants";
 import { getDealerMarkerFeatureCollection } from "./get-dealer-marker-feature-collection";
 
@@ -60,13 +63,46 @@ export function syncDealerMapClusterLayers(map: Map, dealers: readonly DealerLoc
       filter: ["!", ["has", "point_count"]],
       id: DEALER_MARKER_LAYER_ID,
       paint: {
-        "circle-color": "#ee393d",
-        "circle-radius": 7,
-        "circle-stroke-color": "#ffffff",
+        "circle-color": "#ffffff",
+        "circle-radius": 17,
+        "circle-stroke-color": "#ad1e28",
         "circle-stroke-width": 2
       },
       source: DEALER_CLUSTER_SOURCE_ID,
       type: "circle"
     });
+  }
+
+  if (!map.getLayer(DEALER_MARKER_LABEL_LAYER_ID)) {
+    map.addLayer({
+      filter: ["!", ["has", "point_count"]],
+      id: DEALER_MARKER_LABEL_LAYER_ID,
+      layout: {
+        "text-field": ["get", "markerLabel"],
+        "text-font": ["Open Sans Bold", "Arial Unicode MS Bold"],
+        "text-size": 10
+      },
+      paint: { "text-color": "#8f1821" },
+      source: DEALER_CLUSTER_SOURCE_ID,
+      type: "symbol"
+    });
+  }
+
+  if (map.hasImage(YQS_MARKER_IMAGE_ID)) {
+    map.setFilter(DEALER_MARKER_LABEL_LAYER_ID, [
+      "all",
+      ["!", ["has", "point_count"]],
+      ["!=", ["get", "markerLabel"], "YQS"]
+    ]);
+
+    if (!map.getLayer(DEALER_MARKER_LOGO_LAYER_ID)) {
+      map.addLayer({
+        filter: ["all", ["!", ["has", "point_count"]], ["==", ["get", "markerLabel"], "YQS"]],
+        id: DEALER_MARKER_LOGO_LAYER_ID,
+        layout: { "icon-image": YQS_MARKER_IMAGE_ID, "icon-size": 0.32 },
+        source: DEALER_CLUSTER_SOURCE_ID,
+        type: "symbol"
+      });
+    }
   }
 }

@@ -22,19 +22,28 @@ export function YamahaNetworkContent({ dealers }: YamahaNetworkContentProps) {
     isGridLayout,
     scopedDealers,
     searchQuery,
+    selectedState,
     selectedDealer,
     selectedDealerId,
     setActiveCategories,
     setIsGridLayout,
     setSearchQuery,
-    setSelectedDealerId
+    setSelectedState,
+    setSelectedDealerId,
+    states
   } = useYamahaNetworkState(dealers);
   const { coordinates } = useBrowserLocation();
   const route = useDealerRoute({ destination: selectedDealer, origin: coordinates });
   const hasAutoSelectedNearestDealer = useRef(false);
 
   useEffect(() => {
-    if (!coordinates || hasAutoSelectedNearestDealer.current) {
+    if (
+      !coordinates ||
+      hasAutoSelectedNearestDealer.current ||
+      activeCategories.length > 0 ||
+      selectedState ||
+      searchQuery
+    ) {
       return;
     }
 
@@ -44,7 +53,24 @@ export function YamahaNetworkContent({ dealers }: YamahaNetworkContentProps) {
     if (nearestDealer && nearestDealer.id !== selectedDealerId) {
       setSelectedDealerId(nearestDealer.id);
     }
-  }, [coordinates, dealers, selectedDealerId, setSelectedDealerId]);
+  }, [
+    activeCategories,
+    coordinates,
+    dealers,
+    searchQuery,
+    selectedDealerId,
+    selectedState,
+    setSelectedDealerId
+  ]);
+
+  useEffect(() => {
+    if (
+      scopedDealers.length > 0 &&
+      !scopedDealers.some((dealer) => dealer.id === selectedDealerId)
+    ) {
+      setSelectedDealerId(scopedDealers[0]!.id);
+    }
+  }, [scopedDealers, selectedDealerId, setSelectedDealerId]);
 
   return (
     <NetworkPageRoot>
@@ -53,7 +79,7 @@ export function YamahaNetworkContent({ dealers }: YamahaNetworkContentProps) {
         <NetworkMapStage>
           <DealerMapStageView
             controlPosition="top-right"
-            dealers={dealers}
+            dealers={scopedDealers}
             fillParent
             onSelectDealer={setSelectedDealerId}
             route={route}
@@ -75,20 +101,16 @@ export function YamahaNetworkContent({ dealers }: YamahaNetworkContentProps) {
           origin={coordinates}
           onSelectDealer={setSelectedDealerId}
           onSelectCategory={(category: DealerCategory | "all") => {
-            setActiveCategories((currentCategories) => {
-              if (category === "all") {
-                return [];
-              }
-
-              return currentCategories.includes(category)
-                ? currentCategories.filter((currentCategory) => currentCategory !== category)
-                : [...currentCategories, category];
-            });
+            setActiveCategories(category === "all" ? [] : [category]);
           }}
+          onSelectState={setSelectedState}
           onSearchChange={setSearchQuery}
           onToggleLayout={setIsGridLayout}
           searchQuery={searchQuery}
+          selectedDealer={selectedDealer}
           selectedDealerId={selectedDealerId}
+          selectedState={selectedState}
+          states={states}
         />
       </NetworkMapWrapper>
     </NetworkPageRoot>
