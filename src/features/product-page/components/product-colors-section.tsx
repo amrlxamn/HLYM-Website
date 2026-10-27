@@ -3,8 +3,11 @@ import { toSentenceCase } from "@/lib/to-sentence-case";
 import { PRODUCT_COLOR_OPTIONS } from "../constants/product-colors.constants";
 import { PRODUCT_PAGE_COPY } from "../constants/product-page.constants";
 import {
+  ProductColorCurrentName,
   ProductColorName,
+  ProductColorOptionMeta,
   ProductColorPanel,
+  ProductColorSelectionIndicator,
   ProductColorsInner,
   ProductColorsRoot,
   ProductColorStage,
@@ -18,6 +21,49 @@ type ProductColorsSectionProps = {
   colors?: readonly ProductColorOption[];
   swatchGroupLabel?: string;
 };
+
+type ProductColorSelectorProps = {
+  colors?: readonly ProductColorOption[];
+  onColorChange: (color: ProductColorOption) => void;
+  selectedColor: ProductColorOption;
+  swatchGroupLabel?: string;
+};
+
+export function ProductColorSelector({
+  colors = PRODUCT_COLOR_OPTIONS,
+  onColorChange,
+  selectedColor,
+  swatchGroupLabel = "Yamaha NVX body colors"
+}: ProductColorSelectorProps) {
+  return (
+    <ProductColorPanel>
+      <ProductColorCurrentName>{selectedColor.label}</ProductColorCurrentName>
+      <ProductSwatchGrid aria-label={swatchGroupLabel} role="group">
+        {colors.map((color) => (
+          <ProductSwatchButton
+            key={color.label}
+            $isActive={color.label === selectedColor.label}
+            aria-label={color.label}
+            aria-pressed={color.label === selectedColor.label}
+            onClick={() => onColorChange(color)}
+            type="button"
+          >
+            <ProductColorOptionMeta>
+              {color.label === selectedColor.label && (
+                <ProductColorName>{color.label}</ProductColorName>
+              )}
+              <ProductColorSelectionIndicator
+                $isActive={color.label === selectedColor.label}
+                $swatch={color.swatch}
+                aria-hidden="true"
+              />
+            </ProductColorOptionMeta>
+          </ProductSwatchButton>
+        ))}
+      </ProductSwatchGrid>
+    </ProductColorPanel>
+  );
+}
 
 export function ProductColorsSection({
   ariaLabel = PRODUCT_PAGE_COPY.colorSectionAriaLabel,
@@ -33,23 +79,12 @@ export function ProductColorsSection({
           <img alt={selectedColor.alt} src={selectedColor.image} />
         </ProductColorStage>
 
-        <ProductColorPanel>
-          <ProductSwatchGrid aria-label={swatchGroupLabel} role="group">
-            {colors.map((color) => (
-              <ProductSwatchButton
-                key={color.label}
-                $isActive={color.label === selectedColor.label}
-                aria-label={color.label}
-                aria-pressed={color.label === selectedColor.label}
-                onClick={() => setSelectedColor(color)}
-                type="button"
-              >
-                <img alt="" src={color.swatch} />
-              </ProductSwatchButton>
-            ))}
-          </ProductSwatchGrid>
-          <ProductColorName>{selectedColor.label}</ProductColorName>
-        </ProductColorPanel>
+        <ProductColorSelector
+          colors={colors}
+          onColorChange={setSelectedColor}
+          selectedColor={selectedColor}
+          swatchGroupLabel={swatchGroupLabel}
+        />
       </ProductColorsInner>
     </ProductColorsRoot>
   );

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Container } from "@/styles/layout";
 
 export const ProductVideoHeroRoot = styled.section`
   --product-video-control-size: 44px;
@@ -44,14 +45,29 @@ export const ProductVideoHeroShade = styled.div`
   position: absolute;
 `;
 
-export const ProductVideoHeroContent = styled.div`
+export const ProductVideoHeroContent = styled(Container)`
   align-items: flex-end;
   display: flex;
+  margin: 0 auto;
+  max-width: 1280px;
   min-height: 100dvh;
-  padding: calc(var(--header-height-total) + clamp(24px, 6vh, 96px)) clamp(24px, 6.94vw, 100px)
+  padding: calc(var(--header-height-total) + clamp(24px, 6vh, 96px)) 0
     var(--product-video-edge-inset);
   position: relative;
+  width: calc(100% - var(--space-16));
   z-index: 1;
+
+  @media (max-width: 1360px) {
+    width: calc(100% - var(--space-12));
+  }
+
+  @media (max-width: 980px) {
+    width: calc(100% - var(--space-8));
+  }
+
+  @media (max-width: 640px) {
+    width: calc(100% - var(--space-4));
+  }
 `;
 
 export const ProductVideoHeroCaption = styled.div`

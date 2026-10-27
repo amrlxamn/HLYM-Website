@@ -1,4 +1,4 @@
-import { render } from "@testing-library/react";
+import { render, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { describe, expect, it } from "vitest";
 import { ProductColorsSection } from "@/features/product-page";
@@ -24,6 +24,14 @@ describe("ProductColorsSection", () => {
       "src",
       firstColor.image
     );
+    expect(view.getByRole("button", { name: firstColor.label })).toHaveAttribute(
+      "aria-pressed",
+      "true"
+    );
+    expect(
+      within(view.getByRole("button", { name: firstColor.label })).getByText(firstColor.label)
+    ).toBeVisible();
+    expect(view.queryByText(nextColor.label)).toBeNull();
 
     await user.click(view.getByRole("button", { name: nextColor.label }));
 
@@ -32,5 +40,9 @@ describe("ProductColorsSection", () => {
       "true"
     );
     expect(view.getByRole("img", { name: nextColor.alt })).toHaveAttribute("src", nextColor.image);
+    expect(
+      within(view.getByRole("button", { name: nextColor.label })).getByText(nextColor.label)
+    ).toBeVisible();
+    expect(view.queryByText(firstColor.label)).toBeNull();
   });
 });

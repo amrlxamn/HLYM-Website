@@ -1,13 +1,6 @@
-import { AnimatePresence, useReducedMotion } from "framer-motion";
-import { useEffect, useState } from "react";
-import { Button } from "@/components/ui";
+import { useEffect, useRef, useState } from "react";
 import { toSentenceCase } from "@/lib/to-sentence-case";
 import { PRODUCT_SUB_HEADER_COPY, PRODUCT_SUB_NAV_TABS } from "../constants/product-page.constants";
-import { ProductSubHeaderActions } from "../styles/product-sub-header-actions.styles";
-import {
-  ProductSubHeaderName,
-  ProductSubHeaderNameMark
-} from "../styles/product-sub-header-name.styles";
 import {
   ProductSubHeaderInner,
   ProductSubHeaderRoot
@@ -16,81 +9,60 @@ import {
   ProductSubHeaderTab,
   ProductSubHeaderTabs
 } from "../styles/product-sub-header-tabs.styles";
-import { scrollToProductSection } from "../utils/scroll-to-product-section";
-import { useProductPageState } from "../hooks/use-product-page-state";
 
-const SUB_HEADER_SLIDE_DISTANCE = 100;
+const PRODUCT_TABS = PRODUCT_SUB_NAV_TABS.map((tab) => ({
+  href: `#product-${tab.id}`,
+  label: toSentenceCase(tab.label)
+}));
 
-export function ProductSubHeader() {
-  const [activeTabId, setActiveTabId] = useState<string>(PRODUCT_SUB_NAV_TABS[0]?.id ?? "overview");
-  const [isPastHero, setIsPastHero] = useState(false);
-  const shouldReduceMotion = useReducedMotion();
+type ProductSubHeaderProps = {
+  activeHref?: string;
+  ariaLabel?: string;
+  tabs?: readonly { href: string; label: string }[];
+};
+
+export function ProductSubHeader({
+  activeHref,
+  ariaLabel = PRODUCT_SUB_HEADER_COPY.ariaLabel,
+  tabs = PRODUCT_TABS
+}: ProductSubHeaderProps) {
+  const [selectedHref, setSelectedHref] = useState(PRODUCT_TABS[0]!.href);
+  const activeTabRef = useRef<HTMLAnchorElement>(null);
+  const tabsRef = useRef<HTMLElement>(null);
+  const label = toSentenceCase(ariaLabel);
 
   useEffect(() => {
-    const updateVisibility = () => setIsPastHero(window.scrollY > 0);
+    if (!activeHref || !activeTabRef.current || !tabsRef.current) return;
 
-    updateVisibility();
-    window.addEventListener("scroll", updateVisibility, { passive: true });
-    return () => window.removeEventListener("scroll", updateVisibility);
-  }, []);
-
-  const { activeModel } = useProductPageState();
-  const product = activeModel;
-  const productMark = product?.posterMark;
+    const tab = activeTabRef.current.getBoundingClientRect();
+    const tabs = tabsRef.current.getBoundingClientRect();
+    if (tab.left < tabs.left) tabsRef.current.scrollLeft += tab.left - tabs.left;
+    if (tab.right > tabs.right) tabsRef.current.scrollLeft += tab.right - tabs.right;
+  }, [activeHref]);
 
   return (
-    <AnimatePresence>
-      {isPastHero && (
-        <ProductSubHeaderRoot
-          animate={{ opacity: 1, x: "-50%", y: 0 }}
-          aria-label={toSentenceCase(PRODUCT_SUB_HEADER_COPY.ariaLabel)}
-          exit={{ opacity: 0, x: "-50%", y: shouldReduceMotion ? 0 : SUB_HEADER_SLIDE_DISTANCE }}
-          initial={{ opacity: 0, x: "-50%", y: shouldReduceMotion ? 0 : SUB_HEADER_SLIDE_DISTANCE }}
-          transition={{
-            duration: shouldReduceMotion ? 0 : 0.45,
-            ease: [0.16, 1, 0.3, 1]
-          }}
-        >
-          <ProductSubHeaderInner>
-            <ProductSubHeaderName>
-              {productMark ? (
-                <ProductSubHeaderNameMark alt={productMark.alt} src={productMark.src} />
-              ) : (
-                product?.name
-              )}
-            </ProductSubHeaderName>
-
-            <ProductSubHeaderTabs aria-label={toSentenceCase(PRODUCT_SUB_HEADER_COPY.ariaLabel)}>
-              {PRODUCT_SUB_NAV_TABS.map((tab) => (
-                <ProductSubHeaderTab
-                  $active={tab.id === activeTabId}
-                  aria-current={tab.id === activeTabId ? "true" : undefined}
-                  key={tab.id}
-                  onClick={() => {
-                    setActiveTabId(tab.id);
-                    scrollToProductSection(tab.targetId);
-                  }}
-                  type="button"
-                >
-                  {toSentenceCase(tab.label)}
-                </ProductSubHeaderTab>
-              ))}
-            </ProductSubHeaderTabs>
-
-            <ProductSubHeaderActions>
-              <Button
-                as="a"
-                aria-label={toSentenceCase(PRODUCT_SUB_HEADER_COPY.contactDealerAriaLabel)}
-                href={product?.ctaHref ?? "#"}
-                size="sm"
-                variant="light"
-              >
-                {toSentenceCase(PRODUCT_SUB_HEADER_COPY.contactDealerLabel)}
-              </Button>
-            </ProductSubHeaderActions>
-          </ProductSubHeaderInner>
-        </ProductSubHeaderRoot>
-      )}
-    </AnimatePresence>
+    <ProductSubHeaderRoot aria-label={label}>
+      <ProductSubHeaderInner>
+        <ProductSubHeaderTabs aria-label={label} ref={tabsRef}>
+          {tabs.map((tab) => (
+            <ProductSubHeaderTab
+              aria-current={
+                (activeHref ?? selectedHref) === tab.href
+                  ? activeHref
+                    ? "page"
+                    : "location"
+                  : undefined
+              }
+              href={tab.href}
+              key={tab.href}
+              onClick={() => setSelectedHref(tab.href)}
+              ref={activeHref === tab.href ? activeTabRef : undefined}
+            >
+              {tab.label}
+            </ProductSubHeaderTab>
+          ))}
+        </ProductSubHeaderTabs>
+      </ProductSubHeaderInner>
+    </ProductSubHeaderRoot>
   );
 }

@@ -51,8 +51,6 @@ export type ProductOverviewColor = {
 
 export type ProductOverviewContent = {
   description: string;
-  eyebrow: string;
-  specs: readonly ProductOverviewSpec[];
   titleLines: readonly [string, string];
 };
 
@@ -62,20 +60,19 @@ export type ProductOverviewSpec = {
 };
 
 export type ProductFullSpecificationContent = {
-  eyebrow: string;
-  image: ProductFullSpecificationImage;
   items: readonly ProductFullSpecificationItem[];
   titleLines: readonly [string, string];
 };
 
 export type ProductFullSpecificationImage = {
   alt: string;
-  frames: readonly string[];
   src: string;
 };
 
 export type ProductFullSpecificationItem = {
   description: string;
+  eyebrow?: string;
+  image: ProductFullSpecificationImage;
   title: string;
 };
 
@@ -91,11 +88,10 @@ export type ProductPageModel = {
   posterMark?: ProductBrandMark;
   price: string;
   slug: string;
-  specs: readonly [ProductPageStat, ProductPageStat, ProductPageStat, ProductPageStat];
+  specs: readonly ProductPageStat[];
 };
 
 export type ProductSubNavTab = {
   id: string;
   label: string;
-  targetId: string;
 };

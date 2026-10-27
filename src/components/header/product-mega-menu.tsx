@@ -4,12 +4,13 @@ import { Button } from "@/components/ui";
 import { MODEL_TABS } from "@/data/models.constants";
 import type { ModelCategory } from "@/data/site-content.types";
 import { toSentenceCase } from "@/lib/to-sentence-case";
-import { PRODUCT_CURTAIN_MODELS } from "./product-curtain-models.constants";
+import { NEW_PRODUCT_SLUGS, PRODUCT_CURTAIN_MODELS } from "./product-curtain-models.constants";
 import {
   MegaCategoryButton,
   MegaCategoryList,
   MegaModelButton,
   MegaModelList,
+  MegaModelNewBadge,
   MegaProductImage,
   MegaProductPreview,
   MegaProductStage,
@@ -80,6 +81,9 @@ export function ProductMegaMenu({ contentTop, fullWidth, onClose, open }: Produc
                     type="button"
                   >
                     <span>{model.name}</span>
+                    {NEW_PRODUCT_SLUGS.has(model.slug) && (
+                      <MegaModelNewBadge>NEW</MegaModelNewBadge>
+                    )}
                   </MegaModelButton>
                 ))}
               </MegaModelList>

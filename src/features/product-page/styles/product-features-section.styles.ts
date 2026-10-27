@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const ProductFeaturesRoot = styled.section`
-  background: var(--color-bg-surface);
+  background: var(--color-bg-canvas);
   color: var(--color-text-primary);
   display: grid;
   grid-template-columns: minmax(0, 58vw) minmax(360px, 1fr);

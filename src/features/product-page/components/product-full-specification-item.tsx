@@ -1,27 +1,29 @@
 import {
   ProductFullSpecificationDescription,
   ProductFullSpecificationDivider,
+  ProductFullSpecificationItemImage,
   ProductFullSpecificationItemRoot,
-  ProductFullSpecificationItemTitle,
-  ProductFullSpecificationNumber
+  ProductFullSpecificationItemTitle
 } from "../styles/product-full-specification-item.styles";
 import type { ProductFullSpecificationItem as ProductFullSpecificationItemData } from "../types/product-page.types";
 
 type ProductFullSpecificationItemProps = {
-  index: number;
   item: ProductFullSpecificationItemData;
 };
 
-export function ProductFullSpecificationItem({ index, item }: ProductFullSpecificationItemProps) {
-  const displayIndex = String(index + 1).padStart(2, "0");
-
+export function ProductFullSpecificationItem({ item }: ProductFullSpecificationItemProps) {
   return (
     <ProductFullSpecificationItemRoot>
-      <ProductFullSpecificationNumber>{displayIndex}</ProductFullSpecificationNumber>
-      <ProductFullSpecificationItemTitle>{item.title}</ProductFullSpecificationItemTitle>
+      <ProductFullSpecificationItemTitle>
+        {item.eyebrow ? `${item.eyebrow} ${item.title}` : item.title}
+      </ProductFullSpecificationItemTitle>
+      <ProductFullSpecificationItemImage alt={item.image.alt} loading="lazy" src={item.image.src} />
       <ProductFullSpecificationDivider />
-      <ProductFullSpecificationDivider />
-      <ProductFullSpecificationDescription>{item.description}</ProductFullSpecificationDescription>
+      {item.description && (
+        <ProductFullSpecificationDescription>
+          {item.description}
+        </ProductFullSpecificationDescription>
+      )}
     </ProductFullSpecificationItemRoot>
   );
 }

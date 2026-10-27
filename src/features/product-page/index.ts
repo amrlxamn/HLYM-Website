@@ -2,6 +2,7 @@ export { ProductColorsSection } from "./components/product-colors-section";
 export { ProductFeaturesSection } from "./components/product-features-section";
 export { ProductFullSpecificationSection } from "./components/product-full-specification-section";
 export { ProductOverviewSection } from "./components/product-overview-section";
+export { ProductOverviewSlidingCarousel } from "./components/product-overview-sliding-carousel";
 export { ProductShowcasePage } from "./components/product-showcase-page";
 export { ProductSubHeader } from "./components/product-sub-header";
 export { ProductVideoHero } from "./components/product-video-hero";

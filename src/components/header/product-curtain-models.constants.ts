@@ -9,6 +9,9 @@ type CurtainModel = {
   slug: string;
 };
 
+// Newly introduced models in the current Malaysian lineup.
+export const NEW_PRODUCT_SLUGS: ReadonlySet<string> = new Set(["xsr155", "xmax-300", "tenere-700"]);
+
 export const PRODUCT_CURTAIN_MODELS: Record<ProductCategory, readonly CurtainModel[]> = {
   automatic: [
     {
@@ -49,16 +52,16 @@ export const PRODUCT_CURTAIN_MODELS: Record<ProductCategory, readonly CurtainMod
   })),
   moped: (
     [
-      ["Y16ZR-R", "y16zr-r"],
+      ["Y16ZR-R", "y16zr", "y16zr-r"],
       ["Y15ZR", "y15zr"],
       ["135LC Fi", "135lc-fi"],
       ["PG-1", "pg-1"],
-      ["Y16ZR 6MRO Limited Edition", "y16zr-6mro"],
+      ["Y16ZR 6MRO Limited Edition", "y16zr-6mro-limited-edition", "y16zr-6mro"],
       ["Y16ZR DOXOU", "y16zr-doxou"],
       ["EZ115", "ez115"]
     ] as const
-  ).map(([name, file]) => ({
-    image: getAssetUrl(`hlym/product-curtain/${file}.jpg`),
+  ).map(([name, file, image = file]) => ({
+    image: getAssetUrl(`hlym/product-curtain/${image}.jpg`),
     name,
     slug: file
   })),

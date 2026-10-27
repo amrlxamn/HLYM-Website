@@ -1,109 +1,83 @@
-import { render, within, fireEvent } from "@testing-library/react";
-import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
+import { cleanup, fireEvent, render, within } from "@testing-library/react";
+import { afterEach, describe, expect, it } from "vitest";
 import { toSentenceCase } from "@/lib/to-sentence-case";
-import {
-  PRODUCT_HERO_VIDEO,
-  PRODUCT_PAGE_MODELS,
-  PRODUCT_SUB_NAV_TABS
-} from "@/features/product-page";
+import { PRODUCT_SUB_NAV_TABS } from "@/features/product-page";
 import { ProductSubHeader } from "./product-sub-header";
 
-afterEach(() => {
-  vi.restoreAllMocks();
-});
+function renderSubHeader() {
+  return render(<ProductSubHeader />);
+}
 
-beforeEach(() => {
-  vi.stubGlobal("scrollY", 100);
+afterEach(() => {
+  cleanup();
 });
 
 describe("ProductSubHeader", () => {
-  it("renders the product mark in place of the product name text", () => {
-    const { container } = render(<ProductSubHeader />);
+  it("does not render product branding in the tab bar", () => {
+    const { container } = renderSubHeader();
     const view = within(container);
 
-    expect(view.getByAltText(PRODUCT_HERO_VIDEO.brandMark.alt)).toHaveAttribute(
-      "src",
-      PRODUCT_HERO_VIDEO.brandMark.src
-    );
+    expect(view.queryByRole("img")).toBeNull();
     expect(view.queryByText("nvx")).toBeNull();
     expect(view.queryByText("155")).toBeNull();
   });
 
-  it("renders all navigation tabs", () => {
-    const { container } = render(<ProductSubHeader />);
+  it("renders links to every product section", () => {
+    const { container } = renderSubHeader();
     const view = within(container);
 
     for (const tab of PRODUCT_SUB_NAV_TABS) {
-      expect(view.getByRole("button", { name: toSentenceCase(tab.label) })).toBeInTheDocument();
+      expect(view.getByRole("link", { name: toSentenceCase(tab.label) })).toHaveAttribute(
+        "href",
+        `#product-${tab.id}`
+      );
     }
   });
 
-  it("marks the first tab as active by default", () => {
-    const { container } = render(<ProductSubHeader />);
+  it("highlights overview by default and moves the underline when a section is selected", () => {
+    const { container } = renderSubHeader();
     const view = within(container);
 
-    const firstTabLabel = toSentenceCase(PRODUCT_SUB_NAV_TABS[0]!.label);
-    const firstTab = view.getByRole("button", { name: firstTabLabel });
-    expect(firstTab).toHaveAttribute("aria-current", "true");
-  });
+    const overview = view.getByRole("link", { name: "Overview" });
+    const features = view.getByRole("link", { name: "Features" });
+    expect(overview).toHaveAttribute("aria-current", "location");
+    expect(view.queryByRole("link", { name: /ask a dealer/i })).toBeNull();
 
-  it("switches the active tab when another tab is clicked", () => {
-    const { container } = render(<ProductSubHeader />);
-    const view = within(container);
-
-    const firstTabLabel = toSentenceCase(PRODUCT_SUB_NAV_TABS[0]!.label);
-    const secondTabLabel = toSentenceCase(PRODUCT_SUB_NAV_TABS[1]!.label);
-
-    const secondTab = view.getByRole("button", { name: secondTabLabel });
-    fireEvent.click(secondTab);
-
-    expect(secondTab).toHaveAttribute("aria-current", "true");
-
-    const firstTab = view.getByRole("button", { name: firstTabLabel });
-    expect(firstTab).not.toHaveAttribute("aria-current");
-  });
-
-  it("scrolls to the target section when a tab is clicked", () => {
-    const target = document.createElement("div");
-    const scrollSpy = vi.fn();
-    const { container } = render(<ProductSubHeader />);
-    const view = within(container);
-    const secondTabLabel = toSentenceCase(PRODUCT_SUB_NAV_TABS[1]!.label);
-
-    target.id = PRODUCT_SUB_NAV_TABS[1]!.targetId;
-    target.scrollIntoView = scrollSpy;
-    document.body.append(target);
-
-    fireEvent.click(view.getByRole("button", { name: secondTabLabel }));
-
-    expect(scrollSpy).toHaveBeenCalledWith({
-      behavior: "smooth",
-      block: "start"
-    });
-
-    target.remove();
-  });
-
-  it("renders the contact dealer link with the correct href", () => {
-    const { container } = render(<ProductSubHeader />);
-    const view = within(container);
-
-    const product = PRODUCT_PAGE_MODELS[0]!;
-    const cta = view.getByRole("link", { name: /ask a dealer/i });
-    expect(cta).toHaveAttribute("href", product.ctaHref);
-  });
-
-  it("sits flush with the bottom of the viewport", () => {
-    render(<ProductSubHeader />);
-
-    expect(document.head.textContent).toContain("position:fixed");
-    expect(document.head.textContent).toContain("bottom:0");
+    fireEvent.click(features);
+    expect(features).toHaveAttribute("aria-current", "location");
+    expect(overview).not.toHaveAttribute("aria-current");
   });
 
   it("matches the header menu width", () => {
-    render(<ProductSubHeader />);
+    renderSubHeader();
 
     expect(document.head.textContent).toContain("max-width:1280px");
-    expect(document.head.textContent).toContain("left:50%");
+    expect(document.head.textContent).toContain("margin:0 auto");
+  });
+
+  it("reuses the same tab styles for active corporate pages", () => {
+    const tabs = [
+      { href: "/corporate", label: "Corporate" },
+      { href: "/company-introduction", label: "Company Introduction" }
+    ];
+    const view = render(
+      <ProductSubHeader
+        activeHref="/company-introduction"
+        ariaLabel="Corporate sections"
+        tabs={tabs}
+      />
+    );
+    const navigation = within(view.container).getByRole("navigation", {
+      name: "Corporate sections"
+    });
+
+    expect(within(navigation).getByRole("link", { name: "Company Introduction" })).toHaveAttribute(
+      "aria-current",
+      "page"
+    );
+    expect(within(navigation).getByRole("link", { name: "Corporate" })).toHaveAttribute(
+      "href",
+      "/corporate"
+    );
   });
 });
