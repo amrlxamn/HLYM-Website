@@ -35,8 +35,11 @@ export type ContactFaqContent = {
 };
 
 export type ContactEnquiryPanelProps = {
+  defaultTopic?: string;
   isOpen: boolean;
   onClose: () => void;
+  source?: ContactEnquiryPayload["source"];
+  title?: string;
 };
 
 export type ContactEnquiryStatus = "idle" | "loading" | "success" | "error";
@@ -52,7 +55,7 @@ export type ContactEnquiryPayload = {
   phone: string;
   preferredBranch: string;
   registrationNumber?: string;
-  source: "webflow-contact-page";
+  source: "webflow-contact-page" | "webflow-product-page";
   submissionId: string;
   topic: string;
   title?: string;

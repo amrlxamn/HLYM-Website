@@ -1,5 +1,7 @@
 import type { SiteCopy } from "@/data/site-copy.types";
 
+export const PRIVACY_POLICY_URL = "https://www.yamaha-motor.com.my/privacy-policy/";
+
 export const SITE_COPY: SiteCopy = {
   dealerLocator: {
     ariaLabel: "dealer locator section",
@@ -11,7 +13,7 @@ export const SITE_COPY: SiteCopy = {
       ariaLabel: "explore the yamaha dealer network"
     },
     panelEyebrow: "selected dealer",
-    panelHint: "select another red marker to compare nearby support.",
+    panelHint: "Select another dealer marker to compare nearby support.",
     panelHoursLabel: "hours",
     panelNextDealerLabel: "show next dealer",
     panelPreviousDealerLabel: "show previous dealer",
@@ -70,8 +72,8 @@ export const SITE_COPY: SiteCopy = {
     copyright:
       "Copyright © 2021 Hong Leong Yamaha Motor Sdn. Bhd 197901002563 (46829-P). All Rights Reserved.",
     legalLinks: [
-      { href: "/terms-of-use", label: "terms of use" },
-      { href: "/privacy-policy", label: "privacy policy" }
+      { href: "https://www.yamaha-motor.com.my/terms-conditions-of-use/", label: "terms of use" },
+      { href: PRIVACY_POLICY_URL, label: "privacy policy" }
     ]
   },
   header: {

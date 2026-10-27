@@ -7,34 +7,34 @@ export const CONTACT_HERO_CONTENT: ContactHeroContent = {
   backgroundImage: getAssetUrl("hlym/3d1a2fcf-a9b2-4fae-a9be-e20b05fdbd33.png"),
   cards: [
     {
-      ctaHref: "/#dealer-locator",
-      ctaLabel: "View locations",
+      ctaHref: "https://my.treedis.com/tour/yamaha-lifestyle-station",
+      ctaLabel: "Take the tour",
       number: "01",
-      titleLines: ["Selangor", "Office"]
+      titleLines: ["Lifestyle", "Station"]
     },
     {
-      ctaHref: "/#dealer-locator",
-      ctaLabel: "View locations",
+      ctaHref: "https://www.google.com/maps/search/?api=1&query=Yamaha+Space+Y+Malaysia",
+      ctaLabel: "Find on maps",
       number: "02",
-      titleLines: ["Johor", "Office"]
+      titleLines: ["Space Y"]
     },
     {
-      ctaHref: "/#dealer-locator",
-      ctaLabel: "View locations",
+      ctaHref: "/yamaha-network?category=yqs",
+      ctaLabel: "Find service",
       number: "03",
-      titleLines: ["Pahang", "Office"]
+      titleLines: ["Service", "centres"]
     },
     {
-      ctaHref: "/#dealer-locator",
-      ctaLabel: "View locations",
+      ctaHref: "/yamaha-network?category=big%20bike",
+      ctaLabel: "Explore big bikes",
       number: "04",
-      titleLines: ["Penang", "Office"]
+      titleLines: ["Big-bike", "showroom soon"]
     },
     {
-      ctaHref: "/#dealer-locator",
-      ctaLabel: "View locations",
+      ctaHref: "/yamaha-network",
+      ctaLabel: "Find a dealer",
       number: "05",
-      titleLines: ["Perak", "Office"]
+      titleLines: ["Yamaha", "dealers"]
     },
     {
       backgroundImage: "/assets/hlym/contact/contact-enquiry-card-bg.webp",

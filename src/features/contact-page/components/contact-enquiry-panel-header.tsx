@@ -9,9 +9,13 @@ import {
 
 type ContactEnquiryPanelHeaderProps = {
   onClose: () => void;
+  title?: string;
 };
 
-export function ContactEnquiryPanelHeader({ onClose }: ContactEnquiryPanelHeaderProps) {
+export function ContactEnquiryPanelHeader({
+  onClose,
+  title = "GOT ANY ENQUIRY?"
+}: ContactEnquiryPanelHeaderProps) {
   return (
     <>
       <ContactEnquiryCloseRail>
@@ -20,7 +24,7 @@ export function ContactEnquiryPanelHeader({ onClose }: ContactEnquiryPanelHeader
         </ContactEnquiryCloseButton>
       </ContactEnquiryCloseRail>
       <ContactEnquiryHeaderRoot>
-        <ContactEnquiryTitle id="contact-enquiry-title">GOT ANY ENQUIRY?</ContactEnquiryTitle>
+        <ContactEnquiryTitle id="contact-enquiry-title">{title}</ContactEnquiryTitle>
         <ContactEnquiryDescription>
           Tell us how we can help. We will route your enquiry to the right team.
         </ContactEnquiryDescription>
