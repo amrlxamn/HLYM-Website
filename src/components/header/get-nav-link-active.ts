@@ -9,5 +9,15 @@ export function getNavLinkActive(item: NavItem, pathname: string): boolean {
     return Boolean(item.isActive && pathname === "/");
   }
 
+  if (item.href === "/corporate") {
+    return [
+      "/corporate",
+      "/company-introduction",
+      "/4-millionth-rollout",
+      "/social-responsibility",
+      "/principal-policies"
+    ].some((route) => pathname === route || pathname === `${route}/`);
+  }
+
   return pathname.startsWith(item.href);
 }

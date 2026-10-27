@@ -23,8 +23,8 @@ export const SOCIAL_LINKS: readonly SocialLink[] = [
 ] as const;
 
 export const UTILITY_LINKS: readonly LinkItem[] = [
-  { href: "/#featured-model", label: "lifestyle station tour" },
-  { href: "/#site-footer", label: "e-daftar login" },
+  { href: "https://my.treedis.com/tour/yamaha-lifestyle-station", label: "lifestyle station tour" },
+  { href: "https://dms.yamaha-motor.com.my/login.aspx", label: "e-daftar login" },
   { href: "/#site-footer", label: "after sales" },
   { href: "/#models", label: "yamaha endorsed zone (yez)" },
   { href: "/#latest-news", label: "y-connect" },
@@ -35,10 +35,10 @@ export const UTILITY_LINKS: readonly LinkItem[] = [
 
 export const NAV_LINKS: readonly NavItem[] = [
   { href: "/", isActive: true, label: "home" },
-  { href: "/#site-footer", label: "corporate" },
+  { href: "/corporate", label: "corporate" },
   { href: "/products", label: "products" },
   { href: "/#latest-news", label: "news & events" },
   { href: "/yamaha-network", label: "yamaha network" },
-  { href: "/#featured-model", label: "merchandise" },
+  { href: "https://shoponline.yamaha-motor.com.my/", label: "merchandise" },
   { href: "/contact-us", label: "contact us" }
 ] as const;

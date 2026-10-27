@@ -11,10 +11,12 @@ export const HeroSectionRoot = styled.section`
   &::after {
     background: linear-gradient(
       180deg,
-      color-mix(in srgb, var(--color-neutral-950) 82%, transparent) 0%,
-      color-mix(in srgb, var(--color-neutral-950) 28%, transparent) 24%,
-      transparent 62%,
-      color-mix(in srgb, var(--color-neutral-950) 18%, transparent) 100%
+      rgba(10, 10, 10, 0.72) 0,
+      rgba(10, 10, 10, 0.64) var(--header-height-utility),
+      rgba(10, 10, 10, 0.12) var(--header-height-total),
+      transparent calc(var(--header-height-total) + var(--space-12)),
+      transparent 65%,
+      color-mix(in srgb, var(--color-neutral-950) 55%, transparent) 100%
     );
     content: "";
     inset: 0;
@@ -22,12 +24,22 @@ export const HeroSectionRoot = styled.section`
     position: absolute;
     z-index: 1;
   }
+
+  @media (max-width: 980px) {
+    aspect-ratio: auto;
+    height: calc(var(--header-height-total) + 57.2917vw);
+  }
 `;
 
 export const HeroLink = styled.a`
   display: block;
   inset: 0;
   position: absolute;
+
+  @media (max-width: 980px) {
+    background-position: center;
+    background-size: cover;
+  }
 `;
 
 export const HeroImage = styled.img`
@@ -35,4 +47,8 @@ export const HeroImage = styled.img`
   object-fit: contain;
   object-position: center;
   width: 100%;
+
+  @media (max-width: 980px) {
+    object-position: center bottom;
+  }
 `;
