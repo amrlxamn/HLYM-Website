@@ -7,7 +7,7 @@ export const FEATURED_GALLERY_TILES: readonly CategoryTile[] = [
     description:
       "enter the new yamaha xmax 250, a light and agile automatic bike that feels " +
       "comfortable both in the city and on the open roads.",
-    href: "#models",
+    href: "/products/xmax-250",
     image: getAssetUrl("hlym/featured/xmax-250.jpg"),
     name: "xmax 250 - your luxurious ride!",
     price: "",
@@ -16,7 +16,7 @@ export const FEATURED_GALLERY_TILES: readonly CategoryTile[] = [
   {
     alt: "yamaha ego avantiz",
     description: "an awesome creations in every aspects, ready to dominate in its class.",
-    href: "#models",
+    href: "/products/ego-avantiz",
     image: getAssetUrl("hlym/featured/ego-avantiz.jpg"),
     name: "ego avantiz - lagak ekstrim",
     price: "",
@@ -27,7 +27,7 @@ export const FEATURED_GALLERY_TILES: readonly CategoryTile[] = [
     description:
       "built for riders who demand sharp acceleration, confident handling, and unmistakable " +
       "style on every urban ride.",
-    href: "#models",
+    href: "/products/y16zr",
     image: getAssetUrl("hlym/featured/y16zr.jpg"),
     name: "y16zr - prestasi, gaya dan inovasi!",
     price: "",
@@ -38,7 +38,7 @@ export const FEATURED_GALLERY_TILES: readonly CategoryTile[] = [
     description:
       "premium city comfort with dual-channel abs, connected convenience, and generous " +
       "everyday storage.",
-    href: "https://www.yamaha-motor.com.my/portfolio_page/nmax/",
+    href: "/products/nmax",
     image: getAssetUrl("hlym/generated-1772089340820.png"),
     name: "nmax - move through the city",
     price: "",
@@ -49,7 +49,7 @@ export const FEATURED_GALLERY_TILES: readonly CategoryTile[] = [
     description:
       "sport performance, intelligent electronics, and long-distance comfort in one focused " +
       "touring machine.",
-    href: "#models",
+    href: "/products/tracer-9-gt",
     image: getAssetUrl("hlym/tracer-9-gt-spotlight.png"),
     name: "tracer 9 gt - roads without limits",
     price: "",
@@ -60,7 +60,7 @@ export const FEATURED_GALLERY_TILES: readonly CategoryTile[] = [
     description:
       "premium automatic comfort with connected urban practicality and a rider-friendly " +
       "daily posture.",
-    href: "https://www.yamaha-motor.com.my/portfolio_page/nvx/",
+    href: "/products/nvx",
     image: getAssetUrl("hlym/product-curtain/nvx.jpg"),
     name: "nvx 155 - performance in motion",
     price: "",

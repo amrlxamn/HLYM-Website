@@ -27,7 +27,9 @@ describe("security headers", () => {
     expect(csp).toContain("https://api.mapbox.com");
     expect(csp).toContain("https://events.mapbox.com");
     expect(csp).toContain("https://*.tiles.mapbox.com");
-    expect(csp).toContain("img-src 'self' data: blob: https://*.supabase.co");
+    expect(csp).toContain(
+      "img-src 'self' data: blob: https://*.supabase.co https://api.mapbox.com https://cdn.prod.website-files.com https://s3.amazonaws.com"
+    );
     expect(csp).toContain("media-src 'self' blob: https://*.supabase.co");
     expect(csp).toContain("connect-src");
     expect(csp).toContain("https://*.supabase.co");

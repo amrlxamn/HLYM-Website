@@ -7,7 +7,9 @@ export function useCanvasFrameRenderer(
   images: readonly HTMLImageElement[],
   frameIndex: number,
   isLoaded: boolean,
-  normalize = false
+  normalize = false,
+  loadedCount = 0,
+  onDraw?: () => void
 ): void {
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -16,8 +18,9 @@ export function useCanvasFrameRenderer(
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
-    const image = images[frameIndex];
-    if (!image || !image.complete) return;
+    const readyImages = images.filter((image) => image.complete && image.naturalWidth > 0);
+    const image = images[frameIndex]?.naturalWidth ? images[frameIndex] : readyImages[0];
+    if (!image) return;
 
     const canvasWidth = normalize ? 1200 : image.naturalWidth;
     const canvasHeight = normalize ? 800 : image.naturalHeight;
@@ -30,14 +33,12 @@ export function useCanvasFrameRenderer(
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       if (!normalize) {
         ctx.drawImage(image, 0, 0);
+        onDraw?.();
         return;
       }
 
-      const frames = images.map(getImageContentBounds);
-      const bounds = frames[frameIndex];
-      if (!bounds) {
-        return;
-      }
+      const frames = readyImages.map(getImageContentBounds);
+      const bounds = getImageContentBounds(image);
       const maximumWidth = Math.max(...frames.map((frame) => frame.width));
       const maximumHeight = Math.max(...frames.map((frame) => frame.height));
       const scale = Math.min(
@@ -57,8 +58,9 @@ export function useCanvasFrameRenderer(
         width,
         height
       );
+      onDraw?.();
     });
 
     return () => cancelAnimationFrame(rafId);
-  }, [canvasRef, images, frameIndex, isLoaded, normalize]);
+  }, [canvasRef, images, frameIndex, isLoaded, normalize, loadedCount, onDraw]);
 }

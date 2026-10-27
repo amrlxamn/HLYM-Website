@@ -40,6 +40,7 @@ export const ProductFullSpecificationListViewport = styled.div`
   -webkit-mask-size: 100% 100%;
 
   @media (max-width: 1080px) {
+    height: auto;
     mask-image: none;
     max-height: none;
     min-height: 0;

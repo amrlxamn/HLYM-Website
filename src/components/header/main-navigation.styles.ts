@@ -43,7 +43,6 @@ export const MainNavContent = styled(Container)`
   gap: var(--space-4);
   height: 100%;
   justify-content: space-between;
-
   @media (max-width: 980px) {
     width: calc(100% - var(--space-8));
   }
@@ -55,8 +54,10 @@ export const MainNavContent = styled(Container)`
 `;
 
 export const NavLeft = styled.a`
-  align-items: center;
+  align-items: flex-start;
   display: flex;
+  flex-direction: column;
+  justify-content: center;
   transition: opacity var(--duration-base) var(--easing-standard);
 
   &:hover,
@@ -77,6 +78,17 @@ export const MainLogo = styled.img`
   @media (max-width: 640px) {
     height: 34px;
     width: 145px;
+  }
+`;
+
+export const RevsYourHeartLogo = styled.img`
+  height: 20px;
+  object-fit: contain;
+  width: 94px;
+
+  @media (max-width: 640px) {
+    height: 16px;
+    width: 72px;
   }
 `;
 

@@ -34,7 +34,15 @@ describe("ContactHeroSection", () => {
     expect(view.getAllByText("enquiry?").length).toBeGreaterThan(0);
 
     expect(view.queryByRole("dialog")).not.toBeInTheDocument();
-    expect(view.getAllByRole("link", { name: /view locations/i })).toHaveLength(5);
+    expect(view.queryByText("Selangor")).not.toBeInTheDocument();
+    expect(view.getByRole("link", { name: /take the tour/i })).toHaveAttribute(
+      "href",
+      "https://my.treedis.com/tour/yamaha-lifestyle-station"
+    );
+    expect(view.getByRole("link", { name: /find service/i })).toHaveAttribute(
+      "href",
+      "/yamaha-network?category=yqs"
+    );
 
     await user.click(view.getByRole("button", { name: /submit to us/i }));
 
@@ -46,6 +54,10 @@ describe("ContactHeroSection", () => {
     expect(view.getByLabelText("Full name")).toBeInTheDocument();
     expect(view.getByLabelText("Type of enquiry")).toBeInTheDocument();
     expect(view.getByLabelText("Vehicle registration no.")).toBeInTheDocument();
+    expect(view.getByRole("link", { name: "Privacy Policy" })).toHaveAttribute(
+      "href",
+      "https://www.yamaha-motor.com.my/privacy-policy/"
+    );
   });
 
   it("submits the enquiry form and displays its ticket reference", async () => {

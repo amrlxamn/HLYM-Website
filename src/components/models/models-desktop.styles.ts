@@ -130,7 +130,7 @@ export const ModelsResponsiveProgressRail = styled(motion.div)`
 export const ModelsDesktopCard = styled.article`
   align-items: center;
   display: grid;
-  grid-template-columns: minmax(360px, 40%) minmax(0, 60%);
+  grid-template-columns: minmax(360px, 36%) minmax(0, 64%);
   height: min(680px, calc(100vh - var(--header-height-total) - var(--space-6)));
   overflow: hidden;
   position: relative;
@@ -143,6 +143,10 @@ export const ModelsDesktopCard = styled.article`
     justify-content: center;
     min-height: 0;
     width: 100%;
+  }
+
+  @media (max-width: 640px) {
+    flex-direction: column;
   }
 `;
 
@@ -158,6 +162,11 @@ export const ModelsImageViewport = styled.div`
     flex: 1 1 58%;
     min-width: 0;
     order: 2;
+  }
+
+  @media (max-width: 640px) {
+    flex: 1 1 auto;
+    order: 1;
   }
 
   > div {

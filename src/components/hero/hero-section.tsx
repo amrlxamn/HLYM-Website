@@ -27,6 +27,7 @@ export function HeroSection() {
           href={currentSlide.href}
           initial={{ opacity: 0 }}
           key={currentSlide.image}
+          style={{ backgroundImage: `url("${currentSlide.image}")` }}
           transition={HERO_FADE_TRANSITION}
         >
           <HeroImage alt={toSentenceCase(currentSlide.alt)} src={currentSlide.image} />

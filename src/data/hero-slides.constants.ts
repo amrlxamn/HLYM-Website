@@ -9,32 +9,32 @@ export const HERO_SLIDES: readonly HeroSlide[] = [
   },
   {
     alt: "Yamaha XSR155",
-    href: "https://www.yamaha-motor.com.my/portfolio_page/xsr155/",
+    href: "/products/xsr155",
     image: getAssetUrl("hlym/home-carousel/xsr155.webp")
   },
   {
     alt: "Yamaha Y16ZR",
-    href: "https://www.yamaha-motor.com.my/portfolio_page/yseries/",
+    href: "/products/yseries",
     image: getAssetUrl("hlym/home-carousel/y16zr.webp")
   },
   {
     alt: "Yamaha XMAX 300",
-    href: "https://www.yamaha-motor.com.my/portfolio_page/xmax300/",
+    href: "/products/xmax-300",
     image: getAssetUrl("hlym/home-carousel/xmax.webp")
   },
   {
     alt: "Yamaha Tenere 700",
-    href: "https://www.yamaha-motor.com.my/portfolio_page/tenere700/",
+    href: "/products/tenere-700",
     image: getAssetUrl("hlym/home-carousel/tenere-700.webp")
   },
   {
     alt: "Yamaha Tracer 9 GT",
-    href: "https://www.yamaha-motor.com.my/portfolio_page/tracer9/",
+    href: "/products/tracer-9-gt",
     image: getAssetUrl("hlym/home-carousel/tracer-9-gt.webp")
   },
   {
     alt: "Yamaha Ego Gear Pro",
-    href: "https://www.yamaha-motor.com.my/portfolio_page/ego-gear/",
+    href: "/products/ego-gear",
     image: getAssetUrl("hlym/home-carousel/ego-gear-pro.webp")
   }
 ] as const;

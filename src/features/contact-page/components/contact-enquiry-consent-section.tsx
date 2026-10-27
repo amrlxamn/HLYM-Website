@@ -1,5 +1,6 @@
 import { TurnstileWidget } from "@/components/ui/turnstile/turnstile-widget";
 import { Button } from "@/components/ui";
+import { PRIVACY_POLICY_URL } from "@/data/site-copy.constants";
 import {
   ContactEnquiryActions,
   ContactEnquiryConsent,
@@ -28,8 +29,11 @@ export function ContactEnquiryConsentSection({
       <ContactEnquiryConsent>
         <input name="consent" required type="checkbox" />
         <span>
-          I certify that I have read and agree to the Privacy Policy and consent to us contacting me
-          about this enquiry.
+          I certify that I have read and agree to the{" "}
+          <a href={PRIVACY_POLICY_URL} rel="noopener noreferrer" target="_blank">
+            Privacy Policy
+          </a>{" "}
+          and consent to us contacting me about this enquiry.
         </span>
       </ContactEnquiryConsent>
       <TurnstileWidget key={turnstileResetKey} onChange={onTurnstileChange} />

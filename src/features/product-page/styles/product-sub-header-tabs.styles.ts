@@ -12,15 +12,15 @@ export const ProductSubHeaderTabs = styled.nav`
   }
 `;
 
-export const ProductSubHeaderTab = styled.button<{ $active: boolean }>`
+export const ProductSubHeaderTab = styled.a`
   align-items: center;
-  border-bottom: 2px solid ${({ $active }) => ($active ? "var(--red)" : "transparent")};
+  border-bottom: 2px solid transparent;
   color: var(--color-text-primary);
   display: inline-flex;
   font-size: 11px;
   font-weight: 600;
   letter-spacing: 1.6px;
-  opacity: ${({ $active }) => ($active ? 1 : 0.78)};
+  opacity: 0.78;
   padding: 0;
   text-transform: uppercase;
   transition:
@@ -30,7 +30,15 @@ export const ProductSubHeaderTab = styled.button<{ $active: boolean }>`
   white-space: nowrap;
 
   &:hover {
+    border-color: var(--red);
     color: var(--color-text-primary);
+    opacity: 1;
+  }
+
+  &[aria-current="location"],
+  &[aria-current="page"] {
+    border-color: var(--red);
+    opacity: 1;
   }
 
   @media (max-width: 760px) {

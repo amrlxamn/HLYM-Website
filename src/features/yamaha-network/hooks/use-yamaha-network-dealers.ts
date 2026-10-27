@@ -1,5 +1,11 @@
 import { useEffect, useState } from "react";
+import { getAssetUrl } from "@/lib/get-asset-url";
 import type { YamahaDealerDataset, YamahaDealerLocation } from "../yamaha-network.types";
+
+const VERIFIED_DEALER_IMAGES: Readonly<Record<string, string>> = {
+  "ah-hong-motor-sdn-bhd-3-17377-101-692398": getAssetUrl("hlym/dealer-ah-hong-motor.png"),
+  "lw-auto-parts-sdn-bhd-3-233681-101-673726": getAssetUrl("hlym/dealer-lw-auto-parts.png")
+};
 
 type YamahaNetworkDealersState = {
   dealers: readonly YamahaDealerLocation[];
@@ -13,33 +19,28 @@ const INITIAL_STATE: YamahaNetworkDealersState = {
   isLoading: true
 };
 
-export function useYamahaNetworkDealers() {
-  const [state, setState] = useState<YamahaNetworkDealersState>(INITIAL_STATE);
+let cachedDealers: readonly YamahaDealerLocation[] | null = null;
+let dealersRequest: Promise<readonly YamahaDealerLocation[]> | null = null;
 
-  useEffect(() => {
-    const abortController = new AbortController();
-    const datasetUrl = new URL("../yamaha-dealers.json", import.meta.url);
-
-    void fetch(datasetUrl, { signal: abortController.signal })
+function loadDealers() {
+  if (!dealersRequest) {
+    dealersRequest = fetch(new URL("../yamaha-dealers.json", import.meta.url))
       .then(async (response) => {
-        if (!response.ok) {
-          throw new Error(`Dealer data returned ${response.status}`);
-        }
-
+        if (!response.ok) throw new Error(`Dealer data returned ${response.status}`);
         return (await response.json()) as YamahaDealerDataset;
       })
       .then((dataset) => {
-        const isComplete =
-          Array.isArray(dataset.dealers) &&
-          dataset.dealers.length === dataset.count &&
-          dataset.dealers.every((dealer) => dealer.categories.length > 0);
-
-        if (!isComplete) {
+        if (
+          !Array.isArray(dataset.dealers) ||
+          dataset.dealers.length !== dataset.count ||
+          !dataset.dealers.every((dealer) => dealer.categories.length > 0)
+        ) {
           throw new Error("Dealer data is incomplete");
         }
 
-        const dealers = dataset.dealers.map((dealer) => ({
+        cachedDealers = dataset.dealers.map((dealer) => ({
           ...dealer,
+          image: dealer.image ?? VERIFIED_DEALER_IMAGES[dealer.id],
           area: dealer.region,
           category: dealer.categories[0]!,
           focus: dealer.categories.join(", "),
@@ -47,18 +48,40 @@ export function useYamahaNetworkDealers() {
           serviceTags: dealer.categories,
           summary: dealer.address
         }));
-
-        setState({ dealers, error: null, isLoading: false });
+        return cachedDealers;
       })
       .catch((error: unknown) => {
-        if (error instanceof DOMException && error.name === "AbortError") {
-          return;
-        }
-
-        setState({ dealers: [], error: "Dealer directory is unavailable.", isLoading: false });
+        dealersRequest = null;
+        throw error;
       });
+  }
 
-    return () => abortController.abort();
+  return dealersRequest;
+}
+
+export function useYamahaNetworkDealers() {
+  const [state, setState] = useState<YamahaNetworkDealersState>(() =>
+    cachedDealers ? { dealers: cachedDealers, error: null, isLoading: false } : INITIAL_STATE
+  );
+
+  useEffect(() => {
+    if (cachedDealers) return;
+    let cancelled = false;
+
+    void loadDealers().then(
+      (dealers) => {
+        if (!cancelled) setState({ dealers, error: null, isLoading: false });
+      },
+      () => {
+        if (!cancelled) {
+          setState({ dealers: [], error: "Dealer directory is unavailable.", isLoading: false });
+        }
+      }
+    );
+
+    return () => {
+      cancelled = true;
+    };
   }, []);
 
   return state;

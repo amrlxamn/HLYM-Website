@@ -19,7 +19,7 @@ export const PRODUCT_PAGE_MODELS: readonly ProductPageModel[] = [
     specs: [
       { label: "engine", value: "155cc" },
       { label: "power", value: "15.4 ps" },
-      { label: "weight", value: "127 kg" },
+      { label: "weight", value: "130 kg" },
       { label: "msrp", value: "rm11,998" }
     ]
   },

@@ -183,6 +183,7 @@ export const GlobalStyle = createGlobalStyle`
     min-height: 100%;
     overflow-x: clip;
     padding: 0;
+    scroll-behavior: smooth;
   }
 
   body {

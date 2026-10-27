@@ -4,7 +4,7 @@ import { getAssetUrl } from "@/lib/get-asset-url";
 export const PRODUCT_HERO_VIDEO = {
   alt: "Yamaha NVX performance film",
   ariaLabel: "Yamaha NVX hero video",
-  brandMark: { alt: "Yamaha NVX SP", src: getAssetUrl("nvx-sp.png") },
+  brandMark: { alt: "Yamaha NVX SP", src: getAssetUrl("hlym/nvx-sp-mark-cropped.png") },
   copy: "A fastback scooter designed for the rush of urban performance.",
   poster: getAssetUrl("hlym/nvx-360/frame-01.jpg"),
   sources: [{ src: getAssetUrl("hlym/nvx-hero.mp4"), type: "video/mp4" }]

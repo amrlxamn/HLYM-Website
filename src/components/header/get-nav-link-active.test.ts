@@ -16,5 +16,9 @@ describe("getNavLinkActive", () => {
     expect(getNavLinkActive(homeLink, "/contact-us")).toBe(false);
     expect(getNavLinkActive(productsLink, "/products/nvx")).toBe(true);
     expect(getNavLinkActive(contactLink, "/contact-us")).toBe(true);
+    expect(getNavLinkActive(NAV_LINKS[1]!, "/corporate")).toBe(true);
+    expect(getNavLinkActive(NAV_LINKS[1]!, "/social-responsibility")).toBe(true);
+    expect(getNavLinkActive(NAV_LINKS[1]!, "/4-millionth-rollout")).toBe(true);
+    expect(getNavLinkActive(NAV_LINKS[1]!, "/principal-policies")).toBe(true);
   });
 });

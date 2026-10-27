@@ -61,7 +61,8 @@ export const MegaModelButton = styled.button<{ $active: boolean }>`
   align-items: center;
   color: ${({ $active }) => ($active ? "var(--color-brand-500)" : "var(--color-text-primary)")};
   display: flex;
-  gap: var(--space-4);
+  gap: var(--space-2);
+  justify-content: space-between;
   min-height: 40px;
   padding: var(--space-2) 0;
   text-align: left;
@@ -77,5 +78,15 @@ export const MegaModelButton = styled.button<{ $active: boolean }>`
     font-size: 13px;
     font-weight: 700;
     letter-spacing: 1px;
+    min-width: 0;
   }
+`;
+
+export const MegaModelNewBadge = styled.small`
+  color: var(--red);
+  flex: none;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  line-height: 1;
 `;

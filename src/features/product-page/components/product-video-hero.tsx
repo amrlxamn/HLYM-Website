@@ -21,7 +21,7 @@ export function ProductVideoHero({ video = PRODUCT_HERO_VIDEO }: ProductVideoHer
   const { isPaused, onControlClick, onTogglePlayback, onVideoPause, onVideoPlay, videoRef } =
     useProductVideoPlayback();
   const ControlIcon = isPaused ? Play : Pause;
-  const controlLabel = isPaused ? "Play Yamaha NVX video" : "Pause Yamaha NVX video";
+  const controlLabel = `${isPaused ? "Play" : "Pause"} ${video === PRODUCT_HERO_VIDEO ? "Yamaha NVX" : "product"} video`;
 
   return (
     <ProductVideoHeroRoot aria-label={toSentenceCase(video.ariaLabel)} onClick={onTogglePlayback}>

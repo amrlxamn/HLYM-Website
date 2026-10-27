@@ -60,14 +60,24 @@ const dealerMapMarkerStyles = css`
     }
 
     .dealer-map-marker__inner {
-      background: #ee393d;
-      box-shadow:
-        0 0 0 2px #ffffff,
-        0 0 20px #ee393d99;
-      height: 12px;
+      align-items: center;
+      background: #fff;
+      border: 2px solid #ad1e28;
+      color: #8f1821;
+      display: flex;
+      font-size: 10px;
+      font-weight: 800;
+      height: 38px;
+      justify-content: center;
       transition: transform 160ms ease;
-      width: 12px;
+      width: 38px;
       z-index: 3;
+
+      img {
+        height: 34px;
+        object-fit: contain;
+        width: 34px;
+      }
     }
 
     .dealer-map-marker__middle {
@@ -146,6 +156,16 @@ const dealerMapMarkerStyles = css`
 
       &.has-image {
         color: transparent;
+      }
+
+      &.has-brand {
+        background: #f2f4f6;
+
+        img {
+          height: 64px;
+          object-fit: contain;
+          width: min(70%, 140px);
+        }
       }
 
       img {
@@ -337,7 +357,6 @@ export const DealerMapCanvas = styled.div`
 
   .mapboxgl-canvas {
     cursor: grab;
-    filter: grayscale(-1) contrast(0.92) brightness(1.18);
   }
 
   .mapboxgl-canvas:active {
@@ -395,6 +414,90 @@ export const DealerMapCanvas = styled.div`
   }
 
   ${dealerMapMarkerStyles}
+`;
+
+export const DealerMapStaticImage = styled.div`
+  background: #e6ebde;
+  height: 100%;
+  position: relative;
+  width: 100%;
+
+  > img {
+    height: 100%;
+    object-fit: cover;
+    width: 100%;
+  }
+
+  .location-pin {
+    align-items: center;
+    background: #fff;
+    border: 2px solid #ad1e28;
+    border-radius: 50%;
+    box-shadow: 0 3px 14px #00000033;
+    color: #8f1821;
+    display: flex;
+    font-size: 10px;
+    font-weight: 800;
+    height: 40px;
+    justify-content: center;
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 40px;
+
+    img {
+      height: 36px;
+      object-fit: contain;
+      width: 36px;
+    }
+  }
+
+  a {
+    background: #ffffffee;
+    bottom: 12px;
+    color: #172331;
+    font-size: 12px;
+    font-weight: 700;
+    left: 12px;
+    padding: 8px 10px;
+    position: absolute;
+  }
+
+  @media (max-width: 980px) {
+    a {
+      bottom: auto;
+      top: calc(var(--header-height-total) + var(--space-4));
+    }
+  }
+`;
+
+export const DealerMapUnavailableRoot = styled.div`
+  align-items: center;
+  background: #ecf0f2;
+  color: #172331;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  height: 100%;
+  justify-content: center;
+  padding: 24px;
+  text-align: center;
+  width: 100%;
+
+  p {
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0;
+  }
+
+  a {
+    color: #8f1821;
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
 `;
 
 export const DealerHeading = styled.h2`

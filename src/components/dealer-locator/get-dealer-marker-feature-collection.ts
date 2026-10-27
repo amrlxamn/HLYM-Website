@@ -1,8 +1,10 @@
 import type { FeatureCollection, Point } from "geojson";
 import type { DealerLocation } from "@/data/site-content.types";
+import { getDealerMarkerLabel } from "./get-dealer-marker-label";
 
 type DealerMarkerProperties = {
   dealerId: string;
+  markerLabel: string;
 };
 
 export function getDealerMarkerFeatureCollection(
@@ -15,7 +17,8 @@ export function getDealerMarkerFeatureCollection(
         type: "Point"
       },
       properties: {
-        dealerId: dealer.id
+        dealerId: dealer.id,
+        markerLabel: getDealerMarkerLabel(dealer)
       },
       type: "Feature"
     })),

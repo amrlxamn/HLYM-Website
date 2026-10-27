@@ -3,44 +3,42 @@ import { useEffect, useRef, useState } from "react";
 interface UseImageSequenceResult {
   readonly images: readonly HTMLImageElement[];
   readonly isLoaded: boolean;
+  readonly loadedCount: number;
 }
 
 export function useImageSequence(frames: readonly string[]): UseImageSequenceResult {
-  const [isLoaded, setIsLoaded] = useState(false);
+  const [loadedCount, setLoadedCount] = useState(0);
   const imagesRef = useRef<HTMLImageElement[]>([]);
 
   useEffect(() => {
-    if (frames.length === 0) {
-      setIsLoaded(true);
-      return;
-    }
-
-    let loadedCount = 0;
-    const totalCount = frames.length;
-    const images: HTMLImageElement[] = [];
-
-    frames.forEach((src, index) => {
-      const img = new Image();
-      img.crossOrigin = "anonymous";
-      img.src = src;
-      img.onload = () => {
-        loadedCount += 1;
-        if (loadedCount === totalCount) {
-          setIsLoaded(true);
-        }
-      };
-      img.onerror = () => {
-        loadedCount += 1;
-        if (loadedCount === totalCount) {
-          setIsLoaded(true);
-        }
-      };
-      images[index] = img;
-    });
-
+    setLoadedCount(0);
+    const images = frames.map(() => new Image());
     imagesRef.current = images;
+    if (!images.length) return;
+
+    let settled = 0;
+    let cancelled = false;
+    const startRemaining = () => {
+      frames.slice(1).forEach((src, index) => {
+        images[index + 1]!.src = src;
+      });
+    };
+
+    images.forEach((img, index) => {
+      img.crossOrigin = "anonymous";
+      const finish = () => {
+        if (cancelled) return;
+        settled += 1;
+        setLoadedCount(settled);
+        if (index === 0) startRemaining();
+      };
+      img.onload = finish;
+      img.onerror = finish;
+    });
+    images[0]!.src = frames[0]!;
 
     return () => {
+      cancelled = true;
       images.forEach((img) => {
         img.onload = null;
         img.onerror = null;
@@ -48,5 +46,5 @@ export function useImageSequence(frames: readonly string[]): UseImageSequenceRes
     };
   }, [frames]);
 
-  return { images: imagesRef.current, isLoaded };
+  return { images: imagesRef.current, isLoaded: loadedCount === frames.length, loadedCount };
 }

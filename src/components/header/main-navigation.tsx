@@ -12,6 +12,7 @@ import { useProductCurtainScrollLock } from "./use-product-curtain-scroll-lock";
 import { useMainNavigationState } from "./use-main-navigation-state";
 import {
   MainLogo,
+  RevsYourHeartLogo,
   MainNavBar,
   MainNavContent,
   MainNavInner,
@@ -62,6 +63,10 @@ export function MainNavigation({ fullWidth = false }: MainNavigationProps) {
               <MainLogo
                 src={getAssetUrl("hlym/image.png")}
                 alt={toSentenceCase(headerCopy.logoAlt)}
+              />
+              <RevsYourHeartLogo
+                alt="Yamaha Revs your Heart"
+                src={getAssetUrl("hlym/revs-your-heart.png")}
               />
             </NavLeft>
             <NavRight $isOpen={isMenuOpen} id="primaryNav">

@@ -14,7 +14,8 @@ describe("getDealerMarkerFeatureCollection", () => {
         type: "Point"
       },
       properties: {
-        dealerId: firstDealer.id
+        dealerId: firstDealer.id,
+        markerLabel: "HAB"
       },
       type: "Feature"
     });

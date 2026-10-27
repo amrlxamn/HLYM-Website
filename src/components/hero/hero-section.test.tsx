@@ -15,6 +15,9 @@ describe("HeroSection", () => {
     const button = view.getByRole("button", { name: toSentenceCase(firstSlide.alt) });
 
     expect(button).toHaveTextContent(toSentenceCase(firstSlide.alt));
+    expect(
+      view.getByRole("img", { name: firstSlide.alt }).closest("a")?.style.backgroundImage
+    ).toContain(firstSlide.image);
     expect(button).toHaveTextContent("01");
     expect(view.getByText(toSentenceCase(lastSlide.alt))).toBeInTheDocument();
     expect(document.head.textContent).toContain("max-width:1280px");
@@ -34,6 +37,9 @@ describe("HeroSection", () => {
         "href",
         secondSlide.href
       );
+      expect(
+        view.getByRole("img", { name: secondSlide.alt }).closest("a")?.style.backgroundImage
+      ).toContain(secondSlide.image);
     });
   });
 });

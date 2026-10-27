@@ -40,6 +40,15 @@ export const ModelCopy = styled.div<{ $compact: boolean }>`
     order: 1;
     padding: var(--space-6) var(--space-4);
   }
+
+  @media (max-width: 640px) {
+    flex: none;
+    gap: var(--space-2);
+    height: auto;
+    order: 2;
+    padding: var(--space-2) var(--space-4) var(--space-4);
+    width: 100%;
+  }
 `;
 
 export const ModelNumber = styled.p`
@@ -198,6 +207,12 @@ export const ModelImage = styled.div`
     height: clamp(220px, 52vw, 380px);
     min-width: 0;
     order: 1;
+  }
+
+  @media (max-width: 640px) {
+    flex: 1 1 auto;
+    height: 100%;
+    width: 100%;
   }
 `;
 

@@ -6,20 +6,37 @@ export const ProductShowcasePageRoot = styled.section`
   min-height: 100dvh;
   overflow: hidden;
   position: relative;
+
+  @media (max-width: 980px) {
+    min-height: 0;
+  }
 `;
 
 export const ProductShowcasePageInner = styled(Container)`
-  display: grid;
+  display: flex;
   min-height: 100dvh;
-  padding-bottom: 32px;
-  padding-top: 22px;
+  padding-bottom: var(--space-8);
+  padding-top: calc(var(--space-16) + var(--space-2));
   position: relative;
   z-index: 1;
+
+  @media (max-width: 980px) {
+    display: block;
+    min-height: 0;
+    padding-bottom: var(--space-12);
+  }
 `;
 
 export const ProductShowcaseStage = styled.article`
   align-items: center;
-  display: grid;
-  min-height: calc(100dvh - 54px);
-  position: relative;
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  gap: var(--space-4);
+  min-height: calc(100dvh - var(--space-16) - var(--space-2) - var(--space-8));
+  width: 100%;
+
+  @media (max-width: 980px) {
+    min-height: 0;
+  }
 `;

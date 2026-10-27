@@ -3,20 +3,12 @@ import styled from "styled-components";
 export const ProductFullSpecificationItemRoot = styled.article`
   display: grid;
   gap: 16px;
-  grid-template-columns: minmax(88px, 176px) minmax(0, 376px);
+  grid-template-columns: minmax(0, 1fr);
   grid-template-rows: auto 1px auto;
-  justify-content: start;
 
-  @media (max-width: 640px) {
-    grid-template-columns: 64px minmax(0, 1fr);
+  @media (max-width: 1080px) {
+    grid-template-rows: none;
   }
-`;
-
-export const ProductFullSpecificationNumber = styled.span`
-  color: var(--color-text-dim);
-  font-size: 20px;
-  font-weight: 300;
-  line-height: 1.2;
 `;
 
 export const ProductFullSpecificationItemTitle = styled.h3`
@@ -26,6 +18,18 @@ export const ProductFullSpecificationItemTitle = styled.h3`
   line-height: 1.2;
   margin: 0;
   text-transform: uppercase;
+`;
+
+export const ProductFullSpecificationItemImage = styled.img`
+  display: none;
+
+  @media (max-width: 1080px) {
+    background: #0a0a0a;
+    display: block;
+    max-height: 420px;
+    object-fit: contain;
+    width: 100%;
+  }
 `;
 
 export const ProductFullSpecificationDivider = styled.span`
@@ -39,7 +43,6 @@ export const ProductFullSpecificationDescription = styled.p`
   color: var(--color-text-primary);
   font-size: 14px;
   font-weight: 300;
-  grid-column: 2;
   line-height: 23px;
   margin: 0;
   text-transform: uppercase;

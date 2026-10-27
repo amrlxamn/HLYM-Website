@@ -36,9 +36,10 @@ export const ProductOverviewColorGrid = styled.div`
 `;
 
 export const ProductOverviewColorCardRoot = styled(motion.article)<{ $isFeatured: boolean }>`
-  background: var(--color-bg-raised);
+  background: var(--color-bg-canvas);
   border: 1px solid
-    ${({ $isFeatured }) => ($isFeatured ? "var(--color-border-brand-subtle)" : "transparent")};
+    ${({ $isFeatured }) =>
+      $isFeatured ? "var(--color-border-brand-subtle)" : "var(--color-border-muted)"};
   display: grid;
   grid-template-rows: minmax(0, 1fr) minmax(112px, auto);
   height: 100%;
@@ -85,7 +86,7 @@ export const ProductOverviewColorHeader = styled.div`
 `;
 
 export const ProductOverviewColorName = styled.h3`
-  color: var(--color-text-inverse);
+  color: var(--color-text-primary);
   font-size: 16px;
   font-weight: 600;
   line-height: 1.2;
@@ -95,7 +96,7 @@ export const ProductOverviewColorName = styled.h3`
 
 export const ProductOverviewColorSwatch = styled.span<{ $accentColor: string }>`
   background: ${({ $accentColor }) => $accentColor};
-  border: 1px solid var(--color-border-inverse);
+  border: 1px solid var(--color-border-subtle);
   border-radius: 12px;
   flex: 0 0 auto;
   height: 24px;
@@ -103,7 +104,7 @@ export const ProductOverviewColorSwatch = styled.span<{ $accentColor: string }>`
 `;
 
 export const ProductOverviewColorDescription = styled.p`
-  color: var(--color-text-wash-dark);
+  color: var(--color-text-muted-light);
   font-size: 13px;
   font-weight: 300;
   line-height: 1.5;

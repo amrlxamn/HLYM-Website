@@ -13,14 +13,18 @@ import {
   ContactEnquiryTextarea
 } from "../styles/contact-enquiry-fields.styles";
 
-export function ContactEnquiryDetailsSection() {
+export function ContactEnquiryDetailsSection({
+  defaultTopic = "General"
+}: {
+  defaultTopic?: string;
+}) {
   return (
     <ContactEnquirySection>
       <ContactEnquirySectionTitle>Your enquiry</ContactEnquirySectionTitle>
       <ContactEnquiryGrid>
         <ContactEnquiryField>
           <ContactEnquiryLabelText>Type of enquiry</ContactEnquiryLabelText>
-          <ContactEnquirySelect defaultValue="General" name="topic" required>
+          <ContactEnquirySelect defaultValue={defaultTopic} name="topic" required>
             {CONTACT_ENQUIRY_TYPE_OPTIONS.map((option) => (
               <option key={option} value={option}>
                 {option}

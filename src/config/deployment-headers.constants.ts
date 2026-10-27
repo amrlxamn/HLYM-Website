@@ -1,6 +1,6 @@
 const PRODUCTION_CSP = [
   "default-src 'self'",
-  "img-src 'self' data: blob: https://*.supabase.co",
+  "img-src 'self' data: blob: https://*.supabase.co https://api.mapbox.com https://cdn.prod.website-files.com https://s3.amazonaws.com",
   "media-src 'self' blob: https://*.supabase.co",
   "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
   "font-src 'self' https://fonts.gstatic.com data:",

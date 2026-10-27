@@ -6,7 +6,8 @@ import { getNormalizedContactOwnerType } from "./get-normalized-contact-owner-ty
 
 export function createContactEnquiryPayload(
   form: HTMLFormElement,
-  turnstileToken?: string | null
+  turnstileToken?: string | null,
+  source: ContactEnquiryPayload["source"] = "webflow-contact-page"
 ): ContactEnquiryPayload {
   const formData = new FormData(form);
 
@@ -23,7 +24,7 @@ export function createContactEnquiryPayload(
       getContactEnquiryFormValue(formData, "preferredBranch")
     ),
     registrationNumber: getContactEnquiryFormValue(formData, "registrationNumber"),
-    source: "webflow-contact-page",
+    source,
     submissionId: createContactEnquirySubmissionId(),
     topic: getContactEnquiryFormValue(formData, "topic"),
     title: getContactEnquiryFormValue(formData, "title"),

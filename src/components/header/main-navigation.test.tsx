@@ -50,6 +50,29 @@ describe("MainNavigation", () => {
     fireEvent.keyDown(currentView.getByRole("button", { name: "products" }), { key: "Escape" });
   });
 
+  it("shows NEW beside newly introduced models without marking the rest", async () => {
+    const view = render(<MainNavigation />);
+    const currentView = within(view.container);
+
+    fireEvent.mouseEnter(currentView.getByRole("button", { name: "products" }));
+    fireEvent.mouseEnter(currentView.getByText("big bikes"));
+
+    const bigBikes = within(currentView.getByLabelText("Big bikes motorcycles"));
+    const xmax = bigBikes.getByRole("button", { name: "XMAX 300 NEW" });
+    expect(getComputedStyle(xmax).justifyContent).toBe("space-between");
+    expect(getComputedStyle(xmax).width).toBe("180px");
+    expect(bigBikes.getByRole("button", { name: "TENERE 700 NEW" })).toBeInTheDocument();
+    expect(bigBikes.getByRole("button", { name: "TMAX" })).not.toHaveTextContent("NEW");
+
+    fireEvent.mouseEnter(currentView.getByText("street"));
+    const street = within(currentView.getByLabelText("Street motorcycles"));
+    expect(street.getByRole("button", { name: "XSR155 NEW" })).toBeInTheDocument();
+    expect(street.getByRole("button", { name: "YZF-R25" })).not.toHaveTextContent("NEW");
+
+    fireEvent.keyDown(currentView.getByRole("button", { name: "products" }), { key: "Escape" });
+    await waitFor(() => expect(currentView.queryByLabelText("Products submenu")).toBeNull());
+  });
+
   it("closes the products curtain with escape", async () => {
     const view = render(<MainNavigation />);
     const currentView = within(view.container);

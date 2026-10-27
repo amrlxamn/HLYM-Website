@@ -1,0 +1,950 @@
+{
+  "xsr155": {
+    "image": "https://s3.amazonaws.com/webflow-prod-assets/6a20eb17fa7f874df9ab69d2/6a97c85f59f2f91a76f89479_26XSR-Specification.png",
+    "points": [
+      {
+        "x": 47.6,
+        "y": 57.04,
+        "title": "155cc VVA Enjin Sejukan Cecair",
+        "description": ""
+      },
+      {
+        "x": 75.02,
+        "y": 71.4,
+        "title": "ABS 2-Saluran",
+        "description": ""
+      },
+      {
+        "x": 28.17,
+        "y": 59.87,
+        "title": "Klac “Assist & Slipper”",
+        "description": ""
+      },
+      {
+        "x": 64.75,
+        "y": 45.01,
+        "title": "Inverted Front Fork",
+        "description": ""
+      },
+      {
+        "x": 71.55,
+        "y": 29.69,
+        "title": "Lampu Hadapan & Belakang LED",
+        "description": ""
+      },
+      {
+        "x": 63.35,
+        "y": 19.18,
+        "title": "Full LCD Digital Meter",
+        "description": ""
+      },
+      {
+        "x": 25.35,
+        "y": 30.53,
+        "title": "Heritage Style Seat",
+        "description": ""
+      },
+      {
+        "x": 16.55,
+        "y": 71.29,
+        "title": "Dual Purpose Tyre",
+        "description": ""
+      },
+      {
+        "x": 41.55,
+        "y": 28.33,
+        "title": "Tear Drop Shape Tank dengan Knee Grip Concave",
+        "description": ""
+      }
+    ]
+  },
+  "xmax-300": {
+    "image": "https://cdn.prod.website-files.com/6a20eb17fa7f874df9ab69d2/6a9d9001657b94e2f604e452_26XMAX-Specification.png",
+    "points": [
+      {
+        "x": 67,
+        "y": 32.47,
+        "title": "Iconic Design",
+        "description": ""
+      },
+      {
+        "x": 26.42,
+        "y": 62.64,
+        "title": "Blue Core 300cc Engine",
+        "description": ""
+      },
+      {
+        "x": 35.57,
+        "y": 38.45,
+        "title": "Comfortable Ergonomics and Leather Style Seat Cover",
+        "description": ""
+      },
+      {
+        "x": 51.55,
+        "y": 36.16,
+        "title": "Premium Tech MAX Finishing",
+        "description": ""
+      }
+    ]
+  },
+  "y16zr": {
+    "image": "https://cdn.prod.website-files.com/6a20eb17fa7f874df9ab69d2/6a9d48c9cd299f1b1d6179cf_y16zr-specification.png",
+    "points": [
+      {
+        "x": 48.8,
+        "y": 43.37,
+        "title": "Intake Sound Dengan Twin Funnel",
+        "description": ""
+      },
+      {
+        "x": 65.62,
+        "y": 19.31,
+        "title": "Lampu Hadapan LED Tampil Lebih Bergaya",
+        "description": ""
+      },
+      {
+        "x": 63.97,
+        "y": 30.62,
+        "title": "Corak Istimewa Dengan Identiti Khas",
+        "description": ""
+      },
+      {
+        "x": 77.15,
+        "y": 67.54,
+        "title": "Speedometer Digital LCD Yang Lebih Berteknologi",
+        "description": ""
+      },
+      {
+        "x": 34.74,
+        "y": 64.11,
+        "title": "Traction Control System Kawalan Maksimum",
+        "description": ""
+      },
+      {
+        "x": 72.54,
+        "y": 69.75,
+        "title": "Sistem ABS Untuk Kawalan Penuh",
+        "description": ""
+      }
+    ]
+  },
+  "y15zr": {
+    "image": "https://cdn.prod.website-files.com/6a20eb17fa7f874df9ab69d2/6a4f6c430584689e00a8cbf2_Y15ZR%20specification%20chart.png",
+    "points": [
+      {
+        "x": 66.41,
+        "y": 20.54,
+        "title": "LED Modern Headlights",
+        "description": "An updated design that is sophisticated and sporty, the new LED headlights consist of 3 parts (2 lows, 1 high) each providing maximum clarity lighting during riding."
+      },
+      {
+        "x": 84.42,
+        "y": 63.01,
+        "title": "Wider Front Tyre",
+        "description": "Now a more macho look with a wider front tyre, giving you a safer and a more comfortable ride."
+      },
+      {
+        "x": 54.17,
+        "y": 17.33,
+        "title": "LCD Meter Panel",
+        "description": "The new speedometer design features a full LCD meter panel with brighter and comprehensive riding information, all in the palm of your hands."
+      },
+      {
+        "x": 44.35,
+        "y": 51.53,
+        "title": "Attractive Graphics and Decals",
+        "description": "The combination of today’s fascinating modern graphic design and decals, adding the sparks to your ride. It looks fast even standing still."
+      }
+    ]
+  },
+  "135lc-fi": {
+    "image": "https://cdn.prod.website-files.com/6a20eb17fa7f874df9ab69d2/6a9d74ff657b94e2f6009ddd_26135LC-Specification.png",
+    "points": [
+      {
+        "x": 53.6,
+        "y": 37.77,
+        "title": "Yamaha Premium Basket*",
+        "description": "*Didatangkan khas untuk model S.E. sahaja* Bakul Yamaha 2-dalam-1 yang direka khas untuk penyimpanan tambahan. Ia hadir dengan ruang soket pengecas USB tertutup untuk perlindungan alatan mudah alih semasa digunakan. Port USB Kalis air Bukaan tempat duduk lebih luas"
+      },
+      {
+        "x": 58.22,
+        "y": 59.29,
+        "title": "Enjin Suntikan Bahan Api EU4 Serba Baharu",
+        "description": "Dikuasakan oleh enjin klac automatik 135cc baharu dengan suntikan bahan api dan sejukan cecair, mematuhi piawaian EU4 untuk meningkatkan lagi prestasi enjin yang lebih lancar."
+      },
+      {
+        "x": 57.17,
+        "y": 32.9,
+        "title": "Cara Mudah membuka Tempat Duduk",
+        "description": "Dengan memusingkan kunci ke kiri, anda kini boleh membuka tempat duduk dengan mudah tanpa perlu menarik keluar kunci."
+      },
+      {
+        "x": 31.57,
+        "y": 41.25,
+        "title": "Tangki Bahan Api Yang Lebih Besar",
+        "description": "Kapasiti 4.6L lebih besar untuk jarak tunggangan yang lebih jauh."
+      },
+      {
+        "x": 41.77,
+        "y": 50.41,
+        "title": "Kerangka yang lebih ringan dan kukuh",
+        "description": "Direka sepenuhnya menjadikan model generasi ini lebih dinamik dan ergonomik sesuai untuk tunggangan harian."
+      },
+      {
+        "x": 72.97,
+        "y": 44.82,
+        "title": "Reka Bentuk Aerodinamik yang Dipertingkatkan",
+        "description": "Reka bentuk cowling baharu meningkatkan kecekapan aerodinamik, mengurangkan geseran serta tekanan angin di bahagian lutut untuk tunggangan lancar."
+      },
+      {
+        "x": 69.37,
+        "y": 35.76,
+        "title": "Lampu Hadapan LED & Lampu Pilot Baharu",
+        "description": "Rekaan baharu lampu hadapan serta lampu pilot melengkapi bentuk agresif keseluruhan Yamaha 135LC Fi ini."
+      },
+      {
+        "x": 17.37,
+        "y": 71.39,
+        "title": "Brek Cakera Belakang Baharu",
+        "description": "Kini dilengkapi dengan brek cakera belakang serta lengan ayun rekaan baharu untuk kuasa membrek yang lebih stabil."
+      },
+      {
+        "x": 54.97,
+        "y": 12.47,
+        "title": "Speedometer Digital Baharu",
+        "description": "Meter digital bergaya dengan fungsi paparan maklumat, lebih jelas dalam pelbagai cuaca dan keadaan tunggangan."
+      },
+      {
+        "x": 12.77,
+        "y": 32.3,
+        "title": "Lampu Belakang LED",
+        "description": "Rekaan lampu belakang dengan garis kontur berbentuk tajam dilengkapi LED untuk pencahayaan yang lebih baik."
+      }
+    ]
+  },
+  "yzf-r25": {
+    "image": "https://cdn.prod.website-files.com/6a20eb17fa7f874df9ab69d2/6a9d758a08e4ea8fd69efb33_25R25-Specification-1.png",
+    "points": [
+      {
+        "x": 69.41,
+        "y": 56.79,
+        "title": "New Inverted Front Forks",
+        "description": "With optimized spring and damping settings, improving fork rigidity for a sporty front-end feel without losing the real-world comfort when riding."
+      },
+      {
+        "x": 76.03,
+        "y": 15.59,
+        "title": "Updated Digital Multi-Function Instrument",
+        "description": "The YZF-R25 features an updated multi-function and compact LCD instrument that furnishes the rider of the gear positions, fuel capacity, real time and average fuel economy, water temperature, clock and an oil change trip meter."
+      },
+      {
+        "x": 54.58,
+        "y": 15.31,
+        "title": "3 in 1 Main Switch Design Inspired By Big Bikes",
+        "description": "Featuring an ala Big Bike switch, with the Starter button and a 3 in 1 cut off/on on board."
+      },
+      {
+        "x": 81.56,
+        "y": 25.09,
+        "title": "Aggressive New YZF-R1 Inspired Face",
+        "description": "With a glaring new look and face, a new front fairing and screen inspired by the iconic YZF-R1, the R25 has a central air duct working with the cross-layered panels to maximize cooling airflow for the engine, making this the most outstanding compact super sport in its class."
+      }
+    ]
+  },
+  "tmax": {
+    "image": "https://cdn.prod.website-files.com/6a20eb17fa7f874df9ab69d2/6a9d7503f29b4bd21eeaa3f4_25TMAX-Specification.png",
+    "points": [
+      {
+        "x": 46.8,
+        "y": 21.22,
+        "title": "Smart Tech, Max Control",
+        "description": "Cruise control, Traction + Brake control. Dual D-Mode."
+      },
+      {
+        "x": 79.8,
+        "y": 38.79,
+        "title": "Sleek New Front Fairing + T-Shaped Position Lights",
+        "description": "Redesigned for sharper, sportier lines, the TMAX now boasts dual-eye headlights and a restyled front end that screams performance."
+      },
+      {
+        "x": 33.22,
+        "y": 36.49,
+        "title": "New Textured Seat Cover",
+        "description": "Comfort meets class. A fresh seat design that elevates every ride."
+      },
+      {
+        "x": 71.77,
+        "y": 76.16,
+        "title": "Tyre Pressure Monitoring System (TPMS)",
+        "description": "Real-time tyre data at your fingertips."
+      },
+      {
+        "x": 14.74,
+        "y": 33.26,
+        "title": "Emergency Stop Signal (ESS)",
+        "description": "Extra safety, when it matters most."
+      },
+      {
+        "x": 82.74,
+        "y": 71.82,
+        "title": "High-Grade Machine Cut Wheels",
+        "description": "Because premium isn’t just about looks, it’s how it rolls."
+      }
+    ]
+  },
+  "tenere-700": {
+    "image": "https://cdn.prod.website-files.com/6a20eb17fa7f874df9ab69d2/6a9d7347524f474a15da2852_26TENERE700-Specification--b1de9e531447c4e7.png",
+    "points": [
+      {
+        "x": 63.79,
+        "y": 22.52,
+        "title": "NEW RALLY – BRED HEADLIGHT AND BODY DESIGN",
+        "description": ""
+      },
+      {
+        "x": 36.22,
+        "y": 52.57,
+        "title": "LATEST EU5 + 690CC FOUR STROKE CP2 ENGINE",
+        "description": ""
+      },
+      {
+        "x": 29.36,
+        "y": 51.17,
+        "title": "UPGRADED FULLY ADJUSTABLE SUSPENSION",
+        "description": ""
+      },
+      {
+        "x": 56.15,
+        "y": 7.7,
+        "title": "SWITCHABLE ABS AND TCS AT THE PRESS OF A BUTTON",
+        "description": ""
+      }
+    ]
+  },
+  "pg-1": {
+    "image": "https://cdn.prod.website-files.com/6a20eb17fa7f874df9ab69d2/6a9d777d96b5375232c72756_26PG1-Specification.png",
+    "points": [
+      {
+        "x": 68.2,
+        "y": 29.73,
+        "title": "Lampu Depan dan Belakang Ikonik",
+        "description": "Lampu depan dan belakang berbentuk bulat yang ringkas dan ikonik menjadi pelengkap rekabentuk bergaya model ini."
+      },
+      {
+        "x": 26.82,
+        "y": 31.3,
+        "title": "Dwi Kerusi Terpisah",
+        "description": "Penutup tangki bahan api terletak di bawah tempat duduk penunggang, menjadikan pengisian bahan api lebih mudah apabila bagasi dimuatkan pada bahagian tempat duduk penumpang."
+      },
+      {
+        "x": 67.97,
+        "y": 46.06,
+        "title": "Pelindung Suspensi Depan",
+        "description": "Memberi perlindungan tambahan daripada kotoran ketika menunggang."
+      },
+      {
+        "x": 55.17,
+        "y": 22.25,
+        "title": "Bar Pemegang Tegak",
+        "description": "Membolehkan posisi tunggangan lebih santai dengan mengoptimumkan ketinggian dan lebar bahagian komponen."
+      },
+      {
+        "x": 38.37,
+        "y": 61.42,
+        "title": "Enjin 114cc Dengan Suntikan Bahan Api",
+        "description": "Selain daripada ketahanan dan kestabilan, enjin ini juga memberikan keseimbangan antara prestasi tork, kemudahan penggunaan dan penggunaan bahan api yang rendah."
+      },
+      {
+        "x": 85.37,
+        "y": 73.27,
+        "title": "Tayar Bercorak Blok",
+        "description": "Tayar bercorak blok memberikan kestabilan yang baik sama ada di jalanraya mahupun di luar jalanraya."
+      }
+    ]
+  },
+  "tracer-9-gt": {
+    "image": "https://cdn.prod.website-files.com/6a20eb17fa7f874df9ab69d2/6a9d77063ae12a68fa66b3ca_26TRACER9GT-Specification.png",
+    "points": [
+      {
+        "x": 35.99,
+        "y": 32.43,
+        "title": "More Comfortable Ergonomics for Rider and Pillion",
+        "description": "Designed for longer journey and shared adventures, the Tracer 9 GT offers enhanced comfort for both rider and pillion."
+      },
+      {
+        "x": 52.42,
+        "y": 24.63,
+        "title": "Smart Key System",
+        "description": "Enjoy keyless convenience with Yamaha’s Smart Key System."
+      },
+      {
+        "x": 38.56,
+        "y": 63.48,
+        "title": "3rd Generation Quick Shifter",
+        "description": "Enjoy smoother, more effortless riding with 3rd generation quick shifter, delivering clutches upshifts and downshifts for a more fluid ride experience."
+      },
+      {
+        "x": 63.55,
+        "y": 7.02,
+        "title": "Electronic Adjustable Windscreen",
+        "description": "Ride in comfort across changing conditions with the electronically adjustable winscreen."
+      },
+      {
+        "x": 63.34,
+        "y": 22.7,
+        "title": "Electronically Controlled Suspension Developed jointly with KYB specifically for the Tracer 9 GT, this is the most advanced suspension system ever fitted to a Yamaha production model.",
+        "description": ""
+      },
+      {
+        "x": 57.34,
+        "y": 20.69,
+        "title": "Yamaha Ride Control (YRC) with Connectivity & Garmin Navigation with New 7-inch Full Colour TFT Display The new 7-inch full colour TFT display brings together ride control, connectivity and navigation in one intelligent system.",
+        "description": ""
+      }
+    ]
+  },
+  "nmax": {
+    "image": "https://cdn.prod.website-files.com/6a20eb17fa7f874df9ab69d2/6a9d7705a2b5bf965e3e355e_26NMAX-Specification.png",
+    "points": [
+      {
+        "x": 73.8,
+        "y": 37.27,
+        "title": "Dual Projector LED",
+        "description": "Rekaan lampu depan dan belakang LED yang baharu dan bergaya. Tampak lebih moden dan mewah serta dilengkapi Dual Projector LED untuk pencahayaan yang optimum. Rekaan baru lengkap dengan Flasher LED menampilkan gaya lebih dinamik dan kontemporari."
+      },
+      {
+        "x": 55.42,
+        "y": 21.19,
+        "title": "Sistem Kunci Pintar",
+        "description": "Sistem kunci ‘keyless’ dilengkapi ciri ‘Answer Back System’ untuk kemudahan penunggang mencari posisi parkir motor."
+      },
+      {
+        "x": 71.17,
+        "y": 52.21,
+        "title": "Sistem Suspensi Ditingkatkan",
+        "description": "Penyerapan hentakan yang lebih baik untuk tunggangan yang selesa dan meyakinkan."
+      },
+      {
+        "x": 58.37,
+        "y": 19.86,
+        "title": "Meter Digital LCD",
+        "description": "Meter Digital LCD yang lebih informatif serta sambungan aplikasi Y-Connect memastikan data dimaklumkan kepada penunggang."
+      },
+      {
+        "x": 69.37,
+        "y": 71.55,
+        "title": "Sistem ‘Brek’ Optimum Dwi Saluran ABS Sistem kawalan ‘brek’ yang lebih optimum bagi menghalang penguncian roda secara tidak sengaja dan kegelinciran pada permukaan jalan licin.",
+        "description": ""
+      },
+      {
+        "x": 26.77,
+        "y": 37.11,
+        "title": "Ruang Simpanan Barang 25L",
+        "description": "Ruang yang lebih besar untuk menyimpan barangan keperluan penunggang serta aktiviti seharian."
+      },
+      {
+        "x": 54.37,
+        "y": 33.39,
+        "title": "Soket Kuasa Elektrik",
+        "description": "Komunikasi tidak terputus dengan sokongan soket kuasa elektrik untuk mengecas alat peranti sepanjangan perjalanan."
+      }
+    ]
+  },
+  "ego-avantiz": {
+    "image": "https://cdn.prod.website-files.com/6a20eb17fa7f874df9ab69d2/6a9d7704d5f06fa521119f10_26EgoAvantiz-Specification.png",
+    "points": [
+      {
+        "x": 71.8,
+        "y": 38.59,
+        "title": "Aggressive looking LED headlight",
+        "description": "A glaring illuminated headlamp complete with adjustable brightness settings to suit your ride at whatever time of day."
+      },
+      {
+        "x": 13.82,
+        "y": 63.48,
+        "title": "Stylish exhaust",
+        "description": "Stylish exhaust housing befitting the overall aggressive and daunting presence of the bike."
+      },
+      {
+        "x": 33.57,
+        "y": 36.49,
+        "title": "Generous storage space",
+        "description": "A generous 14L under-seat storage compartment to hold your personal items including a jet-type helmet."
+      },
+      {
+        "x": 18.37,
+        "y": 31.4,
+        "title": "Safety grab bar",
+        "description": "An easy to reach, ergonomically designed safety grab bar for the pillion rider."
+      }
+    ]
+  },
+  "ez115": {
+    "image": "https://cdn.prod.website-files.com/6a448abbfd3494482fc8242e/6a59b73cb9f2a044463b0e2a_25EZ115-Specification.png",
+    "points": []
+  },
+  "ego-gear": {
+    "image": "https://cdn.prod.website-files.com/6a20eb17fa7f874df9ab69d2/6a9d7406a2b5bf965e3dacaa_25GearPro-Specification.png",
+    "points": [
+      {
+        "x": 28.2,
+        "y": 52.63,
+        "title": "TEMPAT LETAK KAKI PEMBONCENG MESRA KANAK-KANAK",
+        "description": ""
+      },
+      {
+        "x": 14.22,
+        "y": 26.24,
+        "title": "PEMEGANG BELAKANG DENGAN TAPAK RATA",
+        "description": ""
+      },
+      {
+        "x": 32.17,
+        "y": 38.44,
+        "title": "RUANG BAWAH TEMPAT DUDUK 18.6 LITER",
+        "description": ""
+      },
+      {
+        "x": 24.77,
+        "y": 64.51,
+        "title": "ENJIN BLUE CORE HYBRID 125CC DENGAN SMART MOTOR GENERATOR (SMG)",
+        "description": ""
+      },
+      {
+        "x": 52.57,
+        "y": 15.9,
+        "title": "SISTEM Y-CONNECT",
+        "description": ""
+      },
+      {
+        "x": 74.17,
+        "y": 38.17,
+        "title": "LAMPU HADAPAN LED",
+        "description": ""
+      },
+      {
+        "x": 55.17,
+        "y": 13.06,
+        "title": "METER LCD BARU",
+        "description": ""
+      },
+      {
+        "x": 49.17,
+        "y": 17.79,
+        "title": "SISTEM STOP & START",
+        "description": ""
+      },
+      {
+        "x": 53.77,
+        "y": 39.1,
+        "title": "SISTEM ‘ANSWER BACK’",
+        "description": ""
+      },
+      {
+        "x": 18.37,
+        "y": 34.07,
+        "title": "TANGKI BAHAN API 5.1L",
+        "description": ""
+      }
+    ]
+  },
+  "mt-09": {
+    "image": "https://cdn.prod.website-files.com/6a20eb17fa7f874df9ab69d2/6a9d758833e7659204c38f5b_25MT09-Specification.png",
+    "points": [
+      {
+        "x": 53.8,
+        "y": 19.5,
+        "title": "Intuitive Control Switch with a Dedicated Cruise Control",
+        "description": "With just a convenient click, the new intuitive control switch can handle a wide range of functions, including smartphone connectivity, navigation and cruise control."
+      },
+      {
+        "x": 63.02,
+        "y": 23.33,
+        "title": "5-Inch TFT Full Colour Display with Y-Connect & Garmin StreetCross",
+        "description": "The 5-inch full-color TFT display is updated with four customisable themes and smartphone connectivity via the Y-connect app, allowing riders to receive calls, texts, and listen to music. Real-time traffic updates and full map navigation can be accessed through the free Garmin StreetCross app."
+      },
+      {
+        "x": 44.17,
+        "y": 25.25,
+        "title": "Acoustic Amplifier Grilles",
+        "description": "Amplifier grilles are specially designed with perforated openings above the fuel tank to accentuate the high frequency sounds of the engine, delivering an exhilarating sound of speed right to the rider’s ears."
+      },
+      {
+        "x": 65.95,
+        "y": 19.46,
+        "title": "Personalized Riding Modes Via Yamaha Ride Control (YRC)",
+        "description": "The Yamaha Ride Control (YRC) offers three preset riding modes-SPORT, STREET, and RAIN-plus two customizable options for engine power and electronic intervention, all adjustable via the TFT screen or through the Y-CONNECT app."
+      },
+      {
+        "x": 52.75,
+        "y": 20.64,
+        "title": "Brembo Brake Master Cylinder",
+        "description": "The Brembo radial master cylinder delivers a linear pressure supply to the four-piston calipers on the dual 298mm front discs, providing outstanding braking performance with fingertip control."
+      },
+      {
+        "x": 32.15,
+        "y": 39.79,
+        "title": "Equipped with USB Type-C",
+        "description": "A standard Type-C port for charging mobile and portable devices."
+      },
+      {
+        "x": 42.15,
+        "y": 55.93,
+        "title": "Redesigned Subframe and Spring Rate",
+        "description": "The subframe has been redesigned to improve the rider’s stability while the spring rate has been increased to ensure better handling and cornering performance across various road conditions."
+      },
+      {
+        "x": 40.15,
+        "y": 30.36,
+        "title": "Reshaped Fuel Tank and Two-Part Seat",
+        "description": "The redesigned fuel tank is now slimmer for a forward-learning riding position while the 2-part seat has been upgraded to provide comfort for both rider and passenger."
+      }
+    ]
+  },
+  "nvx": {
+    "image": "https://cdn.prod.website-files.com/6a20eb17fa7f874df9ab69d2/6a9d758563701b2752461cda_25NVX-Specification.png",
+    "points": [
+      {
+        "x": 51,
+        "y": 15.16,
+        "title": "(PERTAMA DALAM KELASNYA!) Enjin YECVT 155cc Blue Core, VVA dengan Teknologi Downshift",
+        "description": ""
+      },
+      {
+        "x": 64.42,
+        "y": 9.43,
+        "title": "(PERTAMA DALAM KELASNYA!) Pilihan Mod Menunggang",
+        "description": "Sports Mode Town Mode"
+      },
+      {
+        "x": 15.37,
+        "y": 38.93,
+        "title": "Isyarat Berhenti Kecemasan (ESS)",
+        "description": ""
+      },
+      {
+        "x": 60.94,
+        "y": 10.75,
+        "title": "3 Mod Paparan dengan Warna Latar Belakang Boleh Ubah",
+        "description": ""
+      },
+      {
+        "x": 56.54,
+        "y": 37.09,
+        "title": "(TCS) Sistem Kawalan Cengkaman",
+        "description": ""
+      }
+    ]
+  },
+  "r15m": {
+    "image": "https://cdn.prod.website-files.com/6a20eb17fa7f874df9ab69d2/6a9d7585d5f06fa5211113b7_25R15M-Specification.png",
+    "points": [
+      {
+        "x": 17.81,
+        "y": 47.38,
+        "title": "Sistem Kawalan Cengkaman (TCS)",
+        "description": "Teknologi sistem elektronik untuk kawalan lebih dinamik di dalam segala keadaan permukaan jalan."
+      },
+      {
+        "x": 71.03,
+        "y": 32.23,
+        "title": "Lampu Posisi LED",
+        "description": "Rekaan lampu posisi ini tampil unik dengan gayaan agresif berasakan penampilan terbaru generasi Siri R."
+      },
+      {
+        "x": 83.17,
+        "y": 32.15,
+        "title": "Lampu Depan LED Dwi-Fungsi",
+        "description": "Lampu hadapan baharu ini menampilkan ciri aerodinamik saluran udara Siri R serta sistem pencahayaan yang cerah untuk keselamatan penunggang dalam segala keadaan tunggangan."
+      }
+    ]
+  },
+  "xmax-250": {
+    "image": "https://cdn.prod.website-files.com/6a20eb17fa7f874df9ab69d2/6a9d7506657b94e2f6009f15_25XMAX-Specification.png",
+    "points": [
+      {
+        "x": 32.6,
+        "y": 40.41,
+        "title": "Updated USB-C Charging Port",
+        "description": "Power up your devices with the modern standard."
+      },
+      {
+        "x": 67.42,
+        "y": 20.14,
+        "title": "Electronically Adjustable Windscreen",
+        "description": "Adjust on the go for comfort that keeps up with your ride."
+      },
+      {
+        "x": 70.97,
+        "y": 37.66,
+        "title": "Integrated Rear Mirrors with Signal Lights",
+        "description": "Smoother airflow. Sleeker profile. Sharper awareness."
+      },
+      {
+        "x": 59.75,
+        "y": 16.56,
+        "title": "Dual-Screen TFT Display",
+        "description": "4.2″ TFT + 3.2″ LCD"
+      },
+      {
+        "x": 69.55,
+        "y": 76.01,
+        "title": "Remapped Traction Control",
+        "description": "Smoother grip. More confident handling, rain or shine."
+      },
+      {
+        "x": 24.95,
+        "y": 32.77,
+        "title": "Emergency Stop Signal (ESS)",
+        "description": "Smart signals that flash under hard braking so others around you react faster, when seconds matter."
+      }
+    ]
+  },
+  "yseries": {
+    "image": "https://s3.amazonaws.com/webflow-prod-assets/6a20eb17fa7f874df9ab69d2/6abb4b9b0561d99a0ad861e7_YSERIES-25Y16-Specification.png",
+    "points": [
+      {
+        "x": 65.6,
+        "y": 17.91,
+        "title": "‘Fairing’ Depan Terbaru",
+        "description": "Rekaan hadapan lebih agresif menyerlahkan simbol kuasa dan juga memberi makna tersendiri kepada mereka yang berani."
+      },
+      {
+        "x": 54.62,
+        "y": 14.1,
+        "title": "Meter Digital LCD Dengan Latar Negatif",
+        "description": "Panel unit digital LCD baharu yang memaparkan informasi seperti kelajuan, tahap RPM, kedudukan gear, penunjuk VVA dan lain-lain."
+      },
+      {
+        "x": 53.77,
+        "y": 30.86,
+        "title": "Sistem Kunci Pintar",
+        "description": "Enjin boleh dihidupkan dengan memutar butang tanpa perlu memasukkan kunci."
+      },
+      {
+        "x": 76.37,
+        "y": 66.91,
+        "title": "Sistem Brek ‘ABS’",
+        "description": "Sistem brek ‘ABS’ serta piring depan lebih besar digabungkan bagi memberi kuasa pengendalian lebih dinamik dan keyakinan dalam setiap tunggangan."
+      },
+      {
+        "x": 39.76,
+        "y": 72.59,
+        "title": "Klac ‘Assist & Slipper’",
+        "description": "Terhubung ke gearbox, sistem klac A&S memastikan penukaran gear yang lebih lancar dan mengurangkan tahap bebanan klac untuk perjalanan yang lebih selesa."
+      }
+    ]
+  },
+  "mt-15": {
+    "image": "https://cdn.prod.website-files.com/6a20eb17fa7f874df9ab69d2/6a9d7400151102895341a095_25MT15-Specification.png",
+    "points": [
+      {
+        "x": 71,
+        "y": 28.87,
+        "title": "Twin Eyed Position and LED Headlight",
+        "description": "Aggressive twin LED position lights gives an intimidating MT look, the compact central mounted LED headlight brightens every night ride."
+      },
+      {
+        "x": 41.02,
+        "y": 61.93,
+        "title": "Torque friendly acceleration VVA engine",
+        "description": "155cc liquid-cooled, SOHC, 4-valve, fuel-injected engine with high-performance VVA system integrating specific ECU with optimized FI settings produces high torque acceleration."
+      },
+      {
+        "x": 66.97,
+        "y": 54.41,
+        "title": "Inverted Front Fork",
+        "description": "All new inverted front forks and cast aluminium upper triple clamp provides confident cornering and braking performance."
+      },
+      {
+        "x": 64.94,
+        "y": 17.66,
+        "title": "LCD Meter Panel",
+        "description": "Negative LCD meter panel features easy to read multi-function display with a range of information."
+      },
+      {
+        "x": 8.75,
+        "y": 68.31,
+        "title": "140mm Rear Tyre",
+        "description": "Mounted with wide 140mm rear tyres for excellent grip and sure road holding."
+      },
+      {
+        "x": 48.14,
+        "y": 16.26,
+        "title": "A&S Clutch for Lighter Lever Pull & Stress-Free Gear Shifts",
+        "description": "An A&S (assist and slipper) clutch is adopted to reduce the weight of the clutch pull and provide low-stress shifting during deceleration. The lighter clutch pull weight helps to reduce rider fatigue. This also prevents excessive engine braking, this reducing the effects on chassis behavior. This A&S clutch makes for quick, smooth downshifts."
+      },
+      {
+        "x": 76.34,
+        "y": 73.61,
+        "title": "Large 282mm Front Disc",
+        "description": "A 2 pot calliper paired with large 282mm front disc gives accurate and strong braking power."
+      }
+    ]
+  },
+  "y16zr-6mro-limited-edition": {
+    "image": "https://cdn.prod.website-files.com/6a20eb17fa7f874df9ab69d2/6a9d749e33e7659204c341a8_246MRO-Specification.png",
+    "points": [
+      {
+        "x": 60.2,
+        "y": 41.91,
+        "title": "Yamaha’s 1st Glow-in-the-Dark Emblem",
+        "description": "Stand out in any light. A one of a kind, glow in the dark emblem enhances Y16ZR’s presence, ensuring the brand’s dominance day or night."
+      },
+      {
+        "x": 51.02,
+        "y": 45.26,
+        "title": "Chameleon Effect",
+        "description": "Featuring special UV graphics with a colour-shift effect, this design changes with the light, showcasing the bike’s refined aesthetics and commanding attention from every angle."
+      },
+      {
+        "x": 73.77,
+        "y": 28.68,
+        "title": "Unique Serial Number",
+        "description": "Each Y16ZR Limited Edition bears unique serial number, marking it as a prestigious collector’s item crafted with superior attention to detail."
+      }
+    ]
+  },
+  "mt-25": {
+    "image": "https://cdn.prod.website-files.com/6a20eb17fa7f874df9ab69d2/6a9d72c0aee0252c90f1fcc3_24MT25-Specification--9d0a06d95e48904b.png",
+    "points": [
+      {
+        "x": 66,
+        "y": 17.31,
+        "title": "LCD Meter Panel",
+        "description": "Next generation LCD meter panel with shift timing light and adequate easy to read information."
+      },
+      {
+        "x": 71.42,
+        "y": 27.66,
+        "title": "Dual Slant Position Lights and LED Headlight",
+        "description": "Predator type dual slant position lights emphasise the next generation MT look with the central mounted LED headlight to ensure bright and superior night timing."
+      },
+      {
+        "x": 68.97,
+        "y": 55.69,
+        "title": "Inverted Front Fork",
+        "description": "All new inverted front forks and cast aluminium upper triple clamp provides confident cornering and braking performance."
+      },
+      {
+        "x": 75.55,
+        "y": 74.19,
+        "title": "Front and Rear ABS Brakes",
+        "description": "Equipped with dual channel ABS system for front and rear brakes provides sure stopping power in all weather conditions."
+      },
+      {
+        "x": 58.55,
+        "y": 35.2,
+        "title": "MT Series Air Scoop & Tank",
+        "description": "The legendary MT series air scoop directs air for effective cooling and the refined naked fuel tank gives it the mass forward body design."
+      },
+      {
+        "x": 3.35,
+        "y": 34.25,
+        "title": "Slick LED Turn Signal Indicators",
+        "description": "Slick and lightweight LED signal indicators with hazard lights function even when the ignition switch is off."
+      },
+      {
+        "x": 11.95,
+        "y": 22.34,
+        "title": "LED Rear Lights",
+        "description": "Sophisticated rear LED lights provide a clear and distinct rear identity."
+      },
+      {
+        "x": 31.54,
+        "y": 40.27,
+        "title": "Ergonomic Motard Riding Position",
+        "description": "With low seat height refined fuel tank incorporating sculpted knee area and high mounted handle bar to give it the motard and agile riding position."
+      }
+    ]
+  },
+  "y16zr-doxou": {
+    "image": "https://cdn.prod.website-files.com/6a20eb17fa7f874df9ab69d2/6a9d71db5863441d3d61c8a6_23Y16DX-Specification--353dd1a7bd509b77.png",
+    "points": [
+      {
+        "x": 48.4,
+        "y": 16.8,
+        "title": "Penarik Tuas Klac Lebih Pendek",
+        "description": "Kini 10mm lebih pendek, ianya mampu memberikan cengkaman yang singkat dan lebih selesa ketika menukar gear."
+      },
+      {
+        "x": 35.62,
+        "y": 57.4,
+        "title": "Enjin 155CC Dengan VVA Serba Baru",
+        "description": "Jantung penggerak paling berkuasa di kelasnya, enjin sejukan cecair 155cc serba baru, 4-lejang, 4-injap, SOHC dengan VVA."
+      },
+      {
+        "x": 54.17,
+        "y": 17.33,
+        "title": "Gearbox 6 Kelajuan Dengan Pemetaan Pencucuhan Individu untuk Setiap Gear",
+        "description": "Menampilkan pemetaan pencucuhan yang berbeza untuk setiap gear, menghasilkan daya dorong 17.7Hp @ 9,500 rpm dan tork tertinggi 14.4 Nm @ 8,000 rpm."
+      },
+      {
+        "x": 40.35,
+        "y": 64.82,
+        "title": "Klac ‘Assist & Slipper’",
+        "description": "Terhubung ke gearbox, sistem klac A&S memastikan penukaran gear yang lebih lancar dan mengurangkan tahap bebanan klac untuk menghasilkan perjalanan yang lebih selesa."
+      },
+      {
+        "x": 32.34,
+        "y": 49,
+        "title": "Kerangka Baru Serba Ringan",
+        "description": "Dilengkapi dengan kolar tetulang berbentuk Y baharu serta pendakap enjin yang lebih tebal, pada ketebalan 4.5mm. Ia memastikan tunggangan anda lebih mantap dan prestasi kawalan selekoh yang optimum biarpun pada kelajuan tinggi."
+      },
+      {
+        "x": 34.54,
+        "y": 40.86,
+        "title": "Tangki Bahan Api 5.4 Liter Baru",
+        "description": "Seiring dengan enjin yang cekap bahan api, Y16ZR mampu menawarkan jarak maksimum 256km dalam satu tangki penuh, berdasarkan pada gaya tunggangan anda."
+      },
+      {
+        "x": 77.54,
+        "y": 66.47,
+        "title": "Brek Cakera Depan Kaliper 2-Pot Baru",
+        "description": "Angkup brek dua piston pada roda hadapan menawarkan kestabilan ketika membrek dengan saiz brek cakera hadapan yang berukuran 245mm."
+      },
+      {
+        "x": 30.93,
+        "y": 31.94,
+        "title": "Tempat Duduk Jenis Tepisah Gaya Baru",
+        "description": "Rekaan pelana tempat duduk anti-gelincir yang ergonomik mengikut kontur duduk penunggang untuk tunggangan yang lebih selesa."
+      },
+      {
+        "x": 75.53,
+        "y": 36.56,
+        "title": "Lampu Depan LED Tinggi dan Rendah Berasingan",
+        "description": "Terinspirasi dari sukan permotoran, lampu depan sinar rendah terletak di bahagian bar pemegang sementara sinar tinggi disatukan dengan lampu posisi, di bahagian bawah, memberikan penampilan bahagian hadapan sporty yang tiada bandingannya."
+      },
+      {
+        "x": 14.73,
+        "y": 29.53,
+        "title": "Lampu Belakang LED Baru",
+        "description": "Tampil lebih bergaya, lebih ramping, lebih runcing dengan rekaan lampu belakang LED inspirasi daripada model YZF-R1, ia disatukan dengan sempurna pada kontur badan motosikal."
+      },
+      {
+        "x": 60.93,
+        "y": 11.75,
+        "title": "Meter Digital LCD Dengan Dasar Gelap",
+        "description": "Panel unit digital LCD baharu yang memaparkan semua informasi seperti kelajuan, tahap rpm, kedudukan gear, penunjuk VVA dan lain-lain pada dasar yang gelap, memberikan kontras grafik yang jelas."
+      },
+      {
+        "x": 57.33,
+        "y": 27.17,
+        "title": "Sistem Kunci Pintar",
+        "description": "Enjin boleh dihidupkan dengan mudah hanya dengan memutar butang tanpa perlu memasukkan kunci. Sistem ini juga mempunyai fungsi ‘panggil-balik’ untuk mencari kedudukan motosikal. Dilengkapi ‘immobilizer’ untuk mencegah kecurian."
+      },
+      {
+        "x": 56.53,
+        "y": 33.25,
+        "title": "Soket Kuasa 12V DC",
+        "description": "Untuk memudahkan anda mengecas apa saja peralatan pintar anda, soket DC 12V dengan maksimum kapasiti 1.0A disediakan."
+      },
+      {
+        "x": 51.73,
+        "y": 13.55,
+        "title": "Suis Pemberhentian Enjin Baru",
+        "description": "Anda boleh mematikan enjin segera dengan hanya menekan suis khusus yang digabungkan dengan suis utama, sekiranya berlaku kecemasan, demi keselamatan anda."
+      }
+    ]
+  }
+}
