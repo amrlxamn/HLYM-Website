@@ -1,0 +1,3116 @@
+{
+  "xsr155": [
+    {
+      "title": "Engine",
+      "items": [
+        {
+          "label": "Jenis Enjin",
+          "value": "Sejukan Cecair, 4-Lejang, SOHC, 4-Injap"
+        },
+        {
+          "label": "Susunan Silinder",
+          "value": "Silinder Tunggal"
+        },
+        {
+          "label": "Lubang x Lejang",
+          "value": "58.0 x 58.7 mm"
+        },
+        {
+          "label": "Nisbah Mampatan",
+          "value": "11.6:1"
+        },
+        {
+          "label": "Kuasa Maksimum",
+          "value": "13.9kW / 10,000rpm"
+        },
+        {
+          "label": "Tork Maksimum",
+          "value": "14.4Nm / 8,500rpm"
+        },
+        {
+          "label": "Sistem Penghidup",
+          "value": "Elektrik"
+        },
+        {
+          "label": "Pelinciran",
+          "value": "Takungan Basah"
+        },
+        {
+          "label": "Isi Tangki Minyak Enjin",
+          "value": "1.05 L"
+        },
+        {
+          "label": "Sistem Bekalan Bahan Api",
+          "value": "Suntikan Bahan Api"
+        },
+        {
+          "label": "Jenis Nyalaan",
+          "value": "TCI"
+        }
+      ]
+    },
+    {
+      "title": "Transmission",
+      "items": [
+        {
+          "label": "Jenis Transmisi",
+          "value": "Constant Mesh, 6-Kelajuan"
+        }
+      ]
+    },
+    {
+      "title": "Chasis",
+      "items": [
+        {
+          "label": "Panjang x Lebar x Tinggi",
+          "value": "2,005 mm x 805 mm x 1,075 mm"
+        },
+        {
+          "label": "Jarak Roda",
+          "value": "1,325 mm"
+        },
+        {
+          "label": "Jarak Minimum dari Tanah",
+          "value": "170 mm"
+        },
+        {
+          "label": "Tinggi Tempat Duduk",
+          "value": "810 mm"
+        },
+        {
+          "label": "Berat Isi",
+          "value": "137 kg"
+        },
+        {
+          "label": "Isi Tangki Bahan Api",
+          "value": "10 L"
+        }
+      ]
+    },
+    {
+      "title": "Brakes",
+      "items": [
+        {
+          "label": "Brek Hadapan",
+          "value": "Cakera Tunggal Hidraulik (ABS)"
+        },
+        {
+          "label": "Brek Belakang",
+          "value": "Cakera Tunggal Hidraulik (ABS)"
+        }
+      ]
+    },
+    {
+      "title": "Suspension",
+      "items": [
+        {
+          "label": "Jenis Kerangka",
+          "value": "Diamond"
+        },
+        {
+          "label": "Suspensi Hadapan",
+          "value": "Teleskopik (inverted)"
+        },
+        {
+          "label": "Suspensi Belakang",
+          "value": "Lengan Buai"
+        }
+      ]
+    },
+    {
+      "title": "Tires",
+      "items": [
+        {
+          "label": "Tayar Hadapan",
+          "value": "110/70-17M/C 54S"
+        },
+        {
+          "label": "Tayar Belakang",
+          "value": "140/70-17M/C 66S"
+        }
+      ]
+    }
+  ],
+  "xmax-300": [
+    {
+      "title": "Engine",
+      "items": [
+        {
+          "label": "Type",
+          "value": "4-Stroke, Liquid-Cooled, SOHC, 4-Valves"
+        },
+        {
+          "label": "Cylinders",
+          "value": "Single Cylinder"
+        },
+        {
+          "label": "Displacement",
+          "value": "292.3 cc"
+        },
+        {
+          "label": "Bore x stroke",
+          "value": "70.0 mm x 75.9 mm"
+        },
+        {
+          "label": "Compression ratio",
+          "value": "10.9 : 1"
+        },
+        {
+          "label": "Maximum power",
+          "value": "20.6 kW @ 7,250 rpm"
+        },
+        {
+          "label": "Maximum torque",
+          "value": "29.0 Nm @ 5,750 rpm"
+        },
+        {
+          "label": "Lubrication System",
+          "value": "Wet Sump"
+        },
+        {
+          "label": "Fuel system",
+          "value": "Fuel Injection"
+        },
+        {
+          "label": "Ignition system",
+          "value": "TCI"
+        },
+        {
+          "label": "Starter system",
+          "value": "Electric"
+        }
+      ]
+    },
+    {
+      "title": "Transmission",
+      "items": [
+        {
+          "label": "Transmission system",
+          "value": "V-Belt Automatic"
+        }
+      ]
+    },
+    {
+      "title": "Chasis",
+      "items": [
+        {
+          "label": "Overall length",
+          "value": "2,180 mm"
+        },
+        {
+          "label": "Overall width",
+          "value": "795 mm"
+        },
+        {
+          "label": "Overall height",
+          "value": "1,505 mm"
+        },
+        {
+          "label": "Seat height",
+          "value": "805 mm"
+        },
+        {
+          "label": "Wheelbase",
+          "value": "1,540 mm"
+        },
+        {
+          "label": "Minimum Ground Clearance",
+          "value": "135 mm"
+        },
+        {
+          "label": "Wet weight",
+          "value": "185 kg"
+        },
+        {
+          "label": "Fuel tank capacity",
+          "value": "13.0 L"
+        }
+      ]
+    },
+    {
+      "title": "Brakes",
+      "items": [
+        {
+          "label": "Front brake",
+          "value": "Hydraulic single disc (ABS)"
+        },
+        {
+          "label": "Rear brake",
+          "value": "Hydraulic single disc (ABS)"
+        }
+      ]
+    },
+    {
+      "title": "Suspension",
+      "items": [
+        {
+          "label": "Front Suspension Type",
+          "value": "Telescopic forks"
+        },
+        {
+          "label": "Rear Suspension Type",
+          "value": "Unit Swing"
+        }
+      ]
+    },
+    {
+      "title": "Tires",
+      "items": [
+        {
+          "label": "Front Tyre",
+          "value": "120/70-15"
+        },
+        {
+          "label": "Rear Tyre",
+          "value": "140/70-14"
+        }
+      ]
+    }
+  ],
+  "y16zr": [
+    {
+      "title": "Engine",
+      "items": [
+        {
+          "label": "Type",
+          "value": "Sejukan Cecair, 4-Lejang, SOHC, 4-Injap"
+        },
+        {
+          "label": "Cylinders",
+          "value": "Silinder Tunggal"
+        },
+        {
+          "label": "Bore x Stroke",
+          "value": "58.0 x 58.7 mm"
+        },
+        {
+          "label": "Compression Ratio",
+          "value": "11.6:1"
+        },
+        {
+          "label": "Maximum Horsepower",
+          "value": "13.6 kW (9,500rpm)"
+        },
+        {
+          "label": "Maximum Torque",
+          "value": "14.4 Nm (8,500rpm)"
+        },
+        {
+          "label": "Starting System",
+          "value": "Elektrik"
+        },
+        {
+          "label": "Lubrication System",
+          "value": "Takungan Basah"
+        },
+        {
+          "label": "Engine Oil Capacity",
+          "value": "1.1 L"
+        },
+        {
+          "label": "Fuel Tank Capacity",
+          "value": "5.4 L"
+        },
+        {
+          "label": "Fuel System",
+          "value": "Suntikan Bahan Api"
+        },
+        {
+          "label": "Ignition System",
+          "value": "TCI"
+        },
+        {
+          "label": "Battery Type",
+          "value": "12V 3.5Ah"
+        }
+      ]
+    },
+    {
+      "title": "Transmission",
+      "items": [
+        {
+          "label": "Transmission Type",
+          "value": "Constant Mesh, 6-Kelajuan"
+        },
+        {
+          "label": "Clutch Type",
+          "value": "Basah, Multiplat Spring Gegelung"
+        }
+      ]
+    },
+    {
+      "title": "Chasis",
+      "items": [
+        {
+          "label": "Frame Type",
+          "value": "Backbone"
+        },
+        {
+          "label": "Overall Length",
+          "value": "1,975 mm"
+        },
+        {
+          "label": "Overall Width",
+          "value": "665 mm"
+        },
+        {
+          "label": "Overall Height",
+          "value": "1,100 mm"
+        },
+        {
+          "label": "Wheelbase",
+          "value": "1,295 mm"
+        },
+        {
+          "label": "Minimum Ground Clearance",
+          "value": "158 mm"
+        },
+        {
+          "label": "Weight",
+          "value": "124 kg"
+        }
+      ]
+    },
+    {
+      "title": "Brakes",
+      "items": [
+        {
+          "label": "Front",
+          "value": "Cakera Tunggal Hidraulik dengan ABS"
+        },
+        {
+          "label": "Rear",
+          "value": "Cakera Tunggal Hidraulik"
+        }
+      ]
+    },
+    {
+      "title": "Suspension",
+      "items": [
+        {
+          "label": "Front Suspension Type",
+          "value": "Teleskopik"
+        },
+        {
+          "label": "Rear Suspension Type",
+          "value": "Lengan Buai"
+        }
+      ]
+    },
+    {
+      "title": "Tires",
+      "items": [
+        {
+          "label": "Front Tyre",
+          "value": "90/80-17M/C (46P)"
+        },
+        {
+          "label": "Rear Tyre",
+          "value": "120/70-17M/C (58P)"
+        }
+      ]
+    }
+  ],
+  "y15zr": [
+    {
+      "title": "Engine",
+      "items": [
+        {
+          "label": "Type",
+          "value": "Liquid-cooled, 4-stroke SOHC"
+        },
+        {
+          "label": "Cylinders",
+          "value": "Single Cylinder"
+        },
+        {
+          "label": "Bore x Stroke",
+          "value": "57.0 x 58.7mm"
+        },
+        {
+          "label": "Compression Ratio",
+          "value": "10.4 : 1"
+        },
+        {
+          "label": "Maximum Horsepower",
+          "value": "11.3kW (8500rpm)"
+        },
+        {
+          "label": "Maximum Torque",
+          "value": "13.8Nm(7000rpm)"
+        },
+        {
+          "label": "Starting System",
+          "value": "Electric"
+        },
+        {
+          "label": "Lubrication System",
+          "value": "Wet Sump"
+        },
+        {
+          "label": "Engine Oil Capacity",
+          "value": "1.15 litres"
+        },
+        {
+          "label": "Fuel Tank Capacity",
+          "value": "4.2 litres"
+        },
+        {
+          "label": "Fuel System",
+          "value": "Fuel Injection"
+        },
+        {
+          "label": "Ignition System",
+          "value": "TCI"
+        },
+        {
+          "label": "Battery Type",
+          "value": "GTZ4V"
+        }
+      ]
+    },
+    {
+      "title": "Transmission",
+      "items": [
+        {
+          "label": "Transmission Type",
+          "value": "Constant Mesh, 5-Speed"
+        },
+        {
+          "label": "Clutch Type",
+          "value": "Wet Multi, Plate"
+        }
+      ]
+    },
+    {
+      "title": "Chasis",
+      "items": [
+        {
+          "label": "Frame Type",
+          "value": "Backbone"
+        },
+        {
+          "label": "Overall Length",
+          "value": "1970mm"
+        },
+        {
+          "label": "Overall Width",
+          "value": "670mm"
+        },
+        {
+          "label": "Overall Height",
+          "value": "1100mm"
+        },
+        {
+          "label": "Wheelbase",
+          "value": "1290mm"
+        },
+        {
+          "label": "Minimum Ground Clearance",
+          "value": "155mm"
+        },
+        {
+          "label": "Weight",
+          "value": "115 kg"
+        }
+      ]
+    },
+    {
+      "title": "Brakes",
+      "items": [
+        {
+          "label": "Front and Rear",
+          "value": "Hydraulic Single Disc"
+        }
+      ]
+    },
+    {
+      "title": "Suspension",
+      "items": [
+        {
+          "label": "Front Suspension Type",
+          "value": "Telescopic"
+        },
+        {
+          "label": "Rear Suspension Type",
+          "value": "Swingarm"
+        }
+      ]
+    },
+    {
+      "title": "Tires",
+      "items": [
+        {
+          "label": "Front Tyre",
+          "value": "90/80-17M/C (38P)"
+        },
+        {
+          "label": "Rear Tyre",
+          "value": "120/70-17M/C (58P)"
+        }
+      ]
+    }
+  ],
+  "135lc-fi": [
+    {
+      "title": "Enjin",
+      "items": [
+        {
+          "label": "Jenis Enjin",
+          "value": "Sejukan Cecair, 4- Lejang, SOHC, 4-Injap"
+        },
+        {
+          "label": "Susunan Silinder",
+          "value": "Silinder Tunggal"
+        },
+        {
+          "label": "Lubang X Lejang",
+          "value": "54.0 X 58.7 mm"
+        },
+        {
+          "label": "Nisbah Mampatan",
+          "value": "10.9:1"
+        },
+        {
+          "label": "Kuasa Maksimum",
+          "value": "9.3kW / 8,000rpm"
+        },
+        {
+          "label": "Tork Maksimum",
+          "value": "12.2Nm / 6,000rpm"
+        },
+        {
+          "label": "Sistem Penghidup",
+          "value": "Elektrik"
+        },
+        {
+          "label": "Pelinciran",
+          "value": "Takungan Basah"
+        },
+        {
+          "label": "Isipadu Minyak Enjin",
+          "value": "0.9L"
+        },
+        {
+          "label": "Isi Tangki Bahan Api",
+          "value": "4.6L"
+        },
+        {
+          "label": "Sistem Nyalaan",
+          "value": "TCI"
+        },
+        {
+          "label": "Jenis Bateri",
+          "value": "12V 3.5Ah"
+        },
+        {
+          "label": "Jenis Plug",
+          "value": "NGK / CR8E"
+        },
+        {
+          "label": "Jenis Klac",
+          "value": "Basah, Cakera Berganda"
+        },
+        {
+          "label": "Jenis Transmisi",
+          "value": "Constant Mesh, 4-Kelajuan"
+        }
+      ]
+    },
+    {
+      "title": "Dimensi",
+      "items": [
+        {
+          "label": "Panjang x Lebar x Tinggi",
+          "value": "1,945mm x 690mm x 1,095mm"
+        },
+        {
+          "label": "Jarak Roda",
+          "value": "1,255mm"
+        },
+        {
+          "label": "Jarak Minimum dari Tanah",
+          "value": "135mm"
+        },
+        {
+          "label": "Berat Isi",
+          "value": "109kg"
+        },
+        {
+          "label": "Tinggi Tempat Duduk",
+          "value": "775 mm"
+        },
+        {
+          "label": "Isi Tangki Bahan Api",
+          "value": "4.6L"
+        }
+      ]
+    },
+    {
+      "title": "Kerangka",
+      "items": [
+        {
+          "label": "Jenis Kerangka",
+          "value": "Backbone"
+        },
+        {
+          "label": "Suspensi Hadapan",
+          "value": "Teleskopik"
+        },
+        {
+          "label": "Suspensi Belakang",
+          "value": "Lengan Ayun"
+        },
+        {
+          "label": "Tayar Hadapan",
+          "value": "70/90 – 17M/C (38P)"
+        },
+        {
+          "label": "Tayar Belakang",
+          "value": "80/90 – 17M/C (50P)"
+        },
+        {
+          "label": "Brek Hadapan",
+          "value": "Cakera Tunggal Hidraulik"
+        },
+        {
+          "label": "Brek Belakang",
+          "value": "Cakera Tunggal Hidraulik"
+        }
+      ]
+    }
+  ],
+  "yzf-r25": [
+    {
+      "title": "Engine",
+      "items": [
+        {
+          "label": "Engine Type",
+          "value": "4-Stroke, 8 Valve DOHC"
+        },
+        {
+          "label": "Cylinder arrangement",
+          "value": "Up right two-cylinder"
+        },
+        {
+          "label": "Displacement",
+          "value": "249cc"
+        },
+        {
+          "label": "Bore X Stroke",
+          "value": "60.0 mm X 44.1 mm"
+        },
+        {
+          "label": "Compression Ratio",
+          "value": "11.6 : 1"
+        },
+        {
+          "label": "Maximum Power",
+          "value": "26.4kW (12,000rpm)"
+        },
+        {
+          "label": "Maximum Torque",
+          "value": "22.6N.m (10,000rpm)"
+        },
+        {
+          "label": "Lubrication System",
+          "value": "Wet Sump"
+        },
+        {
+          "label": "Starting System",
+          "value": "Electric Starter"
+        },
+        {
+          "label": "Fuel Supply",
+          "value": "Wet"
+        },
+        {
+          "label": "Engine Oil Capacity",
+          "value": "2.5 L"
+        },
+        {
+          "label": "Fuel Tank Capacity",
+          "value": "14.3 L"
+        },
+        {
+          "label": "Fuel Admitting System Type",
+          "value": "Fuel Injection"
+        },
+        {
+          "label": "Ignition System",
+          "value": "TCI"
+        }
+      ]
+    },
+    {
+      "title": "Transmission",
+      "items": [
+        {
+          "label": "Transmission Type",
+          "value": "6-Speed/ Return Type"
+        },
+        {
+          "label": "Gear Ratio",
+          "value": "24.928 – 8.6"
+        },
+        {
+          "label": "Clutch Type",
+          "value": "Wet, Multiple"
+        }
+      ]
+    },
+    {
+      "title": "Chasis",
+      "items": [
+        {
+          "label": "Frame Type",
+          "value": "Diamond"
+        },
+        {
+          "label": "Overall Length",
+          "value": "2,090mm"
+        },
+        {
+          "label": "Overall Width",
+          "value": "730mm"
+        },
+        {
+          "label": "Overall Height",
+          "value": "1,140mm"
+        },
+        {
+          "label": "Seat Height",
+          "value": "780mm"
+        },
+        {
+          "label": "Minimum Ground Clearance",
+          "value": "160mm"
+        },
+        {
+          "label": "Weight (including full oil and fuel tank)",
+          "value": "169kg"
+        }
+      ]
+    },
+    {
+      "title": "Brakes",
+      "items": [
+        {
+          "label": "Front Brake",
+          "value": "Hydraulic disc, ABS"
+        },
+        {
+          "label": "Rear Brake",
+          "value": "Hydraulic disc, ABS"
+        }
+      ]
+    },
+    {
+      "title": "Suspension",
+      "items": [
+        {
+          "label": "Front Suspension Type",
+          "value": "Telescopic"
+        },
+        {
+          "label": "Rear Suspension Type",
+          "value": "Monocross"
+        }
+      ]
+    },
+    {
+      "title": "Tires",
+      "items": [
+        {
+          "label": "Front Tyre",
+          "value": "110/70-17M/C (54S)"
+        },
+        {
+          "label": "Rear Tyre",
+          "value": "140/70-17M/C (66S)"
+        }
+      ]
+    }
+  ],
+  "tmax": [
+    {
+      "title": "Engine",
+      "items": [
+        {
+          "label": "Type",
+          "value": "4-Stroke, Liquid-cooled, DOHC, 4-Valves, In Line Twin-cylinder"
+        },
+        {
+          "label": "Cylinders",
+          "value": "2 Cylinder"
+        },
+        {
+          "label": "Displacement",
+          "value": "562 cc"
+        },
+        {
+          "label": "Bore x stroke",
+          "value": "70.0 mm x 73.0 mm"
+        },
+        {
+          "label": "Compression ratio",
+          "value": "10.9:1"
+        },
+        {
+          "label": "Maximum power",
+          "value": "35.0 kW @ 7,500 rpm"
+        },
+        {
+          "label": "Maximum torque",
+          "value": "55.0 Nm @ 5,250 rpm"
+        },
+        {
+          "label": "Lubrication System",
+          "value": "Dry Sump"
+        },
+        {
+          "label": "Fuel system",
+          "value": "Fuel injection"
+        },
+        {
+          "label": "Ignition system",
+          "value": "TCI"
+        },
+        {
+          "label": "Starter system",
+          "value": "Electric"
+        }
+      ]
+    },
+    {
+      "title": "Transmission",
+      "items": [
+        {
+          "label": "Transmission system",
+          "value": "V-Belt Automatic"
+        }
+      ]
+    },
+    {
+      "title": "Chasis",
+      "items": [
+        {
+          "label": "Overall length",
+          "value": "2,195 mm"
+        },
+        {
+          "label": "Overall width",
+          "value": "780 mm"
+        },
+        {
+          "label": "Overall height",
+          "value": "1,585 mm"
+        },
+        {
+          "label": "Seat height",
+          "value": "800 mm"
+        },
+        {
+          "label": "Wheelbase",
+          "value": "1,575 mm"
+        },
+        {
+          "label": "Minimum Ground Clearance",
+          "value": "135 mm"
+        },
+        {
+          "label": "Wet weight",
+          "value": "221 kg"
+        },
+        {
+          "label": "Fuel tank capacity",
+          "value": "15L"
+        }
+      ]
+    },
+    {
+      "title": "Brakes",
+      "items": [
+        {
+          "label": "Front brake",
+          "value": "Hydraulic dual disc brake"
+        },
+        {
+          "label": "Rear brake",
+          "value": "Hydraulic single disc brake"
+        }
+      ]
+    },
+    {
+      "title": "Suspension",
+      "items": [
+        {
+          "label": "Front Suspension Type",
+          "value": "Telescopic forks"
+        },
+        {
+          "label": "Rear Suspension Type",
+          "value": "Swingarm"
+        }
+      ]
+    },
+    {
+      "title": "Tires",
+      "items": [
+        {
+          "label": "Front Tyre",
+          "value": "120/70R15M/C 56H"
+        },
+        {
+          "label": "Rear Tyre",
+          "value": "160/60R15M/C 67H"
+        }
+      ]
+    }
+  ],
+  "tenere-700": [
+    {
+      "title": "Engine",
+      "items": [
+        {
+          "label": "Engine Type",
+          "value": "Liquid-cooled, 4-stroke, 4-valves, DOHC"
+        },
+        {
+          "label": "Displacement",
+          "value": "689 cc"
+        },
+        {
+          "label": "Bore X Stroke",
+          "value": "80.0 x 68.6 mm"
+        },
+        {
+          "label": "Compression Ratio",
+          "value": "11.5 : 1"
+        },
+        {
+          "label": "Maximum Power",
+          "value": "54.0 kW (73.4 PS) @ 9,000 rpm"
+        },
+        {
+          "label": "Maximum Torque",
+          "value": "68.0 Nm @ 6,500 rpm"
+        },
+        {
+          "label": "Lubrication System",
+          "value": "Wet Sump"
+        },
+        {
+          "label": "Clutch Type",
+          "value": "Wet, Multiple Disc"
+        },
+        {
+          "label": "Fuel System",
+          "value": "Fuel Injection"
+        },
+        {
+          "label": "Ignition System",
+          "value": "TCI"
+        },
+        {
+          "label": "Starter System",
+          "value": "Electric"
+        },
+        {
+          "label": "Transmission System",
+          "value": "Constant mesh, 6-Speed"
+        },
+        {
+          "label": "Final Transmission",
+          "value": "Chain"
+        }
+      ]
+    },
+    {
+      "title": "Chasis",
+      "items": [
+        {
+          "label": "Frame Type",
+          "value": "Double cradle, Steel tube backbone"
+        },
+        {
+          "label": "Front Suspension System",
+          "value": "Upside-down telescopic fork"
+        },
+        {
+          "label": "Front Travel",
+          "value": "210 mm"
+        },
+        {
+          "label": "Caster Angle",
+          "value": "27°"
+        },
+        {
+          "label": "Trail",
+          "value": "105 mm"
+        },
+        {
+          "label": "Rear Suspension System",
+          "value": "Link type suspension, Swingarm"
+        },
+        {
+          "label": "Rear Travel",
+          "value": "200 mm"
+        },
+        {
+          "label": "Front Brake",
+          "value": "Hydraulic dual disc, Ø 282 mm"
+        },
+        {
+          "label": "Rear Brake",
+          "value": "Hydraulic single disc, Ø 245 mm"
+        },
+        {
+          "label": "Front Tyre",
+          "value": "90/90 – 21 M/C 54V"
+        },
+        {
+          "label": "Rear Tyre",
+          "value": "150/70 R 18 M/C 70V M+S"
+        }
+      ]
+    },
+    {
+      "title": "Dimensions",
+      "items": [
+        {
+          "label": "Overall Length",
+          "value": "2370 mm"
+        },
+        {
+          "label": "Overall Width",
+          "value": "935 mm"
+        },
+        {
+          "label": "Overall Height",
+          "value": "1455 mm"
+        },
+        {
+          "label": "Seat Height",
+          "value": "875 mm"
+        },
+        {
+          "label": "Wheel Base",
+          "value": "1595 mm"
+        },
+        {
+          "label": "Minimum Ground Clearance",
+          "value": "240 mm"
+        },
+        {
+          "label": "Wet Weight (Including Full Oil And Fuel Tank)",
+          "value": "208 kg"
+        },
+        {
+          "label": "Fuel Tank Capacity",
+          "value": "16.0 L"
+        },
+        {
+          "label": "Oil Tank Capacity",
+          "value": "3.0 L"
+        }
+      ]
+    }
+  ],
+  "pg-1": [
+    {
+      "title": "Engine",
+      "items": [
+        {
+          "label": "Jenis Enjin",
+          "value": "Sejukan Udara, 4-Lejang, SOHC, 2-Injap"
+        },
+        {
+          "label": "Susunan Silinder",
+          "value": "Silinder Tunggal"
+        },
+        {
+          "label": "Sesaran",
+          "value": "114cc"
+        },
+        {
+          "label": "Lubang x Lejang",
+          "value": "50.0 x 57.9 mm"
+        },
+        {
+          "label": "Nisbah Mampatan",
+          "value": "9.3:1"
+        },
+        {
+          "label": "Sistem Penghidup",
+          "value": "Elektrik"
+        },
+        {
+          "label": "Kapasiti Tangki Bahan Api",
+          "value": "5.1 L"
+        },
+        {
+          "label": "Tork Maksimum",
+          "value": "9.5 N.m (1.0 kgf/m) / 5500 r/min"
+        }
+      ]
+    },
+    {
+      "title": "Transmission",
+      "items": [
+        {
+          "label": "Jenis Transmisi",
+          "value": "Transmisi manual dengan 4-kelajuan"
+        }
+      ]
+    },
+    {
+      "title": "Chasis",
+      "items": [
+        {
+          "label": "Jenis Kerangka",
+          "value": "Backbone"
+        },
+        {
+          "label": "Panjang x Lebar x Tinggi Keseluruhan",
+          "value": "1980 mm x 805 mm x 1050 mm"
+        },
+        {
+          "label": "Tinggi Tempat Duduk",
+          "value": "795 mm"
+        },
+        {
+          "label": "Jarak Roda",
+          "value": "1280 mm"
+        },
+        {
+          "label": "Jarak Minimum dari Tanah",
+          "value": "190 mm"
+        },
+        {
+          "label": "Berat Basah",
+          "value": "107 kg"
+        }
+      ]
+    },
+    {
+      "title": "Brakes",
+      "items": [
+        {
+          "label": "Jenis Brek Hadapan",
+          "value": "Cakera Tunggal Hidraulik"
+        },
+        {
+          "label": "Jenis Brek Belakang",
+          "value": "Drum (Mechanical Leading Trailing)"
+        }
+      ]
+    },
+    {
+      "title": "Suspension",
+      "items": [
+        {
+          "label": "Jenis Suspensi Hadapan",
+          "value": "Teleskopik"
+        },
+        {
+          "label": "Jenis Suspensi Belakang",
+          "value": "Lengan Buai"
+        }
+      ]
+    },
+    {
+      "title": "Tires",
+      "items": [
+        {
+          "label": "Tayar Hadapan",
+          "value": "90/100-16 M/C 51P Jenis Tiub"
+        },
+        {
+          "label": "Tayar Belakang",
+          "value": "90/100-16 M/C 51P Jenis Tiub"
+        }
+      ]
+    }
+  ],
+  "tracer-9-gt": [
+    {
+      "title": "Engine",
+      "items": [
+        {
+          "label": "Engine Type",
+          "value": "4-stroke, Liquid-cooled, DOHC, 4-valves, 3 cylinder"
+        },
+        {
+          "label": "Displacement",
+          "value": "890cc"
+        },
+        {
+          "label": "Bore X Stroke",
+          "value": "78mm x 62.1mm"
+        },
+        {
+          "label": "Compression Ratio",
+          "value": "11.5 : 1"
+        },
+        {
+          "label": "Maximum Power",
+          "value": "87.5 kW (119PS) @ 10,000 rpm"
+        },
+        {
+          "label": "Maximum Torque",
+          "value": "93 Nm (9.5kg-m) @ 7,000 rpm"
+        },
+        {
+          "label": "Lubrication System",
+          "value": "Wet Sump"
+        },
+        {
+          "label": "Clutch Type",
+          "value": "Wet, Multiple Disc"
+        },
+        {
+          "label": "Fuel System",
+          "value": "Fuel Injection"
+        },
+        {
+          "label": "Ignition System",
+          "value": "TCI"
+        },
+        {
+          "label": "Starter System",
+          "value": "Electric"
+        },
+        {
+          "label": "Transmission System",
+          "value": "Constant Mesh, 6-Speed"
+        },
+        {
+          "label": "Final Transmission",
+          "value": "Chain"
+        }
+      ]
+    },
+    {
+      "title": "Chasis",
+      "items": [
+        {
+          "label": "Frame Type",
+          "value": "Diamond"
+        },
+        {
+          "label": "Front Suspension System",
+          "value": "Upside-down telescopic fork"
+        },
+        {
+          "label": "Front Travel",
+          "value": "130mm"
+        },
+        {
+          "label": "Caster Angle",
+          "value": "24° 25′"
+        },
+        {
+          "label": "Trail",
+          "value": "106mm"
+        },
+        {
+          "label": "Rear Suspension System",
+          "value": "Link type suspension, Swingarm"
+        },
+        {
+          "label": "Rear Travel",
+          "value": "131mm"
+        },
+        {
+          "label": "Front Brake",
+          "value": "Hydraulic Dual Disc, Ø 298mm"
+        },
+        {
+          "label": "Rear Brake",
+          "value": "Hydraulic Single Disc, Ø 267 mm"
+        },
+        {
+          "label": "Front Tyre",
+          "value": "120/70 ZR 17 M/C (58W) Tubeless"
+        },
+        {
+          "label": "Rear Tyre",
+          "value": "180/55 ZR 17 M/C (73W) Tubeless"
+        }
+      ]
+    },
+    {
+      "title": "Dimensions",
+      "items": [
+        {
+          "label": "Overall Length",
+          "value": "2,175mm"
+        },
+        {
+          "label": "Overall Width",
+          "value": "900mm"
+        },
+        {
+          "label": "Overall Height",
+          "value": "1,440mm – 1,530mm"
+        },
+        {
+          "label": "Seat Height",
+          "value": "845mm"
+        },
+        {
+          "label": "Wheel Base",
+          "value": "1,500mm"
+        },
+        {
+          "label": "Minimum Ground Clearance",
+          "value": "135mm"
+        },
+        {
+          "label": "Wet Weight (Including Full Oil And Fuel Tank)",
+          "value": "227kg"
+        },
+        {
+          "label": "Fuel Tank Capacity",
+          "value": "19L"
+        },
+        {
+          "label": "Oil Tank Capacity",
+          "value": "3.5L"
+        }
+      ]
+    }
+  ],
+  "nmax": [
+    {
+      "title": "Engine",
+      "items": [
+        {
+          "label": "Type",
+          "value": "Sejukan Cecair, 4-Lejang, SOHC, 4-Injap"
+        },
+        {
+          "label": "Displacement",
+          "value": "155 cc"
+        },
+        {
+          "label": "Bore x Stroke",
+          "value": "58.0 x 58.7 mm"
+        },
+        {
+          "label": "Compression Ratio",
+          "value": "11.6:1"
+        },
+        {
+          "label": "Maximum Power",
+          "value": "11.3 kW (15.4PS)/8,000r/min"
+        },
+        {
+          "label": "Maximum Torque",
+          "value": "14.2N m (1.4kgf m)/6,500r/min"
+        },
+        {
+          "label": "Lubrication System",
+          "value": "Takungan Basah"
+        },
+        {
+          "label": "Fuel Supply System",
+          "value": "Suntikan Bahan Api"
+        },
+        {
+          "label": "Ignition System",
+          "value": "TCI"
+        },
+        {
+          "label": "Starting System",
+          "value": "Elektrik"
+        },
+        {
+          "label": "Fuel Tank Capacity",
+          "value": "7.1L"
+        }
+      ]
+    },
+    {
+      "title": "Transmission",
+      "items": [
+        {
+          "label": "Transmission system",
+          "value": "Tali Sawat V-Automatik"
+        }
+      ]
+    },
+    {
+      "title": "Chasis",
+      "items": [
+        {
+          "label": "Overall Length",
+          "value": "1,935 mm"
+        },
+        {
+          "label": "Overall Width",
+          "value": "740 mm"
+        },
+        {
+          "label": "Overall Height",
+          "value": "1,200 mm"
+        },
+        {
+          "label": "Seat Height",
+          "value": "775 mm"
+        },
+        {
+          "label": "Wheelbase",
+          "value": "1,340 mm"
+        },
+        {
+          "label": "Min. Ground Clearance",
+          "value": "125 mm"
+        },
+        {
+          "label": "Wet Weight",
+          "value": "131 kg"
+        }
+      ]
+    },
+    {
+      "title": "Brakes",
+      "items": [
+        {
+          "label": "Front",
+          "value": "Cakera Tunggal Hidraulik, Ø 230 mm"
+        },
+        {
+          "label": "Rear",
+          "value": "Cakera Tunggal Hidraulik, Ø 230 mm"
+        }
+      ]
+    },
+    {
+      "title": "Suspension",
+      "items": [
+        {
+          "label": "Front Suspension",
+          "value": "Teleskopik"
+        },
+        {
+          "label": "Rear Suspension",
+          "value": "Unit Ayunan"
+        }
+      ]
+    },
+    {
+      "title": "Tires",
+      "items": [
+        {
+          "label": "Front",
+          "value": "110/70-13M/C 48P Tubeless"
+        },
+        {
+          "label": "Rear",
+          "value": "130/70-13M/C 63P Tubeless"
+        }
+      ]
+    }
+  ],
+  "ego-avantiz": [
+    {
+      "title": "Engine",
+      "items": [
+        {
+          "label": "Displacement",
+          "value": "124cc"
+        },
+        {
+          "label": "Bore x stroke",
+          "value": "52.4 mm x 57.9 mm"
+        },
+        {
+          "label": "Compression ratio",
+          "value": "9.5.1"
+        },
+        {
+          "label": "Maximum Horsepower",
+          "value": "7.0 kW / 8000rpm"
+        },
+        {
+          "label": "Maximum Torque",
+          "value": "9.6Nm/5500rpm"
+        },
+        {
+          "label": "Starting System",
+          "value": "Electric"
+        },
+        {
+          "label": "Engine Oil Capacity",
+          "value": "0.84 L"
+        },
+        {
+          "label": "Cylinders",
+          "value": "Single Cylinder"
+        }
+      ]
+    },
+    {
+      "title": "Transmission",
+      "items": [
+        {
+          "label": "Transmission system",
+          "value": "V-Belt Automatic"
+        }
+      ]
+    },
+    {
+      "title": "Chasis",
+      "items": [
+        {
+          "label": "Frame Type",
+          "value": "Underbone"
+        },
+        {
+          "label": "Overall Length",
+          "value": "1870 mm x 680 mm x 1070 mm"
+        },
+        {
+          "label": "Seat Height",
+          "value": "773 mm"
+        },
+        {
+          "label": "Wet Weight",
+          "value": "96kg"
+        },
+        {
+          "label": "Fuel Tank",
+          "value": "4.2 L"
+        }
+      ]
+    },
+    {
+      "title": "Brakes",
+      "items": [
+        {
+          "label": "Front brake",
+          "value": "Hydraulic Disc brake"
+        },
+        {
+          "label": "Back",
+          "value": "Normal"
+        }
+      ]
+    },
+    {
+      "title": "Suspension",
+      "items": [
+        {
+          "label": "Front Suspension",
+          "value": "Telescopic"
+        },
+        {
+          "label": "Back Suspension",
+          "value": "Swing arm , monoshock"
+        }
+      ]
+    },
+    {
+      "title": "Tires",
+      "items": [
+        {
+          "label": "Front Tyre",
+          "value": "70/90-14M/C 34P"
+        },
+        {
+          "label": "Back Tyre",
+          "value": "90/80-14M/C 49P"
+        }
+      ]
+    },
+    {
+      "title": "Electrical",
+      "items": [
+        {
+          "label": "Spark plug",
+          "value": "NGK/CR6HSA"
+        }
+      ]
+    }
+  ],
+  "ez115": [
+    {
+      "title": "Engine",
+      "items": [
+        { "label": "Jenis Enjin", "value": "Sejukan Udara, 4-Lejang, SOHC, 2-Injap" },
+        { "label": "Susunan Silinder", "value": "Silinder Tunggal" },
+        { "label": "Sesaran", "value": "114 cm3" },
+        { "label": "Lubang x Lejang", "value": "50.0 x 57.9 mm" },
+        { "label": "Nisbah Mampatan", "value": "9.3 : 1" },
+        { "label": "Sistem Penghidup", "value": "Electric" },
+        { "label": "Kapasiti Tangki Bahan Api", "value": "3.9 Liter" },
+        { "label": "Tork Maksimum", "value": "9.5 N.m (1.0 kgf/m) / 5,500 r/min" }
+      ]
+    },
+    {
+      "title": "Transmission",
+      "items": [{ "label": "Jenis Transmisi", "value": "Constant Mesh 4-Kelajuan / Rotary" }]
+    },
+    {
+      "title": "Chasis",
+      "items": [
+        { "label": "Jenis Kerangka", "value": "Backbone" },
+        {
+          "label": "Panjang x Lebar x Tinggi Keseluruhan",
+          "value": "1,940 mm x 715 mm x 1,090 mm"
+        },
+        { "label": "Tinggi Tempat Duduk", "value": "775 mm" },
+        { "label": "Berat Isi", "value": "98 kg" },
+        { "label": "Jarak Minimum dari Tanah", "value": "155 mm" }
+      ]
+    },
+    {
+      "title": "Brakes",
+      "items": [
+        { "label": "Jenis Brek Hadapan", "value": "Cakera Tunggal Hidraulik" },
+        { "label": "Jenis Brek Belakang", "value": "Drum" }
+      ]
+    },
+    {
+      "title": "Suspension",
+      "items": [
+        { "label": "Jenis Suspensi Hadapan", "value": "Teleskopik" },
+        { "label": "Jenis Suspensi Belakang", "value": "Lengan Buai" }
+      ]
+    },
+    {
+      "title": "Tires",
+      "items": [
+        { "label": "Tayar Hadapan", "value": "70/90-17M/C 38P" },
+        { "label": "Tayar Belakang", "value": "80/90-17M/C 50P" }
+      ]
+    }
+  ],
+  "ego-gear": [
+    {
+      "title": "Engine",
+      "items": [
+        {
+          "label": "Displacement",
+          "value": "125cc"
+        },
+        {
+          "label": "Bore x stroke",
+          "value": "52.4 mm x 57.9 mm"
+        },
+        {
+          "label": "Compression ratio",
+          "value": "9.5:1"
+        },
+        {
+          "label": "Maximum Horsepower",
+          "value": "7.0 kW / 8000rpm"
+        },
+        {
+          "label": "Maximum Torque",
+          "value": "9.6Nm/5500rpm"
+        },
+        {
+          "label": "Starting System",
+          "value": "Elektrik/Tendang"
+        },
+        {
+          "label": "Engine Oil Capacity",
+          "value": "0.8 L"
+        },
+        {
+          "label": "Cylinders",
+          "value": "Silinder Tunggal"
+        }
+      ]
+    },
+    {
+      "title": "Transmission",
+      "items": [
+        {
+          "label": "Transmission system",
+          "value": "Automatik"
+        }
+      ]
+    },
+    {
+      "title": "Chasis",
+      "items": [
+        {
+          "label": "Frame Type",
+          "value": "Underbone"
+        },
+        {
+          "label": "Overall Length",
+          "value": "1870 mm x 685 mm x 1060 mm"
+        },
+        {
+          "label": "Seat Height",
+          "value": "750 mm"
+        },
+        {
+          "label": "Wet Weight",
+          "value": "95kg"
+        },
+        {
+          "label": "Fuel Tank",
+          "value": "4.2 L"
+        }
+      ]
+    },
+    {
+      "title": "Brakes",
+      "items": [
+        {
+          "label": "Front brake",
+          "value": "Cakera Tunggal Hidraulik"
+        },
+        {
+          "label": "Back",
+          "value": "Gelendong"
+        }
+      ]
+    },
+    {
+      "title": "Suspension",
+      "items": [
+        {
+          "label": "Front Suspension",
+          "value": "Teleskopik"
+        },
+        {
+          "label": "Back Suspension",
+          "value": "Lengan Buai"
+        }
+      ]
+    },
+    {
+      "title": "Tires",
+      "items": [
+        {
+          "label": "Front Tyre",
+          "value": "110/70-12M/C 47P Tubeless"
+        },
+        {
+          "label": "Back Tyre",
+          "value": "110/70-12M/C 47P Tubeless"
+        }
+      ]
+    },
+    {
+      "title": "Electrical",
+      "items": [
+        {
+          "label": "Spark plug",
+          "value": "NGK/CR6HSA"
+        }
+      ]
+    }
+  ],
+  "mt-09": [
+    {
+      "title": "Engine",
+      "items": [
+        {
+          "label": "Engine Type",
+          "value": "4-stroke, Liquid -cooled, DOHC, 4-valves, In-line Three-cylinder"
+        },
+        {
+          "label": "Displacement",
+          "value": "890cc"
+        },
+        {
+          "label": "Bore X Stroke",
+          "value": "78.0 mmX 62.1 mm"
+        },
+        {
+          "label": "Compression Ratio",
+          "value": "11.5 : 1"
+        },
+        {
+          "label": "Maximum Power",
+          "value": "87.5 kW (119PS) @ 10,000 rpm"
+        },
+        {
+          "label": "Maximum Torque",
+          "value": "93Nm (9.5 kg-m) @ 7,000 rpm"
+        },
+        {
+          "label": "Lubrication System",
+          "value": "Wet Sump"
+        },
+        {
+          "label": "Clutch Type",
+          "value": "Wet Multiple Disc"
+        },
+        {
+          "label": "Fuel System",
+          "value": "Electronic Fuel Injection"
+        },
+        {
+          "label": "Ignition System",
+          "value": "TCI"
+        },
+        {
+          "label": "Starter System",
+          "value": "Electric"
+        },
+        {
+          "label": "Transmission System",
+          "value": "Constant Mesh, 6-speed"
+        },
+        {
+          "label": "Final Transmission",
+          "value": "Chain"
+        }
+      ]
+    },
+    {
+      "title": "Chasis",
+      "items": [
+        {
+          "label": "Frame Type",
+          "value": "Diamond"
+        },
+        {
+          "label": "Front Suspension System",
+          "value": "Upside-down Telescopic Fork, Ø 41 mm"
+        },
+        {
+          "label": "Front Travel",
+          "value": "130 mm"
+        },
+        {
+          "label": "Caster Angle",
+          "value": "25°"
+        },
+        {
+          "label": "Trail",
+          "value": "108 mm"
+        },
+        {
+          "label": "Rear Suspension System",
+          "value": "Link Suspension, Swingarm"
+        },
+        {
+          "label": "Rear Travel",
+          "value": "117 mm"
+        },
+        {
+          "label": "Front Brake",
+          "value": "Hydraulic Dual Disc, Ø 298 mm"
+        },
+        {
+          "label": "Rear Brake",
+          "value": "Hydraulic Single Disc, Ø 245 mm"
+        },
+        {
+          "label": "Front Tyre",
+          "value": "120/70ZR17M/C (58w) Tubeless"
+        },
+        {
+          "label": "Rear Tyre",
+          "value": "180/55ZR17M/C (73w) Tubeless"
+        }
+      ]
+    },
+    {
+      "title": "Dimensions",
+      "items": [
+        {
+          "label": "Overall Length",
+          "value": "2.090 mm"
+        },
+        {
+          "label": "Overall Width",
+          "value": "820 mm"
+        },
+        {
+          "label": "Overall Height",
+          "value": "1,145 mm"
+        },
+        {
+          "label": "Seat Height",
+          "value": "825 mm"
+        },
+        {
+          "label": "Wheel Base",
+          "value": "1,430 mm"
+        },
+        {
+          "label": "Minimum Ground Clearance",
+          "value": "140 mm"
+        },
+        {
+          "label": "Wet Weight (Including Full Oil And Fuel Tank)",
+          "value": "193 kg"
+        },
+        {
+          "label": "Fuel Tank Capacity",
+          "value": "14L"
+        },
+        {
+          "label": "Oil Tank Capacity",
+          "value": "3.50L"
+        }
+      ]
+    }
+  ],
+  "nvx": [
+    {
+      "title": "Engine",
+      "items": [
+        {
+          "label": "Type",
+          "value": "Sejukan Cecair, 4-Lejang, SOHC, 4-injap"
+        },
+        {
+          "label": "Bore x Stroke",
+          "value": "58.0 mm x 58.7 mm"
+        },
+        {
+          "label": "Compression Ratio",
+          "value": "11.6 : 1"
+        },
+        {
+          "label": "Maximum Horsepower",
+          "value": "11.3kW (15.4 PS) / 8,000 r/min"
+        },
+        {
+          "label": "Maximum Torque",
+          "value": "14.2 Nm (1.4 kgf.m) / 6,500 r/min"
+        },
+        {
+          "label": "Starting System",
+          "value": "Elektrik"
+        },
+        {
+          "label": "Engine Oil Capacity",
+          "value": "1.1L (Versi SP), 1.0L (Versi ABS)"
+        },
+        {
+          "label": "Cylinders",
+          "value": "Silinder Tunggal"
+        },
+        {
+          "label": "Displacement",
+          "value": "155cc"
+        },
+        {
+          "label": "Lubrication System",
+          "value": "Takungan Basah"
+        },
+        {
+          "label": "Fuel System",
+          "value": "Suntikan Bahan Api"
+        },
+        {
+          "label": "Ignition System",
+          "value": "TCI"
+        },
+        {
+          "label": "Clutch Type",
+          "value": "Kering, Centrifugal, Shoe"
+        }
+      ]
+    },
+    {
+      "title": "Transmission",
+      "items": [
+        {
+          "label": "Transmission Type",
+          "value": "Tali Sawat V-Automatik, ECVT (Versi SP) / Tali Sawat V-Automatik, MCVT (Versi ABS)"
+        }
+      ]
+    },
+    {
+      "title": "Chasis",
+      "items": [
+        {
+          "label": "Frame Type",
+          "value": "Backbone"
+        },
+        {
+          "label": "Overall Length",
+          "value": "1,980mm x 710mm x 1,170mm"
+        },
+        {
+          "label": "Seat Height",
+          "value": "790mm"
+        },
+        {
+          "label": "Wet Weight",
+          "value": "130kg (Versi SP) / 127kg (Versi ABS)"
+        },
+        {
+          "label": "Fuel Tank",
+          "value": "5.5L"
+        },
+        {
+          "label": "Wheel Base",
+          "value": "1,350mm"
+        },
+        {
+          "label": "Min. Ground Clearance",
+          "value": "145mm"
+        }
+      ]
+    },
+    {
+      "title": "Brakes",
+      "items": [
+        {
+          "label": "Front/Rear Brake",
+          "value": "Cakera Tunggal Hidraulik"
+        }
+      ]
+    },
+    {
+      "title": "Suspension",
+      "items": [
+        {
+          "label": "Front Suspension Type",
+          "value": "Teleskopik"
+        },
+        {
+          "label": "Back Suspension",
+          "value": "Lengan Buai"
+        }
+      ]
+    },
+    {
+      "title": "Tires",
+      "items": [
+        {
+          "label": "Front Tyre",
+          "value": "110/80 – 14M/C 53P Tubeless"
+        },
+        {
+          "label": "Back Tyre",
+          "value": "140/70 – 14M/C 62P Tubeless"
+        }
+      ]
+    },
+    {
+      "title": "Electrical",
+      "items": [
+        {
+          "label": "Plug Type",
+          "value": "NGK / CPR8EA9"
+        }
+      ]
+    }
+  ],
+  "r15m": [
+    {
+      "title": "Engine",
+      "items": [
+        {
+          "label": "Jenis Enjin",
+          "value": "Sejukan Cecair, 4-Lejang, SOHC, 4-Injap, VVA"
+        },
+        {
+          "label": "Susunan Silinder",
+          "value": "Silinder Tunggal"
+        },
+        {
+          "label": "Sesaran",
+          "value": "155CC"
+        },
+        {
+          "label": "Lubang x Lejang",
+          "value": "58.0 x 58.7 mm"
+        },
+        {
+          "label": "Nisbah Mampatan",
+          "value": "11.6:1"
+        },
+        {
+          "label": "Kuasa Maksimum",
+          "value": "14.2 kW/10000 rpm"
+        },
+        {
+          "label": "Tork Maksimum",
+          "value": "14.7 Nm/8500 rpm"
+        },
+        {
+          "label": "Pelinciran",
+          "value": "Takungan Basah"
+        },
+        {
+          "label": "Sistem Penghidup",
+          "value": "Elektrik"
+        },
+        {
+          "label": "Isi Tangki Minyak Enjin",
+          "value": "1.05 L"
+        },
+        {
+          "label": "Sistem Nyalaan",
+          "value": "TCI"
+        }
+      ]
+    },
+    {
+      "title": "Transmission",
+      "items": [
+        {
+          "label": "Jenis Transmisi",
+          "value": "Manual 6-Kelajuan"
+        },
+        {
+          "label": "Jenis Klac",
+          "value": "Basah, Multiplat, Assist & Slipper Clutch"
+        }
+      ]
+    },
+    {
+      "title": "Chasis",
+      "items": [
+        {
+          "label": "Jenis Kerangka",
+          "value": "Deltabox"
+        },
+        {
+          "label": "Panjang Keseluruhan",
+          "value": "1990 mm"
+        },
+        {
+          "label": "Lebar Keseluruhan",
+          "value": "725 mm"
+        },
+        {
+          "label": "Tinggi Keseluruhan",
+          "value": "1135 mm"
+        },
+        {
+          "label": "Tinggi Tempat Duduk",
+          "value": "815 mm"
+        },
+        {
+          "label": "Jarak Minimum dari Tanah",
+          "value": "160mm"
+        },
+        {
+          "label": "Wet Weight",
+          "value": "137kg"
+        },
+        {
+          "label": "Isi Tangki Bahan Api",
+          "value": "11 L"
+        }
+      ]
+    },
+    {
+      "title": "Brakes",
+      "items": [
+        {
+          "label": "Brek Depan",
+          "value": "Cakera"
+        },
+        {
+          "label": "Brek Belakang",
+          "value": "Cakera"
+        }
+      ]
+    },
+    {
+      "title": "Suspension",
+      "items": [
+        {
+          "label": "Suspensi Depan",
+          "value": "Telescopic Fork (Inverted)"
+        },
+        {
+          "label": "Suspensi Belakang",
+          "value": "Link Monoshock"
+        }
+      ]
+    },
+    {
+      "title": "Tires",
+      "items": [
+        {
+          "label": "Tayar Depan",
+          "value": "100/80 – 17M/C 52P"
+        },
+        {
+          "label": "Tayar Belakang",
+          "value": "140/70 – 17M/C 66S"
+        }
+      ]
+    }
+  ],
+  "xmax-250": [
+    {
+      "title": "Engine",
+      "items": [
+        {
+          "label": "Type",
+          "value": "Single cylinder, liquid-cooled, 4-stroke, SOHC, 4-valves"
+        },
+        {
+          "label": "Cylinders",
+          "value": "Single Cylinder"
+        },
+        {
+          "label": "Displacement",
+          "value": "249.8 cc"
+        },
+        {
+          "label": "Bore x stroke",
+          "value": "70.0 mm x 64.9 mm"
+        },
+        {
+          "label": "Compression ratio",
+          "value": "10.5 : 1"
+        },
+        {
+          "label": "Maximum power",
+          "value": "16.8 kW @ 7,000 rpm"
+        },
+        {
+          "label": "Maximum torque",
+          "value": "24.3 Nm @ 5,500 rpm"
+        },
+        {
+          "label": "Lubrication System",
+          "value": "Wet Sump"
+        },
+        {
+          "label": "Fuel system",
+          "value": "Fuel Injection"
+        },
+        {
+          "label": "Ignition system",
+          "value": "TCI"
+        },
+        {
+          "label": "Starter system",
+          "value": "Electric"
+        }
+      ]
+    },
+    {
+      "title": "Transmission",
+      "items": [
+        {
+          "label": "Transmission system",
+          "value": "V-Belt Automatic"
+        }
+      ]
+    },
+    {
+      "title": "Chasis",
+      "items": [
+        {
+          "label": "Overall length",
+          "value": "2,180 mm"
+        },
+        {
+          "label": "Overall width",
+          "value": "795 mm"
+        },
+        {
+          "label": "Overall height",
+          "value": "1,505 mm"
+        },
+        {
+          "label": "Seat height",
+          "value": "805 mm"
+        },
+        {
+          "label": "Wheelbase",
+          "value": "1,540 mm"
+        },
+        {
+          "label": "Minimum Ground Clearance",
+          "value": "135 mm"
+        },
+        {
+          "label": "Wet weight",
+          "value": "183 kg"
+        },
+        {
+          "label": "Fuel tank capacity",
+          "value": "13 L"
+        }
+      ]
+    },
+    {
+      "title": "Brakes",
+      "items": [
+        {
+          "label": "Front brake",
+          "value": "Hydraulic single disc (ABS)"
+        },
+        {
+          "label": "Rear brake",
+          "value": "Hydraulic single disc (ABS)"
+        }
+      ]
+    },
+    {
+      "title": "Suspension",
+      "items": [
+        {
+          "label": "Front Suspension Type",
+          "value": "Telescopic forks"
+        },
+        {
+          "label": "Rear Suspension Type",
+          "value": "Unit Swing"
+        },
+        {
+          "label": "Front travel",
+          "value": "110 mm"
+        },
+        {
+          "label": "Rear travel",
+          "value": "79 mm"
+        }
+      ]
+    },
+    {
+      "title": "Tires",
+      "items": [
+        {
+          "label": "Front Tyre",
+          "value": "120/70-15"
+        },
+        {
+          "label": "Rear Tyre",
+          "value": "140/70-14"
+        }
+      ]
+    }
+  ],
+  "yseries": [
+    {
+      "title": "Engine",
+      "items": [
+        {
+          "label": "Type",
+          "value": "Sejukan Cecair, 4-Lejang, SOHC, 4-Injap"
+        },
+        {
+          "label": "Cylinders",
+          "value": "Silinder Tunggal"
+        },
+        {
+          "label": "Bore x Stroke",
+          "value": "58.0 x 58.7mm"
+        },
+        {
+          "label": "Compression Ratio",
+          "value": "10.5 : 1"
+        },
+        {
+          "label": "Maximum Horsepower",
+          "value": "13.2kW (9,500rpm)"
+        },
+        {
+          "label": "Maximum Torque",
+          "value": "14.4Nm (8,000rpm)"
+        },
+        {
+          "label": "Starting System",
+          "value": "Elektrik"
+        },
+        {
+          "label": "Lubrication System",
+          "value": "Takungan Basah"
+        },
+        {
+          "label": "Engine Oil Capacity",
+          "value": "1.10L"
+        },
+        {
+          "label": "Fuel Tank Capacity",
+          "value": "5.4L"
+        },
+        {
+          "label": "Fuel System",
+          "value": "Suntikan Bahan Api"
+        },
+        {
+          "label": "Ignition System",
+          "value": "TCI"
+        },
+        {
+          "label": "Battery Type",
+          "value": "12V 3.5Ah"
+        }
+      ]
+    },
+    {
+      "title": "Transmission",
+      "items": [
+        {
+          "label": "Transmission Type",
+          "value": "Constant Mesh, 6-Kelajuan"
+        },
+        {
+          "label": "Clutch Type",
+          "value": "Basah, Multiplat"
+        }
+      ]
+    },
+    {
+      "title": "Chasis",
+      "items": [
+        {
+          "label": "Frame Type",
+          "value": "Backbone"
+        },
+        {
+          "label": "Overall Length",
+          "value": "1975mm"
+        },
+        {
+          "label": "Overall Width",
+          "value": "665mm"
+        },
+        {
+          "label": "Overall Height",
+          "value": "1,085mm"
+        },
+        {
+          "label": "Wheelbase",
+          "value": "1290mm"
+        },
+        {
+          "label": "Minimum Ground Clearance",
+          "value": "150mm"
+        },
+        {
+          "label": "Weight",
+          "value": "119 kg"
+        }
+      ]
+    },
+    {
+      "title": "Brakes",
+      "items": [
+        {
+          "label": "Front",
+          "value": "Cakera Tunggal Hidraulik dengan ABS"
+        },
+        {
+          "label": "Rear",
+          "value": "Cakera Tunggal Hidraulik"
+        }
+      ]
+    },
+    {
+      "title": "Suspension",
+      "items": [
+        {
+          "label": "Front Suspension Type",
+          "value": "Teleskopik"
+        },
+        {
+          "label": "Rear Suspension Type",
+          "value": "Lengan Buai"
+        }
+      ]
+    },
+    {
+      "title": "Tires",
+      "items": [
+        {
+          "label": "Front Tyre",
+          "value": "90/80-17M/C (46P)"
+        },
+        {
+          "label": "Rear Tyre",
+          "value": "120/70-17M/C (58P)"
+        }
+      ]
+    }
+  ],
+  "mt-15": [
+    {
+      "title": "Engine",
+      "items": [
+        {
+          "label": "Engine Type",
+          "value": "Liquid-cooled, 4 Stroke, SOHC, 4-Valves"
+        },
+        {
+          "label": "Displacement",
+          "value": "155cc"
+        },
+        {
+          "label": "Bore X Stroke",
+          "value": "58.0 × 58.7 mm"
+        },
+        {
+          "label": "Compression Ratio",
+          "value": "11.6 : 1"
+        },
+        {
+          "label": "Maximum Power",
+          "value": "14.2 kW (19.3 PS) / 10,000 r/min"
+        },
+        {
+          "label": "Maximum Torque",
+          "value": "14.7 N・m (1.5 kgf・m) / 8,500 r/min"
+        },
+        {
+          "label": "Lubrication System",
+          "value": "Wet Sump"
+        },
+        {
+          "label": "Clutch Type",
+          "value": "Wet, Multiple Disc"
+        },
+        {
+          "label": "Fuel System",
+          "value": "Fuel Injection"
+        },
+        {
+          "label": "Ignition System",
+          "value": "TCI"
+        },
+        {
+          "label": "Starter System",
+          "value": "Electric"
+        },
+        {
+          "label": "Transmission System",
+          "value": "Constant mesh, 6-speed / Return"
+        },
+        {
+          "label": "Final Transmission",
+          "value": "Chain"
+        }
+      ]
+    },
+    {
+      "title": "Chasis",
+      "items": [
+        {
+          "label": "Frame Type",
+          "value": "Diamond"
+        },
+        {
+          "label": "Front Suspension System",
+          "value": "Telescopic fork"
+        },
+        {
+          "label": "Front Travel",
+          "value": "130mm"
+        },
+        {
+          "label": "Caster Angle",
+          "value": "25°40′"
+        },
+        {
+          "label": "Trail",
+          "value": "89 MM"
+        },
+        {
+          "label": "Rear Suspension System",
+          "value": "Swingarm"
+        },
+        {
+          "label": "Rear Travel",
+          "value": "125 MM"
+        },
+        {
+          "label": "Front Brake",
+          "value": "Hydraulic single disc brake"
+        },
+        {
+          "label": "Rear Brake",
+          "value": "Hydraulic single disc brake"
+        },
+        {
+          "label": "Front Tyre",
+          "value": "110/70-17 M/C 54S (Tubeless)"
+        },
+        {
+          "label": "Rear Tyre",
+          "value": "140/70-17 M/C 66S (Tubeless)"
+        }
+      ]
+    },
+    {
+      "title": "Dimensions",
+      "items": [
+        {
+          "label": "Overall Length",
+          "value": "1,965 MM"
+        },
+        {
+          "label": "Overall Width",
+          "value": "800 MM"
+        },
+        {
+          "label": "Overall Height",
+          "value": "1,065 MM"
+        },
+        {
+          "label": "Seat Height",
+          "value": "810 MM"
+        },
+        {
+          "label": "Wheel Base",
+          "value": "1,335 MM"
+        },
+        {
+          "label": "Minimum Ground Clearance",
+          "value": "155 MM"
+        },
+        {
+          "label": "Wet Weight (Including Full Oil And Fuel Tank)",
+          "value": "133 KG"
+        },
+        {
+          "label": "Fuel Tank Capacity",
+          "value": "10 L"
+        },
+        {
+          "label": "Oil Tank Capacity",
+          "value": "1.05 L"
+        }
+      ]
+    }
+  ],
+  "y16zr-6mro-limited-edition": [
+    {
+      "title": "Engine",
+      "items": [
+        {
+          "label": "Type",
+          "value": "Sejukan Cecair, 4-Lejang, SOHC, 4-Injap"
+        },
+        {
+          "label": "Cylinders",
+          "value": "Silinder Tunggal"
+        },
+        {
+          "label": "Bore x Stroke",
+          "value": "58.0 x 58.7mm"
+        },
+        {
+          "label": "Compression Ratio",
+          "value": "10.5 : 1"
+        },
+        {
+          "label": "Maximum Horsepower",
+          "value": "13.2kW (9,500rpm)"
+        },
+        {
+          "label": "Maximum Torque",
+          "value": "14.4Nm(8,000rpm)"
+        },
+        {
+          "label": "Starting System",
+          "value": "Elektrik"
+        },
+        {
+          "label": "Lubrication System",
+          "value": "Takungan Basah"
+        },
+        {
+          "label": "Engine Oil Capacity",
+          "value": "1.10L"
+        },
+        {
+          "label": "Fuel Tank Capacity",
+          "value": "5.4L"
+        },
+        {
+          "label": "Fuel System",
+          "value": "Suntikan Bahan Api"
+        },
+        {
+          "label": "Ignition System",
+          "value": "TCI"
+        },
+        {
+          "label": "Battery Type",
+          "value": "12V 3.5Ah"
+        }
+      ]
+    },
+    {
+      "title": "Transmission",
+      "items": [
+        {
+          "label": "Transmission Type",
+          "value": "Constant Mesh, 6-Kelajuan"
+        },
+        {
+          "label": "Clutch Type",
+          "value": "Basah, Multiplat"
+        }
+      ]
+    },
+    {
+      "title": "Chasis",
+      "items": [
+        {
+          "label": "Frame Type",
+          "value": "Backbone"
+        },
+        {
+          "label": "Overall Length",
+          "value": "1975mm"
+        },
+        {
+          "label": "Overall Width",
+          "value": "665mm"
+        },
+        {
+          "label": "Overall Height",
+          "value": "1,085mm"
+        },
+        {
+          "label": "Wheelbase",
+          "value": "1290mm"
+        },
+        {
+          "label": "Minimum Ground Clearance",
+          "value": "150mm"
+        },
+        {
+          "label": "Weight",
+          "value": "119 kg"
+        }
+      ]
+    },
+    {
+      "title": "Brakes",
+      "items": [
+        {
+          "label": "Front",
+          "value": "Cakera Tunggal Hidraulik dengan ABS"
+        },
+        {
+          "label": "Rear",
+          "value": "Cakera Tunggal Hidraulik"
+        }
+      ]
+    },
+    {
+      "title": "Suspension",
+      "items": [
+        {
+          "label": "Front Suspension Type",
+          "value": "Teleskopik"
+        },
+        {
+          "label": "Rear Suspension Type",
+          "value": "Lengan Buai"
+        }
+      ]
+    },
+    {
+      "title": "Tires",
+      "items": [
+        {
+          "label": "Front Tyre",
+          "value": "90/80-17M/C (46P)"
+        },
+        {
+          "label": "Rear Tyre",
+          "value": "120/70-17M/C (58P)"
+        }
+      ]
+    }
+  ],
+  "mt-25": [
+    {
+      "title": "Engine",
+      "items": [
+        {
+          "label": "Engine Type",
+          "value": "Liquid-cooled, 4 Stroke, DOHC, 4-Valves"
+        },
+        {
+          "label": "Displacement",
+          "value": "249cc"
+        },
+        {
+          "label": "Bore X Stroke",
+          "value": "60.0 mmX 44.1 mm"
+        },
+        {
+          "label": "Compression Ratio",
+          "value": "11.6 : 1"
+        },
+        {
+          "label": "Maximum Power",
+          "value": "26.4 kW / 12,000 rpm"
+        },
+        {
+          "label": "Maximum Torque",
+          "value": "22.6 Nm / 10,000 rpm"
+        },
+        {
+          "label": "Lubrication System",
+          "value": "Wet Sump"
+        },
+        {
+          "label": "Clutch Type",
+          "value": "Wet, Multiple Disc"
+        },
+        {
+          "label": "Fuel System",
+          "value": "Fuel Injection"
+        },
+        {
+          "label": "Ignition System",
+          "value": "TCI"
+        },
+        {
+          "label": "Starter System",
+          "value": "Electric"
+        },
+        {
+          "label": "Transmission System",
+          "value": "Constant Mesh, 6-speed"
+        },
+        {
+          "label": "Final Transmission",
+          "value": "Chain"
+        }
+      ]
+    },
+    {
+      "title": "Chasis",
+      "items": [
+        {
+          "label": "Frame Type",
+          "value": "Diamond"
+        },
+        {
+          "label": "Front Suspension System",
+          "value": "Telescopic Forks"
+        },
+        {
+          "label": "Front Travel",
+          "value": "130mm"
+        },
+        {
+          "label": "Caster Angle",
+          "value": "25°"
+        },
+        {
+          "label": "Trail",
+          "value": "95mm"
+        },
+        {
+          "label": "Rear Suspension System",
+          "value": "Swingarm"
+        },
+        {
+          "label": "Rear Travel",
+          "value": "125 MM"
+        },
+        {
+          "label": "Front Brake",
+          "value": "Hydraulic Disc, ABS"
+        },
+        {
+          "label": "Rear Brake",
+          "value": "Hydraulic Disc, ABS"
+        },
+        {
+          "label": "Front Tyre",
+          "value": "110/70R17M/C (54S) Tubeless"
+        },
+        {
+          "label": "Rear Tyre",
+          "value": "140/70R17M/C (66S) Tubeless"
+        }
+      ]
+    },
+    {
+      "title": "Dimensions",
+      "items": [
+        {
+          "label": "Overall Length",
+          "value": "2,090mm"
+        },
+        {
+          "label": "Overall Width",
+          "value": "755mm"
+        },
+        {
+          "label": "Overall Height",
+          "value": "1,070mm"
+        },
+        {
+          "label": "Seat Height",
+          "value": "780mm"
+        },
+        {
+          "label": "Wheel Base",
+          "value": "1,380mm"
+        },
+        {
+          "label": "Minimum Ground Clearance",
+          "value": "160mm"
+        },
+        {
+          "label": "Wet Weight (Including Full Oil And Fuel Tank)",
+          "value": "167kg"
+        },
+        {
+          "label": "Fuel Tank Capacity",
+          "value": "14L"
+        },
+        {
+          "label": "Oil Tank Capacity",
+          "value": "2.51L"
+        }
+      ]
+    }
+  ],
+  "y16zr-doxou": [
+    {
+      "title": "Engine",
+      "items": [
+        {
+          "label": "Type",
+          "value": "Sejukan Cecair, 4-Lejang, SOHC, 4-Injap"
+        },
+        {
+          "label": "Cylinders",
+          "value": "Silinder Tunggal"
+        },
+        {
+          "label": "Bore x Stroke",
+          "value": "58.0 x 58.7mm"
+        },
+        {
+          "label": "Compression Ratio",
+          "value": "10.5 : 1"
+        },
+        {
+          "label": "Maximum Horsepower",
+          "value": "13.2kW (9,500rpm)"
+        },
+        {
+          "label": "Maximum Torque",
+          "value": "14.4Nm(8,000rpm)"
+        },
+        {
+          "label": "Starting System",
+          "value": "Elektrik"
+        },
+        {
+          "label": "Lubrication System",
+          "value": "Takungan Basah"
+        },
+        {
+          "label": "Engine Oil Capacity",
+          "value": "1.10L"
+        },
+        {
+          "label": "Fuel Tank Capacity",
+          "value": "5.4L"
+        },
+        {
+          "label": "Fuel System",
+          "value": "Suntikan Bahan Api"
+        },
+        {
+          "label": "Ignition System",
+          "value": "TCI"
+        },
+        {
+          "label": "Battery Type",
+          "value": "12V 3.5Ah"
+        }
+      ]
+    },
+    {
+      "title": "Transmission",
+      "items": [
+        {
+          "label": "Transmission Type",
+          "value": "Constant Mesh, 6-Kelajuan"
+        },
+        {
+          "label": "Clutch Type",
+          "value": "Basah, Multiplat"
+        }
+      ]
+    },
+    {
+      "title": "Chasis",
+      "items": [
+        {
+          "label": "Frame Type",
+          "value": "Backbone"
+        },
+        {
+          "label": "Overall Length",
+          "value": "1975mm"
+        },
+        {
+          "label": "Overall Width",
+          "value": "665mm"
+        },
+        {
+          "label": "Overall Height",
+          "value": "1,085mm"
+        },
+        {
+          "label": "Wheelbase",
+          "value": "1290mm"
+        },
+        {
+          "label": "Minimum Ground Clearance",
+          "value": "150mm"
+        },
+        {
+          "label": "Weight",
+          "value": "119 kg"
+        }
+      ]
+    },
+    {
+      "title": "Brakes",
+      "items": [
+        {
+          "label": "Front and Rear",
+          "value": "Cakera Tunggal Hidraulik"
+        }
+      ]
+    },
+    {
+      "title": "Suspension",
+      "items": [
+        {
+          "label": "Front Suspension Type",
+          "value": "Teleskopik"
+        },
+        {
+          "label": "Rear Suspension Type",
+          "value": "Lengan Buai"
+        }
+      ]
+    },
+    {
+      "title": "Tires",
+      "items": [
+        {
+          "label": "Front Tyre",
+          "value": "90/80-17M/C (46P)"
+        },
+        {
+          "label": "Rear Tyre",
+          "value": "120/70-17M/C (58P)"
+        }
+      ]
+    }
+  ]
+}

@@ -3,27 +3,8 @@ import { getAssetUrl } from "@/lib/get-asset-url";
 
 export const PRODUCT_OVERVIEW_CONTENT: ProductOverviewContent = {
   description:
-    "The Yamaha NVX SP 155 combines sporty performance, advanced features, and everyday practicality. Its designed to move you through the city with confidence.",
-  eyebrow: "Overview",
-  specs: [
-    {
-      label: "Engine",
-      value: "155cc"
-    },
-    {
-      label: "Maximum torque",
-      value: "14.2Nm (1.4 kgf.m) / 6,500 r/min"
-    },
-    {
-      label: "Oil capacity",
-      value: "1.1L (SP version), 1.0L (ABS version)"
-    },
-    {
-      label: "Fuel system",
-      value: "Fuel injection"
-    }
-  ],
-  titleLines: ["Smart performance.", "Built for the city."]
+    "The Yamaha NVX SP 155 combines sporty performance, advanced features, and everyday practicality. It's designed to move you through the city with confidence.",
+  titleLines: ["Meet the NVX SP.", "Built for the city."]
 } as const;
 
 export const PRODUCT_OVERVIEW_COLORS: readonly ProductOverviewColor[] = [

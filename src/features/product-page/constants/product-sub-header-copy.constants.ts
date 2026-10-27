@@ -1,5 +1,3 @@
 export const PRODUCT_SUB_HEADER_COPY = {
-  ariaLabel: "product navigation",
-  contactDealerAriaLabel: "ask a dealer",
-  contactDealerLabel: "ask a dealer"
+  ariaLabel: "product navigation"
 } as const;

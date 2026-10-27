@@ -4,7 +4,8 @@ import { getAssetUrl } from "@/lib/get-asset-url";
 export const PRODUCT_COLOR_OPTIONS: readonly ProductColorOption[] = [
   {
     alt: "Yamaha NVX in Gunmetal Grey",
-    image: getAssetUrl("hlym/nvx-colors/gunmetal-grey-transparent.webp"),
+    // Static render leveled 2.08° counterclockwise; the 360° frames are unchanged.
+    image: getAssetUrl("hlym/nvx-colors/gunmetal-grey-leveled.webp"),
     label: "Gunmetal Grey",
     swatch: getAssetUrl("hlym/nvx-colors/gunmetal-grey-swatch.jpg")
   },
