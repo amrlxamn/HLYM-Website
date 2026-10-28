@@ -57,7 +57,7 @@ export const MegaModelList = styled.div<{ $categoryIndex: number }>`
   );
 `;
 
-export const MegaModelButton = styled.button<{ $active: boolean }>`
+export const MegaModelLink = styled.a<{ $active: boolean }>`
   align-items: center;
   color: ${({ $active }) => ($active ? "var(--color-brand-500)" : "var(--color-text-primary)")};
   display: flex;
@@ -66,6 +66,7 @@ export const MegaModelButton = styled.button<{ $active: boolean }>`
   min-height: 40px;
   padding: var(--space-2) 0;
   text-align: left;
+  text-decoration: none;
   text-transform: uppercase;
   width: 180px;
 

@@ -37,7 +37,7 @@ export function NewsCard({ item }: NewsCardProps) {
         <NewsCardTitle>{item.title}</NewsCardTitle>
         <NewsCardDescription>{item.description}</NewsCardDescription>
         <NewsCardAction>
-          <Button onClick={() => window.location.assign(item.href)} size="sm" variant="light">
+          <Button as="a" href={item.href} size="sm" variant="light">
             {item.ctaLabel}
           </Button>
         </NewsCardAction>

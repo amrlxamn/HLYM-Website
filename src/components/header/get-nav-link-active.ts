@@ -19,5 +19,11 @@ export function getNavLinkActive(item: NavItem, pathname: string): boolean {
     ].some((route) => pathname === route || pathname === `${route}/`);
   }
 
+  if (item.href === "/news-events") {
+    return ["/news-events", "/yamalube-scan"].some(
+      (route) => pathname === route || pathname === `${route}/`
+    );
+  }
+
   return pathname.startsWith(item.href);
 }

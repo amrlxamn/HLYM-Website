@@ -3,6 +3,7 @@ import { toSentenceCase } from "@/lib/to-sentence-case";
 import {
   ContactHeroCardNumber,
   ContactHeroCardRoot,
+  ContactHeroCardStatus,
   ContactHeroCardTitle
 } from "../styles/contact-hero-card.styles";
 import type { ContactHeroCard } from "../types/contact-page.types";
@@ -14,13 +15,15 @@ type ContactSupportCardProps = {
 
 export function ContactSupportCard({ card, onEnquiryClick }: ContactSupportCardProps) {
   const isFeatured = card.tone === "featured";
+  const isComingSoon = card.comingSoon === true;
   const cardLabel = toSentenceCase(card.titleLines.join(" "));
 
   return (
     <ContactHeroCardRoot
       $backgroundImage={card.backgroundImage}
+      $comingSoon={isComingSoon}
       $featured={isFeatured}
-      aria-label={cardLabel}
+      aria-label={isComingSoon ? `${cardLabel} — coming soon` : cardLabel}
     >
       <ContactHeroCardNumber>{card.number}</ContactHeroCardNumber>
       <div>
@@ -29,7 +32,9 @@ export function ContactSupportCard({ card, onEnquiryClick }: ContactSupportCardP
             <span key={line}>{line}</span>
           ))}
         </ContactHeroCardTitle>
-        {isFeatured ? (
+        {isComingSoon ? (
+          <ContactHeroCardStatus>{card.ctaLabel}</ContactHeroCardStatus>
+        ) : isFeatured ? (
           <Button onClick={onEnquiryClick} size="sm" variant="primary">
             {card.ctaLabel}
           </Button>

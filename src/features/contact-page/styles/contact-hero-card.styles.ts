@@ -2,6 +2,7 @@ import styled, { css } from "styled-components";
 
 type ContactHeroCardRootProps = {
   $backgroundImage: string | undefined;
+  $comingSoon: boolean;
   $featured: boolean;
 };
 
@@ -61,6 +62,15 @@ export const ContactHeroCardRoot = styled.article<ContactHeroCardRootProps>`
       }
     `}
 
+  ${({ $comingSoon }) =>
+    $comingSoon &&
+    css`
+      --contact-card-bg: #f2f3f3;
+      --contact-card-border: #cdd1d2;
+      --contact-card-number: var(--red);
+      --contact-card-text: #60656a;
+    `}
+
   > * {
     position: relative;
   }
@@ -81,5 +91,16 @@ export const ContactHeroCardTitle = styled.h2`
   letter-spacing: 0;
   line-height: 1.12;
   margin: 0 0 var(--space-4);
+  text-transform: uppercase;
+`;
+
+export const ContactHeroCardStatus = styled.span`
+  border-bottom: 1px solid #aeb4b6;
+  color: var(--color-text-dim);
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: var(--tracking-widest);
+  padding-bottom: var(--space-3);
   text-transform: uppercase;
 `;

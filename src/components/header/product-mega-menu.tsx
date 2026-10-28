@@ -8,7 +8,7 @@ import { NEW_PRODUCT_SLUGS, PRODUCT_CURTAIN_MODELS } from "./product-curtain-mod
 import {
   MegaCategoryButton,
   MegaCategoryList,
-  MegaModelButton,
+  MegaModelLink,
   MegaModelList,
   MegaModelNewBadge,
   MegaProductImage,
@@ -72,19 +72,18 @@ export function ProductMegaMenu({ contentTop, fullWidth, onClose, open }: Produc
                 aria-label={`${toSentenceCase(activeCategory)} motorcycles`}
               >
                 {categoryModels.map((model) => (
-                  <MegaModelButton
+                  <MegaModelLink
                     $active={model.name === activeModel.name}
-                    aria-pressed={model.name === activeModel.name}
+                    href={`/products/${model.slug}`}
                     key={model.name}
                     onFocus={() => setActiveModel(model)}
                     onMouseEnter={() => setActiveModel(model)}
-                    type="button"
                   >
                     <span>{model.name}</span>
                     {NEW_PRODUCT_SLUGS.has(model.slug) && (
                       <MegaModelNewBadge>NEW</MegaModelNewBadge>
                     )}
-                  </MegaModelButton>
+                  </MegaModelLink>
                 ))}
               </MegaModelList>
               <MegaProductPreview>

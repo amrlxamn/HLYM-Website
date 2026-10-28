@@ -1,11 +1,10 @@
 export type ContactHeroCard = {
   backgroundImage?: string;
-  ctaHref: string;
   ctaLabel: string;
   number: string;
   tone?: "featured";
   titleLines: readonly string[];
-};
+} & ({ ctaHref: string; comingSoon?: false } | { ctaHref?: never; comingSoon: true });
 
 export type ContactHeroContent = {
   ariaLabel: string;

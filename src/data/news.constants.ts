@@ -7,7 +7,7 @@ export const NEWS_ITEMS: readonly NewsCard[] = [
     ctaLabel: "Read more",
     dateLabel: "12 August 2026",
     description: "Find the selected authorised dealers carrying the XMAX 300 Tech Max.",
-    href: "https://www.yamaha-motor.com.my/xmax300available/",
+    href: "https://www.yamaha-motor.com.my/xmax-300-tech-max-sales-network",
     image: getAssetUrl("hlym/news/26XMAX-NE.jpg"),
     title: "XMAX 300 Tech Max sales network"
   },
@@ -43,8 +43,9 @@ export const NEWS_ITEMS: readonly NewsCard[] = [
     ctaLabel: "Read more",
     dateLabel: "27 February 2026",
     description: "Scan participating Yamalube products for a chance to win Yamaha prizes.",
-    href: "https://www.yamaha-motor.com.my/yamalubescanandwincontest/",
-    image: getAssetUrl("hlym/news/22YSW-NE.jpg"),
+    href: "/yamalube-scan",
+    image:
+      "https://cdn.prod.website-files.com/6a20eb17fa7f874df9ab69d2/6ab2387d9ae1aab1096f4b44_YAMALUBE-SCAN-WIN-2026.jpg",
     title: "Yamalube Scan & Win Contest"
   },
   {
@@ -57,3 +58,17 @@ export const NEWS_ITEMS: readonly NewsCard[] = [
     title: "Introducing new colours for the Yamaha PG-1"
   }
 ] as const;
+
+export const NEWS_ARCHIVE_ITEMS: readonly NewsCard[] = [
+  ...NEWS_ITEMS,
+  {
+    alt: "Yamaha Quality Service network across Malaysia",
+    ctaLabel: "Read more",
+    dateLabel: "30 September 2025",
+    description: "Find Yamaha Quality Service support across Malaysia.",
+    href: "https://www.yamaha-motor.com.my/servis-yamaha-sentiasa-dekat-dengan-anda",
+    image:
+      "https://cdn.prod.website-files.com/6a20eb17fa7f874df9ab69d2/6a3ccedfec5a2a2213b7972a_YQS-web-banner.jpg",
+    title: "Yamaha Quality Service network"
+  }
+];

@@ -4,6 +4,9 @@ import { describe, expect, it } from "vitest";
 import { NAV_LINKS } from "@/data/navigation.constants";
 import { MainNavigation } from "@/components/header/main-navigation";
 import { SITE_COPY } from "@/data/site-copy.constants";
+import { MODEL_TABS } from "@/data/models.constants";
+import { PRODUCT_CURTAIN_MODELS } from "./product-curtain-models.constants";
+import { toSentenceCase } from "@/lib/to-sentence-case";
 
 describe("MainNavigation", () => {
   it("toggles the mobile menu state", async () => {
@@ -27,6 +30,10 @@ describe("MainNavigation", () => {
     expect(currentView.queryByLabelText("Contact us submenu")).not.toBeInTheDocument();
     expect(currentView.queryByLabelText("Corporate submenu")).not.toBeInTheDocument();
     expect(currentView.queryByLabelText("News & events submenu")).not.toBeInTheDocument();
+    expect(currentView.getByRole("link", { name: "news & events" })).toHaveAttribute(
+      "href",
+      "/news-events"
+    );
     const contactLinks = view.getAllByRole("link", { name: "contact us" });
 
     expect(contactLinks.length).toBeGreaterThan(0);
@@ -58,16 +65,36 @@ describe("MainNavigation", () => {
     fireEvent.mouseEnter(currentView.getByText("big bikes"));
 
     const bigBikes = within(currentView.getByLabelText("Big bikes motorcycles"));
-    const xmax = bigBikes.getByRole("button", { name: "XMAX 300 NEW" });
+    const xmax = bigBikes.getByRole("link", { name: "XMAX 300 NEW" });
     expect(getComputedStyle(xmax).justifyContent).toBe("space-between");
     expect(getComputedStyle(xmax).width).toBe("180px");
-    expect(bigBikes.getByRole("button", { name: "TENERE 700 NEW" })).toBeInTheDocument();
-    expect(bigBikes.getByRole("button", { name: "TMAX" })).not.toHaveTextContent("NEW");
+    expect(bigBikes.getByRole("link", { name: "TENERE 700 NEW" })).toBeInTheDocument();
+    expect(bigBikes.getByRole("link", { name: "TMAX" })).not.toHaveTextContent("NEW");
 
     fireEvent.mouseEnter(currentView.getByText("street"));
     const street = within(currentView.getByLabelText("Street motorcycles"));
-    expect(street.getByRole("button", { name: "XSR155 NEW" })).toBeInTheDocument();
-    expect(street.getByRole("button", { name: "YZF-R25" })).not.toHaveTextContent("NEW");
+    expect(street.getByRole("link", { name: "XSR155 NEW" })).toBeInTheDocument();
+    expect(street.getByRole("link", { name: "YZF-R25" })).not.toHaveTextContent("NEW");
+
+    fireEvent.keyDown(currentView.getByRole("button", { name: "products" }), { key: "Escape" });
+    await waitFor(() => expect(currentView.queryByLabelText("Products submenu")).toBeNull());
+  });
+
+  it("links every mega menu model name to its product page", async () => {
+    const view = render(<MainNavigation />);
+    const currentView = within(view.container);
+
+    fireEvent.mouseEnter(currentView.getByRole("button", { name: "products" }));
+
+    for (const category of MODEL_TABS) {
+      fireEvent.mouseEnter(currentView.getByRole("button", { name: new RegExp(category, "i") }));
+      const links = within(
+        currentView.getByLabelText(`${toSentenceCase(category)} motorcycles`)
+      ).getAllByRole("link");
+      expect(links.map((link) => link.getAttribute("href"))).toEqual(
+        PRODUCT_CURTAIN_MODELS[category].map((model) => `/products/${model.slug}`)
+      );
+    }
 
     fireEvent.keyDown(currentView.getByRole("button", { name: "products" }), { key: "Escape" });
     await waitFor(() => expect(currentView.queryByLabelText("Products submenu")).toBeNull());

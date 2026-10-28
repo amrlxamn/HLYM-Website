@@ -20,5 +20,7 @@ describe("getNavLinkActive", () => {
     expect(getNavLinkActive(NAV_LINKS[1]!, "/social-responsibility")).toBe(true);
     expect(getNavLinkActive(NAV_LINKS[1]!, "/4-millionth-rollout")).toBe(true);
     expect(getNavLinkActive(NAV_LINKS[1]!, "/principal-policies")).toBe(true);
+    expect(getNavLinkActive(NAV_LINKS[3]!, "/news-events")).toBe(true);
+    expect(getNavLinkActive(NAV_LINKS[3]!, "/yamalube-scan")).toBe(true);
   });
 });

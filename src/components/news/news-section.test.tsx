@@ -11,9 +11,12 @@ describe("NewsSection", () => {
     const view = render(<NewsSection />);
 
     expect(view.getByRole("heading", { name: SITE_COPY.news.heading })).toBeInTheDocument();
-    expect(view.getByRole("button", { name: SITE_COPY.news.viewAllLabel })).toBeInTheDocument();
+    expect(view.getByRole("link", { name: SITE_COPY.news.viewAllLabel })).toHaveAttribute(
+      "href",
+      "/news-events"
+    );
     expect(view.getAllByRole("article")).toHaveLength(6);
-    expect(view.getAllByRole("button", { name: cardCtaLabel })).toHaveLength(6);
+    expect(view.getAllByRole("link", { name: cardCtaLabel })).toHaveLength(6);
     expect(view.getAllByText("News")).toHaveLength(6);
     expect(view.getAllByText("|")).toHaveLength(6);
     expect(document.head.textContent).toContain("grid-template-columns:repeat(3, minmax(0, 1fr))");

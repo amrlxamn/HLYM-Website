@@ -26,6 +26,66 @@ afterEach(() => {
 });
 
 describe("App", () => {
+  it.each([
+    ["/news-events", "All news"],
+    ["/yamalube-scan", "Yamalube Scan & Win"]
+  ])("renders the local %s page", async (path, heading) => {
+    window.history.replaceState({}, "", path);
+    const view = render(<App />);
+
+    expect(await view.findByRole("heading", { name: heading, level: 1 })).toBeInTheDocument();
+  });
+
+  it.each([
+    ["/after-sales", "After Sales", "Tools & tips", "after sales"],
+    ["/yez", "Yamaha Endorsed Zone", "Mengapa YEZ?", "yamaha endorsed zone (yez)"],
+    ["/y-connect", "Y-Connect", "Features at a glance", "y-connect"],
+    ["/motorsports", "Motorsports", "2026 race schedule", "motorsports"],
+    ["/resources", "Resources", "Downloads", "resources"],
+    ["/career", "Career", "Available positions", "career"]
+  ])(
+    "renders %s and links to it from the utility navigation",
+    async (path, title, section, navLabel) => {
+      window.history.replaceState({}, "", path);
+      const view = render(<App />);
+
+      expect(await view.findByRole("heading", { name: title, level: 1 })).toBeInTheDocument();
+      expect(view.getByRole("heading", { name: section })).toBeInTheDocument();
+      expect(
+        view
+          .getAllByRole("link", { name: navLabel })
+          .some((link) => link.getAttribute("href") === path)
+      ).toBe(true);
+    }
+  );
+
+  it("only links to available resource files and the official careers listing", async () => {
+    window.history.replaceState({}, "", "/resources");
+    const resources = render(<App />);
+    await resources.findByRole("heading", { name: "Resources", level: 1 });
+
+    const pdfLinks = resources.getAllByRole("link", { name: /\(PDF\)/ });
+    expect(pdfLinks.length).toBeGreaterThan(40);
+    for (const link of pdfLinks) {
+      expect(link.getAttribute("href")).toMatch(/^https:\/\/.+\.pdf$/i);
+    }
+    resources.unmount();
+
+    window.history.replaceState({}, "", "/career");
+    const careers = render(<App />);
+    await careers.findByRole("heading", { name: "Career", level: 1 });
+    expect(
+      careers
+        .getAllByRole("listitem")
+        .filter((item) => item.textContent?.includes("Sungai Buloh, Selangor"))
+    ).toHaveLength(7);
+    expect(careers.getByRole("link", { name: "View current openings" })).toHaveAttribute(
+      "href",
+      "https://www.yamaha-motor.com.my/career"
+    );
+    expect(careers.getByText("Engineer, QA")).toBeInTheDocument();
+  });
+
   it("renders the core landing-page sections", () => {
     const view = render(<App />);
     const { footer, header, hero, news } = SITE_COPY;
@@ -218,23 +278,18 @@ describe("App", () => {
     [
       "/corporate",
       "Company Introduction",
-      "A partnership that started moving Malaysia in 1978.",
+      "A partnership that started moving Malaysia in 1978",
       "The start"
     ],
     [
       "/company-introduction",
       "Company Introduction",
-      "A partnership that started moving Malaysia in 1978.",
+      "A partnership that started moving Malaysia in 1978",
       "The start"
     ],
     ["/4-millionth-rollout", "4 Millionth Rollout", "4 Millionth Rollout", null],
-    ["/social-responsibility", "Social Responsibility", "Yamaha Safety Riding Science.", null],
-    [
-      "/principal-policies",
-      "Principles & Policies",
-      "How we work matters.",
-      "Principles & policies"
-    ]
+    ["/social-responsibility", "Social Responsibility", "Yamaha Safety Riding Science", null],
+    ["/principal-policies", "Principles & Policies", "How we work matters", "Principles & policies"]
   ])(
     "renders Yamaha's %s corporate page with four-section navigation",
     async (path, label, heading, removedLabel) => {
@@ -262,8 +317,11 @@ describe("App", () => {
         "aria-current",
         "page"
       );
-      expect(view.getByRole("heading", { name: "Powering the passion." })).toBeInTheDocument();
+      expect(view.getByRole("heading", { name: "Powering the passion" })).toBeInTheDocument();
       expect(view.getByRole("heading", { name: heading })).toBeInTheDocument();
+      for (const title of within(view.container.querySelector("main")!).getAllByRole("heading")) {
+        expect(title.textContent?.trim()).not.toMatch(/\.$/);
+      }
       if (removedLabel) expect(view.queryByText(removedLabel)).not.toBeInTheDocument();
       if (path === "/corporate") {
         const timeline = view.getByRole("group", { name: "Company milestones" }).closest("section");
@@ -275,7 +333,7 @@ describe("App", () => {
         expect(within(timeline!).queryByRole("button", { name: /milestone$/ })).toBeNull();
         expect(
           within(timeline!).queryByRole("heading", {
-            name: "A partnership that started moving Malaysia in 1978."
+            name: "A partnership that started moving Malaysia in 1978"
           })
         ).toBeNull();
         expect(view.queryByText("From Shah Alam to the Hong Leong Yamaha Complex.")).toBeNull();
@@ -286,7 +344,7 @@ describe("App", () => {
         expect(
           view
             .getByText(
-              "Investing in people, technology and the quality of every motorcycle we build."
+              "Investing in people, technology and the quality of every motorcycle we build"
             )
             .closest("section")?.previousElementSibling?.textContent
         ).toContain("Hong Leong Yamaha Motor is committed");
@@ -322,7 +380,7 @@ describe("App", () => {
     window.history.replaceState({}, "", "/corporate");
     const corporate = render(<App />);
     await corporate.findByRole("navigation", { name: "Corporate sections" }, { timeout: 5000 });
-    const corporateTitle = corporate.getByRole("heading", { name: "Powering the passion." });
+    const corporateTitle = corporate.getByRole("heading", { name: "Powering the passion" });
     const hero = within(corporate.getByRole("region", { name: "Corporate hero" }));
 
     expect(corporateTitle.className).toBe(contactTitle.className);
@@ -351,7 +409,7 @@ describe("App", () => {
     const pairs = [
       [
         corporate.getByRole("heading", {
-          name: "A partnership that started moving Malaysia in 1978."
+          name: "A partnership that started moving Malaysia in 1978"
         }),
         reference.getByRole("heading", { name: "Heading reference" })
       ],
@@ -399,18 +457,20 @@ describe("App", () => {
     await social.findByRole("navigation", { name: "Corporate sections" }, { timeout: 5000 });
     expect(
       social.getByRole("heading", {
-        name: "A corporate social responsibility initiative in support of the Road Safety Campaign."
+        name: "A corporate social responsibility initiative in support of the Road Safety Campaign"
       })
     ).toBeInTheDocument();
-    expect(social.getByRole("heading", { name: "CCS Pledge." })).toBeInTheDocument();
+    expect(social.getByRole("heading", { name: "CCS Pledge" })).toBeInTheDocument();
+    const pledgeImage = social.getByRole("img", { name: /CCS Pledge poster/ });
+    expect(pledgeImage).toHaveAttribute(
+      "src",
+      expect.stringContaining("6a45e656eecc21ca675c339a_CSS-PLEDGE.jpg")
+    );
+    expect(pledgeImage.closest("figure")?.previousElementSibling).toHaveTextContent(
+      "Customer & Community Satisfaction"
+    );
     expect(
-      within(social.getByRole("heading", { name: "CCS Pledge." }).closest("article")!).getByRole(
-        "img",
-        { name: /CCS Pledge poster/ }
-      )
-    ).toHaveAttribute("src", expect.stringContaining("6a45e656eecc21ca675c339a_CSS-PLEDGE.jpg"));
-    expect(
-      social.getByRole("heading", { name: "Balik Kampung Road Safety Campaign." })
+      social.getByRole("heading", { name: "Balik Kampung Road Safety Campaign" })
     ).toBeInTheDocument();
     expect(social.getByText(/was incorporated in Malaysia in 1978/)).toBeInTheDocument();
     expect(social.getByText(/annually to educate motorcyclists/)).toBeInTheDocument();
@@ -422,6 +482,16 @@ describe("App", () => {
         social.getByRole("group", { name: "Yamaha Safety Riding Science activities" })
       ).getAllByRole("img")
     ).toHaveLength(6);
+    const campaignImage = social.getByRole("img", {
+      name: "Yamaha representatives at the 2014 Balik Kampung road safety campaign"
+    });
+    expect(campaignImage).toHaveAttribute(
+      "src",
+      expect.stringContaining("Balik-Kampung-Road-Safety-Campaign.jpg")
+    );
+    expect(campaignImage.closest("figure")?.nextElementSibling).toBe(
+      social.getByRole("group", { name: "Balik Kampung Road Safety Campaign activities" })
+    );
     social.unmount();
 
     window.history.replaceState({}, "", "/principal-policies");
