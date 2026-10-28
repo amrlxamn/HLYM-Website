@@ -13,11 +13,7 @@ export function NewsSection() {
     <NewsSectionRoot id="latest-news" aria-label={toSentenceCase(newsCopy.ariaLabel)}>
       <SectionHeader
         action={
-          <Button
-            onClick={() => window.location.assign("https://www.yamaha-motor.com.my/news-events/")}
-            size="sm"
-            variant="light"
-          >
+          <Button as="a" href="/news-events" size="sm" variant="light">
             {newsCopy.viewAllLabel}
           </Button>
         }

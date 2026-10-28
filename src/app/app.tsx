@@ -16,6 +16,22 @@ const CorporatePage = lazy(() =>
   }))
 );
 
+const NewsEventsPage = lazy(() =>
+  import("@/features/news-events/news-events-pages").then((module) => ({
+    default: module.NewsEventsPage
+  }))
+);
+
+const YamalubeScanPage = lazy(() =>
+  import("@/features/news-events/news-events-pages").then((module) => ({
+    default: module.YamalubeScanPage
+  }))
+);
+
+const SitePages = lazy(() =>
+  import("@/features/site-pages/site-pages").then((module) => ({ default: module.SitePages }))
+);
+
 const DesignSystemPage = lazy(() =>
   import("@/docs/design-system-docs").then((module) => ({ default: module.DesignSystemPage }))
 );
@@ -51,6 +67,23 @@ export function App() {
     ].includes(pathname.replace(/\/$/, ""))
   ) {
     page = <CorporatePage path={pathname.replace(/\/$/, "")} />;
+  }
+
+  if (pathname === "/news-events" || pathname === "/news-events/") {
+    page = <NewsEventsPage />;
+  }
+
+  if (pathname === "/yamalube-scan" || pathname === "/yamalube-scan/") {
+    page = <YamalubeScanPage />;
+  }
+
+  const sitePagePath = pathname.replace(/\/$/, "");
+  if (
+    ["/after-sales", "/yez", "/y-connect", "/motorsports", "/resources", "/career"].includes(
+      sitePagePath
+    )
+  ) {
+    page = <SitePages path={sitePagePath} />;
   }
 
   if (pathname.startsWith("/design-system")) {

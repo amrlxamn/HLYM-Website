@@ -25,19 +25,19 @@ export const SOCIAL_LINKS: readonly SocialLink[] = [
 export const UTILITY_LINKS: readonly LinkItem[] = [
   { href: "https://my.treedis.com/tour/yamaha-lifestyle-station", label: "lifestyle station tour" },
   { href: "https://dms.yamaha-motor.com.my/login.aspx", label: "e-daftar login" },
-  { href: "/#site-footer", label: "after sales" },
-  { href: "/#models", label: "yamaha endorsed zone (yez)" },
-  { href: "/#latest-news", label: "y-connect" },
-  { href: "/#latest-news", label: "motorsports" },
-  { href: "/#site-footer", label: "resources" },
-  { href: "/#site-footer", label: "career" }
+  { href: "/after-sales", label: "after sales" },
+  { href: "/yez", label: "yamaha endorsed zone (yez)" },
+  { href: "/y-connect", label: "y-connect" },
+  { href: "/motorsports", label: "motorsports" },
+  { href: "/resources", label: "resources" },
+  { href: "/career", label: "career" }
 ] as const;
 
 export const NAV_LINKS: readonly NavItem[] = [
   { href: "/", isActive: true, label: "home" },
   { href: "/corporate", label: "corporate" },
   { href: "/products", label: "products" },
-  { href: "/#latest-news", label: "news & events" },
+  { href: "/news-events", label: "news & events" },
   { href: "/yamaha-network", label: "yamaha network" },
   { href: "https://shoponline.yamaha-motor.com.my/", label: "merchandise" },
   { href: "/contact-us", label: "contact us" }
