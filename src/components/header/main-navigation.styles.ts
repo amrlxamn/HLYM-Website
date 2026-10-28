@@ -81,17 +81,6 @@ export const MainLogo = styled.img`
   }
 `;
 
-export const RevsYourHeartLogo = styled.img`
-  height: 20px;
-  object-fit: contain;
-  width: 94px;
-
-  @media (max-width: 640px) {
-    height: 16px;
-    width: 72px;
-  }
-`;
-
 export const NavRight = styled.div<{ $isOpen: boolean }>`
   margin-left: auto;
 

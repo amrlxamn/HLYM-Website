@@ -1,10 +1,9 @@
-import { getAssetUrl } from "@/lib/get-asset-url";
 import type { ContactHeroContent } from "../types/contact-page.types";
 
 export const CONTACT_HERO_CONTENT: ContactHeroContent = {
   ariaLabel: "Contact support options",
   backgroundAlt: "Yamaha motorcycle in a dark service bay",
-  backgroundImage: getAssetUrl("hlym/3d1a2fcf-a9b2-4fae-a9be-e20b05fdbd33.png"),
+  backgroundImage: "/assets/hlym/contact/contact-hero.png",
   cards: [
     {
       ctaHref: "https://my.treedis.com/tour/yamaha-lifestyle-station",

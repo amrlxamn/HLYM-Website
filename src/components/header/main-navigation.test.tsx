@@ -9,6 +9,15 @@ import { PRODUCT_CURTAIN_MODELS } from "./product-curtain-models.constants";
 import { toSentenceCase } from "@/lib/to-sentence-case";
 
 describe("MainNavigation", () => {
+  it("shows only the Hong Leong Yamaha Motor logo in the header", () => {
+    const view = render(<MainNavigation />);
+    const homeLink = view.getByRole("link", { name: "Go to homepage" });
+
+    expect(within(homeLink).getAllByRole("img")).toHaveLength(1);
+    expect(view.queryByRole("img", { name: "Yamaha Revs your Heart" })).toBeNull();
+    view.unmount();
+  });
+
   it("toggles the mobile menu state", async () => {
     const user = userEvent.setup();
     const view = render(<MainNavigation />);

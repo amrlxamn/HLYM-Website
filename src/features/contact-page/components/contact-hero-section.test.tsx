@@ -23,7 +23,7 @@ describe("ContactHeroSection", () => {
     );
     expect(view.getByRole("img", { name: CONTACT_HERO_CONTENT.backgroundAlt })).toHaveAttribute(
       "src",
-      CONTACT_HERO_CONTENT.backgroundImage
+      "/assets/hlym/contact/contact-hero.png"
     );
 
     CONTACT_HERO_CONTENT.cards.forEach((card) => {
