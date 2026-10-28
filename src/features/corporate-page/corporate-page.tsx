@@ -22,6 +22,7 @@ import {
   SAFETY_GALLERY
 } from "./corporate-content.constants";
 import {
+  CorporateCampaignFeature,
   CorporateContainer,
   CorporateCopy,
   CorporateGallery,
@@ -46,7 +47,7 @@ function CompanyIntroduction() {
     <>
       <CorporateSection style={{ paddingBottom: "var(--space-16)" }}>
         <CorporateContainer>
-          <CorporateLead>A partnership that started moving Malaysia in 1978.</CorporateLead>
+          <CorporateLead>A partnership that started moving Malaysia in 1978</CorporateLead>
           <CorporateCopy>
             Hong Leong Yamaha Motor Sdn. Bhd. (company registration no. 197901002563 / 46829-P) is a
             joint venture between Hong Leong Industries Bhd and Yamaha Motor Co., Ltd, Japan. Hong
@@ -98,7 +99,7 @@ function CompanyIntroduction() {
       <CorporateStatement>
         <CorporateContainer>
           <CorporateStatementCopy>
-            Investing in people, technology and the quality of every motorcycle we build.
+            Investing in people, technology and the quality of every motorcycle we build
           </CorporateStatementCopy>
         </CorporateContainer>
       </CorporateStatement>
@@ -159,7 +160,7 @@ function SocialResponsibility() {
     <>
       <CorporateSection>
         <CorporateContainer>
-          <CorporateLead>Yamaha Safety Riding Science.</CorporateLead>
+          <CorporateLead>Yamaha Safety Riding Science</CorporateLead>
           <CorporateCopy>
             Hong Leong Yamaha Motor Sdn. Bhd. (HLYM), company registration no. 197901002563
             (46829-P), was incorporated in Malaysia in 1978 as a joint venture between Hong Leong
@@ -171,7 +172,7 @@ function SocialResponsibility() {
             sessions for factory workers, college and university students.
           </CorporateCopy>
           <CorporateLead style={{ marginTop: "var(--space-16)" }}>
-            A corporate social responsibility initiative in support of the Road Safety Campaign.
+            A corporate social responsibility initiative in support of the Road Safety Campaign
           </CorporateLead>
           <PhotoSequence items={SAFETY_GALLERY} label="Yamaha Safety Riding Science activities" />
         </CorporateContainer>
@@ -179,38 +180,44 @@ function SocialResponsibility() {
       <CorporateStatement>
         <CorporateContainer>
           <CorporateStatementCopy>
-            Quality products and excellent customer service in every aspect of our operation.
+            Quality products and excellent customer service in every aspect of our operation
           </CorporateStatementCopy>
         </CorporateContainer>
       </CorporateStatement>
       <CorporateSection>
         <CorporateContainer>
-          <CorporateStory style={{ padding: 0 }}>
+          <CorporateLead>CCS Pledge</CorporateLead>
+          <CorporateCopy>
+            Customer & Community Satisfaction (CCS) is a programme incorporated into HLYM’s business
+            practice to support its customer-centric commitment to quality products and excellent
+            customer service in every aspect of its operation.
+          </CorporateCopy>
+          <CorporateCampaignFeature>
             <img
               alt="CCS Pledge poster with Yamaha staff and a customer satisfaction message"
               loading="lazy"
               src={CORPORATE_IMAGES.ccsPledge}
             />
-            <div>
-              <CorporateLead>CCS Pledge.</CorporateLead>
-              <CorporateCopy>
-                Customer & Community Satisfaction (CCS) is a programme incorporated into HLYM’s
-                business practice to support its customer-centric commitment to quality products and
-                excellent customer service in every aspect of its operation.
-              </CorporateCopy>
-            </div>
-          </CorporateStory>
+          </CorporateCampaignFeature>
         </CorporateContainer>
       </CorporateSection>
       <CorporateSection>
         <CorporateContainer>
-          <CorporateLead>Balik Kampung Road Safety Campaign.</CorporateLead>
+          <CorporateLead>Balik Kampung Road Safety Campaign</CorporateLead>
           <CorporateCopy>
             Since 1999, HLYM has run the Balik Kampung Road Safety Campaign annually to educate
             motorcyclists in support of Malaysia’s road-safety efforts. The campaign offers free
             15-point maintenance checks, free helmet exchanges, free safety-vest distribution and
             YSRS clinics to riders of all motorcycle brands.
           </CorporateCopy>
+          <CorporateCampaignFeature>
+            <img
+              alt="Yamaha representatives at the 2014 Balik Kampung road safety campaign"
+              loading="lazy"
+              src={CORPORATE_IMAGES.balikKampung}
+            />
+            <figcaption>Balik Kampung Yamaha Ke-16 · 2014</figcaption>
+          </CorporateCampaignFeature>
           <PhotoSequence
             items={ROAD_SAFETY_GALLERY}
             label="Balik Kampung Road Safety Campaign activities"
@@ -225,7 +232,7 @@ function PrinciplesAndPolicies() {
   return (
     <CorporateSection>
       <CorporateContainer>
-        <CorporateLead>How we work matters.</CorporateLead>
+        <CorporateLead>How we work matters</CorporateLead>
         <CorporateCopy>
           The policies below set out HLYM’s approach to environmental management, quality, workplace
           safety, procurement and business conduct.
@@ -292,7 +299,7 @@ export function CorporatePage({ path = "/corporate" }: { path?: string }) {
           <ContactHeroVerticalShade />
           <ContactHeroInner>
             <ContactHeroContentPanel>
-              <ContactHeroTitle>Powering the passion.</ContactHeroTitle>
+              <ContactHeroTitle>Powering the passion</ContactHeroTitle>
               <ContactHeroCopy>
                 Motorcycles, people and progress — made for the roads ahead.
               </ContactHeroCopy>

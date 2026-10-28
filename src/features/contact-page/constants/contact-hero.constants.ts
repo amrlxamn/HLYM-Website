@@ -25,16 +25,16 @@ export const CONTACT_HERO_CONTENT: ContactHeroContent = {
       titleLines: ["Service", "centres"]
     },
     {
-      ctaHref: "/yamaha-network?category=big%20bike",
-      ctaLabel: "Explore big bikes",
-      number: "04",
-      titleLines: ["Big-bike", "showroom soon"]
-    },
-    {
       ctaHref: "/yamaha-network",
       ctaLabel: "Find a dealer",
-      number: "05",
+      number: "04",
       titleLines: ["Yamaha", "dealers"]
+    },
+    {
+      comingSoon: true,
+      ctaLabel: "Coming soon",
+      number: "05",
+      titleLines: ["Big-bike", "showroom"]
     },
     {
       backgroundImage: "/assets/hlym/contact/contact-enquiry-card-bg.webp",

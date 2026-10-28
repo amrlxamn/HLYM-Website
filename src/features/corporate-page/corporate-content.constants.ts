@@ -34,6 +34,7 @@ export const CORPORATE_IMAGES = {
   hero: getAssetUrl("hlym/corporate-hero.webp"),
   complex: cdn + "6a45138b2cad2735d297be8a_company-pic.jpg",
   ccsPledge: cdn + "6a45e656eecc21ca675c339a_CSS-PLEDGE.jpg",
+  balikKampung: legacy + "6a45e02ec954a9dbbeca1d56_Balik-Kampung-Road-Safety-Campaign.jpg",
   safety: cdn + "6a45e02c79a552885d0839b7_social-demonstration.jpg",
   environment: legacy + "6a460d1eecb9eb25675006aa_principles-environmental-policy.jpg"
 } as const;

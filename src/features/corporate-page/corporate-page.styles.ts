@@ -200,15 +200,15 @@ export const CorporateWideImage = styled.figure`
 export const CorporateGallery = styled.div`
   display: grid;
   gap: 16px;
-  grid-auto-columns: 220px;
-  grid-auto-flow: column;
-  overflow-x: auto;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   padding: 24px 0;
-  scroll-snap-type: x mandatory;
+
+  @media (max-width: 760px) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 
   figure {
     margin: 0;
-    scroll-snap-align: start;
   }
 
   img {
@@ -224,6 +224,36 @@ export const CorporateGallery = styled.div`
     letter-spacing: var(--tracking-wider);
     padding-top: 12px;
     text-transform: uppercase;
+  }
+`;
+
+export const CorporateCampaignFeature = styled.figure`
+  margin: var(--space-12) 0 var(--space-8);
+
+  img {
+    aspect-ratio: 16 / 9;
+    display: block;
+    object-fit: cover;
+    object-position: center 40%;
+    width: 100%;
+  }
+
+  figcaption {
+    border-bottom: 1px solid #d9dcde;
+    color: var(--color-text-dim);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    padding: var(--space-4) 0;
+    text-transform: uppercase;
+  }
+
+  @media (max-width: 760px) {
+    margin-top: var(--space-8);
+
+    img {
+      aspect-ratio: 4 / 3;
+    }
   }
 `;
 

@@ -1,4 +1,4 @@
-import { cleanup, render, waitFor } from "@testing-library/react";
+import { cleanup, render, waitFor, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { afterEach, describe, expect, it, vi } from "vitest";
 import { ContactHeroSection } from "@/features/contact-page";
@@ -30,8 +30,16 @@ describe("ContactHeroSection", () => {
       expect(view.getAllByText(card.number).length).toBeGreaterThan(0);
     });
     expect(CONTACT_HERO_CONTENT.cards).toHaveLength(6);
-    expect(view.getAllByText("Got any").length).toBeGreaterThan(0);
-    expect(view.getAllByText("enquiry?").length).toBeGreaterThan(0);
+    expect(view.getByText("Got any")).toBeInTheDocument();
+    expect(view.getByText("enquiry?")).toBeInTheDocument();
+    expect(CONTACT_HERO_CONTENT.cards[3]?.titleLines).toEqual(["Yamaha", "dealers"]);
+    expect(CONTACT_HERO_CONTENT.cards[4]?.titleLines).toEqual(["Big-bike", "showroom"]);
+    const showroom = within(
+      view.getByRole("article", { name: /big-bike showroom — coming soon/i })
+    );
+    expect(showroom.getByText("Coming soon")).toBeInTheDocument();
+    expect(showroom.queryByRole("link")).toBeNull();
+    expect(showroom.queryByRole("button")).toBeNull();
 
     expect(view.queryByRole("dialog")).not.toBeInTheDocument();
     expect(view.queryByText("Selangor")).not.toBeInTheDocument();
